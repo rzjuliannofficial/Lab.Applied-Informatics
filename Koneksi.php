@@ -13,7 +13,7 @@ function get_pg_connection(): PgSql\Connection {
     $port   = '5432';
     $dbname = 'lab_ai_polinema'; 
     $user   = 'postgres';
-    $pass   = '';
+    $pass   = '123';
     
     $connStr = "host=$host port=$port dbname=$dbname user=$user password=$pass options='--client_encoding=UTF8'";
     $conn = @pg_connect($connStr);
