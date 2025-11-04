@@ -43,9 +43,9 @@ $team = fetchTeam();
 <body>
     <?php include 'components/header.php'; ?>
 
-    <section class="hero-section">
+    <section class="hero">
         <div class="container hero-grid">
-            <div>
+            <div class="hero-left">
                 <h1 class="hero-title">
                     Laboratorium <span class="gradient-text">AI & Multimedia</span>
                 </h1>
@@ -53,13 +53,13 @@ $team = fetchTeam();
                     Kami adalah pusat inovasi yang menggabungkan teknologi AI terkini dengan kreativitas multimedia. 
                     Tempat di mana ide-ide cemerlang menjadi solusi nyata.
                 </p>
-                <div class="hero-cta-group">
+                <div class="hero-button">
                     <button class="button-primary">Mulai Sekarang</button>
                     <button class="button-secondary">Pelajari Lebih Lanjut</button>
                 </div>
             </div>
 
-            <div class="hero-image-container">
+            <div class="hero-right">
                 <div class="hero-image-card">
                     <div class="hero-image-content">
                         <svg class="hero-image-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">

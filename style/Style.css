@@ -8,8 +8,10 @@
 
     --bg-light: #e6e6e6;
     --bg-dark: #e5dcd2;
+    --text : black;
     --border-color: #1E293B; 
 
+    --refrensi : #009788;
 }
 
 * {
@@ -111,13 +113,13 @@ body {
 .nav-link {
     position: relative;
     text-decoration: none;
-    color: var(--text-light);
+    color: rgb(67, 66, 66);
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-
+    color: var(--text) ;
 }
 
 .nav-link::after {
@@ -178,7 +180,7 @@ body {
 }
 
 /* --- Hero Section --- */
-.hero-section {
+.hero {
     position: relative;
     overflow: hidden;
     background-color: var(--bg-light); 
@@ -214,11 +216,11 @@ body {
 
 .hero-description {
     font-size: 1.125rem;
-    color: var(--text-light);
+    color: var(--text);
     margin-bottom: 2rem;
 }
 
-.hero-cta-group {
+.hero-button {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
@@ -337,7 +339,7 @@ body {
 
 .project-year {
     font-size: 0.875rem;
-    color: var(--text-light);
+    color: var(--text);
 }
 
 .project-title {
@@ -347,7 +349,7 @@ body {
 }
 
 .project-description {
-    color: var(--text-light);
+    color: var(--text);
     margin-bottom: 1rem;
     font-size: 0.875rem;
     /* Multiline truncation equivalent */
@@ -367,7 +369,7 @@ body {
 .tech-tag {
     display: inline-block;
     background-color: var(--blue-light);
-    color: var(--text-light);
+    color: var(--text);
     padding: 6px 12px;
     border-radius: 6px;
     font-size: 0.8rem;
@@ -460,7 +462,7 @@ body {
 
 .team-description {
     font-size: 0.75rem;
-    color: var(--text-light);
+    color: var(--text);
     font-style: italic;
     /* Multiline truncation equivalent */
     display: -webkit-box;
@@ -471,7 +473,7 @@ body {
 
 .team-contact {
     font-size: 0.875rem;
-    color: var(--text-light);
+    color: var(--text);
 }
 
 /* --- Footer --- */
@@ -502,7 +504,7 @@ body {
 }
 
 .footer-text {
-    color: var(--text-light);
+    color: var(--text);
     font-size: 0.875rem;
 }
 
@@ -515,7 +517,7 @@ body {
 
 .footer-nav-list li a {
     text-decoration: none;
-    color: var(--text-light);
+    color: var(--text);
     font-size: 0.875rem;
     transition: color 0.3s;
 }
@@ -531,7 +533,7 @@ body {
 
 .footer-social-links a {
     text-decoration: none;
-    color: var(--text-light);
+    color: var(--text);
     transition: color 0.3s;
 }
 
@@ -547,6 +549,6 @@ body {
 
 .footer-copyright {
     text-align: center;
-    color: var(--text-light);
+    color: var(--text);
     font-size: 0.875rem;
 }
