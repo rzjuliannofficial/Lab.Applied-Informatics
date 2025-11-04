@@ -1,7 +1,9 @@
 <header class="sticky-header">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-between">
         <div class="flex items-center gap-2">
-            <div class="w-10 h-10 rounded-full hero-gradient"></div> 
+            <div>
+                <img src="/img/AI_Logo.png" alt="">
+            </div>
             <span class="font-bold text-xl text-white">Lab AI</span>
         </div>
         
