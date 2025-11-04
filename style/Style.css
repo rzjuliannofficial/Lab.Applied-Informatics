@@ -149,7 +149,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: blue 10%;
+    background-color: rgb(61, 61, 157);
     border-bottom: 1px solid var(--border-color);
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
