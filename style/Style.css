@@ -1,18 +1,15 @@
 /* --- Global Variables & Resets --- */
 :root {
-    --primary: #F97316; /* Vibrant Orange (Primary CTA) */
-    --primary-light: #FB923C;
-    --secondary: #06B6D4; /* Sky Green/Cyan (Secondary Accent) */
-    --secondary-light: #22D3EE;
-    --accent: #F97316; 
-    --bg-light: #0F172A; /* Deep Slate Blue (Semi-Dark Blue Background) */
-    --bg-dark: #000000; /* Pure Black (For deep sections/cards) */
-    --text-dark: #ffffff; /* White Text */
-    --text-light: #94A3B8; /* Light Gray/Slate Text */
-    --border-color: #1E293B; /* Dark Border */
+    /* button */
+    --orange: #F97316;
+    --orange-light: #FB923C;
+    --blue: #06B6D4;
+    --blue-light: #22D3EE;
 
-    --max-width: 1280px;
-    --gap-base: 2rem;
+    --bg-light: #e6e6e6;
+    --bg-dark: #e5dcd2;
+    --border-color: #1E293B; 
+
 }
 
 * {
@@ -24,13 +21,12 @@
 body {
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
     background-color: var(--bg-light);
-    color: var(--text-dark);
     line-height: 1.5;
 }
 
 /* --- Layout Base --- */
 .container {
-    max-width: var(--max-width);
+    max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1rem;
@@ -51,6 +47,7 @@ body {
     }
 }
 
+/* index page */
 .section {
     padding-top: 5rem;
     padding-bottom: 5rem;
@@ -60,7 +57,6 @@ body {
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 3rem;
-    color: var(--text-dark);
     text-align: center;
 }
 
@@ -69,9 +65,11 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: var(--bg-dark); 
-    border-bottom: 1px solid var(--border-color);
+    background-color: rgba(255, 255, 255, 0.2) ; 
+    /* border-bottom: 1px solid var(--border-color); */
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
 }
 
 .header-nav {
@@ -91,13 +89,11 @@ body {
 .logo-image-container img {
     height: 2.5rem;
     width: auto;
-    display: block;
 }
 
 .logo-text {
     font-weight: bold;
     font-size: 1.25rem;
-    color: var(--text-dark);
 }
 
 .nav-links {
@@ -121,7 +117,7 @@ body {
 }
 
 .nav-link:hover {
-    color: var(--text-dark);
+
 }
 
 .nav-link::after {
@@ -131,7 +127,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--secondary);
+    background-color: var(--blue);
     transition: width 0.3s ease;
 }
 
@@ -141,7 +137,7 @@ body {
 
 /* --- Buttons & Utilities --- */
 .button-primary {
-    background-color: var(--primary);
+    background-color: var(--orange);
     color: var(--bg-dark);
     padding: 12px 28px;
     border-radius: 8px;
@@ -153,16 +149,16 @@ body {
 }
 
 .button-primary:hover {
-    background-color: var(--primary-light);
+    background-color: var(--orange-light);
     transform: translateY(-2px);
 }
 
 .button-secondary {
     background-color: transparent;
-    color: var(--secondary);
+    color: var(--blue);
     padding: 12px 28px;
     border-radius: 8px;
-    border: 2px solid var(--secondary);
+    border: 2px solid var(--blue);
     font-weight: 600;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -170,12 +166,12 @@ body {
 }
 
 .button-secondary:hover {
-    background-color: var(--secondary);
+    background-color: var(--blue);
     color: var(--bg-dark);
 }
 
 .gradient-text {
-    background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+    background: linear-gradient(135deg, var(--blue) 0%, var(--orange) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -208,7 +204,6 @@ body {
     font-weight: bold;
     line-height: 1.25;
     margin-bottom: 1.5rem;
-    color: var(--text-dark);
 }
 
 @media (min-width: 1024px) {
@@ -251,13 +246,13 @@ body {
     height: 5rem;
     margin-left: auto;
     margin-right: auto;
-    color: var(--secondary);
+    color: var(--blue);
 }
 
 .hero-image-text {
     margin-top: 1rem;
     font-weight: 600;
-    color: var(--primary);
+    color: var(--orange);
     font-size: 1.25rem;
 }
 
@@ -332,7 +327,7 @@ body {
 
 .badge {
     display: inline-block;
-    background-color: var(--secondary-light);
+    background-color: var(--blue-light);
     color: var(--bg-dark);
     padding: 6px 12px;
     border-radius: 20px;
@@ -349,7 +344,6 @@ body {
     font-size: 1.25rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
-    color: var(--text-dark);
 }
 
 .project-description {
@@ -372,7 +366,7 @@ body {
 
 .tech-tag {
     display: inline-block;
-    background-color: var(--border-color);
+    background-color: var(--blue-light);
     color: var(--text-light);
     padding: 6px 12px;
     border-radius: 6px;
@@ -432,7 +426,7 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border: 4px solid var(--secondary-light);
+    border: 4px solid var(--blue-light);
 }
 
 .team-photo-wrapper img {
@@ -444,20 +438,19 @@ body {
 .team-photo-icon svg {
     width: 3rem;
     height: 3rem;
-    color: var(--secondary);
+    color: var(--blue);
 }
 
 .team-name {
     font-size: 1.25rem;
     font-weight: bold;
     margin-bottom: 0.25rem;
-    color: var(--text-dark);
 }
 
 .team-expertise {
     font-size: 0.875rem;
     margin-bottom: 1rem;
-    color: var(--primary);
+    color: var(--orange);
     font-weight: 600;
 }
 
@@ -484,7 +477,6 @@ body {
 /* --- Footer --- */
 .footer-section {
     background-color: var(--bg-dark);
-    color: var(--text-dark);
     padding-top: 3rem;
     padding-bottom: 3rem;
     border-top: 1px solid var(--border-color);
@@ -507,7 +499,6 @@ body {
     font-weight: bold;
     font-size: 1.125rem;
     margin-bottom: 1rem;
-    color: var(--text-dark);
 }
 
 .footer-text {
@@ -530,7 +521,7 @@ body {
 }
 
 .footer-nav-list li a:hover {
-    color: var(--primary);
+    color: var(--orange);
 }
 
 .footer-social-links {
@@ -545,7 +536,7 @@ body {
 }
 
 .footer-social-links a:hover {
-    color: var(--primary);
+    color: var(--orange);
 }
 
 .footer-divider {
