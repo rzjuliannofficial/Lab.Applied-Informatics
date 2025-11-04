@@ -2,7 +2,7 @@
     <nav class="container header-nav">
         <div class="logo-area">
             <div class="logo-image-container">
-                <img src="" alt="Lab AI Logo">
+                <img src="img/logo.png" alt="Lab AI Logo">
             </div>
             <span class="logo-text">Lab AI</span>
         </div>
