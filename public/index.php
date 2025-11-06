@@ -1,6 +1,6 @@
 <?php
 // Memuat file koneksi database
-require_once 'connection/Koneksi.php'; 
+require_once '../app/config/Koneksi.php'; 
 
 // Fungsi untuk mengambil semua data proyek dari tabel 'projects'
 function fetchProjects() {
@@ -41,13 +41,14 @@ $team = fetchTeam();
     <link rel="stylesheet" href="style/Style.css">
 </head>
 <body>
-    <?php include 'components/header.php'; ?>
+    <?php include '../app/views/components/header.php'; ?>
 
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-left">
                 <h1 class="hero-title">
-                    Laboratorium <span class="gradient-text">AI & Multimedia</span>
+                    Welcome to <br> 
+                    <span class="gradient-text">Applied Informatics</span>
                 </h1>
                 <p class="hero-description">
                     Kami adalah pusat inovasi yang menggabungkan teknologi AI terkini dengan kreativitas multimedia. 
@@ -71,8 +72,8 @@ $team = fetchTeam();
             </div>
         </div>
     </section>
-    <?php include 'components/projects.php'; ?>
-    <?php include 'components/team.php'; ?>
-    <?php include 'components/footer.php'; ?>
+    <?php include '../app/views/components/projects.php'; ?>
+    <?php include '../app/views/components/team.php'; ?>
+    <?php include '../app/views/components/footer.php'; ?>
 </body>
 </html>

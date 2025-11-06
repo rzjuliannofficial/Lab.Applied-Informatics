@@ -36,7 +36,7 @@ body {
 
 /* --- Layout Base --- */
 .container {
-    max-width: 1280px;
+    max-width: 1380px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1rem;
@@ -86,9 +86,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    margin: 0 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin: 0 2.5rem;
 }
 
 .logo-area {
@@ -98,14 +98,20 @@ body {
 }
 
 .logo-image-container img {
-    height: 4rem;
+    height: 3.5rem;
     width: auto;
 }
 
 .logo-text {
     font-weight: bold;
-    font-size: 1.25rem;
-    color: var(--text);
+    font-size: 20px;
+    color: #02416D;
+    line-height: 1.2rem;
+}
+.logo-text span{
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--orange-light);
 }
 
 .nav-links {
@@ -125,6 +131,7 @@ body {
     text-decoration: none;
     color: rgb(67, 66, 66);
     font-weight: 500;
+    font-size: 1.25rem;
     transition: color 0.3s ease;
 }
 
@@ -201,8 +208,8 @@ body {
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    grid-template-columns: 1fr ;
+    gap: 2rem;
     align-items: center;
 }
 

@@ -5,7 +5,10 @@
                 <div class="logo-image-container">
                     <img src="img/logo.png" alt="Lab AI Logo">
                 </div>
-                <span class="logo-text">Lab Applied Infromatics</span>
+                <div class="logo-text">
+                    <span>Laboratorium of</span>
+                    <p>APPLIED INFORMATICS</p>
+                </div>
             </div>
         </a>
         
@@ -16,7 +19,5 @@
             <a href="#contact" class="nav-link">Kontak</a>
             <a href="#contact" class="nav-link">Kontak</a>
         </div>
-
-        <button class="button-primary">LOGIN</button>
     </nav>
 </header>
