@@ -29,9 +29,9 @@ body {
     /* background-color: black; */
     line-height: 1.5;
     background-image: url("../img/bg_pbl.png");
-    background-size: cover;
+    /* background-size: cover;
     background-position:center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
 }
 
 /* --- Layout Base --- */

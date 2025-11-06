@@ -5,7 +5,7 @@
                 <div class="logo-image-container">
                     <img src="img/logo.png" alt="Lab AI Logo">
                 </div>
-                <span class="logo-text">Lab AI</span>
+                <span class="logo-text">Lab Applied Infromatics</span>
             </div>
         </a>
         
