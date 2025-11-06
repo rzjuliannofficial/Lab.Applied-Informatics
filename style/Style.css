@@ -18,12 +18,20 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    text-decoration: none;
 }
 
+body, html {
+    height: 100%;
+}
 body {
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-    background-color: var(--bg-light);
+    /* background-color: black; */
     line-height: 1.5;
+    background-image: url("../img/bg_pbl.png");
+    background-size: cover;
+    background-position:center;
+    background-repeat: no-repeat;
 }
 
 /* --- Layout Base --- */
@@ -80,22 +88,26 @@ body {
     justify-content: space-between;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+    margin: 0 2rem;
 }
 
 .logo-area {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    /* text-decoration: double; */
 }
 
 .logo-image-container img {
-    height: 2.5rem;
+    height: 4rem;
     width: auto;
 }
 
 .logo-text {
     font-weight: bold;
     font-size: 1.25rem;
+    /* text-decoration: double; */
+    color: var(--text);
 }
 
 .nav-links {
@@ -129,7 +141,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--blue);
+    background-color: var(--text);
     transition: width 0.3s ease;
 }
 
@@ -183,7 +195,7 @@ body {
 .hero {
     position: relative;
     overflow: hidden;
-    background-color: var(--bg-light); 
+    /* background-color: var(--bg-light);  */
     padding-top: 6rem;
     padding-bottom: 6rem;
 }

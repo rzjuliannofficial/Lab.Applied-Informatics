@@ -1,6 +1,6 @@
 <?php
 // Memuat file koneksi database
-require_once 'Koneksi.php'; 
+require_once 'connection/Koneksi.php'; 
 
 // Fungsi untuk mengambil semua data proyek dari tabel 'projects'
 function fetchProjects() {
