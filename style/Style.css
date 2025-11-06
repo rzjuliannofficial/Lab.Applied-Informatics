@@ -29,9 +29,9 @@ body {
     /* background-color: black; */
     line-height: 1.5;
     background-image: url("../img/bg_pbl.png");
-    /* background-size: cover;
+    background-size: cover;
     background-position:center;
-    background-repeat: no-repeat; */
+    background-repeat: no-repeat;
 }
 
 /* --- Layout Base --- */
@@ -95,7 +95,6 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    /* text-decoration: double; */
 }
 
 .logo-image-container img {
@@ -106,7 +105,6 @@ body {
 .logo-text {
     font-weight: bold;
     font-size: 1.25rem;
-    /* text-decoration: double; */
     color: var(--text);
 }
 
@@ -198,6 +196,7 @@ body {
     /* background-color: var(--bg-light);  */
     padding-top: 6rem;
     padding-bottom: 6rem;
+    
 }
 
 .hero-grid {
@@ -271,6 +270,10 @@ body {
 }
 
 /* --- Projects Section --- */
+#projects {
+    /* background-color: #009788; */
+    /* background: linear-gradient(to bottom,#ffffff00 , #cdcef338); */
+}
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr;
