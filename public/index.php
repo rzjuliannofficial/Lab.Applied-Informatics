@@ -72,6 +72,25 @@ $team = fetchTeam();
             </div>
         </div>
     </section>
+    <section class="scope">
+        <div class="container">
+            <h1 class="container-title">Scope</h1>
+            <p class="container-descriptrion">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi illum rem voluptatem! Nisi atque dolores nulla reiciendis ipsum quidem numquam voluptatum inventore expedita suscipit eius cupiditate amet, porro sequi sunt.
+            </p>
+            <div class="scopes-grid">
+                <img src="" alt="">
+                <h3 class="scope-title">
+                    Information System & Automation
+                </h3>
+                <div class="scopes-description">
+                    Nisi, dis sed cursus eget pellentesque mattis. Odio eu proin aliquam a. Semper bibendum tellus non tellus, facilisi dignissim in quam massa. Aliquam, feugiat ut cum tellus, sit. Quis consectetur gravida ac ac lectus cursus egestas.
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </section>
     <?php include '../app/views/components/projects.php'; ?>
     <?php include '../app/views/components/team.php'; ?>
     <?php include '../app/views/components/footer.php'; ?>
