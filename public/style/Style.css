@@ -279,11 +279,22 @@ body {
     font-size: 1.25rem;
 }
 
-/* --- Projects Section --- */
-#projects {
-    /* background-color: #009788; */
-    /* background: linear-gradient(to bottom,#ffffff00 , #cdcef338); */
+.scopes-grid {
+    display: grid;
+    /* grid-template-columns: auto auto auto auto; */
+    gap: 2rem;
+    /* background-color: #1E293B; */
 }
+
+.scope-card {
+    background: var(--bg-dark);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+/* --- Projects Section --- */
+
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr;
