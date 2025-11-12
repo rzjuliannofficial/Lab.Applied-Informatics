@@ -1,12 +1,12 @@
 <section id="projects" class="section">
     <div class="container">
-        <h2 class="section-title">Proyek & Karya Kami</h2>
+        <h2 class="section-title">Featured Projects</h2>
 
         <div class="projects-grid">
             <?php if (count($projects) > 0): ?>
                 <?php foreach ($projects as $project): ?>
                 <div class="project-card">
-                    <div class="project-image-wrapper">
+                    <div class="project-image">
                         <?php if (!empty($project['gambar_url'])): ?>
                             <img src="<?php echo htmlspecialchars($project['gambar_url']); ?>" alt="<?php echo htmlspecialchars($project['judul']); ?>">
                         <?php else: ?>

@@ -5,7 +5,7 @@ require_once '../app/config/Koneksi.php';
 // Fungsi untuk mengambil semua data proyek dari tabel 'projects'
 function fetchProjects() {
     try {
-        $sql = "SELECT judul, deskripsi, kategori, tahun, teknologi, url_demo, gambar_url FROM projects ORDER BY tahun DESC LIMIT 6";
+        $sql = "SELECT judul, deskripsi, kategori, tahun, teknologi, url_demo, gambar_url FROM projects ORDER BY tahun DESC LIMIT 3";
         $res = q($sql); 
         $projects = pg_fetch_all($res) ?: [];
         return $projects;
@@ -51,12 +51,10 @@ $team = fetchTeam();
                     <span class="gradient-text">Applied Informatics</span>
                 </h1>
                 <p class="hero-description">
-                    Kami adalah pusat inovasi yang menggabungkan teknologi AI terkini dengan kreativitas multimedia. 
-                    Tempat di mana ide-ide cemerlang menjadi solusi nyata.
+                    The Applied Informatics Laboratory at Malang State Polytechnic is an innovation center focused on developing IT-based solutions. LIT strives to deliver relevant and useful technology through collaboration, while strengthening Polinema's position as a leading institution in applied informatics.
                 </p>
                 <div class="hero-button">
-                    <button class="button-primary">Mulai Sekarang</button>
-                    <button class="button-secondary">Pelajari Lebih Lanjut</button>
+                    <button class="button-primary">Explore Our Work</button>
                 </div>
             </div>
 
@@ -70,14 +68,21 @@ $team = fetchTeam();
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-
     </section>
-    <section class="scope">
+    <section id="scope">
         <div class="container">
-            <h1 class="container-title">Scope</h1>
-            <p class="container-descriptrion">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi illum rem voluptatem! Nisi atque dolores nulla reiciendis ipsum quidem numquam voluptatum inventore expedita suscipit eius cupiditate amet, porro sequi sunt.
-            </p>
+            <div class="scope-header">
+                <h2 class="scope-title-main">Scope</h2>
+                <div class="scope-description-wrapper">
+                    <p class="scope-description">
+                        We are focused on helping brands grow through digital transformation services. We bring real solutions to each client’s <br>problems through a deep understanding of their market, solution, and vision.
+                    </p>
+                    <button class="button-secondary">
+                        <a href="#" class="scope-link-button">See all services</a>
+                    </button>
+                </div>
+            </div>
             <div class="scopes-grid">
                 <div class="scope-card">
                     <img src="" alt="">
@@ -91,7 +96,7 @@ $team = fetchTeam();
                 <div class="scope-card">
                     <img src="" alt="">
                     <h3 class="scope-title">
-                        Information System & Automation
+                        Internet Of Thinks & Applied Technologies
                     </h3>
                     <div class="scopes-description">
                         Nisi, dis sed cursus eget pellentesque mattis. Odio eu proin aliquam a. Semper bibendum tellus non tellus, facilisi dignissim in quam massa. Aliquam, feugiat ut cum tellus, sit. Quis consectetur gravida ac ac lectus cursus egestas.
@@ -100,7 +105,7 @@ $team = fetchTeam();
                 <div class="scope-card">
                     <img src="" alt="">
                     <h3 class="scope-title">
-                        Information System & Automation
+                        Artificial Intelligence
                     </h3>
                     <div class="scopes-description">
                         Nisi, dis sed cursus eget pellentesque mattis. Odio eu proin aliquam a. Semper bibendum tellus non tellus, facilisi dignissim in quam massa. Aliquam, feugiat ut cum tellus, sit. Quis consectetur gravida ac ac lectus cursus egestas.
@@ -109,7 +114,16 @@ $team = fetchTeam();
                 <div class="scope-card">
                     <img src="" alt="">
                     <h3 class="scope-title">
-                        Information System & Automation
+                        Research & Collaboration
+                    </h3>
+                    <div class="scopes-description">
+                        Nisi, dis sed cursus eget pellentesque mattis. Odio eu proin aliquam a. Semper bibendum tellus non tellus, facilisi dignissim in quam massa. Aliquam, feugiat ut cum tellus, sit. Quis consectetur gravida ac ac lectus cursus egestas.
+                    </div>
+                </div>
+                <div class="scope-card">
+                    <img src="" alt="">
+                    <h3 class="scope-title">
+                        Application Development
                     </h3>
                     <div class="scopes-description">
                         Nisi, dis sed cursus eget pellentesque mattis. Odio eu proin aliquam a. Semper bibendum tellus non tellus, facilisi dignissim in quam massa. Aliquam, feugiat ut cum tellus, sit. Quis consectetur gravida ac ac lectus cursus egestas.
