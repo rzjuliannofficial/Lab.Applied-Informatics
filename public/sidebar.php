@@ -37,24 +37,13 @@
                 <i class="fas fa-newspaper w-5 h-5 mr-3"></i>
                 Artikel / Berita
             </a>
-            <!-- <a href="#" class="flex items-center p-3 rounded-lg text-gray-300 hover:bg-gray-700">
-                <i class="fas fa-handshake w-5 h-5 mr-3"></i>
-                Mitra Kolaborasi
-            </a> -->
+
 
             <p class="text-xs text-gray-400 uppercase pt-4 pb-1 px-3">Sistem</p>
             <a href="kelolaUser.php" class="flex items-center p-3 rounded-lg text-gray-300 hover:bg-gray-700">
                 <i class="fas fa-user-shield w-5 h-5 mr-3"></i>
                 Kelola User
             </a>
-            <!-- <a href="#" class="flex items-center p-3 rounded-lg text-gray-300 hover:bg-gray-700">
-                <i class="fas fa-check-circle w-5 h-5 mr-3"></i>
-                Persetujuan Konten
-            </a>
-            <a href="#" class="flex items-center p-3 rounded-lg text-gray-300 hover:bg-gray-700">
-                <i class="fas fa-cog w-5 h-5 mr-3"></i>
-                Pengaturan
-            </a> -->
         </nav>
     </div>
 </aside>

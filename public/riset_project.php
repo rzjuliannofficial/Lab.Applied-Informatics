@@ -29,16 +29,15 @@
     <?php include 'sidebar.php'; ?>
 
     <!-- Konten Utama dan Header Atas -->
-    <div class="flex-1 main-content">
+    <div class="flex-1 md:ml-64">
         <!-- Header Atas (Topbar) -->
-        <header class="bg-white shadow-md p-4 flex justify-between items-center fixed w-full md:w-[calc(100%-16rem)] z-30 top-0 left-0">
+        <header class="bg-white shadow-md p-4 flex justify-between items-center fixed w-full md:w-[calc(100%-16rem)] z-30   ">
             <h1 class="text-xl font-semibold text-gray-800">Kelola Riset & Proyek</h1>
             <a href="#" class="flex items-center text-gray-700 hover:text-accent">
                 <span class="hidden sm:inline">Logout</span>
                 <i class="fas fa-sign-out-alt ml-2"></i>
             </a>
         </header>
-
         <!-- Area Konten Utama -->
         <main class="p-6 pt-20">
 
@@ -103,13 +102,9 @@
                 </div>
             </div>
         </main>
-        <!-- Footer Admin -->
-        <footer class="bg-gray-800 text-gray-400 p-3 text-center text-sm mt-6 w-full">
-            &copy; 2025 AI Lab Polinema. Admin Panel v1.0.
-        </footer>
     </div>
     <script>
-        document.querySelector('main').style.minHeight = 'calc(100vh - 80px - 40px)';
+        // document.querySelector('main').style.minHeight = 'calc(100vh - 80px - 40px)';
     </script>
 </body>
-</html>a
+</html>

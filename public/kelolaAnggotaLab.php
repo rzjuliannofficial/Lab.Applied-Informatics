@@ -129,11 +129,6 @@
             </div>
 
         </main>
-
-        <!-- Footer Admin -->
-        <footer class="bg-gray-800 text-gray-400 p-3 text-center text-sm mt-6">
-            &copy; 2025 AI Lab Polinema. Admin Panel v1.0.
-        </footer>
     </div>
 </body>
 </html>

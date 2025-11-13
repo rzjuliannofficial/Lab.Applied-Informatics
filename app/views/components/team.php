@@ -1,14 +1,14 @@
 <section id="team" class="section">
     <div class="container">
         <h2 class="section-title">Our Team</h2>
-
+        <?php var_dump($team)?>
         <div class="team-grid">
             <?php if (count($team) > 0): ?>
                 <?php foreach ($team as $member): ?>
                 <div class="team-card">
                     <div class="team-photo-wrapper">
-                        <?php if (!empty($member['foto_url'])): ?>
-                            <img src="<?php echo htmlspecialchars($member['foto_url']); ?>" alt="<?php echo htmlspecialchars($member['nama']); ?>">
+                        <?php if (!empty($member['foto_profil'])): ?>
+                            <img src="<?php echo htmlspecialchars($member['foto_profil']); ?>" alt="<?php echo htmlspecialchars($member['nama_dosen']); ?>">
                         <?php else: ?>
                             <div class="team-photo-icon">
                                 <svg fill="currentColor" viewBox="0 0 24 24">
@@ -18,10 +18,10 @@
                         <?php endif; ?>
                     </div>
                     
-                    <h3 class="team-name"><?php echo htmlspecialchars($member['nama']); ?></h3>
-                    <p class="team-expertise">
-                        <?php echo htmlspecialchars($member['keahlian']); ?>
-                    </p>
+                    <h3 class="team-name"><?php echo htmlspecialchars($member['nama_dosen']); ?></h3>
+                    <!-- <p class="team-expertise">
+                        <?php //echo htmlspecialchars($member['keahlian']); ?>
+                    </p> -->
                     <div class="team-description-container">
                         <p class="team-description">
                              <?php echo htmlspecialchars($member['deskripsi'] ?? 'Deskripsi tidak tersedia.'); ?>

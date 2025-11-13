@@ -18,7 +18,7 @@ function fetchProjects() {
 // Fungsi untuk mengambil semua data tim dari tabel 'dosen'
 function fetchTeam() {
     try {
-        $sql = "SELECT nama, keahlian, email, no_telpon, foto_url, deskripsi FROM dosen ORDER BY nama ASC"; 
+        $sql = "SELECT nama_dosen, email, foto_profil, deskripsi FROM dosen ORDER BY nama ASC"; 
         $res = q($sql);
         $team = pg_fetch_all($res) ?: [];
         return $team;
