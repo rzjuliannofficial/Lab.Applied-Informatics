@@ -1,3 +1,7 @@
+<div class="shadow-bar-top">
+<!-- Div untuk Glow Setengah Lingkaran -->
+        <div class="half-circle-glow"></div>
+    </div>
 <section id="products" class="section">
     <div class="container">
         <h2 class="section-title">Featured Products</h2>

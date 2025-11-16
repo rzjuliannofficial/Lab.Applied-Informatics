@@ -7,7 +7,7 @@
     --orange: #F97316;
     --orange-light: #FB923C;
     --blue: #0088FF;
-    --blue-light: #22D3EE;
+    --blue-light: rgb(34, 211, 238);
     --blue-dark: #02416D;
     --purple-border:#6365f136;
     --purple:#6365f1;
@@ -17,7 +17,7 @@
     --text : black;
     --border-color: #1E293B; 
 
-    --refrensi : #009788;
+    --refrensi : rgb(0, 151, 136);
 }
 
 * {
@@ -69,7 +69,7 @@ body {
 
 /* index page */
 .section {
-    padding-top: 5rem;
+    padding-top: 3rem;
     padding-bottom: 5rem;
 }
 
@@ -78,6 +78,67 @@ body {
     font-weight: bold;
     margin-bottom: 3rem;
     text-align: center;
+}
+
+.shadow-bar-top {
+    width: 60%; /* Lebar garis 3/5 */
+    height: 1px; /* Garis sangat tipis */
+    
+    /* Gradien linear untuk garis yang memudar di kedua sisi */
+    background: linear-gradient(to right, 
+                rgba(0, 151, 136, 0)0%, 
+                rgba(0, 151, 136, 0.4) 30%, 
+                rgba(0, 151, 136, 0.8) 50%, 
+                rgba(0, 151, 136, 0.4) 70%, 
+                rgba(0, 151, 136, 0) 100%);
+    
+    margin: 0 auto; /* Tengah horizontal */
+    /* Sesuaikan margin-top dan margin-bottom sesuai kebutuhan konten di sekitarnya */
+    position: relative; 
+    z-index: 10;
+}
+
+/* Div untuk menciptakan efek glow SETENGAH LINGKARAN (Busur/Arc) */
+.half-circle-glow {
+    width: 80%; /* Lebar busur (agar fokus di tengah garis) */
+    height: 80px; 
+    
+    /* Radial gradient: membuat bentuk elips/lingkaran yang memudar */
+    background: radial-gradient(ellipse at top, 
+                rgba(1, 205, 184, 0.2) 0%, /* Opasitas halus (0.3) */
+                rgba(255, 255, 255, 0) 100%); 
+    
+    /* Menggunakan border-radius khusus untuk bentuk setengah lingkaran */
+    border-radius: 50% / 100% 100% 0 0; 
+    
+    filter: blur(30px); /* Blur kuat untuk efek cahaya lembut */
+
+    position: absolute;
+    bottom: 0px; 
+    left: 50%;
+    transform: translateX(-50%); /* Menempatkan di tengah */
+    pointer-events: none; 
+    z-index: 5;
+}
+
+.title {
+    background-color: white; /* Latar belakang Putih */
+    color: #3b82f6; /* Teks Biru */
+    padding: 8px 14px; /* Padding lebih besar */
+    border-radius: 99px; /* Full rounded */
+    border: solid 1px;
+    border-color: rgba(0, 0, 0, 0.218);
+    font-size: 14px;
+    font-weight: 600;
+    /* margin-bottom: 1.5rem; */
+    display: inline-flex;
+    align-items: center;
+}
+.title svg {
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+    fill: #3b82f6; /* Ikon Biru */
 }
 
 /* --- Header & Navigation --- */

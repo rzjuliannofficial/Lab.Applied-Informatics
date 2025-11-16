@@ -1,3 +1,7 @@
+<div class="shadow-bar-top">
+<!-- Div untuk Glow Setengah Lingkaran -->
+        <div class="half-circle-glow"></div>
+    </div>
 <section id="team" class="section">
     <div class="container">
         <h2 class="section-title">Our Team</h2>
@@ -44,3 +48,7 @@
         </div>
     </div>
 </section>
+<div class="shadow-bar-top">
+<!-- Div untuk Glow Setengah Lingkaran -->
+        <div class="half-circle-glow"></div>
+    </div>
