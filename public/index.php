@@ -5,7 +5,7 @@ require_once '../app/config/Koneksi.php';
 // Fungsi untuk mengambil semua data proyek dari tabel 'projects'
 function fetchProjects() {
     try {
-        $sql = "SELECT judul, deskripsi, kategori, tahun, teknologi, url_demo, gambar_url FROM projects ORDER BY tahun DESC LIMIT 3";
+       $sql = "SELECT id_produk, nama_produk, deskripsi, kategori, link_demo, image FROM produk ORDER BY id_produk DESC LIMIT 3";
         $res = q($sql); 
         $projects = pg_fetch_all($res) ?: [];
         return $projects;
@@ -18,7 +18,8 @@ function fetchProjects() {
 // Fungsi untuk mengambil semua data tim dari tabel 'dosen'
 function fetchTeam() {
     try {
-        $sql = "SELECT nama_dosen, email, foto_profil, deskripsi FROM dosen ORDER BY nama ASC"; 
+        
+        $sql = "SELECT nama_dosen, email, foto_profil, deskripsi, keahlian_text, no_telepon FROM dosen ORDER BY nama_dosen ASC";
         $res = q($sql);
         $team = pg_fetch_all($res) ?: [];
         return $team;
@@ -43,7 +44,7 @@ $team = fetchTeam();
 <body>
     <?php include '../app/views/components/header.php'; ?>
 
-    <section class="hero">
+    <section class="hero section">
         <div class="container hero-grid">
             <div class="hero-left">
                 <h1 class="hero-title">
@@ -51,36 +52,32 @@ $team = fetchTeam();
                     <span class="gradient-text">Applied Informatics</span>
                 </h1>
                 <p class="hero-description">
-                    The Applied Informatics Laboratory at Malang State Polytechnic is an innovation center focused on developing IT-based solutions. LIT strives to deliver relevant and useful technology through collaboration, while strengthening Polinema's position as a leading institution in applied informatics.
+                    The Applied Informatics Laboratory at Malang State Polytechnic is an innovation center focused on developing IT-based solutions.
                 </p>
                 <div class="hero-button">
                     <button class="button-primary">Explore Our Work</button>
+                    <button class="button-secondary">Connect With Us</button>
                 </div>
             </div>
 
             <div class="hero-right">
                 <div class="hero-image-card">
-                    <div class="hero-image-content">
-                        <svg class="hero-image-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <p class="hero-image-text">Inovasi Teknologi Terkini</p>
-                    </div>
+                    <img src="img/image.png" alt="kosong">
                 </div>
             </div>
         </div>-
     </section>
-    <section id="scope">
+    <section class="scope section">
         <div class="container">
             <div class="scope-header">
-                <h2 class="scope-title-main">Scope</h2>
+                <div class="buletan">
+                    <button>OUR CORE FOCUS</button>
+                </div>
+                <p class="scope-title-main">Defining Our <span>Scope</span></p>
                 <div class="scope-description-wrapper">
                     <p class="scope-description">
                         We are focused on helping brands grow through digital transformation services. We bring real solutions to each client’s <br>problems through a deep understanding of their market, solution, and vision.
                     </p>
-                    <button class="button-secondary">
-                        <a href="#" class="scope-link-button">See all services</a>
-                    </button>
                 </div>
             </div>
             <div class="scopes-grid">
@@ -134,7 +131,7 @@ $team = fetchTeam();
 
         </div>
     </section>
-    <?php include '../app/views/components/projects.php'; ?>
+    <?php include '../app/views/components/product.php'; ?>
     <?php include '../app/views/components/team.php'; ?>
     <?php include '../app/views/components/footer.php'; ?>
 </body>

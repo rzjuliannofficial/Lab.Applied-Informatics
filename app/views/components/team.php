@@ -1,7 +1,6 @@
 <section id="team" class="section">
     <div class="container">
         <h2 class="section-title">Our Team</h2>
-        <?php var_dump($team)?>
         <div class="team-grid">
             <?php if (count($team) > 0): ?>
                 <?php foreach ($team as $member): ?>
@@ -19,16 +18,24 @@
                     </div>
                     
                     <h3 class="team-name"><?php echo htmlspecialchars($member['nama_dosen']); ?></h3>
-                    <!-- <p class="team-expertise">
-                        <?php //echo htmlspecialchars($member['keahlian']); ?>
-                    </p> -->
+                    
+                    <div class="team-expertise-tags">
+                        <?php 
+                        // Akses kolom keahlian_text yang baru dibuat
+                        $keahlian = $member['keahlian_text'] ?? '';
+                        if (!empty($keahlian)) {
+                            foreach (explode(',', $keahlian) as $skill): ?>
+                            <span class="skill-tag"><?php echo htmlspecialchars(trim($skill)); ?></span>
+                        <?php endforeach; } ?>
+                    </div>
+                    
                     <div class="team-description-container">
                         <p class="team-description">
                              <?php echo htmlspecialchars($member['deskripsi'] ?? 'Deskripsi tidak tersedia.'); ?>
                         </p>
                     </div>
                     <p class="team-contact" style="margin-bottom: 0.5rem;"><?php echo htmlspecialchars($member['email']); ?></p>
-                    <p class="team-contact"><?php echo htmlspecialchars($member['no_telpon']); ?></p>
+                    <p class="team-contact"><?php echo htmlspecialchars($member['no_telepon'] ?? '-'); ?></p> 
                 </div>
                 <?php endforeach; ?>
             <?php else: ?>
