@@ -20,6 +20,7 @@ $error = isset($_GET['error']) ? $_GET['error'] : '';
     <title>Siakad | Sistem Informasi Akademik</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style/styleLoginAdmin.css">
     <script src="jquery-ui-1.14.1/external/jquery/jquery.js"></script>
     <style>
@@ -63,10 +64,6 @@ $error = isset($_GET['error']) ? $_GET['error'] : '';
                 <div class="login">
                     <input type="text" name="nim" id="nim" placeholder="Nim" required><br><br>
                     <input type="password" name="password" id="password" placeholder="Password" required><br><br>
-                    <select id="role" name="role" required>
-                        <option value="admin">Admin</option>
-                        <option value="editor">Editor</option>
-                    </select><br>
                     <div class="submit" >
                         <button type="submit">
                             Login

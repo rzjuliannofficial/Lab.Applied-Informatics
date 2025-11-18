@@ -6,18 +6,18 @@
     /* button */
     --orange: #F97316;
     --orange-light: #FB923C;
-    --blue: #0088FF;
+    --blue: rgb(0, 136, 255);
     --blue-light: rgb(34, 211, 238);
-    --blue-dark: #02416D;
+    --blue-dark: rgb(2, 65, 109);
     --purple-border:#6365f136;
     --purple:#6365f1;
 
-    --bg-light: #e6e6e6;
-    --bg-dark: #f2f2f2;
+    --white: #ffffff;
     --text : black;
     --border-color: #1E293B; 
 
-    --refrensi : rgb(0, 151, 136);
+    --refrensi : rgb(1, 205, 184);
+    --gray:rgb(147, 151, 173);
 }
 
 * {
@@ -62,8 +62,8 @@ body {
 
 @media (min-width: 1024px) {
     .container {
-        padding-left: 4rem;
-        padding-right: 4rem;
+        padding-left: 8rem;
+        padding-right: 8rem;
     }
 }
 
@@ -73,73 +73,13 @@ body {
     padding-bottom: 5rem;
 }
 
-.section-title {
-    font-size: 35px;
-    font-weight: bold;
-    margin-bottom: 3rem;
+.header{
     text-align: center;
+    /* align-items: center; */
+    margin-bottom: 3rem;
+    /* justify-content: center; */
 }
 
-.shadow-bar-top {
-    width: 60%; /* Lebar garis 3/5 */
-    height: 1px; /* Garis sangat tipis */
-    
-    /* Gradien linear untuk garis yang memudar di kedua sisi */
-    background: linear-gradient(to right, 
-                rgba(0, 151, 136, 0)0%, 
-                rgba(0, 151, 136, 0.4) 30%, 
-                rgba(0, 151, 136, 0.8) 50%, 
-                rgba(0, 151, 136, 0.4) 70%, 
-                rgba(0, 151, 136, 0) 100%);
-    
-    margin: 0 auto; /* Tengah horizontal */
-    /* Sesuaikan margin-top dan margin-bottom sesuai kebutuhan konten di sekitarnya */
-    position: relative; 
-    z-index: 10;
-}
-
-/* Div untuk menciptakan efek glow SETENGAH LINGKARAN (Busur/Arc) */
-.half-circle-glow {
-    width: 80%; /* Lebar busur (agar fokus di tengah garis) */
-    height: 80px; 
-    
-    /* Radial gradient: membuat bentuk elips/lingkaran yang memudar */
-    background: radial-gradient(ellipse at top, 
-                rgba(1, 205, 184, 0.2) 0%, /* Opasitas halus (0.3) */
-                rgba(255, 255, 255, 0) 100%); 
-    
-    /* Menggunakan border-radius khusus untuk bentuk setengah lingkaran */
-    border-radius: 50% / 100% 100% 0 0; 
-    
-    filter: blur(30px); /* Blur kuat untuk efek cahaya lembut */
-
-    position: absolute;
-    bottom: 0px; 
-    left: 50%;
-    transform: translateX(-50%); /* Menempatkan di tengah */
-    pointer-events: none; 
-    z-index: 5;
-}
-
-.title {
-    background-color: white; /* Latar belakang Putih */
-    color: #3b82f6; /* Teks Biru */
-    padding: 8px 14px; /* Padding lebih besar */
-    border-radius: 99px; /* Full rounded */
-    border: solid 1px;
-    border-color: rgba(0, 0, 0, 0.218);
-    font-size: 14px;
-    font-weight: 600;
-    /* margin-bottom: 1.5rem; */
-    display: inline-flex;
-    align-items: center;
-}
-.title svg {
-    margin-right: 8px;
-    width: 24px;
-    height: 24px;
-    fill: #3b82f6; /* Ikon Biru */
-}
 
 /* --- Header & Navigation --- */
 .sticky-header {
@@ -243,8 +183,8 @@ body {
 
 /* --- Buttons & Utilities --- */
 .button-primary {
-    background-color: var(--blue);
-    color: var(--bg-dark);
+    background-color: var(--blue-dark);
+    color: var(--white);
     padding: 12px 28px;
     border-radius: 8px;
     font-weight: 600;
@@ -253,12 +193,13 @@ body {
     border-color: var(--purple-border);
     cursor: pointer;
     display: inline-block;
+    box-shadow: 0px 10px 20px -8px rgba(99, 101, 241, 0.529);
 }
 
 .button-primary:hover {
-    color: var(--purple);
+    color: var(--blue);
     background-color: rgba(255, 255, 255, 0);
-    transform: translateY(-2px);
+    /* transform: translateY(-2px); */
 }   
 
 .button-secondary {
@@ -277,7 +218,7 @@ body {
 
 .button-secondary:hover {
     background-color: var(--blue);
-    color: var(--bg-dark);
+    color: var(--white);
 }
 
 .gradient-text {
@@ -287,11 +228,76 @@ body {
     background-clip: text;
 }
 
+.shadow-bar-top {
+    width: 60%; /* Lebar garis 3/5 */
+    height: 1px; /* Garis sangat tipis */
+    
+    /* Gradien linear untuk garis yang memudar di kedua sisi */
+    background: linear-gradient(to right, 
+                rgba(2, 65, 109, 0)0%, 
+                rgba(2, 65, 109, 0.4) 30%, 
+                rgba(0, 136, 255, 0.8) 50%, 
+                rgba(2, 65, 109, 0.4) 70%, 
+                rgba(2, 65, 109, 0) 100%);
+    
+    margin: 0 auto; /* Tengah horizontal */
+    /* Sesuaikan margin-top dan margin-bottom sesuai kebutuhan konten di sekitarnya */
+    position: relative; 
+    z-index: 10;
+}
+
+/* Div untuk menciptakan efek glow SETENGAH LINGKARAN (Busur/Arc) */
+.half-circle-glow {
+    width: 80%; /* Lebar busur (agar fokus di tengah garis) */
+    height: 80px; 
+    
+    /* Radial gradient: membuat bentuk elips/lingkaran yang memudar */
+    background: radial-gradient(ellipse at top, 
+                rgba(0, 136, 255, 0.2) 0%, /* Opasitas halus (0.3) */
+                rgba(255, 255, 255, 0) 100%); 
+    
+    /* Menggunakan border-radius khusus untuk bentuk setengah lingkaran */
+    border-radius: 50% / 100% 100% 0 0; 
+    
+    filter: blur(30px); /* Blur kuat untuk efek cahaya lembut */
+
+    position: absolute;
+    bottom: 0px; 
+    left: 50%;
+    transform: translateX(-50%); /* Menempatkan di tengah */
+    pointer-events: none; 
+    z-index: 5;
+}
+
+/* title area */
+.title {
+    background-color: white; /* Latar belakang Putih */
+    padding: 8px 14px; /* Padding lebih besar */
+    border-radius: 99px; /* Full rounded */
+    border: solid 1px;
+    border-color: rgba(0, 0, 0, 0.218);
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+    color: transparent; /* Teks Biru */
+    background-clip: text;
+}
+.title svg {
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+    fill: #3b82f6; /* Ikon Biru */
+}
+
+/* end of button & uttils */
+
 /* --- Hero Section --- */
 .hero {
     position: relative;
     overflow: hidden;
-    /* background-color: var(--bg-light);  */
 }
 
 .hero-grid {
@@ -324,7 +330,7 @@ body {
 
 .hero-description {
     font-size: 18px;
-    color: var(--text);
+    color: var(--gray);
     margin-bottom: 2rem;
     line-height: 2rem;
 }
@@ -343,7 +349,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--bg-dark); 
+    background-color: var(--white); 
     box-shadow: 0 25px 50px -12px rgba(6, 182, 212, 0.2);  */
     width: 100%;
 }
@@ -353,24 +359,23 @@ body {
     margin-bottom: 2rem;
 }
 
-.scope-title-main{
+.secondary-title{
     font-size: 44px;
-    font-weight: 500;
+    font-weight: medium;
 }
-.scope-title-main span{
+.secondary-title span{
     font-size: 50px;
     font-family: 'Instrument Serif';
     font-style: italic;
 }
-.scope-description-wrapper{
-    display: flex;
-    justify-content: space-between;
+.scope-description{
+    color: var(--gray);
 }
 
 .scopes-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 @media (min-width: 1024px) {
@@ -380,18 +385,34 @@ body {
 }
 
 .scope-card {
-    background: var(--bg-dark);
+    background: var(--);
     border-radius: 12px;
-    overflow: hidden;
+    /* overflow: hidden; */
     /* border: 1px solid var(--border-color); */
     transition: all 0.3s ease;
-    padding: 40px;
-    box-shadow: 0px 5px 5px rgba(5, 0, 5, 0.15);
+    padding: 0px 40px 40px 40px;
+    box-shadow: 0px 5px 5px rgba(5, 0, 5, 0.05);
 }
 
 .scope-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 20px 40px rgba(6, 182, 212, 0.15); 
+    box-shadow: 0 20px 40px rgba(0, 136, 255, 0.15); 
+}
+
+.icon {
+    border-radius: 5px;
+    padding: 0.8rem;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+    color: white;
+    font-size: 2rem;
+    transform: translateY(-1rem);
+}
+.fa-arrow-circle-right{
+    color: var(--blue-dark);
+}
+
+.scope-title{
+    padding-bottom: 10px;
 }
 /* --- Projects Section --- */
 
@@ -414,17 +435,17 @@ body {
 }
 
 .project-card {
-    background: var(--bg-dark);
+    background: var(--white);
     border-radius: 12px;
     overflow: hidden;
     /* border: 1px solid var(--border-color); */
     transition: all 0.3s ease;
-    box-shadow: 0px 5px 10px rgba(5, 0, 5, 0.15);
+    box-shadow: 2px 5px 10px rgba(5, 0, 5, 0.05);
 }
 
 .project-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(6, 182, 212, 0.15); 
+    box-shadow: 0 20px 40px rgba(0, 136, 255, 0.15); 
 }
 
 .project-image{
@@ -435,7 +456,7 @@ body {
     align-items: center;
     justify-content: center;
     border-bottom: 1px solid var(--border-color);
-    background-color: var(--bg-dark); 
+    background-color: var(--white); 
 }
 
 .project-image img {
@@ -467,7 +488,7 @@ body {
 .badge {
     display: inline-block;
     background-color: var(--blue-light);
-    color: var(--bg-dark);
+    color: var(--white);
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -486,7 +507,7 @@ body {
 }
 
 .project-description {
-    color: var(--text);
+    color: var(--gray);
     margin-bottom: 1rem;
     font-size: 0.875rem;
     /* Multiline truncation equivalent */
@@ -516,8 +537,6 @@ body {
 
 .project-button-link {
     width: 100%;
-    text-align: center;
-    display: block;
 }
 
 /* --- Team Section --- */
@@ -527,20 +546,20 @@ body {
     gap: 2rem;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
+    .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+} */
+
+@media (min-width: 1024px) {
     .team-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-@media (min-width: 1024px) {
-    .team-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-}
-
 .team-card {
-    background: var(--bg-dark);
+    background: var(--white);
     border-radius: 12px;
     padding: 2rem;
     text-align: center;
@@ -599,7 +618,7 @@ body {
 
 .team-description {
     font-size: 0.75rem;
-    color: var(--text);
+    color: var(--gray);
     font-style: italic;
     /* Multiline truncation equivalent */
     display: -webkit-box;

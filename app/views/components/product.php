@@ -4,8 +4,14 @@
     </div>
 <section id="products" class="section">
     <div class="container">
-        <h2 class="section-title">Featured Products</h2>
-
+        <div class="project header">
+            <div class="title">
+            <!-- Ikon Grup Orang (SVG Inline) -->
+                <i class="fas fa-cloud text-xs mr-2"></i> OUR CORE FOCUS
+            </div>
+            <p class="secondary-title">Get to Know <span>Us</span></p>
+            <p class="text-center text-gray-500 mb-12">The most recent updates, all in one place.</p>
+        </div>
         <div class="projects-grid">
             <?php if (count($projects) > 0): ?>
                 <?php foreach ($projects as $product): ?>
