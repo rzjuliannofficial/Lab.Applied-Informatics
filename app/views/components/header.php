@@ -3,7 +3,7 @@
         <a href="index.php">
             <div class="logo-area">
                 <div class="logo-image-container">
-                    <img src="img/logo.png" alt="Lab AI Logo">
+                    <img src="img/logoAi.png" alt="Lab AI Logo">
                 </div>
                 <div class="logo-text">
                     Applied <br>Informatics
@@ -18,7 +18,11 @@
             <a href="#contact" class="nav-link">Gallery</a>
             <a href="#contact" class="nav-link">Partner</a>
             <a href="#contact" class="nav-link">Contact</a>
-             <button class="button-primary">Log in</button>
+            <button class="button-primary">
+                 <a href="loginAdmin.php">
+                    Log in
+                </a>
+            </button>
         </div>
     </nav>
 </header>
