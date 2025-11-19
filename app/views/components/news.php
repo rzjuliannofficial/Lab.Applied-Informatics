@@ -1,15 +1,10 @@
 
 <head>
-    <!-- Memuat Tailwind CSS -->
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <!-- Memuat Font Awesome untuk ikon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    
     <style>
 
         /* Gaya Header Kustom (Bootstrap Style Conversion) */
         .header-font {
-            font-family: Georgia, serif;
+            font-family: poppins;
             font-size: 3rem;
             font-weight: 700;
             color: #1f2937;
@@ -147,16 +142,6 @@
 <section class="bg-[#f0f4f8] p-8">
 
     <div class="max-w-4xl mx-auto">
-        <!-- Header Section -->
-        <!-- <div class="flex justify-center mb-4">
-            <span class="bg-white px-3 py-1 text-sm text-blue-600 font-bold rounded-full shadow-md flex items-center">
-                <i class="fas fa-cloud text-xs mr-2"></i> LATEST NEWS
-            </span>
-        </div>
-        
-        <h1 class="header-font mb-2">
-            Hot Off the <span class="press-style">Press</span>
-        </h1> -->
         <div class="project header">
             <div class="title">
             <!-- Ikon Grup Orang (SVG Inline) -->
@@ -255,21 +240,19 @@
             </button>
             
         </div>
-
-        <!-- Tombol "Read More" -->
-        <div class="flex justify-center mt-12">
-            <button class="bg-blue-600 text-white px-8 py-3 text-lg font-bold rounded-xl shadow-lg hover-scale">
+        <div class="flex justify-center">
+            <button class="button-primary">
                 Read more
             </button>
         </div>
 
+        <!-- Tombol "Read More" -->
+
     </div>
 
-    <!-- Memuat jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <script>
-        // Logika jQuery dipertahankan.
         $(document).ready(function() {
             const $items = $('.carousel-item-3d');
             const $btnNext = $('#btnNext');
