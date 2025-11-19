@@ -1,9 +1,12 @@
-<footer class="footer-section">
+<footer class="footer">
     <div class="container">
         <div class="footer-grid">
             <div>
-                <h4 class="footer-title">Lab AI</h4>
-                <p class="footer-text">Laboratorium inovasi untuk teknologi AI dan Multimedia</p>
+                <div class="flex gap-2 items-center mb-3">
+                    <img class="h-[3rem] w-auto " src="img/logoAi.png" alt="">
+                    <h4 class="footer-title">Applied Informatics</h4>
+                </div>
+                <p class="footer-text">The Applied Informatics Laboratory at Malang State Polytechnic</p>
             </div>
             <div>
                 <h4 class="footer-title">Navigasi</h4>
