@@ -3,17 +3,19 @@
 require_once '../app/config/Koneksi.php'; 
 
 // Fungsi untuk mengambil semua data proyek dari tabel 'projects'
-function fetchProjects() {
+function fetchProducts() {
     try {
-       $sql = "SELECT id_produk, nama_produk, deskripsi, kategori, link_demo, image FROM produk ORDER BY id_produk DESC LIMIT 4";
+        $sql = "SELECT id_produk, nama_produk, deskripsi, kategori, link_demo, image FROM produk ORDER BY id_produk DESC LIMIT 3";
         $res = q($sql); 
-        $projects = pg_fetch_all($res) ?: [];
-        return $projects;
+        $products = pg_fetch_all($res) ?: [];
+        return $products;
     } catch (RuntimeException $e) {
-        error_log("Gagal mengambil proyek: " . $e->getMessage());
+        error_log("Gagal mengambil produk: " . $e->getMessage());
         return [];
     }
 }
+
+
 
 // Fungsi untuk mengambil semua data tim dari tabel 'dosen'
 function fetchTeam() {
@@ -30,7 +32,7 @@ function fetchTeam() {
 }
 
 // Ambil data sebelum memuat komponen
-$projects = fetchProjects();
+$products = fetchProducts();
 $team = fetchTeam();
 
 ?><!DOCTYPE html>
@@ -163,82 +165,46 @@ $team = fetchTeam();
             </div>
         </div>-
     </section>
-    <div class="shadow-bar-top">
-<!-- Div untuk Glow Setengah Lingkaran -->
-        <div class="half-circle-glow"></div>
-    </div>
-    <section class="scope section">
-        <div class="container">
-            <div class="scope-header">
-                <div class="title">
-                    <!-- Ikon Grup Orang (SVG Inline) -->
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm8 2c-2.33 0-6.99 1.4-6.99 3.5V17h7.01v-0.5c0-2.1-4.67-3.5-7.01-3.5zm-8 0c-2.33 0-4.67 1.4-4.67 3.5V17h4.67c0-2.1 2.34-3.5 4.67-3.5z"/>
-                        </svg>
-                            OUR CORE FOCUS
-                </div>
-                <p class="secondary-title">Defining Our <span>Scope</span></p>
-                <p class="scope-description">
-                    We are focused on helping brands grow through digital transformation services. We bring real solutions to each client’s <br>problems through a deep understanding of their market, solution, and vision.
-                </p>
-            </div>
-            <div class="scopes-grid">
-                <div class="scope-card">
-                    <div class="icon fas fa-laptop-house"></div>
-                    <h3 class="scope-title">
-                        Information System & Automation <div class="far fa-arrow-alt-circle-right"></div>
-                    </h3>
-                    <div class="scopes-description">
-                        Nisi, dis sed cursus eget pellentesque mattis. Odio eu proin aliquam a. Semper bibendum tellus non tellus, facilisi dignissim in quam massa. Aliquam, feugiat ut cum tellus, sit. Quis consectetur gravida ac ac lectus cursus egestas.
-                    </div>
-                </div>
-               
-                <div class="scope-card">
-                    <div class="icon fas fa-laptop-house"></div>
-                    <h3 class="scope-title">
-                        Internet Of Thinks & Applied Technologies <div class="far fa-arrow-alt-circle-right"></div>
-                    </h3>
-                    <div class="scopes-description">
-                        Nisi, dis sed cursus eget pellentesque mattis. Odio eu proin aliquam a. Semper bibendum tellus non tellus, facilisi dignissim in quam massa. Aliquam, feugiat ut cum tellus, sit. Quis consectetur gravida ac ac lectus cursus egestas.
-                    </div>
-                </div>
-                <div class="scope-card">
-                    <div class="icon fas fa-laptop-house"></div>
-                    <h3 class="scope-title">
-                        Artificial Intelligence <div class="far fa-arrow-alt-circle-right"></div>
-                    </h3>
-                    <div class="scopes-description">
-                        Nisi, dis sed cursus eget pellentesque mattis. Odio eu proin aliquam a. Semper bibendum tellus non tellus, facilisi dignissim in quam massa. Aliquam, feugiat ut cum tellus, sit. Quis consectetur gravida ac ac lectus cursus egestas.
-                    </div>
-                </div>
-                <div class="scope-card">
-                    <div class="icon fas fa-laptop-house"></div>
-                    <h3 class="scope-title">
-                        Research & Collaboration <div class="far fa-arrow-alt-circle-right"></div>
-                    </h3>
-                    <div class="scopes-description">
-                        Nisi, dis sed cursus eget pellentesque mattis. Odio eu proin aliquam a. Semper bibendum tellus non tellus, facilisi dignissim in quam massa. Aliquam, feugiat ut cum tellus, sit. Quis consectetur gravida ac ac lectus cursus egestas.
-                    </div>
-                </div>
-                <div class="scope-card">
-                    <div class="icon fas fa-laptop-house"></div>
-                    <h3 class="scope-title">
-                        Application Development <div class="far fa-arrow-alt-circle-right"></div>
-                    </h3>
-                    <div class="scopes-description">
-                        Nisi, dis sed cursus eget pellentesque mattis. Odio eu proin aliquam a. Semper bibendum tellus non tellus, facilisi dignissim in quam massa. Aliquam, feugiat ut cum tellus, sit. Quis consectetur gravida ac ac lectus cursus egestas.
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        </div>
-    </section>
+    <?php include '../app/views/components/scope.php'; ?>
     <?php include '../app/views/components/news.php'; ?>
     <?php include '../app/views/components/product.php'; ?>
     <?php include '../app/views/components/team.php'; ?>
     <?php include '../app/views/components/fasilities.php'; ?>
     <?php include '../app/views/components/publication.php'; ?>
     <?php include '../app/views/components/footer.php'; ?>
+    <div class="bottom-blur-overlay"></div>
 </body>
+<script>
+    // Dapatkan elemen yang dibutuhkan
+const bottomBlur = document.querySelector('.bottom-blur-overlay');
+const footer = document.querySelector('.target-hidden'); // Asumsi elemen footer Anda menggunakan tag <footer>
+const blurHeight = bottomBlur ? bottomBlur.offsetHeight : 0; // Tinggi blur (2rem)
+
+if (bottomBlur && footer) {
+    
+    // Fungsi untuk memeriksa posisi
+    function checkVisibility() {
+        // Mendapatkan posisi footer relatif terhadap viewport
+        const footerRect = footer.getBoundingClientRect();
+
+        // Kondisi: Apakah bagian atas footer (footerRect.top)
+        // sudah berada di atas posisi "bottom of the viewport MINUS tinggi blur"?
+        // Jika footer sudah "naik" melewati batas blur, sembunyikan blur.
+        if (footerRect.top <= (window.innerHeight - blurHeight)) {
+            // Sembunyikan blur saat footer mulai menyentuh area blur
+            bottomBlur.classList.add('is-hidden');
+        } else {
+            // Tampilkan kembali blur saat footer sudah jauh di bawah
+            bottomBlur.classList.remove('is-hidden');
+        }
+    }
+
+    // Panggil saat scroll dan saat halaman dimuat
+    window.addEventListener('scroll', checkVisibility);
+    window.addEventListener('resize', checkVisibility);
+    checkVisibility(); // Panggil sekali saat dimuat
+} else {
+    console.error("Elemen '.bottom-blur-overlay' atau 'footer' tidak ditemukan.");
+}
+</script>
 </html>
