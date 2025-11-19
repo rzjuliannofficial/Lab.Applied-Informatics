@@ -1,5 +1,4 @@
 <?php
-// koneksi.php - Menggunakan konfigurasi dari JadwalKuliah.php
 
 /** Fungsi untuk mendapatkan satu instance koneksi PostgreSQL */
 function get_pg_connection(): PgSql\Connection {
