@@ -1,6 +1,6 @@
 <section id="team" class="section">
     <div class="container">
-        <h2 class="section-title">Tim Kami (Dosen)</h2>
+        <h2 class="section-title">Our Team</h2>
 
         <div class="team-grid">
             <?php if (count($team) > 0): ?>

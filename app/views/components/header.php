@@ -6,18 +6,20 @@
                     <img src="img/logo.png" alt="Lab AI Logo">
                 </div>
                 <div class="logo-text">
-                    <span>Laboratorium of</span>
-                    <p>APPLIED INFORMATICS</p>
+                    Applied Informatics Lab
+                    <!-- <span>Laboratorium of</span>
+                    <p>APPLIED INFORMATICS</p> -->
                 </div>
             </div>
         </a>
         
         <div class="nav-links">
-            <a href="#projects" class="nav-link">Proyek</a>
-            <a href="#team" class="nav-link">Tim</a>
-            <a href="#contact" class="nav-link">Kontak</a>
-            <a href="#contact" class="nav-link">Kontak</a>
-            <a href="#contact" class="nav-link">Kontak</a>
+            <a href="#Home" class="nav-link">Home</a>
+            <a href="#Product" class="nav-link">Product</a>
+            <a href="#projects" class="nav-link">Project</a>
+            <a href="#contact" class="nav-link">Member</a>
+            <a href="#contact" class="nav-link">Gallery</a>
+            <a href="#contact" class="nav-link">Partner</a>
         </div>
     </nav>
 </header>
