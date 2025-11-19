@@ -238,6 +238,7 @@ $team = fetchTeam();
     <?php include '../app/views/components/news.php'; ?>
     <?php include '../app/views/components/product.php'; ?>
     <?php include '../app/views/components/team.php'; ?>
+    <?php include '../app/views/components/fasilities.php'; ?>
     <?php include '../app/views/components/publication.php'; ?>
     <?php include '../app/views/components/footer.php'; ?>
 </body>
