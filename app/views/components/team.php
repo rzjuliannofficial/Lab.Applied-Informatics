@@ -10,7 +10,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm8 2c-2.33 0-6.99 1.4-6.99 3.5V17h7.01v-0.5c0-2.1-4.67-3.5-7.01-3.5zm-8 0c-2.33 0-4.67 1.4-4.67 3.5V17h4.67c0-2.1 2.34-3.5 4.67-3.5z"/>
                 </svg>
-                    MEMBER
+                    OUR TEAM
             </div>
             <p class="secondary-title">Get to Know <span>Us</span></p>
             <p class="text-center text-gray-500 mb-12">The most recent updates, all in one place.</p>

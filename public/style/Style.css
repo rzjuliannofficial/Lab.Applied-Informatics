@@ -270,7 +270,8 @@ body {
 }
 
 /* title area */
-.title {
+.title ,
+.publication-category{
     background-color: white; /* Latar belakang Putih */
     padding: 8px 14px; /* Padding lebih besar */
     border-radius: 99px; /* Full rounded */
@@ -403,17 +404,20 @@ body {
 .icon {
     border-radius: 5px;
     padding: 0.8rem;
-    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue) 100%);
+    color: var(--white);
     font-size: 2rem;
     transform: translateY(-1rem);
 }
-.fa-arrow-circle-right{
-    color: var(--blue-dark);
+.fa-arrow-alt-circle-right{
+    color: var(--blue);
+    font-size: 1.2rem;
 }
 
 .scope-title{
     padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: 600;
 }
 /* --- Projects Section --- */
 
@@ -486,9 +490,9 @@ body {
     margin-bottom: 0.75rem;
 }
 
-.badge {
+.category {
     display: inline-block;
-    background-color: var(--blue-light);
+    background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue) 100%);
     color: var(--white);
     padding: 6px 12px;
     border-radius: 20px;

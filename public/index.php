@@ -186,9 +186,8 @@ $team = fetchTeam();
                 <div class="scope-card">
                     <div class="icon fas fa-laptop-house"></div>
                     <h3 class="scope-title">
-                        Information System & Automation <div class="fas fa-arrow-circle-right"></div>
+                        Information System & Automation <div class="far fa-arrow-alt-circle-right"></div>
                     </h3>
-                    
                     <div class="scopes-description">
                         Nisi, dis sed cursus eget pellentesque mattis. Odio eu proin aliquam a. Semper bibendum tellus non tellus, facilisi dignissim in quam massa. Aliquam, feugiat ut cum tellus, sit. Quis consectetur gravida ac ac lectus cursus egestas.
                     </div>
@@ -197,7 +196,7 @@ $team = fetchTeam();
                 <div class="scope-card">
                     <div class="icon fas fa-laptop-house"></div>
                     <h3 class="scope-title">
-                        Internet Of Thinks & Applied Technologies <div class="fas fa-arrow-circle-right"></div>
+                        Internet Of Thinks & Applied Technologies <div class="far fa-arrow-alt-circle-right"></div>
                     </h3>
                     <div class="scopes-description">
                         Nisi, dis sed cursus eget pellentesque mattis. Odio eu proin aliquam a. Semper bibendum tellus non tellus, facilisi dignissim in quam massa. Aliquam, feugiat ut cum tellus, sit. Quis consectetur gravida ac ac lectus cursus egestas.
@@ -206,7 +205,7 @@ $team = fetchTeam();
                 <div class="scope-card">
                     <div class="icon fas fa-laptop-house"></div>
                     <h3 class="scope-title">
-                        Artificial Intelligence <div class="fas fa-arrow-circle-right"></div>
+                        Artificial Intelligence <div class="far fa-arrow-alt-circle-right"></div>
                     </h3>
                     <div class="scopes-description">
                         Nisi, dis sed cursus eget pellentesque mattis. Odio eu proin aliquam a. Semper bibendum tellus non tellus, facilisi dignissim in quam massa. Aliquam, feugiat ut cum tellus, sit. Quis consectetur gravida ac ac lectus cursus egestas.
@@ -215,7 +214,7 @@ $team = fetchTeam();
                 <div class="scope-card">
                     <div class="icon fas fa-laptop-house"></div>
                     <h3 class="scope-title">
-                        Research & Collaboration <div class="fas fa-arrow-circle-right"></div>
+                        Research & Collaboration <div class="far fa-arrow-alt-circle-right"></div>
                     </h3>
                     <div class="scopes-description">
                         Nisi, dis sed cursus eget pellentesque mattis. Odio eu proin aliquam a. Semper bibendum tellus non tellus, facilisi dignissim in quam massa. Aliquam, feugiat ut cum tellus, sit. Quis consectetur gravida ac ac lectus cursus egestas.
@@ -224,7 +223,7 @@ $team = fetchTeam();
                 <div class="scope-card">
                     <div class="icon fas fa-laptop-house"></div>
                     <h3 class="scope-title">
-                        Application Development <div class="fas fa-arrow-circle-right"></div>
+                        Application Development <div class="far fa-arrow-alt-circle-right"></div>
                     </h3>
                     <div class="scopes-description">
                         Nisi, dis sed cursus eget pellentesque mattis. Odio eu proin aliquam a. Semper bibendum tellus non tellus, facilisi dignissim in quam massa. Aliquam, feugiat ut cum tellus, sit. Quis consectetur gravida ac ac lectus cursus egestas.

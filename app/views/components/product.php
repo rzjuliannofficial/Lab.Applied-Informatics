@@ -7,9 +7,9 @@
         <div class="project header">
             <div class="title">
             <!-- Ikon Grup Orang (SVG Inline) -->
-                <i class="fas fa-cloud text-xs mr-2"></i> OUR CORE FOCUS
+                <i class="fas fa-cloud text-xs mr-2"></i> OUR PRODUCT
             </div>
-            <p class="secondary-title">Get to Know <span>Us</span></p>
+            <p class="secondary-title">Innovation Meet <span>Excellence</span></p>
             <p class="text-center text-gray-500 mb-12">The most recent updates, all in one place.</p>
         </div>
         <div class="projects-grid">
@@ -30,8 +30,9 @@
                     
                     <div class="project-content">
                         <div class="project-meta">
-                            <span class="badge"><?php echo htmlspecialchars($product['kategori']); ?></span>
+                            <span class="category"><?php echo htmlspecialchars($product['kategori']); ?></span>
                             </div>
+            
                         <h3 class="project-title"><?php echo htmlspecialchars($product['nama_produk']); ?></h3>
                         <p class="project-description"><?php echo htmlspecialchars($product['deskripsi']); ?></p>
                         

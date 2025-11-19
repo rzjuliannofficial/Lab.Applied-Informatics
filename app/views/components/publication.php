@@ -19,7 +19,7 @@
                     <div class="flex gap-6">
                         <div class="icon fas fa-laptop-house"></div>
                         <div class="project-meta">
-                            <span class="badge">PENELITIAN</span>
+                            <span class="publication-category">PENELITIAN</span>
                         </div>
                     </div>
                     <h3 class="project-title">Implementation of Test-Driven Approach to Empower Self-Learning in PHP Web Programming Practice</h3>
@@ -36,7 +36,7 @@
                     <div class="flex gap-6">
                         <div class="icon fas fa-laptop-house"></div>
                         <div class="project-meta">
-                            <span class="badge">PENELITIAN</span>
+                            <span class="publication-category">PENELITIAN</span>
                         </div>
                     </div>
                     <h3 class="project-title">Implementation of Test-Driven Approach to Empower Self-Learning in PHP Web Programming Practice</h3>
@@ -52,7 +52,7 @@
                     <div class="flex gap-6">
                         <div class="icon fas fa-laptop-house"></div>
                         <div class="project-meta">
-                            <span class="badge">PENELITIAN</span>
+                            <span class="publication-category">PENELITIAN</span>
                         </div>
                     </div>
                     <h3 class="project-title">Implementation of Test-Driven Approach to Empower Self-Learning in PHP Web Programming Practice</h3>
