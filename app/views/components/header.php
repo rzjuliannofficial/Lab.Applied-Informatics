@@ -19,7 +19,7 @@
             <a href="#contact" class="nav-link">Partner</a>
             <a href="#contact" class="nav-link">Contact</a>
             <button class="button-primary">
-                 <a href="loginAdmin.php">
+                 <a href="dasboard.php">
                     Log in
                 </a>
             </button>
