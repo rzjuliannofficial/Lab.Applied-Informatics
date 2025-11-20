@@ -310,3 +310,22 @@ INSERT INTO public.galeri (uploaded_by, file_url, caption, id_penelitian, id_keg
 ('f5e872a4-599f-8817-c25e-493a68577f89', '/galeri/screenshot_app_isyarat.png', 'Screenshot tampilan Aplikasi Penterjemah Isyarat.', NULL, NULL, NULL, NULL, 1, NULL),
 -- Relasi ke Publikasi Lab (ID 1)
 ('a6f983b5-6a07-9928-d367-5a4b7968879a', '/galeri/cover_lap_riset.jpg', 'Sampul Laporan Riset Tahunan Lab AI 2024.', NULL, NULL, 1, NULL, NULL, NULL);
+
+
+UPDATE public.dosen SET deskripsi = 'Kepala Laboratorium AI. Fokus penelitian utama pada Natural Language Processing, Deep Learning untuk klasifikasi, serta visualisasi data tingkat lanjut.'
+WHERE id = 'b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e'; -- Dr. Rina Saraswati
+
+UPDATE public.dosen SET deskripsi = 'Ahli dalam sistem tertanam dan Internet of Things (IoT). Berpengalaman dalam perancangan jaringan sensor nirkabel dan pengamanan sistem jaringan.'
+WHERE id = 'c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f'; -- Ir. Joni Iskandar, M.Sc.
+
+UPDATE public.dosen SET deskripsi = 'Spesialis dalam pengembangan aplikasi web skala besar, manajemen database modern, dan implementasi infrastruktur Cloud Computing.'
+WHERE id = 'd3c6e082-377d-6f9e-a03c-27184f3e5d67'; -- Dr. Kevin Sanjaya
+
+UPDATE public.dosen SET deskripsi = 'Peneliti senior di bidang Robotika dan Visi Komputer. Minat khusus meliputi AI Ethics dan pengembangan algoritma navigasi otonom.'
+WHERE id = 'e4d7f193-488e-770f-b14d-3829574f6e78'; -- Prof. Mira Lestari
+
+UPDATE public.dosen SET deskripsi = 'Fokus pada Software Engineering dan pengembangan aplikasi mobile (cross-platform). Sering terlibat dalam riset Usability (UX) dan desain antarmuka.'
+WHERE id = 'f5e872a4-599f-8817-c25e-493a68577f89'; -- Naufal Rizky, S.T., M.T.
+
+UPDATE public.dosen SET deskripsi = 'Ahli Big Data dan Machine Learning Optimization. Berpengalaman dalam komputasi paralel dan analisis data skala besar menggunakan framework seperti Hadoop/Spark.'
+WHERE id = 'a6f983b5-6a07-9928-d367-5a4b7968879a'; -- Sonia Dewi, S.Kom., M.Kom.
