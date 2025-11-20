@@ -15,13 +15,11 @@ function fetchProducts() {
     }
 }
 
-
-
 // Fungsi untuk mengambil semua data tim dari tabel 'dosen'
 function fetchTeam() {
     try {
         
-        $sql = "SELECT nama_dosen, email, foto_profil, deskripsi, keahlian_text, no_telepon FROM dosen ORDER BY nama_dosen ASC limit 2";
+        $sql = "SELECT nama, nip ,email, foto_profil, keahlian_text , deskripsi FROM dosen ORDER BY nama ASC limit 2";
         $res = q($sql);
         $team = pg_fetch_all($res) ?: [];
         return $team;
