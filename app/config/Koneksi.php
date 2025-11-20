@@ -10,7 +10,7 @@ function get_pg_connection(): PgSql\Connection {
     // Konfigurasi koneksi dari file JadwalKuliah.php
     $host   = 'localhost';
     $port   = '5432';
-    $dbname = 'lab_ai_polinema'; 
+    $dbname = 'lab_ai'; 
     $user   = 'postgres';
     $pass   = '123';
     
