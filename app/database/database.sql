@@ -30,6 +30,7 @@ CREATE TABLE public.users (
     password character varying(255) NOT NULL,
     role public.user_role DEFAULT 'editor'::public.user_role NOT NULL,
     id_dosen uuid NOT NULL, -- Diubah menjadi NOT NULL
+    email CHARACTER varying(255) UNIQUE,
     CONSTRAINT users_pkey PRIMARY KEY (id),
     CONSTRAINT users_username_key UNIQUE (username),
     CONSTRAINT fk_user_dosen FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE CASCADE
@@ -59,7 +60,6 @@ CREATE TABLE public.kekayaan_intelektual (
     CONSTRAINT kekayaan_intelektual_pkey PRIMARY KEY (id),
     CONSTRAINT kekayaan_intelektual_id_dosen_fkey FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE CASCADE
 );
-
 
 
 ALTER TABLE public.publikasi_dosen
