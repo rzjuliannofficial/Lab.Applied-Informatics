@@ -2,7 +2,7 @@
 <!-- Div untuk Glow Setengah Lingkaran -->
         <div class="half-circle-glow"></div>
     </div>
-<section id="publication" class="section">
+<section class="publication section">
     <div class="container">
         <div class="publication header">
             <div class="title">
@@ -12,7 +12,7 @@
             <p class="secondary-title">Faculty <span>Publications</span></p>
             <p class="text-center text-gray-500 mb-12">Explore the latest scholarly works and academic contributions from our faculty.</p>
         </div>
-        <div class="publications-grid">
+        <div class="publications-grid"  data-aos="fade-up">
             <div class="publication-card">
                 <div class="publication-content">
                     <div class="flex gap-6">
