@@ -15,50 +15,50 @@
                 </p>
             </div>
             <div class="scopes-grid">
-                <div class="scope-card" data-aos="fade-up">
-                    <div class="icon fas fa-cogs"></div>
+                <div class="scope-card">
+                    <div class="icon fas fa-laptop-house"></div>
                     <h3 class="scope-title">
                         Information System & Automation <div class="far fa-arrow-alt-circle-right"></div>
                     </h3>
                     <div class="scope-description">
-                        Building information systems to support organizational management, business, health, and education.
+                        Nisi, dis sed cursus eget pellentesque mattis. Odio eu proin aliquam a. Semper bibendum tellus non tellus, facilisi dignissim in quam massa. Aliquam, feugiat ut cum tellus, sit. Quis consectetur gravida ac ac lectus cursus egestas.
                     </div>
                 </div>
                
-                <div class="scope-card" data-aos="fade-up">
-                    <div class="icon fas fas fa-microchip"></div>
+                <div class="scope-card">
+                    <div class="icon fas fa-laptop-house"></div>
                     <h3 class="scope-title">
                         Internet Of Thinks & Applied Technologies <div class="far fa-arrow-alt-circle-right"></div>
                     </h3>
                     <div class="scope-description">
-                       Integrating hardware and software to produce intelligent solutions in manufacturing, agriculture, transportation, and the environment
+                        Nisi, dis sed cursus eget pellentesque mattis. Odio eu proin aliquam a. Semper bibendum tellus non tellus, facilisi dignissim in quam massa. Aliquam, feugiat ut cum tellus, sit. Quis consectetur gravida ac ac lectus cursus egestas.
                     </div>
                 </div>
-                <div class="scope-card" data-aos="fade-up">
-                    <div class="icon fas fa-robot"></div>
+                <div class="scope-card">
+                    <div class="icon fas fa-laptop-house"></div>
                     <h3 class="scope-title">
                         Artificial Intelligence <div class="far fa-arrow-alt-circle-right"></div>
                     </h3>
                     <div class="scope-description">
-                        Analyze data, create machine learning models, and develop intelligent systems that can assist decision-making.
+                        Nisi, dis sed cursus eget pellentesque mattis. Odio eu proin aliquam a. Semper bibendum tellus non tellus, facilisi dignissim in quam massa. Aliquam, feugiat ut cum tellus, sit. Quis consectetur gravida ac ac lectus cursus egestas.
                     </div>
                 </div>
-                <div class="scope-card" data-aos="fade-up"> 
-                    <div class="icon fas fa-handshake"></div>
+                <div class="scope-card">
+                    <div class="icon fas fa-laptop-house"></div>
                     <h3 class="scope-title">
                         Research & Collaboration <div class="far fa-arrow-alt-circle-right"></div>
                     </h3>
                     <div class="scope-description">
-                        Conducting multidisciplinary research and collaborating with various parties.
+                        Nisi, dis sed cursus eget pellentesque mattis. Odio eu proin aliquam a. Semper bibendum tellus non tellus, facilisi dignissim in quam massa. Aliquam, feugiat ut cum tellus, sit. Quis consectetur gravida ac ac lectus cursus egestas.
                     </div>
                 </div>
-                <div class="scope-card" data-aos="fade-up">
-                    <div class="icon fas fa-code"></div>
+                <div class="scope-card">
+                    <div class="icon fas fa-laptop-house"></div>
                     <h3 class="scope-title">
                         Application Development <div class="far fa-arrow-alt-circle-right"></div>
                     </h3>
                     <div class="scope-description">
-                       Designing and building desktop, web, and mobile applications for industrial and academic needs.
+                        Nisi, dis sed cursus eget pellentesque mattis. Odio eu proin aliquam a. Semper bibendum tellus non tellus, facilisi dignissim in quam massa. Aliquam, feugiat ut cum tellus, sit. Quis consectetur gravida ac ac lectus cursus egestas.
                     </div>
                 </div>
             </div>
