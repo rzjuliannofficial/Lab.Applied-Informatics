@@ -139,9 +139,9 @@
 <!-- Div untuk Glow Setengah Lingkaran -->
         <div class="half-circle-glow"></div>
     </div>
-<section class="bg-[#f0f4f8] p-8">
+<section class="bg-[#f0f4f8] section">
 
-    <div class="max-w-4xl mx-auto">
+    <div class="max-w-4xl mx-auto pt-[2rem] pb-[2rem]">
         <div class="project header">
             <div class="title">
             <!-- Ikon Grup Orang (SVG Inline) -->
