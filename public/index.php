@@ -33,7 +33,8 @@ function fetchTeam() {
 $products = fetchProducts();
 $team = fetchTeam();
 
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -42,6 +43,8 @@ $team = fetchTeam();
     <link rel="stylesheet" href="style/Style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
         <style>
         /* PENTING: Animasi `@keyframes` harus tetap menggunakan CSS murni.
            Tailwind tidak memiliki utility class bawaan untuk @keyframes. */
@@ -101,7 +104,7 @@ $team = fetchTeam();
 <body>
     <?php include '../app/views/components/header.php'; ?>
 
-    <section class="hero section ">
+    <section class="hero section" >
         <div class="container hero-grid">
             <div class="hero-left">
                 <h1 class="hero-title">
@@ -116,7 +119,7 @@ $team = fetchTeam();
                     <button class="button-secondary">Connect With Us</button>
                 </div>
                 
-               <div class="w-full max-w-lg mt-8 justify-center items-center p-4">               
+               <div class="w-full max-w-lg mt-8 justify-center items-center p-4" >               
                     <div class="w-full max-w-md"> <!-- Lebar Maksimum tetap max-w-md --> 
                         <!-- Kontainer utama karosel -->
                         <div class="logo-carousel-container h-20 sm:h-11">
@@ -172,6 +175,16 @@ $team = fetchTeam();
     <?php include '../app/views/components/footer.php'; ?>
     <div class="bottom-blur-overlay"></div>
 </body>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+//   AOS.init();
+  AOS.init({
+    once: false,
+    duration: 1000, // Durasi animasi 1 detik
+    easing: 'ease-out',
+    offset: 0,    // Jarak trigger dari bawah layar
+  });
+</script>
 <script>
     // Dapatkan elemen yang dibutuhkan
 const bottomBlur = document.querySelector('.bottom-blur-overlay');

@@ -1,49 +1,76 @@
-<aside class="w-64 sidebar-bg fixed top-0 left-0 h-full shadow-2xl z-40 transition-transform duration-300 transform -translate-x-full md:translate-x-0">
-    <div class="p-6">
-        <div class="flex items-center space-x-3 mb-6">
-            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center">
-                <!-- Logo Placeholder -->
-                <i class="fas fa-brain text-xl text-blue-800"></i>
-            </div>
-            <span class="text-xl font-bold text-white">AI Lab Admin</span>
-        </div>
-
-        <div class="mb-8 p-3 bg-gray-700/50 rounded-lg">
-            <div class="flex items-center space-x-3">
-                <img src="https://placehold.co/40x40/f97316/ffffff?text=U" alt="User Avatar" class="w-10 h-10 rounded-full object-cover">
-                <div>
-                    <p class="text-white font-semibold">Unggul W. (Admin)</p>
-                    <p class="text-xs text-green-400"><i class="fas fa-circle text-xs mr-1"></i> Online</p>
-                </div>
+<!-- ================= SIDEBAR ================= -->
+    <!-- Hapus border dan pastikan satu warna background -->
+    <aside class="fixed inset-y-0 left-0 sidebar-bg w-64 transition-transform duration-500 transform -translate-x-full md:translate-x-0 z-40 shadow-xl flex flex-col">
+        
+        <!-- Logo Area (Tanpa Border) -->
+        <div class="flex items-center justify-center h-20 shrink-0">
+            <div class="flex items-center gap-3 text-white">
+                <i class="fas fa-robot text-2xl text-blue-400"></i>
+                <h1 class="text-xl font-bold tracking-wider">LAB AI <span class="text-blue-400 text-xs block font-normal">Polinema</span></h1>
             </div>
         </div>
 
-        <!-- Navigasi Utama -->
-        <nav class="space-y-1">
-            <a href="dasboard.php" class="flex items-center p-3 rounded-lg text-white font-semibold hover:bg-gray-700">
-                <i class="fas fa-chart-line w-5 h-5 mr-3"></i>
-                Dashboard
+        <!-- Navigation Menu -->
+        <nav class="mt-2 px-4 space-y-2 flex-1 overflow-y-auto">
+            <a href="dasboard.php" class="flex items-center px-4 py-3 bg-blue-600 text-white rounded-lg transition-colors shadow-lg shadow-blue-900/50">
+                <i class="fas fa-tachometer-alt w-6"></i>
+                <span class="font-medium">Dashboard</span>
             </a>
-            <p class="text-xs text-gray-400 uppercase pt-4 pb-1 px-3">Modul Konten</p>
-            <a href="kelolaAnggotaLab.php" class="flex items-center p-3 rounded-lg text-gray-300 hover:bg-gray-700">
-                <i class="fas fa-users w-5 h-5 mr-3"></i>
-                Anggota Lab
+            
+            <div class="pt-4 pb-2">
+                <p class="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Modul Konten</p>
+            </div>
+
+            <a href="kelolaAnggotaLab.php" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors group">
+                <i class="fas fa-users w-6 text-gray-400 group-hover:text-white"></i>
+                <span>Lab Members</span>
             </a>
-            <a href="riset_project.php" class="flex items-center p-3 rounded-lg text-gray-300 hover:bg-gray-700">
-                <i class="fas fa-flask w-5 h-5 mr-3"></i>
-                Riset & Proyek
+            <a href="artikel_berita.php" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors group">
+                <i class="fas fa-calendar-alt w-6 text-gray-400 group-hover:text-white"></i>
+                <span>Research & Innovation</span>
             </a>
-            <a href="artikel_berita.php" class="flex items-center p-3 rounded-lg text-gray-300 hover:bg-gray-700">
-                <i class="fas fa-newspaper w-5 h-5 mr-3"></i>
-                Artikel / Berita
+            <a href="artikel_berita.php" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors group">
+                <i class="fas fa-calendar-alt w-6 text-gray-400 group-hover:text-white"></i>
+                <span>Activities</span>
+            </a>
+            <a href="#" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors group">
+                <i class="fas fa-calendar-alt w-6 text-gray-400 group-hover:text-white"></i>
+                <span>Gallery</span>
             </a>
 
+            <div class="pt-4 pb-2">
+                <p class="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Sistem</p>
+            </div>
 
-            <p class="text-xs text-gray-400 uppercase pt-4 pb-1 px-3">Sistem</p>
-            <a href="kelolaUser.php" class="flex items-center p-3 rounded-lg text-gray-300 hover:bg-gray-700">
-                <i class="fas fa-user-shield w-5 h-5 mr-3"></i>
-                Kelola User
+            <a href="kelolaUser.php" class="flex items-center px-4 py-2.5 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors group">
+                <i class="fas fa-cog w-6 text-gray-400 group-hover:text-white"></i>
+                <span>Kelola User</span>
             </a>
         </nav>
-    </div>
-</aside>
+
+        <!-- User Profile Bottom (Tanpa Border) -->
+        <div class="p-4 mb-2">
+            <div class="flex items-center gap-3">
+                <!-- Avatar -->
+                <div class="relative">
+                    <div class="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold text-lg shadow-sm">
+                        U
+                    </div>
+                    <!-- Titik hijau statis di avatar -->
+                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 bg-green-500 rounded-full animate-pulse"></span>
+                </div>
+                
+                <!-- User Info -->
+                <div class="flex-1 min-w-0">
+                    <p class="text-sm font-medium text-white truncate">Unggul W.</p>
+                    <p class="text-xs text-gray-400 truncate">(Admin)</p>
+                </div>
+                
+                <!-- Logout Button -->
+                <a href="Logout.php" class="text-gray-400 hover:text-red-400 transition-colors p-2 " title="Logout">
+                    <i class="fas fa-sign-out-alt text-lg"></i>
+                </a>
+            </div>
+        </div>
+    </aside>
+    <!-- ================= END SIDEBAR ================= -->

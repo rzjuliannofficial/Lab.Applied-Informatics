@@ -15,7 +15,7 @@
         <div class="profile-grid">
             <?php if (count($team) > 0): ?>
                 <?php foreach ($team as $member): ?>
-                <div class="profile-card">
+                <div class="profile-card" data-aos="fade-up">
                     <div class="profile-info">
                         <h3 class="profile-name"><?= htmlspecialchars($member['nama']); ?></h3>
 
@@ -55,7 +55,7 @@
             <?php endif; ?>
         </div>
         <div class="flex justify-center mt-10">
-            <button class="button-primary">
+            <button class="button-secondary">
                 Read more
             </button>
         </div>        

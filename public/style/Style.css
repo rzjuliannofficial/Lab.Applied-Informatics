@@ -27,6 +27,7 @@
     text-decoration: none;
     font-family: 'Poppins';
     /* font-size: 16px; */
+    scroll-behavior: smooth;
 }
 
 body, html {
@@ -55,13 +56,7 @@ body {
     z-index: 10;
 
     backdrop-filter: blur(1.3px); /* Sesuaikan nilai blur */
-    -webkit-backdrop-filter: blur(10000px); /* Untuk kompatibilitas WebKit */
-
-    background: linear-gradient(
-        to top,
-        rgba(255, 255, 255, 0.9), /* Sedikit transparan/buram di paling bawah */
-        rgba(255, 255, 255, 0) /* Sepenuhnya transparan di atas */
-    );
+    -webkit-backdrop-filter: blur(100px); /* Untuk kompatibilitas WebKit */
     pointer-events: none;
 }
 
@@ -346,7 +341,7 @@ body {
     font-weight: medium;
 }
 .secondary-title span{
-    font-size: 50px;
+    font-size: 48px;
     font-family: 'Instrument Serif';
     font-style: italic;
 }
@@ -751,8 +746,9 @@ body {
 
 .scopes-grid {
     display: grid;
+    margin-top: 3rem;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 @media (min-width: 1024px) {
@@ -762,14 +758,11 @@ body {
 }
 
 .scope-card {
-    /* background: linear-gradient(135deg, rgba(0, 136, 255, 0.03) 0%, rgba(34, 211, 238, 0.105) 100%); */
-    /* filter: drop-shadow(0 4px 6px rgba(0, 136, 255, 0.1)); */
     border-radius: 12px;
-    /* overflow: hidden; */
-    /* border: 1px solid var(--border-color); */
     transition: all 0.3s ease;
     padding: 0px 40px 40px 40px;
-    box-shadow: 0px 5px 10px rgba(5, 0, 5, 0.15);
+    box-shadow: 0px 5px 10px rgba(5, 0, 5, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .scope-card:hover {
@@ -830,13 +823,14 @@ body {
 }
 
 .profile-card {
-    /* background: var(--blue-dark); */
+    background: var(--blue-dark);
     display: flex;
     border-radius: 12px;
     padding: 2rem;
     transition: all 0.3s ease;
     box-shadow: 0px 5px 10px rgba(5, 0, 5, 0.15);
     gap: 2rem;
+
 }
 
 .profile-card:hover {
@@ -861,7 +855,7 @@ body {
 .profile-image {
     width: 140px;
     height: 140px;
-    background: linear-gradient(135deg, #ff8c42, #ffb347);
+    background: var(--white);
     border-radius: 8px;
     flex-shrink: 0;
 }
@@ -884,7 +878,7 @@ body {
     margin-bottom: 15px;
     /* font-display: 1px; */
     line-height: 1.3;
-     background: linear-gradient(90deg, var(--blue) 0%, var(--blue-dark) 100%);
+     background: linear-gradient(90deg, var(--blue-light) 0%, var(--white) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -893,7 +887,7 @@ body {
 .profile-expertise {
     font-size: 0.875rem;
     margin-bottom: 1rem;
-    /* color: var(--orange); */
+    color: var(--gray);
     font-weight: 600;
 }
 
@@ -903,7 +897,7 @@ body {
 
 .profile-description {
     font-size: 0.75rem;
-    color: var(--gray);
+    color: var(--white);
     font-style: italic;
     /* Multiline truncation equivalent */
     display: -webkit-box;
@@ -914,7 +908,7 @@ body {
 
 .profile-contact {
     font-size: 0.875rem;
-    /* color: var(--white); */
+    color: var(--gray);
 }
 
 /* --- Footer --- */
