@@ -104,7 +104,6 @@ if (empty($products)) {
     <link rel="stylesheet" href="style/Style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <?php include '../app/views/components/header.php'; ?>
@@ -237,16 +236,6 @@ if (empty($products)) {
     </section>
     <div class="bottom-blur-overlay"></div>
 </body>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-//   AOS.init();
-  AOS.init({
-    once: false,
-    duration: 1500, // Durasi animasi 1 detik
-    easing: 'ease-out',
-    offset: 0,    // Jarak trigger dari bawah layar
-  });
-</script>
 <script>
     // Dapatkan elemen yang dibutuhkan
 const bottomBlur = document.querySelector('.bottom-blur-overlay');
