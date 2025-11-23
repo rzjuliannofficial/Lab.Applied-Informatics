@@ -39,7 +39,7 @@
         <div class="project header">
             <div class="title">
             <!-- Ikon Grup Orang (SVG Inline) -->
-                <i class="fas fa-cloud text-xs mr-2"></i> OUR FACILITIES
+                <i class="fa-solid fa-building text-sm mr-2"></i> OUR FACILITIES
             </div>
             <p class="secondary-title">Explore Our Space <span>Space</span></p>
             <p class="text-center text-gray-500 mb-12">Comfort and convenience, designed just for you.</p>

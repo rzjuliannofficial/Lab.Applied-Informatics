@@ -7,7 +7,7 @@
         <div class="publication header">
             <div class="title">
             <!-- Ikon Grup Orang (SVG Inline) -->
-                <i class="fas fa-cloud text-xs mr-2"></i> RESEARCH & INNOVATION
+                <i class="fa-solid fa-flask text-sm mr-2"></i> RESEARCH & INNOVATION
             </div>
             <p class="secondary-title">Faculty <span>Publications</span></p>
             <p class="text-center text-gray-500 mb-12">Explore the latest scholarly works and academic contributions from our faculty.</p>

@@ -38,7 +38,7 @@ if (!$products) {
         <div class="product header">
             <div class="title">
             <!-- Ikon Grup Orang (SVG Inline) -->
-                <i class="fas fa-cloud text-xs mr-2"></i> OUR PRODUCT
+                <i class="fa-solid fa-rocket text-sm mr-2"></i> OUR PRODUCT
             </div>
             <p class="secondary-title">Innovation Meet <span>Excellence</span></p>
             <p class="text-center text-gray-500 mb-12">The most recent updates, all in one place.</p>
