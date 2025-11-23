@@ -30,8 +30,8 @@ function fetchTeam() {
 }
 
 // Ambil data sebelum memuat komponen
-$products = fetchProducts();
 $team = fetchTeam();
+$products = fetchProducts();
 
 ?>
 <!DOCTYPE html>
@@ -42,7 +42,7 @@ $team = fetchTeam();
     <title>Lab AI Polinema - Inovasi Multimedia Terdepan</title>
     <link rel="stylesheet" href="style/Style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <style>
         /* PENTING: Animasi `@keyframes` harus tetap menggunakan CSS murni.
@@ -168,7 +168,7 @@ $team = fetchTeam();
     <?php include '../app/views/components/scope.php'; ?>
     <?php include '../app/views/components/news.php'; ?>
     <?php include '../app/views/components/product.php'; ?>
-    <?php include '../app/views/components/team.php'; ?>
+    <?php include '../app/views/components/member.php'; ?>
     <?php include '../app/views/components/fasilities.php'; ?>
     <?php include '../app/views/components/publication.php'; ?>
     <?php include '../app/views/components/footer.php'; ?>
