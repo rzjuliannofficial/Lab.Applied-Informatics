@@ -109,7 +109,7 @@ if (empty($products)) {
 <body>
     <?php include '../app/views/components/header.php'; ?>
     <section id="team" class="section pt-0">
-        <div class="pt-[5rem] pb-[9rem] mx-auto flex flex-col items-center bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)]">
+        <div class="pt-[8rem] pb-[13rem] mx-auto flex flex-col items-center bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)]">
             <div class="flex items-center gap-2 text-blue-200 font-semibold mb-4" data-aos="fade-up">
                 <i class="fas fa-users-viewfinder"></i> 
                 <span class="uppercase tracking-wider text-sm">TIM & STRUKTUR LAB</span>
