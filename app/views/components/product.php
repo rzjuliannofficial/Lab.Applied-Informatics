@@ -47,7 +47,7 @@ if (!$products) {
         <div class="products-grid">
             <?php if (count($products) > 0): ?>
                 <?php foreach ($products as $product): ?>
-                <div class="product-card">
+                <div class="product-card" data-aos="fade-up">
                     <div class="product-logo-container">
                         <img src="<?= htmlspecialchars($product['image']) ?>" 
                                 alt="<?= htmlspecialchars($product['nama_produk']) ?>">
