@@ -7,7 +7,7 @@
             <div class="scope-header">
                 <div class="title">
             <!-- Ikon Grup Orang (SVG Inline) -->
-                    <i class="fas fa-cloud text-xs mr-2"></i> OUR CORE FOCUS
+                    <i class="fa-solid fa-crosshairs text-sm mr-2"></i> OUR CORE FOCUS
                 </div>
                 <p class="secondary-title">Defining Our <span>Scope</span></p>
                 <p class="scope-description">
@@ -15,7 +15,7 @@
                 </p>
             </div>
             <div class="scopes-grid">
-                <div class="scope-card" data-aos="fade-up">
+                <div class="scope-card" data-aos="fade-up" >
                     <div class="icon fas fa-cogs"></div>
                     <h3 class="scope-title">
                         Information System & Automation <div class="far fa-arrow-alt-circle-right"></div>
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                
-                <div class="scope-card" data-aos="fade-up">
+                <div class="scope-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="icon fas fas fa-microchip"></div>
                     <h3 class="scope-title">
                         Internet Of Thinks & Applied Technologies <div class="far fa-arrow-alt-circle-right"></div>
@@ -43,7 +43,7 @@
                         Analyze data, create machine learning models, and develop intelligent systems that can assist decision-making.
                     </div>
                 </div>
-                <div class="scope-card" data-aos="fade-up"> 
+                <div class="scope-card" data-aos="fade-up" data-aos-delay="300"> 
                     <div class="icon fas fa-handshake"></div>
                     <h3 class="scope-title">
                         Research & Collaboration <div class="far fa-arrow-alt-circle-right"></div>
