@@ -45,12 +45,16 @@ if (!$products) {
         </div>
 
         <div class="products-grid">
+            <?php 
+                $delay_increment = 200; // Penambahan delay 200 milidetik per kartu
+                $delay = 0; 
+            ?>
             <?php if (count($products) > 0): ?>
                 <?php foreach ($products as $product): ?>
-                <div class="product-card" data-aos="fade-up">
+                <div class="product-card" data-aos="fade-up" data-aos-delay="<?= $delay; ?>">
                     <div class="product-logo-container">
                         <img src="<?= htmlspecialchars($product['image']) ?>" 
-                                alt="<?= htmlspecialchars($product['nama_produk']) ?>">
+                            alt="<?= htmlspecialchars($product['nama_produk']) ?>">
                     </div>
                     
                     <div class="product-content">
@@ -67,6 +71,10 @@ if (!$products) {
                             </a>
                         </div>
                     </div>
+                <?php 
+                    //Tambah delay untuk kartu berikutnya
+                    $delay += $delay_increment; 
+                ?>
                 </div>
                 <?php endforeach; ?>
             <?php else: ?>
