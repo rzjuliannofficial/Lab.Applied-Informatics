@@ -15,11 +15,11 @@
             <a href="index.php" class="nav-link">Home</a>
             <a href="product.php" class="nav-link">Product</a>
             <a href="member.php" class="nav-link">Member</a>
-            <a href="#contact" class="nav-link">Gallery</a>
-            <a href="#contact" class="nav-link">Partner</a>
-            <a href="#contact" class="nav-link">Contact</a>
+            <a href="gallery.php" class="nav-link">Gallery</a>
+            <a href="partner.php" class="nav-link">Partner</a>
+            <a href="contact.php" class="nav-link">Contact</a>
             <button class="button-primary">
-                 <a href="dasboard.php">
+                 <a href="loginAdmin.php">
                     Log in
                 </a>
             </button>
