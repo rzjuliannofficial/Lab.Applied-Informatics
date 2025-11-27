@@ -1,10 +1,11 @@
 <?php
-require_once '../app/config/Koneksi.php'; 
+require_once '../app/config/Koneksi.php';
 
-function fetchAllProducts() {
+function fetchAllProducts()
+{
     try {
         $sql = "SELECT id_produk, nama_produk, deskripsi, kategori, link_demo, image FROM produk ORDER BY id_produk DESC";
-        $res = q($sql); 
+        $res = q($sql);
         $products = pg_fetch_all($res) ?: [];
         return $products;
     } catch (RuntimeException $e) {
@@ -64,6 +65,7 @@ if (empty($products)) {
 ?>
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,6 +75,7 @@ if (empty($products)) {
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
+
 <body>
     <?php include '../app/views/components/header.php'; ?>
 
@@ -87,7 +90,7 @@ if (empty($products)) {
             <h1>Our Products</h1>
             <p class="product-hero-subtitle">Innovation Meets Excellence</p>
             <p class="product-hero-description">
-                Discover our cutting-edge solutions crafted with passion and precision. 
+                Discover our cutting-edge solutions crafted with passion and precision.
                 From AI-powered platforms to blockchain innovations, we're transforming ideas into reality.
             </p>
 
@@ -113,49 +116,14 @@ if (empty($products)) {
     </div>
 
     <section class="products-section">
-        <div class="container">
-            <div class="products-grid">
-                <?php foreach ($products as $product): ?>
-                    <div class="product-card">
-                        <div class="product-logo-container">
-                            <img src="<?= htmlspecialchars($product['image']) ?>" 
-                                 alt="<?= htmlspecialchars($product['nama_produk']) ?>">
-                        </div>
-                        
-                        <div class="product-content">
-                            <?php if (!empty($product['kategori'])): ?>
-                                <span class="product-category">
-                                    <?= htmlspecialchars($product['kategori']) ?>
-                                </span>
-                            <?php endif; ?>
-                            
-                            <h3 class="product-name">
-                                <?= htmlspecialchars($product['nama_produk']) ?>
-                            </h3>
-                            
-                            <?php if (!empty($product['deskripsi'])): ?>
-                                <p class="product-description">
-                                    <?= htmlspecialchars($product['deskripsi']) ?>
-                                </p>
-                            <?php endif; ?>
-                            
-                            <?php if (!empty($product['link_demo'])): ?>
-                                <div class="product-footer">
-                                    <a href="<?= htmlspecialchars($product['link_demo']) ?>" 
-                                       class="product-link" 
-                                       target="_blank">
-                                        View Demo
-                                        <i class="fas fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
+        <div class="container products-grid">
+            <?php foreach ($products as $product): ?>
+                <?php include('../app/views/components/product.php') ?>
+            <?php endforeach; ?>
         </div>
     </section>
 
     <?php include '../app/views/components/footer.php'; ?>
 </body>
+
 </html>
