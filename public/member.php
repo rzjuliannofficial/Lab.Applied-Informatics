@@ -100,8 +100,9 @@ if (empty($products)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Member - Lab AI Polinema</title>
     <link rel="stylesheet" href="style/Style.css">
+     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -109,20 +110,25 @@ if (empty($products)) {
 <body>
     <?php include '../app/views/components/header.php'; ?>
     <section id="team" class="section pt-0">
-        <div class="pt-[8rem] pb-[13rem] mx-auto flex flex-col items-center bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)]">
-            <div class="flex items-center gap-2 text-blue-200 font-semibold mb-4" data-aos="fade-up">
+        <div class="member-hero-section pt-[8rem] pb-[13rem] mx-auto flex flex-col items-center bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)]">
+            <!-- Floating Icons -->
+            <i class="fas fa-users floating-icon" style="font-size: 3rem;"></i>
+            <i class="fas fa-graduation-cap floating-icon" style="font-size: 2.5rem;"></i>
+            <i class="fas fa-brain floating-icon" style="font-size: 3rem;"></i>
+            <i class="fas fa-lightbulb floating-icon" style="font-size: 2.5rem;"></i>
+            <div class="relative z-10 flex items-center gap-2 text-blue-200 font-semibold mb-4" data-aos="fade-up">
                 <i class="fas fa-users-viewfinder"></i> 
-                <span class="uppercase tracking-wider text-sm">TIM & STRUKTUR LAB</span>
+                <span class="uppercase tracking-wider text-sm">TEAM & LAB STRUCTURE</span>
             </div>
 
             <!-- Judul Utama -->
             <h2 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 text-white" data-aos="fade-up" data-aos-delay="100">
-                Kenali Tim Inovator Kami
+                Meet Our Innovator Teams
             </h2>
 
             <!-- Deskripsi -->
             <p class="text-lg md:text-xl text-blue-100 leading-relaxed max-w-3xl mb-14 text-center" data-aos="fade-up" data-aos-delay="200">
-                Bertemu dengan para dosen, peneliti, dan mahasiswa berbakat yang menjadi motor penggerak inovasi di Lab Multimedia.
+                Meet the talented lecturers, researchers, and students who are the driving force behind innovation at the Multimedia Lab.
             </p>
 
             <div class="w-900 bg-blue-300/20 text-gray border-2 border-blue-50/30 rounded-2xl shadow-2xl p-8 md:p-10" data-aos="fade-up" data-aos-delay="500">
@@ -131,19 +137,19 @@ if (empty($products)) {
                     <!-- Item 1: Dosen -->
                     <div class="flex flex-col items-center justify-center p-2">
                         <span class="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tighter">12</span>
-                        <span class="text-gray-300 font-medium text-sm md:text-base uppercase tracking-wide">Dosen Pembimbing</span>
+                        <span class="text-gray-300 font-medium text-sm md:text-base uppercase tracking-wide">Supervising Lecturers</span>
                     </div>
 
                     <!-- Item 2: Mahasiswa -->
                     <div class="flex flex-col items-center justify-center p-2">
                         <span class="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tighter">200+</span>
-                        <span class="text-gray-300 font-medium text-sm md:text-base uppercase tracking-wide">Mahasiswa Terlibat</span>
+                        <span class="text-gray-300 font-medium text-sm md:text-base uppercase tracking-wide">Students Involved</span>
                     </div>
 
                     <!-- Item 3: Bidang Fokus -->
                     <div class="flex flex-col items-center justify-center p-2">
                         <span class="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tighter">5</span>
-                        <span class="text-gray-300 font-medium text-sm md:text-base uppercase tracking-wide">Bidang Fokus Penelitian</span>
+                        <span class="text-gray-300 font-medium text-sm md:text-base uppercase tracking-wide">Research Focus Areas</span>
                     </div>
 
                 </div>
@@ -280,3 +286,5 @@ if (bottomBlur && footer) {
     console.error("Elemen '.bottom-blur-overlay' atau 'footer' tidak ditemukan.");
 }
 </script>
+
+<?php include '../app/views/components/footer.php';
