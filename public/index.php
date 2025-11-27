@@ -15,13 +15,11 @@ function fetchProducts() {
     }
 }
 
-
-
 // Fungsi untuk mengambil semua data tim dari tabel 'dosen'
 function fetchTeam() {
     try {
         
-        $sql = "SELECT nama_dosen, email, foto_profil, deskripsi, keahlian_text, no_telepon FROM dosen ORDER BY nama_dosen ASC limit 2";
+        $sql = "SELECT nama, nip ,email, foto_profil, keahlian_text , deskripsi FROM dosen ORDER BY nama ASC limit 2";
         $res = q($sql);
         $team = pg_fetch_all($res) ?: [];
         return $team;
@@ -32,10 +30,11 @@ function fetchTeam() {
 }
 
 // Ambil data sebelum memuat komponen
-$products = fetchProducts();
 $team = fetchTeam();
+$products = fetchProducts();
 
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -44,7 +43,8 @@ $team = fetchTeam();
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style/Style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <style>
         /* PENTING: Animasi `@keyframes` harus tetap menggunakan CSS murni.
            Tailwind tidak memiliki utility class bawaan untuk @keyframes. */
@@ -169,12 +169,22 @@ $team = fetchTeam();
     <?php include '../app/views/components/scope.php'; ?>
     <?php include '../app/views/components/news.php'; ?>
     <?php include '../app/views/components/product.php'; ?>
-    <?php include '../app/views/components/team.php'; ?>
+    <?php include '../app/views/components/member.php'; ?>
     <?php include '../app/views/components/fasilities.php'; ?>
     <?php include '../app/views/components/publication.php'; ?>
     <?php include '../app/views/components/footer.php'; ?>
     <div class="bottom-blur-overlay"></div>
 </body>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+//   AOS.init();
+  AOS.init({
+    once: false,
+    duration: 1500, // Durasi animasi 1 detik
+    easing: 'ease-out',
+    offset: 0,    // Jarak trigger dari bawah layar
+  });
+</script>
 <script>
     // Dapatkan elemen yang dibutuhkan
 const bottomBlur = document.querySelector('.bottom-blur-overlay');

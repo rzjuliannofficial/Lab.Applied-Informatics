@@ -7,7 +7,7 @@
         <div class="profile header">
             <div class="title">
             <!-- Ikon Grup Orang (SVG Inline) -->
-                <i class="fas fa-cloud text-xs mr-2"></i> OUR PRODUCT
+                <i class="fa-solid fa-id-card-clip text-sm mr-2"></i> OUR MEMBER
             </div>
             <p class="secondary-title">Get to Know <span>Us</span></p>
             <p class="text-center text-gray-500 mb-12">The most recent updates, all in one place.</p>
@@ -17,16 +17,16 @@
                 <?php foreach ($team as $member): ?>
                 <div class="profile-card">
                     <div class="profile-info">
-                        <h3 class="profile-name"><?= htmlspecialchars($member['nama_dosen']); ?></h3>
+                        <h3 class="profile-name"><?= htmlspecialchars($member['nama']); ?></h3>
 
                         <div class="profile-expertise">
                             <?php 
                             // Akses kolom keahlian_text yang baru dibuat
-                            // $keahlian = $member['keahlian_text'] ?? '';
-                            // if (!empty($keahlian)) {
-                            //     foreach (explode(',', $keahlian) as $skill): ?>
-                                <span class="skill-tag"><?php //htmlspecialchars(trim($skill)); ?></span>
-                            <?php //endforeach; } ?>
+                            $keahlian = $member['keahlian_text'] ?? '';
+                            if (!empty($keahlian)) {
+                                foreach (explode(',', $keahlian) as $skill): ?>
+                                <span class="skill-tag"><?= htmlspecialchars(trim($skill)); ?></span>
+                            <?php endforeach; } ?>
                         </div>
                         
                         <div class="profile-description-container">
@@ -35,11 +35,10 @@
                             </p>
                         </div>
                         <p class="profile-contact" style="margin-bottom: 0.5rem;"><?= htmlspecialchars($member['email']); ?></p>
-                        <p class="profile-contact"><?= htmlspecialchars($member['no_telepon'] ?? '-'); ?></p> 
                     </div>
 
                     <div class="profile-image">
-                        <?php if (!empty($member['foto_profil'])): ?>
+                        <?php if (empty($member['foto_profil'])): ?>
                             <img src="<?= htmlspecialchars($member['foto_profil']); ?>" alt="<?= htmlspecialchars($member['nama_dosen']); ?>">
                         <?php else: ?>
                             <div class="profile-photo-icon">

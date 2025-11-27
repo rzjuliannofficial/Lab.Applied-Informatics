@@ -1,4 +1,101 @@
+<?php
+function fetchNews() {
+    try {
+        $sql = "SELECT 
+                    b.id, 
+                    b.judul, 
+                    b.isi_berita, 
+                    b.tanggal, 
+                    b.image, 
+                    b.kategori,
+                    u.nama AS nama_pembuat  -- Mengambil kolom nama dari tabel users
+                FROM 
+                    public.berita b
+                JOIN 
+                    public.users u ON b.created_by = u.id ORDER BY b.judul Asc";
+        $res = q($sql);
+        $news = pg_fetch_all($res) ?: [];
+        return $news;
+    } catch (RuntimeException $e) {
+        error_log("Gagal mengambil tim: " . $e->getMessage());
+        return [];
+    }
+}
 
+if (empty($news)) {
+$news = [
+    // Item 1: Big Data (Cocok dengan Sonia - Ahli Big Data)
+    [
+        'created_by'   => 'a6f983b5-6a07-9928-d367-5a4b7968879a', // Sonia Dewi
+        'judul'        => 'AI Talk Series: Introduction to Big Data Analytics',
+        'kategori'     => 'Big Data , Ayam Koelng',
+        'isi_berita'   => 'Lab AI Center of Excellence kembali menggelar acara AI Talk Series dengan tema "Introduction of Big Data Analytics". Membahas fundamental pengolahan data skala besar untuk pemula.',
+        'tanggal'      => '2025-11-20',
+        'image' => '../public/img/berita.png'
+    ],
+
+    // Item 2: Security & WFH (Cocok dengan Joni - Network Security)
+    [
+        'created_by'   => 'c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', // Ir. Joni
+        'judul'        => 'Tantangan Keamanan Siber di Era Remote Working',
+        'kategori'     => 'Security',
+        'isi_berita'   => 'Bagaimana perusahaan harus beradaptasi dengan ancaman keamanan siber yang meningkat saat karyawan bekerja dari rumah (WFH). Tips mengamankan jaringan VPN dan data sensitif.',
+        'tanggal'      => '2025-11-18',
+        'image' => '../public/img/berita.png'
+    ],
+
+    // Item 3: E-commerce (Cocok dengan Kevin - Database & System)
+    [
+        'created_by'   => 'd3c6e082-377d-6f9e-a03c-27184f3e5d67', // Dr. Kevin
+        'judul'        => 'Laporan Tren E-commerce Kuartal Terbaru',
+        'kategori'     => 'Bisnis',
+        'isi_berita'   => 'Analisis mendalam tentang pertumbuhan dan pergeseran perilaku konsumen di pasar digital Indonesia berdasarkan data transaksi kuartal terakhir.',
+        'tanggal'      => '2025-11-15',
+        'image' => '../public/img/berita.png'
+    ],
+
+    // Item 4: Green Tech (Cocok dengan Naufal - Inovasi/Software)
+    [
+        'created_by'   => 'f5e872a4-599f-8817-c25e-493a68577f89', // Naufal Rizky
+        'judul'        => 'Inovasi Teknologi Hijau di Indonesia',
+        'kategori'     => 'Environment',
+        'isi_berita'   => 'Melihat perkembangan startup yang berfokus pada solusi ramah lingkungan menggunakan teknologi terbaru untuk mengurangi jejak karbon industri.',
+        'tanggal'      => '2025-11-12',
+        'image' => '../public/img/berita.png'
+    ],
+
+    // Item 5: Semikonduktor (Cocok dengan Joni - Hardware/IoT)
+    [
+        'created_by'   => 'c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', // Ir. Joni
+        'judul'        => 'Krisis Semikonduktor Global: Dampak dan Solusi',
+        'kategori'     => 'Supply Chain',
+        'isi_berita'   => 'Meninjau bagaimana kekurangan chip global mempengaruhi manufaktur elektronik dan otomotif di seluruh dunia serta strategi mitigasinya.',
+        'tanggal'      => '2025-11-10',
+        'image' => '../public/img/berita.png'
+    ],
+
+    // Item 6: AI Generatif (Cocok dengan Rina - Deep Learning/NLP)
+    [
+        'created_by'   => 'b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', // Dr. Rina
+        'judul'        => 'Proyek Ambisius AI Generatif Mengguncang Industri Kreatif',
+        'kategori'     => 'AI Generatif',
+        'isi_berita'   => 'Peran kecerdasan buatan dalam menciptakan konten visual dan tekstual, serta tantangan etika yang menyertainya dalam dunia seni dan desain.',
+        'tanggal'      => '2025-11-08',
+        'image' => '../public/img/berita.png'
+    ],
+
+    // Item 7: Mobil Otonom (Cocok dengan Mira - Robotika/Computer Vision)
+    [
+        'created_by'   => 'e4d7f193-488e-770f-b14d-3829574f6e78', // Prof. Mira
+        'judul'        => 'Masa Depan Transportasi: Uji Coba Mobil Otonom',
+        'kategori'     => 'Otomotif',
+        'isi_berita'   => 'Laporan terbaru mengenai keberhasilan uji coba kendaraan tanpa pengemudi di beberapa kota metropolitan Asia menggunakan sensor LiDAR canggih.',
+        'tanggal'      => '2025-11-05',
+        'image' => '../public/img/berita.png'
+    ]
+];
+}
+?>
 <head>
     <style>
 
@@ -19,9 +116,10 @@
         /* --- Kustom 3D Carousel Styling (Dipertahankan dari versi sebelumnya) --- */
         .carousel-wrapper-3d {
             position: relative;
-            height: 450px;
+            height: 550px;
             perspective: 1000px;
-            overflow: hidden;
+            /* overflow: hidden; */
+            margin-top: 5rem;
         }
         
         .carousel-item-3d {
@@ -103,8 +201,8 @@
         }
         
         /* Penempatan Tombol */
-        .btn-prev-custom { left: 10%; } 
-        .btn-next-custom { right: 10%; }
+        .btn-prev-custom { left: 0; } 
+        .btn-next-custom { right: 0; }
         
         /* Responsif */
         @media (max-width: 768px) {
@@ -139,13 +237,13 @@
 <!-- Div untuk Glow Setengah Lingkaran -->
         <div class="half-circle-glow"></div>
     </div>
-<section class="bg-[#f0f4f8] p-8">
+<section class="bg-[#f0f4f8] section">
 
-    <div class="max-w-4xl mx-auto">
+    <div class="max-w-4xl mx-auto pt-[2rem] pb-[2rem]">
         <div class="project header">
             <div class="title">
             <!-- Ikon Grup Orang (SVG Inline) -->
-                <i class="fas fa-cloud text-xs mr-2"></i> LATEST NEWS
+                <i class="fa-solid fa-newspaper text-sm mr-2"></i> LATEST NEWS
             </div>
             <p class="secondary-title">Hot Off the <span>Press</span></p>
             <p class="text-center text-gray-500 mb-12">The most recent updates, all in one place.</p>
@@ -153,83 +251,63 @@
 
         <!-- Carousel Container (Pusat Logika Cover Flow) -->
         <div class="carousel-wrapper-3d">
-            
-            <!-- Item 1 -->
-            <div class="carousel-item-3d bg-white shadow-xl rounded-xl p-4 active" data-index="0">
-                <div class="image-placeholder rounded-lg"></div>
-                <h3 class="text-xl font-bold mb-2 text-gray-800">AI Talk Series: Introduction to Big Data Analytics</h3>
-                <div class="flex space-x-2 text-xs mb-3">
-                    <span class="px-2 py-1 bg-green-100 text-green-700 rounded-full">Tech Series</span>
-                    <span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded-full">Big Data</span>
-                </div>
-                <p class="text-sm text-gray-500">Tokopedia UI AI Center of Excellence kembali menggelar acara AI Talk Series dengan tema "Introduction of Big Data Analytics".</p>
-            </div>
+            <?php if (count($news) > 0): ?>
+                <?php 
+                    $delay_increment = 200; // Penambahan delay 200 milidetik per kartu
+                    $delay = 0;
+                ?>
 
-            <!-- Item 2 -->
-            <div class="carousel-item-3d bg-white shadow-xl rounded-xl p-4 next" data-index="1">
-                <div class="image-placeholder rounded-lg"></div>
-                <h3 class="text-xl font-bold mb-2 text-gray-800">Tantangan Keamanan Siber di Era Remote Working</h3>
-                <div class="flex space-x-2 text-xs mb-3">
-                    <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded-full">Security</span>
-                    <span class="px-2 py-1 bg-red-100 text-red-700 rounded-full">WFH</span>
-                </div>
-                <p class="text-sm text-gray-500">Bagaimana perusahaan harus beradaptasi dengan ancaman keamanan siber yang meningkat saat karyawan bekerja dari rumah.</p>
-            </div>
+                <?php foreach ($news as $berita): ?>
+                    <!-- Card News -->
+                    <div class="carousel-item-3d bg-white shadow-xl rounded-xl p-4">
+                        <div class="h-48 w-full bg-gray-200 rounded-lg overflow-hidden relative mb-4">
+                            <?php if (!empty($berita['image'])): ?>
+                                <img src="<?= htmlspecialchars($berita['image']); ?>" 
+                                    alt="<?= htmlspecialchars($berita['judul']); ?>" 
+                                    class="w-full h-full object-cover">
+                            <?php else: ?>
+                                <div class="w-full h-full bg-[#a33e38] flex items-center justify-center text-white">
+                                    <i class="fa-solid fa-image text-3xl opacity-50"></i>
+                                </div>
+                            <?php endif; ?>
+                        </div>
 
-            <!-- Item 3 -->
-            <div class="carousel-item-3d bg-white shadow-xl rounded-xl p-4 hidden" data-index="2">
-                <div class="image-placeholder rounded-lg"></div>
-                <h3 class="text-xl font-bold mb-2 text-gray-800">Laporan Tren E-commerce Kuartal Terbaru</h3>
-                <div class="flex space-x-2 text-xs mb-3">
-                    <span class="px-2 py-1 bg-indigo-100 text-indigo-700 rounded-full">Bisnis</span>
-                    <span class="px-2 py-1 bg-pink-100 text-pink-700 rounded-full">Marketplace</span>
-                </div>
-                <p class="text-sm text-gray-500">Analisis mendalam tentang pertumbuhan dan pergeseran perilaku konsumen di pasar digital Indonesia.</p>
-            </div>
-            
-            <!-- Item 4 -->
-            <div class="carousel-item-3d bg-white shadow-xl rounded-xl p-4 hidden" data-index="3">
-                <div class="image-placeholder rounded-lg"></div>
-                <h3 class="text-xl font-bold mb-2 text-gray-800">Inovasi Teknologi Hijau di Indonesia</h3>
-                <div class="flex space-x-2 text-xs mb-3">
-                    <span class="px-2 py-1 bg-lime-100 text-lime-700 rounded-full">Environment</span>
-                    <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded-full">Inovasi</span>
-                </div>
-                <p class="text-sm text-gray-500">Melihat perkembangan startup yang berfokus pada solusi ramah lingkungan menggunakan teknologi.</p>
-            </div>
+                        <!-- title -->
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">
+                            <?= htmlspecialchars($berita['judul']); ?>
+                        </h3>
+                        <!-- kategori -->
+                        <div class="flex flex-wrap text-xs mb-3 flex gap-2">
+                            <?php 
+                                $kategori = $berita['kategori'] ?? '';
+                                if (!empty($kategori)) {
+                                    $categories = explode(',', $kategori);
+                                    // Tampilkan maksimal 3 category agar kartu tidak kepanjangan
+                                    $categories = array_slice($categories, 0, 3); 
+                                    foreach ($categories as $category): ?>
+                                        <span class="px-2 py-1 bg-green-100 text-green-700 rounded-full font-semibold uppercase">
+                                            <?= htmlspecialchars(trim($category)); ?>
+                                        </span>
+                                <?php endforeach; } else { ?>
+                                    <span class="text-gray-400 text-xs italic">-</span>
+                            <?php } ?>
 
-            <!-- Item 5 -->
-            <div class="carousel-item-3d bg-white shadow-xl rounded-xl p-4 hidden" data-index="4">
-                <div class="image-placeholder rounded-lg"></div>
-                <h3 class="text-xl font-bold mb-2 text-gray-800">Krisis Semikonduktor Global: Dampak dan Solusi</h3>
-                <div class="flex space-x-2 text-xs mb-3">
-                    <span class="px-2 py-1 bg-gray-800 text-white rounded-full">Supply Chain</span>
-                    <span class="px-2 py-1 bg-red-100 text-red-700 rounded-full">Ekonomi</span>
-                </div>
-                <p class="text-sm text-gray-500">Meninjau bagaimana kekurangan chip global mempengaruhi manufaktur elektronik dan otomotif di seluruh dunia.</p>
-            </div>
-            
-            <!-- Item 6 -->
-            <div class="carousel-item-3d bg-white shadow-xl rounded-xl p-4 hidden" data-index="5">
-                <div class="image-placeholder rounded-lg"></div>
-                <h3 class="text-xl font-bold mb-2 text-gray-800">Proyek Ambisius AI Generatif Mengguncang Industri Kreatif</h3>
-                <div class="flex space-x-2 text-xs mb-3">
-                    <span class="px-2 py-1 bg-purple-100 text-purple-700 rounded-full">AI Generatif</span>
-                    <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded-full">Kreatif</span>
-                </div>
-                <p class="text-sm text-gray-500">Peran kecerdasan buatan dalam menciptakan konten visual dan tekstual, serta tantangan etika yang menyertainya.</p>
-            </div>
-
-            <!-- Item 7 -->
-            <div class="carousel-item-3d bg-white shadow-xl rounded-xl p-4 prev" data-index="6">
-                <div class="image-placeholder rounded-lg"></div>
-                <h3 class="text-xl font-bold mb-2 text-gray-800">Masa Depan Transportasi: Uji Coba Mobil Otonom</h3>
-                <div class="flex space-x-2 text-xs mb-3">
-                    <span class="px-2 py-1 bg-gray-800 text-white rounded-full">Otomotif</span>
-                    <span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded-full">Inovasi</span>
-                </div>
-                <p class="text-sm text-gray-500">Laporan terbaru mengenai keberhasilan uji coba kendaraan tanpa pengemudi di beberapa kota metropolitan Asia.</p>
-            </div>
+                            <!-- <span class="px-2 py-1 bg-green-100 text-green-700 rounded-full">Tech Series</span>
+                            <span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded-full">Big Data</span> -->
+                        </div>
+                        <!-- deskripsi -->
+                        <p class="text-sm text-gray-500">
+                            <?= htmlspecialchars($berita['isi_berita']); ?>
+                        </p>
+                        <?php 
+                            //Tambah delay untuk kartu berikutnya
+                            $delay += $delay_increment; 
+                        ?>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p class="product-description" style="text-align: center; grid-column: 1 / -1;">Belum ada data produk yang tersedia.</p>
+            <?php endif; ?> 
 
             <!-- Navigasi Tombol Panah -->
             <button class="nav-btn btn-prev-custom" id="btnPrev">

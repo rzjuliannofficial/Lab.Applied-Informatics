@@ -1,13 +1,5 @@
 <?php
-// loginAdmin.php - Form Login Khusus Admin (Menggunakan Style SI-AKAD)
 session_start();
-
-// Cek apakah user sudah login sebagai Admin.
-// Jika sudah, langsung arahkan ke dashboard Admin.
-if (isset($_SESSION['user_id']) && ($_SESSION['role'] ?? '') === 'admin') {
-    header('Location: Beranda.php');
-    exit;
-}
 
 // Ambil pesan error/sukses dari query string
 $error = isset($_GET['error']) ? $_GET['error'] : '';
@@ -60,9 +52,9 @@ $error = isset($_GET['error']) ? $_GET['error'] : '';
             <?php if ($error): ?>
                 <div class="message-box error"><?= htmlspecialchars($error) ?></div>
             <?php endif; ?>
-            <form id="loginForm" method="post">
+            <form action="authenticate.php" method="post" autocomplete="off">
                 <div class="login">
-                    <input type="text" name="nim" id="nim" placeholder="Nim" required><br><br>
+                    <input type="text" name="username" id="username" placeholder="Username" required><br><br>
                     <input type="password" name="password" id="password" placeholder="Password" required><br><br>
                     <div class="submit" >
                         <button type="submit">

@@ -1,7 +1,7 @@
 <?php
 // authenticateAdmin.php - Proses Login Khusus Admin
 session_start();
-require_once 'koneksi.php'; 
+require_once '../app/config/Koneksi.php'; 
 
 $username = isset($_POST['username']) ? trim(filter_var($_POST['username'], FILTER_SANITIZE_STRING)) : '';
 $password = isset($_POST['password']) ? $_POST['password'] : '';
@@ -20,32 +20,23 @@ if ($username === '' || $password === '') {
     exit;
 }
 
-// MODIFIKASI SQL: Hanya ambil user dengan role 'admin'
-$sql = 'SELECT id, username, password_hash, full_name, role FROM users WHERE username = $1 AND role = $2 LIMIT 1';
-$result = pg_query_params($conn, $sql, array($username, 'admin'));
+$sql = 'SELECT id, username, password, role, id_dosen FROM users WHERE username = $1 LIMIT 1';
+$result = pg_query_params($conn, $sql, array($username));
 
-if (!$result) {
-    error_log("PostgreSQL Error (authenticateAdmin): " . pg_last_error($conn));
-    header('Location: loginAdmin.php?error=' . urlencode('Terjadi kesalahan pada server.'));
-    exit;
-}
-
-if (pg_num_rows($result) === 0) {
-    // Pesan umum untuk keamanan
-    header('Location: loginAdmin.php?error=' . urlencode('Username atau password salah, atau akun bukan admin.'));
+if (!$result || pg_num_rows($result) === 0) {
+    header('Location: loginAdmin.php?error=' . urlencode('Username tidak ditemukan.'));
     exit;
 }
 
 $user = pg_fetch_assoc($result);
-$hash = $user['password_hash'];
 
 // verifikasi password
-if (password_verify($password, $hash)) {
+if ($password === $user['password']) {
     // sukses: set session
     session_regenerate_id(true);
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['username'] = $user['username'];
-    $_SESSION['full_name'] = $user['full_name'];
+    $_SESSION['id_dosen'] = $user['id_dosen'];
     $_SESSION['role'] = $user['role']; // Simpan role admin
     
     // Arahkan ke dashboard admin
