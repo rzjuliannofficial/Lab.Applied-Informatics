@@ -1,6 +1,7 @@
 <?php
 // Memuat file koneksi database
 require_once '../app/config/Koneksi.php'; 
+include '../app/model/products.php';
 
 // Fungsi untuk mengambil semua data proyek dari tabel 'projects'
 function fetchProducts() {
@@ -168,7 +169,9 @@ $products = fetchProducts();
     </section>
     <?php include '../app/views/components/scope.php'; ?>
     <?php include '../app/views/components/news.php'; ?>
-    <?php include '../app/views/components/product.php'; ?>
+    <?php foreach ($products as $product): ?>
+        <?php include('../app/views/components/product.php') ?>
+    <?php endforeach; ?>
     <?php include '../app/views/components/member.php'; ?>
     <?php include '../app/views/components/fasilities.php'; ?>
     <?php include '../app/views/components/publication.php'; ?>
