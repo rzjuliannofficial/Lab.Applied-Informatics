@@ -2154,4 +2154,11 @@ body {
     border: 3px solid var(--blue-light);
 }
 
+.map-iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+    display: block;
+}
+
 }
