@@ -1,5 +1,5 @@
 <!-- <header class="bg-white shadow-sm h-16 flex justify-between items-center px-6 sticky top-0 left-64 z-30"> -->
-<header class="fixed top-0  right-0 bg-white shadow-sm p-4 z-30 flex justify-between items-center left-64">
+<header class="sticky md:ml-64 top-0 right-0 bg-white shadow-sm p-4 z-30 flex justify-between items-center left-64">
     <button class="md:hidden text-gray-600 hover:text-gray-900 focus:outline-none">
         <i class="fas fa-bars text-xl"></i>
     </button>

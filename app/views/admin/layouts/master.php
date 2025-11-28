@@ -38,7 +38,7 @@
     <?php include __DIR__ . "/header.php"; ?>
 
     <!-- Content -->
-    <main class="ml-64 mt-20 p-6">
+    <main class="flex-1 md:ml-64 flex-col p-6 ">
         <?= $content; ?>
     </main>
 
@@ -46,6 +46,5 @@
     <footer class="ml-64 p-4 text-center text-gray-600 text-sm">
         © 2025 Lab AI — Dashboard v1.0
     </footer>
-
 </body>
 </html>

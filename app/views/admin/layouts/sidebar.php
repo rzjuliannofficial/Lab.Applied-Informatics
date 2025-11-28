@@ -1,29 +1,17 @@
-<aside class="w-64 fixed top-0 left-0 h-full shadow-2xl z-40 bg-[#1F2937] text-white">
-    <div class="p-6 h-full overflow-y-auto">
-
-        <!-- Logo -->
-        <div class="flex items-center space-x-3 mb-6">
+<!-- <aside class="w-64 fixed top-0 left-0 h-full shadow-2xl z-40 bg-[#1F2937] text-white"> -->
+<aside class="fixed inset-y-0 left-0 sidebar-bg w-64 transition-transform duration-500 transform -translate-x-full md:translate-x-0 z-40 shadow-xl flex flex-col text-white">
+    
+    
+        <div class="flex items-center gap-3 text-white px-6 py-4 border-b border-gray-700">
             <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center">
                 <i class="fas fa-brain text-xl text-blue-800"></i>
             </div>
-            <span class="text-xl font-bold text-white">AI Lab Admin</span>
+            <h1 class="text-xl font-bold tracking-wider">LAB AI <span class="text-blue-400 text-xs block font-normal">Polinema</span></h1>
         </div>
+    
+    <div class="p-6 h-full overflow-y-auto">
 
-        <!-- User Info -->
-        <div class="mb-8 p-3 bg-gray-700/50 rounded-lg">
-            <div class="flex items-center space-x-3">
-                <img src="https://placehold.co/40x40/f97316/ffffff?text=A"
-                     class="w-10 h-10 rounded-full object-cover">
-                <div>
-                    <p class="text-white font-semibold">
-                        <?= $_SESSION['user']['username'] ?? 'Admin'; ?>
-                    </p>
-                    <p class="text-xs text-green-400">
-                        <i class="fas fa-circle mr-1 text-xs"></i>Online
-                    </p>
-                </div>
-            </div>
-        </div>
+        <!-- Logo -->
 
         <!-- Menu -->
         <nav class="space-y-1">
@@ -35,15 +23,15 @@
             <p class="text-xs text-gray-400 uppercase pt-4 pb-1 px-3">Manajemen Data</p>
 
             <a href="/admin/Dosen" class="flex items-center p-3 hover:bg-gray-700">
-                <i class="fas fa-user-tie w-5 mr-3"></i>Dosen
+                <i class="fas fa-user-tie w-5 mr-3"></i>Member
             </a>
 
 
             <!-- DROPDOWN 1 -->
             <div class="dropdown-group">
-                <button class="dropdown-btn flex items-center justify-between w-full p-3 hover:bg-gray-700 rounded-lg">
+                <button class="dropdown-btn flex items-center text-left justify-between w-full p-3 hover:bg-gray-700 rounded-lg">
                     <span class="flex items-center">
-                        <i class="fas fa-book w-5 mr-3"></i>
+                        <i class="fas fa-book w-5 mr-4"></i>
                         Publikasi & Kegiatan Dosen
                     </span>
                     <i class="fas fa-chevron-right dropdown-icon transition-transform"></i>
@@ -61,9 +49,9 @@
 
             <!-- DROPDOWN 2 -->
             <div class="dropdown-group">
-                <button class="dropdown-btn flex items-center justify-between w-full p-3 hover:bg-gray-700 rounded-lg">
+                <button class="dropdown-btn flex items-center text-left justify-between w-full p-3 hover:bg-gray-700 rounded-lg">
                     <span class="flex items-center">
-                        <i class="fas fa-flask w-5 mr-3"></i>
+                        <i class="fas fa-flask w-5 mr-4"></i>
                         Publikasi & Penelitian Lab
                     </span>
                     <i class="fas fa-chevron-right dropdown-icon transition-transform"></i>
@@ -86,7 +74,7 @@
             <?php endif; ?>
             <?php if ($_SESSION['user']['role'] === 'admin'): ?>
             <a href="/admin/Produk" class="flex items-center p-3 text-gray-300 hover:bg-gray-700">
-                <i class="fas fa-shopping w-5 mr-3"></i>Produk
+                <i class="fas fa-atom w-5 mr-3"></i>Produk
             </a>
             <?php endif; ?>
 
@@ -108,14 +96,30 @@
             </a>
             <?php endif; ?>
         </nav>
-
-        <p class="text-xs text-gray-400 uppercase pt-4 pb-1 px-3">Sistem</p>
-
-        <a href="/admin/logout" class="flex items-center p-3 rounded-lg text-red-400 hover:bg-gray-700">
-            <i class="fas fa-sign-out-alt w-5 mr-3"></i>Logout
-        </a>
-
     </div>
+    
+    <div class="flex items-center gap-3 border-t border-gray-700 p-4 mb-2">
+        <!-- Avatar -->
+        <div class="relative">
+            <div class="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold text-lg shadow-sm">
+                U
+            </div>
+            <!-- Titik hijau statis di avatar -->
+            <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 bg-green-500 rounded-full animate-pulse"></span>
+        </div>
+        
+        <!-- User Info -->
+        <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium text-white truncate"><?= $_SESSION['user']['username'];?><p>
+            <p class="text-xs text-gray-400 truncate">(Admin)</p>
+        </div>
+        
+        <!-- Logout Button -->
+        <a href="/admin/logout" class="text-gray-400 hover:text-red-400 transition-colors p-2 " title="Logout">
+            <i class="fas fa-sign-out-alt text-lg"></i>
+        </a>
+    </div>
+
 </aside>
 
 <!-- DROPDOWN SCRIPT TANPA ALPINE -->
