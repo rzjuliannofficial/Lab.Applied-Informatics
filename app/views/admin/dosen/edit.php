@@ -6,7 +6,7 @@
     <label class="block font-semibold mb-1">Nama</label>
     <input type="text" name="nama" required value="<?= htmlspecialchars($dosen['nama']) ?>" class="w-full p-2 border rounded mb-4">
 
-    <label class="block font-semibold mb-1">NIP</label>
+    <label class="block font-semibold mb-1">NIP / NIM</label>
     <input type="text" name="nip" required value="<?= htmlspecialchars($dosen['nip']) ?>" class="w-full p-2 border rounded mb-4">
 
     <label class="block font-semibold mb-1">Email</label>

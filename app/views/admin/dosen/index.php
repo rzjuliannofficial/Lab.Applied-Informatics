@@ -9,7 +9,7 @@
         <tr>
             <th class="p-2 border">Foto</th>
             <th class="p-2 border">Nama</th>
-            <th class="p-2 border">NIP</th>
+            <th class="p-2 border">NIP / NIM</th>
             <th class="p-2 border">Email</th>
             <th class="p-2 border">Keahlian</th>
             <th class="p-2 border">Deskripsi</th>
