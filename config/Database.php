@@ -8,10 +8,11 @@ class Database
     {
         if (!self::$conn) {
 
-            $host = "localhost";
-            $user = "postgres";
-            $pass = "123";
-            $dbname = "coba_final";
+            $host = 'localhost';
+            $dbname = 'lab_ai_polinema';
+            $user = 'postgres';
+            $pass = '123';
+
             self::$conn = pg_connect("host=$host port=5432 dbname=$dbname user=$user password=$pass");
 
             if (!self::$conn) {
