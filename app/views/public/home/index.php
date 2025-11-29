@@ -22,20 +22,20 @@
                         <div class="logo-carousel-track">
                             
                             <!-- Set Logo ASLI (6 item) -->
-                            <div class="logo-item"><img src="img/OwnCloud2-Logo.svg_-300x157.png" alt="OwnCloud Logo"></div>
-                            <div class="logo-item"><img src="img/seals.png" alt="SEALS Logo"></div>
-                            <div class="logo-item"><img src="img/amati.png" alt="Amati Logo"></div>
-                            <div class="logo-item"><img src="img/gitea-300x107-removebg-preview.png" alt="Gitea Logo"></div>
-                            <div class="logo-item"><img src="img/logo_blockchain-1024x305.png" alt="CrowdEquiChain Logo"></div>
-                            <div class="logo-item"><img src="img/ijo-removebg-preview.png" alt="Ijo Logo"></div>
+                            <div class="logo-item"><img src="uploads/produk/OwnCloud2-Logo.svg_-300x157.png" alt="OwnCloud Logo"></div>
+                            <div class="logo-item"><img src="uploads/produk/seals.png" alt="SEALS Logo"></div>
+                            <div class="logo-item"><img src="uploads/produk/amati.png" alt="Amati Logo"></div>
+                            <div class="logo-item"><img src="uploads/produk/gitea-300x107-removebg-preview.png" alt="Gitea Logo"></div>
+                            <div class="logo-item"><img src="uploads/produk/logo_blockchain-1024x305.png" alt="CrowdEquiChain Logo"></div>
+                            <div class="logo-item"><img src="uploads/produk/ijo-removebg-preview.png" alt="Ijo Logo"></div>
                             
                             <!-- Set Logo DUPLIKAT (untuk efek tak terbatas) -->
-                            <div class="logo-item"><img src="img/OwnCloud2  -Logo.svg_-300x157.png" alt="OwnCloud Logo"></div>
-                            <div class="logo-item"><img src="img/seals.png" alt="SEALS Logo"></div>
-                            <div class="logo-item"><img src="img/amati.png" alt="Amati Logo"></div>
-                            <div class="logo-item"><img src="img/gitea-300x107-removebg-preview.png" alt="Gitea Logo"></div>
-                            <div class="logo-item"><img src="img/logo_blockchain-1024x305.png" alt="CrowdEquiChain Logo"></div>
-                            <div class="logo-item"><img src="img/ijo-removebg-preview.png" alt="Ijo Logo"></div>
+                            <div class="logo-item"><img src="uploads/produk/OwnCloud2  -Logo.svg_-300x157.png" alt="OwnCloud Logo"></div>
+                            <div class="logo-item"><img src="uploads/produk/seals.png" alt="SEALS Logo"></div>
+                            <div class="logo-item"><img src="uploads/produk/amati.png" alt="Amati Logo"></div>
+                            <div class="logo-item"><img src="uploads/produk/gitea-300x107-removebg-preview.png" alt="Gitea Logo"></div>
+                            <div class="logo-item"><img src="uploads/produk/logo_blockchain-1024x305.png" alt="CrowdEquiChain Logo"></div>
+                            <div class="logo-item"><img src="uploads/produk/ijo-removebg-preview.png" alt="Ijo Logo"></div>
                             
                         </div>
 
@@ -55,7 +55,7 @@
         </div>
         <div class="hero-right">
             <div class="hero-image-card">
-                <img src="img/Lab.png" alt="kosong">
+                <img src="uploads/home/Lab.png" alt="kosong">
             </div>
         </div>
     </div>
