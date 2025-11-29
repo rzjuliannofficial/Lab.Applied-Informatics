@@ -22,7 +22,7 @@
         <div class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded-lg transition">
             <div class="text-right hidden sm:block">
                 <p class="text-sm font-semibold text-gray-700 leading-none">
-                    <?= $_SESSION['user']['username']; ?>
+                    <?= $_SESSION['user']['nama_dosen']; ?>
                 </p>
                 <p class="text-xs text-gray-500 mt-1"><?= $_SESSION['user']['role']; ?></p>
             </div>
