@@ -1070,7 +1070,7 @@ body {
     padding: 2rem;
     transition: all 0.3s ease;
     box-shadow: 0px 5px 10px rgba(5, 0, 5, 0.15);
-    gap: 2rem;
+    justify-content: space-between;
 }
 
 .profile-card:hover {

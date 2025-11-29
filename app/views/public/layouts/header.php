@@ -15,7 +15,7 @@
 <body>
     <header class="sticky-header">
         <nav class="header-nav">
-            <a href="index.php">
+            <a href="home">
                 <div class="logo-area">
                     <div class="logo-image-container">
                         <img src="img/logoAi.png" alt="Lab AI Logo">
