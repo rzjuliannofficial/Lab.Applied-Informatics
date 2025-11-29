@@ -110,8 +110,8 @@
         
         <!-- User Info -->
         <div class="flex-1 min-w-0">
-            <p class="text-sm font-medium text-white truncate"><?= $_SESSION['user']['username'];?><p>
-            <p class="text-xs text-gray-400 truncate">(Admin)</p>
+            <p class="text-sm font-medium text-white truncate"><?= $_SESSION['user']['nama_dosen'];?><p>
+            <p class="text-xs text-gray-400 truncate">(<?= $_SESSION['user']['role'];?>)</p>
         </div>
         
         <!-- Logout Button -->
