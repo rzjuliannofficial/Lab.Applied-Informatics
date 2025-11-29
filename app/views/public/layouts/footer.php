@@ -95,7 +95,7 @@
         </div>
     </div>
 </footer>
-    <!-- <div class="bottom-blur-overlay"></div> -->
+    <div class="bottom-blur-overlay"></div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
