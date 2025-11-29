@@ -1,19 +1,14 @@
 <!-- <aside class="w-64 fixed top-0 left-0 h-full shadow-2xl z-40 bg-[#1F2937] text-white"> -->
 <aside class="fixed inset-y-0 left-0 sidebar-bg w-64 transition-transform duration-500 transform -translate-x-full md:translate-x-0 z-40 shadow-xl flex flex-col text-white">
     
-    
         <div class="flex items-center gap-3 text-white px-6 py-4 border-b border-gray-700">
-            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center">
-                <i class="fas fa-brain text-xl text-blue-800"></i>
+            <div class="w-10 h-10  flex items-center justify-center">
+                <img src="/uploads/home/logoAi.png">
             </div>
             <h1 class="text-xl font-bold tracking-wider">LAB AI <span class="text-blue-400 text-xs block font-normal">Polinema</span></h1>
         </div>
     
     <div class="p-6 h-full overflow-y-auto">
-
-        <!-- Logo -->
-
-        <!-- Menu -->
         <nav class="space-y-1">
 
             <a href="/admin/dashboard" class="flex items-center p-3 rounded-lg hover:bg-gray-700">
