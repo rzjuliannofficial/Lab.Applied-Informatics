@@ -15,11 +15,10 @@
             </div>
             
             <div class="w-full max-w-lg mt-8 justify-center items-center p-4">               
-                <div class="w-full max-w-md"> <!-- Lebar Maksimum tetap max-w-md --> 
+                <div class="w-full max-w-md"> 
                     <!-- Kontainer utama karosel -->
                     <div class="logo-carousel-container h-20 sm:h-11">
                         
-                        <!-- Track Logam yang Bergerak -->
                         <div class="logo-carousel-track">
                             
                             <!-- Set Logo ASLI (6 item) -->
@@ -61,68 +60,289 @@
         </div>
     </div>
 </section>
+<!-- Visi Misi -->
+<section class="section bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div class="container">
+        <div class="text-center mb-12">
+            <div class="title">
+                <i class="fa-solid fa-lightbulb text-sm mr-2"></i> VISI & MISI
+            </div>
+            <p class="secondary-title">Our <span>Direction</span></p>
+            <p class="text-center text-gray-600 mb-8">Guiding principles that drive our innovation and commitment to excellence.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <!-- Visi - Sticky -->
+            <div class="sticky top-24 h-fit">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                    <!-- Header dengan background gradient -->
+                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-6 text-white">
+                        <div class="flex items-center gap-3 ">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-eye text-2xl"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold">VISI</h2>
+                        </div>
+                        <!-- <div class="w-16 h-1 bg-white/40 rounded-full"></div> -->
+                    </div>
+
+                    <!-- Content -->
+                    <div class="p-8">
+                        <p class="text-gray-700 leading-relaxed font-medium">
+                            Menjadi laboratorium unggulan dalam pengembangan dan penerapan teknologi informasi inovatif yang mendukung transformasi digital berkelanjutan, mendorong kolaborasi lintas sektor, serta menciptakan soluso cerdas berbasis data untuk menghadapi tantangan era industri 4.0.
+                        </p>
+                        
+                        <!-- Highlighted Points -->
+                        <div class="mt-6 space-y-3">
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <span class="text-blue-600 font-bold text-sm">✓</span>
+                                </div>
+                                <span class="text-gray-600 text-sm">Inovasi berkelanjutan dalam teknologi</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <span class="text-blue-600 font-bold text-sm">✓</span>
+                                </div>
+                                <span class="text-gray-600 text-sm">Dampak nyata bagi industri dan masyarakat</span>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <span class="text-blue-600 font-bold text-sm">✓</span>
+                                </div>
+                                <span class="text-gray-600 text-sm">Pusat keunggulan dalam penelitian IT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Misi - Scrollable -->
+            <div class="space-y-6">
+                <!-- Misi 1 -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group" data-aos="fade-up">
+                    <div class="bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue)] p-6 text-white">
+                        <h3 class="text-xl font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-database text-2xl"></i> Misi 1
+                        </h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 leading-relaxed">
+                            Menerapkan teknologi informasi terkini, termasuk algoritma, teknologi pengolahan data, dan sistem terdistribusi, untuk mengatasi tantangan praktis dalam berbagai bidang dengan fokus pada pengembangan aplikasi dan solusi teknologi yang dapat meningkatkan produktivitas dan aksesabilitas informasi.
+                        </p>
+                        <div class="mt-4 inline-block px-3 py-1 bg-indigo-100 text-blue-600 rounded-full text-sm font-semibold">
+                            Information Systems
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Misi 2 -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-6 text-white">
+                        <h3 class="text-xl font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-microchip text-2xl"></i> Misi 2
+                        </h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 leading-relaxed">
+                            Berfokus solusi Industri 4.0 dengan mengembangkan dan menerapkan teknologi inovatif guna mengatasi tantangan seperti otomatisasi, integrasi sistem, dan pemrosesan data real-time, yang akan mendukung akselerasi transformasi digital dan meningkatkan efisiensi operasional di berbagai sektor.
+                        </p>
+                        <div class="mt-4 inline-block px-3 py-1 bg-indigo-100 text-blue-600 rounded-full text-sm font-semibold">
+                            IoT & AI Technologies
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Misi 3 -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue)] p-6 text-white">
+                        <h3 class="text-xl font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-flask text-2xl"></i> Misi 3
+                        </h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 leading-relaxed">
+                           Menjaga relevansi dengan tantangan industri 4.0 melalui sinergi antara industri, pemerintah, akademisi interdisipliner, dan masyarakat, dengan tujuan menciptakan ekosistem inovasi yang menghasilkan solusi efektif, meningkatkan efisiensi dan daya saing, serta mendorong transformasi digital yang inklusif dan berkelanjutan.
+                        </p>
+                        <div class="mt-4 inline-block px-3 py-1 bg-indigo-100 text-blue-600 rounded-full text-sm font-semibold">
+                            Research & Collaboration
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Misi 4 -->
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-6 text-white">
+                        <h3 class="text-xl font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-code text-2xl"></i> Misi 4
+                        </h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 leading-relaxed">
+                            Pengembangan teknologi yang mengintegrasikan sistem data terdistribusi dengan teknik analitik canggih, seperti blockchain, big data, dan machine learning, untuk meningkatkan keamanan, integritas, dan aksesibilitas informasi serta memberikan wawasan yang dapat diandalkan bagi pengambilan keputusan.
+                        </p>
+                        <div class="mt-4 inline-block px-3 py-1 bg-indigo-100 text-blue-600 rounded-full text-sm font-semibold">
+                            Application Development
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- SCOPE -->
 <div class="shadow-bar-top">
     <div class="half-circle-glow"></div>
 </div>
-<section class="scope section">
+<section class="section bg-white">
     <div class="container">
-        <div class="scope-header">
+        <div class="text-center mb-12">
             <div class="title">
-        <!-- Ikon Grup Orang (SVG Inline) -->
                 <i class="fa-solid fa-crosshairs text-sm mr-2"></i> OUR CORE FOCUS
             </div>
             <p class="secondary-title">Defining Our <span>Scope</span></p>
-            <p class="scope-description">
-                We are focused on helping brands grow through digital transformation services. We bring real solutions to each client’s <br>problems through a deep understanding of their market, solution, and vision.
-            </p>
+            <p class="text-center text-gray-600 mb-8">We are focused on helping brands grow through digital transformation services. We bring real solutions to each client's problems through a deep understanding of their market, solution, and vision.</p>
         </div>
-        <div class="scopes-grid">
-            <div class="scope-card" data-aos="fade-up" >
-                <div class="icon fas fa-cogs"></div>
-                <h3 class="scope-title">
-                    Information System & Automation <div class="far fa-arrow-alt-circle-right"></div>
-                </h3>
-                <div class="scope-description">
-                    Building information systems to support organizational management, business, health, and education.
+        <div class="space-y-8 grid">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center" data-aos="fade-up">
+                <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_10px_rgba(5,0,5,0.05)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-graduation-cap text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-[var(--blue-dark)]">Intelligent Self-Learning of Computer Programming</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        Mengembangkan pendekatan pembelajaran berbasis teknologi dan self-paced learning untuk meningkatkan pemahaman dan keterampilan pemrograman komputer di era digital.
+                    </p>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-200 text-blue-800 rounded-full text-xs font-semibold">Education Technology</span>
+                        <span class="px-3 py-1 bg-blue-200 text-blue-800 rounded-full text-xs font-semibold">Programming</span>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_10px_rgba(5,0,5,0.05)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-leaf text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-[var(--blue-dark)]">Smartfarming</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        Mengintegrasikan IoT, sensor, dan analitik data untuk optimalisasi pertanian modern, meningkatkan produktivitas, efisiensi penggunaan sumber daya, dan keberlanjutan lingkungan.
+                    </p>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-green-200 text-green-800 rounded-full text-xs font-semibold">IoT</span>
+                        <span class="px-3 py-1 bg-green-200 text-green-800 rounded-full text-xs font-semibold">Agriculture</span>
+                    </div>
                 </div>
             </div>
-            
-            <div class="scope-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="icon fas fas fa-microchip"></div>
-                <h3 class="scope-title">
-                    Internet Of Thinks & Applied Technologies <div class="far fa-arrow-alt-circle-right"></div>
-                </h3>
-                <div class="scope-description">
-                    Integrating hardware and software to produce intelligent solutions in manufacturing, agriculture, transportation, and the environment
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center" data-aos="fade-up">
+                <div class="order-2">
+                    <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_10px_rgba(5,0,5,0.05)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-cube text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-[var(--blue-dark)]">System Desentralisasi Berbasis Blockchain</h3>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">
+                            Mengembangkan aplikasi blockchain yang aman dan terpercaya untuk menciptakan ekosistem desentralisasi yang transparan dan efisien dalam berbagai sektor.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-purple-200 text-purple-800 rounded-full text-xs font-semibold">Blockchain</span>
+                            <span class="px-3 py-1 bg-purple-200 text-purple-800 rounded-full text-xs font-semibold">Distributed Systems</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-2">
+                    <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_10px_rgba(5,0,5,0.05)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-shield text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-[var(--blue-dark)]">Security Information and Event Management</h3>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">
+                            Mengimplementasikan solusi keamanan siber terpadu untuk monitoring, deteksi, dan respons terhadap ancaman keamanan informasi dalam lingkungan IT yang kompleks.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-red-200 text-red-800 rounded-full text-xs font-semibold">Cybersecurity</span>
+                            <span class="px-3 py-1 bg-red-200 text-red-800 rounded-full text-xs font-semibold">IT Security</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="scope-card" data-aos="fade-up">
-                <div class="icon fas fa-robot"></div>
-                <h3 class="scope-title">
-                    Artificial Intelligence <div class="far fa-arrow-alt-circle-right"></div>
-                </h3>
-                <div class="scope-description">
-                    Analyze data, create machine learning models, and develop intelligent systems that can assist decision-making.
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center" data-aos="fade-up">
+                <div class="order-2 md:order-1">
+                    <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_10px_rgba(5,0,5,0.05)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-credit-card text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-[var(--blue-dark)]">Financial Support Technology</h3>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">
+                            Mengembangkan solusi fintech untuk mendukung inklusi keuangan, efisiensi transaksi, dan aksesibilitas layanan keuangan digital bagi semua kalangan masyarakat.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-yellow-200 text-yellow-800 rounded-full text-xs font-semibold">Fintech</span>
+                            <span class="px-3 py-1 bg-yellow-200 text-yellow-800 rounded-full text-xs font-semibold">Financial Systems</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-2">
+                    <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_10px_rgba(5,0,5,0.05)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-lock text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-[var(--blue-dark)]">Proteksi dan Digitalisasi Aset</h3>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">
+                            Mengimplementasikan teknologi untuk perlindungan aset digital, manajemen hak cipta, dan sistem verifikasi keaslian guna menjaga nilai dan keamanan aset intelektual.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-orange-200 text-orange-800 rounded-full text-xs font-semibold">Digital Asset</span>
+                            <span class="px-3 py-1 bg-orange-200 text-orange-800 rounded-full text-xs font-semibold">Protection</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="scope-card" data-aos="fade-up" data-aos-delay="300"> 
-                <div class="icon fas fa-handshake"></div>
-                <h3 class="scope-title">
-                    Research & Collaboration <div class="far fa-arrow-alt-circle-right"></div>
-                </h3>
-                <div class="scope-description">
-                    Conducting multidisciplinary research and collaborating with various parties.
-                </div>
-            </div>
-            <div class="scope-card" data-aos="fade-up">
-                <div class="icon fas fa-code"></div>
-                <h3 class="scope-title">
-                    Application Development <div class="far fa-arrow-alt-circle-right"></div>
-                </h3>
-                <div class="scope-description">
-                    Designing and building desktop, web, and mobile applications for industrial and academic needs.
+
+            <div class="items-center" data-aos="fade-up">
+                <div class="order-2 md:order-1">
+                    <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_10px_rgba(5,0,5,0.05)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-file-pdf text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-[var(--blue-dark)]">System Pelaporan Berbasis Peta Digital</h3>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">
+                            Mengembangkan sistem pelaporan terintegrasi dengan teknologi GIS dan pemetaan digital untuk peningkatan transparansi, akuntabilitas, dan pengambilan keputusan berbasis data.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-cyan-200 text-cyan-800 rounded-full text-xs font-semibold">GIS Technology</span>
+                            <span class="px-3 py-1 bg-cyan-200 text-cyan-800 rounded-full text-xs font-semibold">Data Visualization</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -134,10 +354,9 @@
     <div class="half-circle-glow"></div>
 </div>
 <section class="bg-[#f0f4f8] section">
-    <div class="max-w-4xl mx-auto pt-[2rem] pb-[2rem]">
-        <div class="project header">
+    <div class="container">
+        <div class="text-center mb-12">
             <div class="title">
-            <!-- Ikon Grup Orang (SVG Inline) -->
                 <i class="fa-solid fa-newspaper text-sm mr-2"></i> LATEST NEWS
             </div>
             <p class="secondary-title">Hot Off the <span>Press</span></p>
@@ -227,9 +446,8 @@
 </div>
 <section id="products" class="section">
     <div class="container">
-        <div class="product header">
+        <div class="text-center mb-12">
             <div class="title">
-            <!-- Ikon Grup Orang (SVG Inline) -->
                 <i class="fa-solid fa-rocket text-sm mr-2"></i> OUR PRODUCT
             </div>
             <p class="secondary-title">Innovation Meet <span>Excellence</span></p>
@@ -238,35 +456,37 @@
 
         <div class="products-grid">
             <?php 
-                $delay_increment = 200; // Penambahan delay 200 milidetik per kartu
+                $delay_increment = 300; // Penambahan delay 200 milidetik per kartu
                 $delay = 0; 
             ?>
             <?php if (count($products) > 0): ?>
                 <?php foreach ($products as $product): ?>
-                <div class="product-card" data-aos="fade-up" data-aos-delay="<?= $delay; ?>">
-                    <div class="product-logo-container">
-                        <img src="<?= htmlspecialchars($product['image']) ?>" 
-                            alt="<?= htmlspecialchars($product['nama_produk']) ?>">
-                    </div>
-                    
-                    <div class="product-content">
-                        <span class="category"><?= htmlspecialchars($product['kategori']); ?></span>
-            
-                        <h3 class="product-name"><?= htmlspecialchars($product['nama_produk']); ?></h3>
-                        <p class="product-description"><?= htmlspecialchars($product['deskripsi']); ?></p>
-                        <div class="product-footer">
-                            <a href="<?= htmlspecialchars($product['link_demo']) ?>" 
-                                class="product-link" 
-                                target="_blank">
-                                View Demo
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
+                <div data-aos="fade-up" data-aos-delay="<?= $delay; ?>">
+                    <div class="product-card">
+                        <div class="product-logo-container">
+                            <img src="<?= htmlspecialchars($product['image']) ?>" 
+                                alt="<?= htmlspecialchars($product['nama_produk']) ?>">
                         </div>
+                        
+                        <div class="product-content">
+                            <span class="category"><?= htmlspecialchars($product['kategori']); ?></span>
+                
+                            <h3 class="product-name"><?= htmlspecialchars($product['nama_produk']); ?></h3>
+                            <p class="product-description"><?= htmlspecialchars($product['deskripsi']); ?></p>
+                            <div class="product-footer">
+                                <a href="<?= htmlspecialchars($product['link_demo']) ?>" 
+                                    class="product-link" 
+                                    target="_blank">
+                                    View Demo
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    <?php 
+                        //Tambah delay untuk kartu berikutnya
+                        $delay += $delay_increment; 
+                    ?>
                     </div>
-                <?php 
-                    //Tambah delay untuk kartu berikutnya
-                    $delay += $delay_increment; 
-                ?>
                 </div>
                 <?php endforeach; ?>
             <?php else: ?>
@@ -286,10 +506,9 @@
     <div class="half-circle-glow"></div>
 </div>
 <section id="team" class="section">
-    <div class="container">
-        <div class="profile header">
+    <div class="container px-[12rem]">
+        <div class="text-center mb-12">
             <div class="title">
-            <!-- Ikon Grup Orang (SVG Inline) -->
                 <i class="fa-solid fa-id-card-clip text-sm mr-2"></i> OUR MEMBER
             </div>
             <p class="secondary-title">Get to Know <span>Us</span></p>
@@ -299,7 +518,7 @@
             <?php if (count($team) > 0): ?>
                 <?php foreach ($team as $member): ?>
                 <div class="profile-card">
-                    <div class="profile-info">
+                    <div class="flex-grow">
                         <h3 class="profile-name"><?= htmlspecialchars($member['nama']); ?></h3>
 
                         <div class="profile-expertise">
@@ -349,23 +568,18 @@
 </div>
 
 <!-- Facilities -->
- <div class="shadow-bar-top">
-       <div class="half-circle-glow"></div>
-</div>
-
 <section class="bg-white text-gray-800 section">
-    <div class="max-w-[1200px] mx-auto px-5 py-12 pt-[2rem] pb-[2rem]">
+    <div class="container">
         <!-- Header -->
-        <div class="project header">
+        <div class="text-center mb-12">
             <div class="title">
-            <!-- Ikon Grup Orang (SVG Inline) -->
                 <i class="fa-solid fa-building text-sm mr-2"></i> OUR FACILITIES
             </div>
             <p class="secondary-title">Explore Our Space <span>Space</span></p>
             <p class="text-center text-gray-500 mb-12">Comfort and convenience, designed just for you.</p>
         </div>
 
-        <!-- ROW 1: Teks (1/3) - Gambar (2/3) -->
+        <!-- ROW 1-->
         <div class="flex flex-col md:flex-row gap-6 mb-8 h-auto md:h-[400px]"  data-aos="fade-up" data-aos-duration="1000">
             <!-- Deskripsi (1/3) -->
             <div class="w-full md:w-1/3 bg-blue-50 rounded-[30px] p-8 flex flex-col justify-center shadow-[0px_5px_10px_rgba(5,0,5,0.05)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(6,182,212,0.15)]">
@@ -381,6 +595,10 @@
                         <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Full AC</span>
                         <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Proyektor</span>
                         <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Soundproof</span>
+                        <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ High Speed WiFi</span>
+                        <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Full AC</span>
+                        <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Proyektor</span>
+                        <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Soundproof</span>
                     </div>
                 </div>
             </div>
@@ -390,7 +608,6 @@
                 <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2301&auto=format&fit=crop" 
                      alt="Lab Space" 
                      class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                <!-- Overlay Gradient (Opsional) -->
                 <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
             </div>
         </div>
@@ -424,74 +641,62 @@
 <div class="shadow-bar-top">
     <div class="half-circle-glow"></div>
 </div>
-<section class="publication section">
-    <div class="container">
-        <div class="publication header">
-            <div class="title">
-            <!-- Ikon Grup Orang (SVG Inline) -->
-                <i class="fa-solid fa-flask text-sm mr-2"></i> RESEARCH & INNOVATION
-            </div>
-            <p class="secondary-title">Faculty <span>Publications</span></p>
-            <p class="text-center text-gray-500 mb-12">Explore the latest scholarly works and academic contributions from our faculty.</p>
+<section class="section container">
+    <div class="text-center mb-12">
+        <div class="title">
+            <i class="fa-solid fa-flask text-sm mr-2"></i> RESEARCH & INNOVATION
         </div>
-        <div class="publications-grid"  data-aos="fade-up">
-            <div class="publication-card">
-                <div class="publication-content">
-                    <div class="flex gap-6">
-                        <div class="icon fas fa-laptop-house"></div>
-                        <div>
-                            <span class="publication-category">PENELITIAN</span>
+        <p class="secondary-title">Faculty <span>Publications</span></p>
+        <p class="text-center text-gray-500 mb-12">Explore the latest scholarly works and academic contributions from our faculty.</p>
+    </div>
+    <div class="publications-grid"  data-aos="fade-up">
+        <?php if (count($publications) > 0): ?>
+            <?php 
+                $delay_increment = 100;
+                $delay = 0;
+            ?>
+            <?php foreach ($publications as $publication): ?>
+                <div class="publication-card" data-aos="fade-up" data-aos-delay="<?= $delay; ?>">
+                    <div class="publication-content">
+                        <div class="flex gap-4 items-start justify-between mb-4">
+                            <div class="flex gap-4 items-start flex-1">
+                                <div class="w-12 h-12 bg-gradient-to-br from-[var(--blue)] to-[var(--blue-dark)] rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid fa-book text-white"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold uppercase tracking-wide">
+                                        PUBLIKASI
+                                    </span>
+                                    <?php if (!empty($publication['nama_dosen'])): ?>
+                                        <p class="text-xs text-gray-500 mt-2 font-medium">Oleh: <span class="text-blue-600"><?= htmlspecialchars($publication['nama_dosen']); ?></span></p>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="publication-name text-lg font-bold text-gray-900 mb-3 line-clamp-2"><?= htmlspecialchars($publication['judul'] ?? '-'); ?></h3>
+                        <p class="publication-description text-gray-600 text-sm leading-relaxed mb-6 line-clamp-3"><?= htmlspecialchars($publication['deskripsi'] ?? '-'); ?></p>
+                        <div class="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-300 group cursor-pointer">
+                            <?php if (!empty($publication['link_jurnal'])): ?>
+                                <a href="<?php //echo htmlspecialchars($publication['link_jurnal']); ?>" target="_blank" class="inline-flex items-center gap-2 group">
+                                    Baca Selengkapnya
+                                    <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                                </a>
+                            <?php else: ?>
+                                <span class="text-gray-400 inline-flex items-center gap-2">
+                                    Tidak ada dokumen
+                                    <i class="fa-solid fa-ban"></i>
+                                </span>
+                            <?php endif; ?>
                         </div>
                     </div>
-                    
-                    <h3 class="publication-name">Implementation of Test-Driven Approach to Empower Self-Learning in PHP Web Programming Practice</h3>
-                    <p class="publication-description">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
-                    <button class="button-primary">
-                        <a href="#" target="_blank" >
-                            Baca 
-                            <div class="fas fa-arrow-right"></div>
-                        </a>
-                    </button>
                 </div>
-            </div>
-            <div class="publication-card">
-                <div class="publication-content">
-                    <div class="flex gap-6">
-                        <div class="icon fas fa-laptop-house"></div>
-                        <div>
-                            <span class="publication-category">PENELITIAN</span>
-                        </div>
-                    </div>
-                    
-                    <h3 class="publication-name">Implementation of Test-Driven Approach to Empower Self-Learning in PHP Web Programming Practice</h3>
-                    <p class="publication-description">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
-                    <button class="button-primary">
-                        <a href="#" target="_blank" >
-                            Baca 
-                            <div class="fas fa-arrow-right"></div>
-                        </a>
-                    </button>
-                </div>
-            </div>
-            <div class="publication-card">
-                <div class="publication-content">
-                    <div class="flex gap-6">
-                        <div class="icon fas fa-laptop-house"></div>
-                        <div>
-                            <span class="publication-category">PENELITIAN</span>
-                        </div>
-                    </div>
-                    
-                    <h3 class="publication-name">Implementation of Test-Driven Approach to Empower Self-Learning in PHP Web Programming Practice</h3>
-                    <p class="publication-description">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
-                    <button class="button-primary target-hidden">
-                        <a href="#" target="_blank" >
-                            Baca 
-                            <div class="fas fa-arrow-right"></div>
-                        </a>
-                    </button>
-                </div>
-            </div>
-        </div>
+                <?php 
+                    $delay += $delay_increment; 
+                ?>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p class="text-center text-gray-500 col-span-full py-8">Belum ada data publikasi yang tersedia.</p>
+        <?php endif; ?>
     </div>
 </section>
