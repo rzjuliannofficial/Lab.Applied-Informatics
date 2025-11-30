@@ -34,42 +34,56 @@
 
 <section class="products-section">
     <div class="container">
+        <?php 
+            $delay_increment = 200; 
+            $delay = 0;
+        ?>
         <div class="products-grid">
+            <?php
+                if ($delay == 600) {
+                    $delay = 0;
+                } 
+            ?>
             <?php foreach ($products as $product): ?>
-                <div class="product-card">
-                    <div class="product-logo-container">
-                        <img src="<?= htmlspecialchars($product['image']) ?>" 
-                                alt="<?= htmlspecialchars($product['nama_produk']) ?>">
+                <div data-aos="fade-up" data-aos-delay="<?= $delay; ?>" class="h-full">
+                    <div class="product-card">
+                        <div class="product-logo-container">
+                            <img src="<?= htmlspecialchars($product['image']) ?>" 
+                                    alt="<?= htmlspecialchars($product['nama_produk']) ?>">
+                        </div>
+                        <div class="product-content">
+                            <?php if (!empty($product['kategori'])): ?>
+                                <span class="product-category">
+                                    <?= htmlspecialchars($product['kategori']) ?>
+                                </span>
+                            <?php endif; ?>
+                            
+                            <h3 class="product-name">
+                                <?= htmlspecialchars($product['nama_produk']) ?>
+                            </h3>
+                            
+                            <?php if (!empty($product['deskripsi'])): ?>
+                                <p class="product-description">
+                                    <?= htmlspecialchars($product['deskripsi']) ?>
+                                </p>
+                            <?php endif; ?>
+                            
+                            <?php if (!empty($product['link_demo'])): ?>
+                                <div class="product-footer">
+                                    <a href="<?= htmlspecialchars($product['link_demo']) ?>" 
+                                        class="product-link" 
+                                        target="_blank">
+                                        View Demo
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                     </div>
-                    
-                    <div class="product-content">
-                        <?php if (!empty($product['kategori'])): ?>
-                            <span class="product-category">
-                                <?= htmlspecialchars($product['kategori']) ?>
-                            </span>
-                        <?php endif; ?>
-                        
-                        <h3 class="product-name">
-                            <?= htmlspecialchars($product['nama_produk']) ?>
-                        </h3>
-                        
-                        <?php if (!empty($product['deskripsi'])): ?>
-                            <p class="product-description">
-                                <?= htmlspecialchars($product['deskripsi']) ?>
-                            </p>
-                        <?php endif; ?>
-                        
-                        <?php if (!empty($product['link_demo'])): ?>
-                            <div class="product-footer">
-                                <a href="<?= htmlspecialchars($product['link_demo']) ?>" 
-                                    class="product-link" 
-                                    target="_blank">
-                                    View Demo
-                                    <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        <?php endif; ?>
-                    </div>
+                    <?php 
+                        //Tambah delay untuk kartu berikutnya
+                        $delay += $delay_increment; 
+                    ?>
                 </div>
             <?php endforeach; ?>
         </div>
