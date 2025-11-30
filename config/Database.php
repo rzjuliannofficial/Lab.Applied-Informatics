@@ -9,7 +9,8 @@ class Database
         if (!self::$conn) {
 
             $host = 'localhost';
-            $dbname = 'lab_ai_polinema';
+            $dbname = 'Ai_database';
+            // $dbname = 'lab_ai_polinema';
             $user = 'postgres';
             $pass = '123';
 
