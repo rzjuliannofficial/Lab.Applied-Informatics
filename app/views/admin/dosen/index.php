@@ -2,9 +2,13 @@
 
 <div class="flex justify-between items-center mb-6">
     <h1 class="text-2xl font-bold">Daftar Member</h1>
-    <a href="/admin/dosen/create" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-        <i class="fas fa-plus mr-1"></i> Tambah Member
-    </a>
+    
+    <!-- Other menus khusus admin -->
+    <?php if ($_SESSION['user']['role'] === 'admin'): ?>
+        <a href="/admin/dosen/create" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+            <i class="fas fa-plus mr-1"></i> Tambah Member
+        </a>
+    <?php endif; ?>
 </div>
 
 <!-- Grid Layout -->
@@ -63,16 +67,30 @@
                     <?php endif; ?>
                 </div>
             </div>
-
-            <!-- Card Footer (Actions) -->
-            <div class="bg-gray-50 px-6 py-3 border-t flex justify-end space-x-3">
-                <a href="/admin/dosen/edit/<?= $d['id'] ?>" class="text-sm text-yellow-600 hover:text-yellow-800 font-medium">
-                    <i class="fas fa-edit"></i> Edit
-                </a>
-                <a href="/admin/dosen/delete/<?= $d['id'] ?>" onclick="return confirm('Hapus dosen ini?')" class="text-sm text-red-600 hover:text-red-800 font-medium">
-                    <i class="fas fa-trash"></i> Hapus
-                </a>
-            </div>
+            <!-- akan muncul di editor sesuai id loginnya -->
+             <?php if ($_SESSION['user']['role'] === 'editor' && $_SESSION['user']['id_dosen'] == $d['id']): ?>
+                <!-- Card Footer (Actions) -->
+                <div class="bg-gray-50 px-6 py-3 border-t flex justify-end space-x-3">
+                    <a href="/admin/dosen/edit/<?= $d['id'] ?>" class="text-sm text-yellow-600 hover:text-yellow-800 font-medium">
+                        <i class="fas fa-edit"></i> Edit
+                    </a>
+                    <a href="/admin/dosen/delete/<?= $d['id'] ?>" onclick="return confirm('Hapus dosen ini?')" class="text-sm text-red-600 hover:text-red-800 font-medium">
+                        <i class="fas fa-trash"></i> Hapus
+                    </a>
+                </div>
+            <?php endif; ?>
+            <!-- khusus admin bisa edit semua -->
+             <?php if ($_SESSION['user']['role'] === 'admin'): ?>
+                <!-- Card Footer (Actions) -->
+                <div class="bg-gray-50 px-6 py-3 border-t flex justify-end space-x-3">
+                    <a href="/admin/dosen/edit/<?= $d['id'] ?>" class="text-sm text-yellow-600 hover:text-yellow-800 font-medium">
+                        <i class="fas fa-edit"></i> Edit
+                    </a>
+                    <a href="/admin/dosen/delete/<?= $d['id'] ?>" onclick="return confirm('Hapus dosen ini?')" class="text-sm text-red-600 hover:text-red-800 font-medium">
+                        <i class="fas fa-trash"></i> Hapus
+                    </a>
+                </div>
+            <?php endif; ?>
 
         </div>
     <?php endforeach; ?>

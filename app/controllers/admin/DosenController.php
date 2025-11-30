@@ -34,17 +34,7 @@ class DosenController extends Controller
     public function index()
     {
         $m = new Dosen();
-
-        if ($_SESSION['user']['role'] === 'editor') {
-            $dosen = $m->find($_SESSION['user']['id_dosen']);
-            if (!$dosen) {
-                $_SESSION['error'] = "Akun editor tidak memiliki data dosen!";
-                return header("Location: /admin/dashboard");
-            }
-            $data['dosen'] = [$dosen];
-        } else {
-            $data['dosen'] = $m->getAll();
-        }
+        $data['dosen'] = $m->getAll();
 
         $this->view("admin/dosen/index", $data);
     }
