@@ -72,7 +72,7 @@
             </form>
 
             <div class="login-footer">
-                <a href="index.php" class="back-link">
+                <a href="/home" class="back-link">
                     <i class="fas fa-arrow-left"></i> Back to Home
                 </a>
             </div>
