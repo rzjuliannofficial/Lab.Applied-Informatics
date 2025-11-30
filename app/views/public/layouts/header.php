@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $data['title']?></title>
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/uploads/home/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/Style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,10 +15,10 @@
 <body>
     <header class="sticky-header">
         <nav class="header-nav">
-            <a href="index.php">
+            <a href="home">
                 <div class="logo-area">
                     <div class="logo-image-container">
-                        <img src="img/logoAi.png" alt="Lab AI Logo">
+                        <img src="uploads/home/logoAi.png" alt="Lab AI Logo">
                     </div>
                     <div class="logo-text">
                         Applied <br>Informatics

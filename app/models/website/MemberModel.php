@@ -11,9 +11,9 @@ class MemberModel extends Model
 
     public function fetchTeam() {
 
-        $sql = "SELECT nama, nip, email, foto_profil, keahlian_text, deskripsi 
+        $sql = "SELECT nama, nip, email, foto_profil, keahlian_text, deskripsi , jabatan
                 FROM dosen 
-                ORDER BY nama ASC 
+                ORDER BY jabatan ASC 
                 LIMIT 2";
 
         $result = pg_query($this->conn, $sql);

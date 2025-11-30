@@ -133,9 +133,13 @@
             <!-- Map Section -->
             <div class="contact-map-section" data-aos="fade-up" data-aos-delay="500">
                 <h2 class="map-title">Find Us Here</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-center mb-6">
+                    <i class="fa-solid fa-location-dot text-red-500 mr-2"></i>
+                    Gedung Pascasarjana POLINEMA, Jl. Simpang Remujung, Jatimulyo, Kec. Lowokwaru, Kota Malang, Jawa Timur 65141
+                </p>
                 <div class="map-container">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.4449889274456!2d112.61265931477678!3d-7.944473794290169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd629916a860195%3A0x8d8eaa6f3c7a5e0b!2sPoliteknik%20Negeri%20Malang!5e0!3m2!1sen!2sid!4v1637841234567!5m2!1sen!2sid" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d987.8848788774824!2d112.61313139492822!3d-7.943064517393075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78833cae0fc99f%3A0x20d162669317de31!2sGedung%20Pascasarjana%20POLINEMA!5e0!3m2!1sid!2sid!4v1764426059299!5m2!1sid!2sid" 
                         class="map-iframe"
                         allowfullscreen="" 
                         loading="lazy">

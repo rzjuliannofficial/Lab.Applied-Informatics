@@ -36,7 +36,7 @@ body {
     font-size: 16px;
     /* background-color: black; */
     line-height: 1.5;
-    background-image: url("../img/bg_pbl.png");
+    background-image: url("../uploads/home/bg_pbl.png");
     background-size: cover;
     background-position:center;
     background-repeat: no-repeat;
@@ -170,7 +170,7 @@ body {
 }
 
 .logo-image-container img {
-    height: 2.8rem;
+    height: 2.3rem;
     width: auto;
 }
 
@@ -179,7 +179,9 @@ body {
     font-weight: bold;
     font-size: 16px;
     letter-spacing: 2px;
-    color: #02416D;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     line-height: 1.2rem;
 }
 
@@ -232,23 +234,20 @@ body {
 
 /* --- Buttons & Utilities --- */
 .button-primary {
-    background-color: var(--blue-dark);
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
     color: var(--white);
     padding: 8px 28px;
     border-radius: 8px;
     font-weight: 600;
     transition: all 0.3s ease;
-    border: inset 2px;
-    border-color: var(--purple-border);
     cursor: pointer;
-    /* display: inline-block; */
     box-shadow: 0px 10px 20px -8px rgba(99, 101, 241, 0.529);
 }
 
 .button-primary:hover {
     color: var(--blue-dark);
-    background-color: rgba(255, 255, 255, 0);
-    /* transform: translateY(-2px); */
+    background: rgba(255, 255, 255, 0);
+    transform: translateY(-2px);
 }   
 
 .button-secondary {
@@ -522,13 +521,13 @@ body {
         /* --- Kustom 3D Carousel Styling (Dipertahankan dari versi sebelumnya) --- */
         .carousel-wrapper-3d {
             position: relative;
-            height: 550px;
+            height: 450px;
             perspective: 1000px;
-            /* overflow: hidden; */
             margin-top: 5rem;
         }
         
         .carousel-item-3d {
+
             position: absolute;
             top: 0;
             left: 50%;
@@ -1070,7 +1069,8 @@ body {
     padding: 2rem;
     transition: all 0.3s ease;
     box-shadow: 0px 5px 10px rgba(5, 0, 5, 0.15);
-    gap: 2rem;
+    justify-content: space-between;
+    gap: 1rem;
 }
 
 .profile-card:hover {

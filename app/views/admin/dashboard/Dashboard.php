@@ -4,7 +4,7 @@
         <i class="fas fa-check-circle text-xl"></i>
         <div>
             <p class="font-bold">Sukses!</p>
-            <p class="text-sm">Selamat datang kembali, <?= $_SESSION['user']['id_dosen']; ?></p>
+            <p class="text-sm">Selamat datang kembali, <?= $_SESSION['user']['nama_dosen']; ?></p>
         </div>
     </div>
     <button id="close-alert-btn" class="text-green-700 hover:text-green-900 transition-colors p-2">
