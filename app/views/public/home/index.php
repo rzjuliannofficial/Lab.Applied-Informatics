@@ -537,8 +537,8 @@
                     </div>
 
                     <div class="profile-image">
-                        <?php if (empty($member['foto_profil'])): ?>
-                            <img src="<?= htmlspecialchars($member['foto_profil']); ?>" alt="<?= htmlspecialchars($member['nama_dosen']); ?>">
+                        <?php if (!empty($member['foto_profil'])): ?>
+                            <img src="<?= htmlspecialchars($member['foto_profil']); ?>" alt="<?= htmlspecialchars($member['nama']); ?>">
                         <?php else: ?>
                             <div class="profile-photo-icon">
                                 <svg fill="currentColor" viewBox="0 0 24 24">

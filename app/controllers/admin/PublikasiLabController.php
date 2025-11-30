@@ -28,7 +28,7 @@ class PublikasiLabController extends Controller
         $dir = realpath(__DIR__ . '/../../..') . "/public/uploads/publikasi_lab/";
         if (!is_dir($dir)) mkdir($dir, 0777, true);
 
-        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? $safe : null;
+        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? "/uploads/publikasi_lab/" . $safe : null;
     }
 
     public function index()
@@ -67,7 +67,7 @@ class PublikasiLabController extends Controller
             $g = new Galeri();
             $g->create([
                 $uploadedBy,
-                "publikasi_lab/" . $file,
+                $file,
                 "",
                 null,       // id_penelitian
                 null,       // id_kegiatan_lab
@@ -115,7 +115,7 @@ class PublikasiLabController extends Controller
             $g = new Galeri();
             $g->create([
                 $uploadedBy,
-                "publikasi_lab/" . $file,
+                $file,
                 "",
                 null,
                 null,
@@ -136,7 +136,7 @@ class PublikasiLabController extends Controller
         $old = $m->find($id);
 
         if (!empty($old['file_dokumen'])) {
-            $path = realpath(__DIR__ . '/../../..') . "/public/uploads/publikasi_lab/" . $old['file_dokumen'];
+            $path = realpath(__DIR__ . '/../../..') . $old['file_dokumen'];
             if (file_exists($path)) unlink($path);
         }
 

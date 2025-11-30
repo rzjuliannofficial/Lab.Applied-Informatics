@@ -28,7 +28,7 @@ class ProdukController extends Controller
         $dir = realpath(__DIR__ . '/../../..') . "/public/uploads/produk/";
         if (!is_dir($dir)) mkdir($dir, 0777, true);
 
-        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? $safe : null;
+        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? "/uploads/produk/" . $safe : null;
     }
 
 
@@ -70,7 +70,7 @@ class ProdukController extends Controller
 
             $g->create([
                 $uploadedBy,
-                "produk/" . $image,
+                $image,
                 "",             // caption kosong dulu
                 null,           // id_penelitian
                 null,           // id_kegiatan_lab
@@ -125,7 +125,7 @@ class ProdukController extends Controller
 
             $g->create([
                 $uploadedBy,
-                "produk/" . $image,
+                $image,
                 "",
                 null,
                 null,
@@ -150,7 +150,7 @@ class ProdukController extends Controller
         $row = $m->find($id);
 
         if (!empty($row['image'])) {
-            $filePath = realpath(__DIR__ . '/../../..') . "/public/uploads/produk/" . $row['image'];
+            $filePath = realpath(__DIR__ . '/../../..') . $row['image'];
             if (file_exists($filePath)) unlink($filePath);
         }
 

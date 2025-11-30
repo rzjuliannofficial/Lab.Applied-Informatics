@@ -53,7 +53,7 @@
                         </div>
                     </div>
 
-                    <!-- Upload Foto -->
+                        <!-- Upload Foto -->
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Foto Profil</label>
                         
@@ -61,7 +61,7 @@
                             <!-- Preview Foto Lama -->
                             <div class="flex-shrink-0">
                                 <?php if (!empty($dosen['foto_profil'])): ?>
-                                    <img src="/uploads/dosen/<?= htmlspecialchars($dosen['foto_profil']) ?>" class="h-16 w-16 rounded-full object-cover border border-gray-200">
+                                    <img src="<?= htmlspecialchars($dosen['foto_profil']) ?>" class="h-16 w-16 rounded-full object-cover border border-gray-200">
                                 <?php else: ?>
                                     <span class="inline-block h-16 w-16 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center border border-gray-200">
                                         <i class="fas fa-user text-gray-400 text-2xl"></i>

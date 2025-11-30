@@ -24,7 +24,7 @@
 
     <?php if ($fasilitas['foto']): ?>
         <p class="font-semibold">Foto Saat Ini:</p>
-        <img src="/uploads/fasilitas/<?= $fasilitas['foto'] ?>" class="w-32 h-32 rounded object-cover mb-4">
+        <img src="<?= htmlspecialchars($fasilitas['foto']) ?>" class="w-32 h-32 rounded object-cover mb-4">
     <?php endif; ?>
 
     <button class="bg-yellow-600 text-white px-4 py-2 rounded">Update</button>

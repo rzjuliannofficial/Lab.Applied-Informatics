@@ -32,7 +32,7 @@
 
     <?php if (!empty($kegiatan['file_dokumentasi'])): ?>
         <p class="text-sm">File saat ini:</p>
-        <a href="/uploads/kegiatan_lab/<?= $kegiatan['file_dokumentasi'] ?>" target="_blank"
+        <a href="<?= htmlspecialchars($kegiatan['file_dokumentasi']) ?>" target="_blank"
            class="text-blue-600 underline text-sm">
             Lihat File
         </a>

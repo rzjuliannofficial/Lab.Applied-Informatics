@@ -32,7 +32,7 @@
 
     <?php if (!empty($publikasi['file_dokumen'])): ?>
         <p class="text-sm mb-2 font-semibold">Dokumen Saat Ini:</p>
-        <a href="/uploads/publikasi_lab/<?= $publikasi['file_dokumen'] ?>" target="_blank"
+        <a href="<?= htmlspecialchars($publikasi['file_dokumen']) ?>" target="_blank"
            class="text-blue-600 underline text-sm">Lihat Dokumen</a>
     <?php endif; ?>
 

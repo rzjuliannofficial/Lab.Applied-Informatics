@@ -22,7 +22,7 @@ class KegiatanLabController extends Controller
 
         if (!is_dir($destDir)) mkdir($destDir, 0777, true);
 
-        return move_uploaded_file($file['tmp_name'], $destDir . $safe) ? $safe : null;
+        return move_uploaded_file($file['tmp_name'], $destDir . $safe) ? "/uploads/kegiatan_lab/" . $safe : null;
     }
 
     public function index()
@@ -100,7 +100,7 @@ class KegiatanLabController extends Controller
         $data = $m->find($id);
 
         if (!empty($data['file_dokumentasi'])) {
-            $file = realpath(__DIR__ . '/../../..') . "/public/uploads/kegiatan_lab/" . $data['file_dokumentasi'];
+            $file = realpath(__DIR__ . '/../../..') . $data['file_dokumentasi'];
             if (file_exists($file)) unlink($file);
         }
 

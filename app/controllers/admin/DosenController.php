@@ -24,7 +24,8 @@ class DosenController extends Controller
         $dir = realpath(__DIR__ . '/../../..') . "/public/uploads/dosen/";
         if (!is_dir($dir)) mkdir($dir, 0777, true);
 
-        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? $safe : null;
+        // Return path format: /uploads/dosen/filename.ext
+        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? "/uploads/dosen/" . $safe : null;
     }
 
     /* ==========================

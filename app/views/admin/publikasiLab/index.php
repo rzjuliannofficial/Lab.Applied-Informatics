@@ -23,7 +23,7 @@
             <td class="p-2 border"><?= htmlspecialchars($p['kategori']) ?></td>
             <td class="p-2 border">
                 <?php if (!empty($p['file_dokumen'])): ?>
-                    <a href="/uploads/publikasi_lab/<?= $p['file_dokumen'] ?>" target="_blank" class="text-blue-600 underline">Lihat Dokumen</a>
+                    <a href="<?= htmlspecialchars($p['file_dokumen']) ?>" target="_blank" class="text-blue-600 underline">Lihat Dokumen</a>
                 <?php else: ?>
                     <span class="text-gray-500 text-sm">Tidak ada</span>
                 <?php endif; ?>

@@ -18,7 +18,7 @@
                     <!-- Foto -->
                     <div class="flex-shrink-0">
                         <?php if (!empty($d['foto_profil'])): ?>
-                            <img src="/uploads/dosen/<?= htmlspecialchars($d['foto_profil']) ?>" class="w-16 h-16 rounded-full object-cover border">
+                            <img src="<?= htmlspecialchars($d['foto_profil']) ?>" class="w-16 h-16 rounded-full object-cover border">
                         <?php else: ?>
                             <div class="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center text-xs text-gray-500 border">No Foto</div>
                         <?php endif; ?>

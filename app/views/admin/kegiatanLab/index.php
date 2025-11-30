@@ -24,7 +24,7 @@
 
             <td class="p-2 border">
                 <?php if (!empty($k['file_dokumentasi'])): ?>
-                    <a href="/uploads/kegiatan_lab/<?= $k['file_dokumentasi'] ?>" target="_blank" class="text-blue-600 underline">
+                    <a href="<?= htmlspecialchars($k['file_dokumentasi']) ?>" target="_blank" class="text-blue-600 underline">
                         Lihat File
                     </a>
                 <?php else: ?>

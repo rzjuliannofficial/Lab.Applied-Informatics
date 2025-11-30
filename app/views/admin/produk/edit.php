@@ -22,7 +22,7 @@
 
     <?php if ($produk['image']): ?>
         <p class="font-semibold">Gambar Saat Ini:</p>
-        <img src="/uploads/produk/<?= $produk['image'] ?>" class="w-32 h-32 object-cover rounded mb-4">
+        <img src="<?= htmlspecialchars($produk['image']) ?>" class="w-32 h-32 object-cover rounded mb-4">
     <?php endif; ?>
 
     <button class="bg-yellow-600 text-white px-4 py-2 rounded">Update</button>
