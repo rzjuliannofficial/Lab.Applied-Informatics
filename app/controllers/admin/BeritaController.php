@@ -54,7 +54,8 @@ class BeritaController extends Controller
             $_POST['judul'],
             $_POST['isi_berita'],
             $_POST['tanggal'],
-            $gambar
+            $gambar,
+            $_POST['kategori']
         ]);
 
         // ===== INSERT KE GALERI =====
@@ -70,7 +71,8 @@ class BeritaController extends Controller
                 null,       // id_publikasi_lab
                 $id_berita, // id_berita
                 null,       // id_produk
-                null        // id_fasilitas
+                null,       // id_fasilitas
+                null        // kategori (diisi manual di galeri/edit)
             ]);
         }
 
@@ -98,7 +100,8 @@ class BeritaController extends Controller
             $_POST['judul'],
             $_POST['isi_berita'],
             $_POST['tanggal'],
-            $gambar
+            $gambar,
+            $_POST['kategori']
         ]);
 
         // Jika gambar baru diupload → masuk galeri
@@ -114,7 +117,8 @@ class BeritaController extends Controller
                 null,
                 $id,
                 null,
-                null
+                null,
+                null        // kategori (diisi manual di galeri/edit)
             ]);
         }
 

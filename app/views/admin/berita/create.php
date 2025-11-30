@@ -16,7 +16,10 @@
 
     <label class="block font-semibold mb-1">Gambar Utama</label>
     <input type="file" name="gambar_utama" class="w-full mb-4">
-
+    
+    <label class="block font-semibold mb-1">Kategori Berita</label>
+    <input type="text" name="kategori" class="w-full p-2 border rounded mb-4" placeholder="Blockchain , Economy" required>
+    
     <button class="bg-blue-600 text-white px-4 py-2 rounded">Simpan</button>
 
 </form>

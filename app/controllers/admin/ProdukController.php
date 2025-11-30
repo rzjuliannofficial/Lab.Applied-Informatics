@@ -77,7 +77,8 @@ class ProdukController extends Controller
                 null,           // id_publikasi_lab
                 null,           // id_berita
                 $id_produk,     // 👈 RELASI PRODUK
-                null            // id_fasilitas
+                null,           // id_fasilitas
+                null            // kategori (diisi manual di galeri/edit)
             ]);
         }
 
@@ -132,7 +133,8 @@ class ProdukController extends Controller
                 null,
                 null,
                 $id,        // relasi produk
-                null
+                null,       // id_fasilitas
+                null        // kategori (diisi manual di galeri/edit)
             ]);
         }
 

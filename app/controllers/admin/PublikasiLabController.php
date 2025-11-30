@@ -74,7 +74,8 @@ class PublikasiLabController extends Controller
                 $id_publikasi, // id_publikasi_lab
                 null,       // id_berita
                 null,       // id_produk
-                null
+                null,       // id_fasilitas
+                null        // kategori (diisi manual di galeri/edit)
             ]);
         }
 
@@ -122,7 +123,8 @@ class PublikasiLabController extends Controller
                 $id,
                 null,
                 null,
-                null
+                null,
+                null        // kategori (diisi manual di galeri/edit)
             ]);
         }
 
