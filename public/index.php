@@ -1,35 +1,27 @@
 <?php
+<<<<<<< HEAD
 // Memuat file koneksi database
 require_once '../app/config/Koneksi.php'; 
 include '../app/model/products.php';
+=======
+session_start();
+>>>>>>> f8f5c56959e3d303a14ba42cc5007a9080e00364
 
-// Fungsi untuk mengambil semua data proyek dari tabel 'projects'
-function fetchProducts() {
-    try {
-        $sql = "SELECT id_produk, nama_produk, deskripsi, kategori, link_demo, image FROM produk ORDER BY id_produk DESC LIMIT 3";
-        $res = q($sql); 
-        $products = pg_fetch_all($res) ?: [];
-        return $products;
-    } catch (RuntimeException $e) {
-        error_log("Gagal mengambil produk: " . $e->getMessage());
-        return [];
-    }
-}
+// =========================
+// AUTOLOAD
+// =========================
+spl_autoload_register(function ($class) {
 
-// Fungsi untuk mengambil semua data tim dari tabel 'dosen'
-function fetchTeam() {
-    try {
-        
-        $sql = "SELECT nama, nip ,email, foto_profil, keahlian_text , deskripsi FROM dosen ORDER BY nama ASC limit 2";
-        $res = q($sql);
-        $team = pg_fetch_all($res) ?: [];
-        return $team;
-    } catch (RuntimeException $e) {
-        error_log("Gagal mengambil tim: " . $e->getMessage());
-        return [];
-    }
-}
+    $paths = [
+        "../app/core/$class.php",
+        "../app/models/$class.php",
+        "../app/controllers/$class.php",
+        "../app/controllers/admin/$class.php",
+        "../app/controllers/website/$class.php",
+        "../config/$class.php"
+    ];
 
+<<<<<<< HEAD
 // Ambil data sebelum memuat komponen
 $team = fetchTeam();
 $products = fetchProducts();
@@ -210,15 +202,148 @@ if (bottomBlur && footer) {
         } else {
             // Tampilkan kembali blur saat footer sudah jauh di bawah
             bottomBlur.classList.remove('is-hidden');
+=======
+    foreach ($paths as $file) {
+        if (file_exists($file)) {
+            require_once $file;
+            return;
+>>>>>>> f8f5c56959e3d303a14ba42cc5007a9080e00364
         }
     }
+});
 
-    // Panggil saat scroll dan saat halaman dimuat
-    window.addEventListener('scroll', checkVisibility);
-    window.addEventListener('resize', checkVisibility);
-    checkVisibility(); // Panggil sekali saat dimuat
-} else {
-    console.error("Elemen '.bottom-blur-overlay' atau 'footer' tidak ditemukan.");
+// ====================================================
+//  BYPASS UNTUK FILE STATIS DI /public/uploads/
+// ====================================================
+$requestUri = $_SERVER['REQUEST_URI'];
+
+if (preg_match('#^/uploads/#', $requestUri)) {
+    $filePath = __DIR__ . $requestUri;
+
+    if (file_exists($filePath)) {
+        $mime = mime_content_type($filePath);
+        header("Content-Type: $mime");
+        readfile($filePath);
+        exit;
+    }
+
+    http_response_code(404);
+    echo "File tidak ditemukan";
+    exit;
 }
-</script>
-</html>
+
+// =========================
+// BACA URL
+// =========================
+$url = isset($_GET['url']) ? trim($_GET['url'], '/') : 'home'; //default to home
+$segments = explode('/', $url);
+
+
+// ===================================================================================
+//                                    ROUTER ADMIN
+// ===================================================================================
+if ($segments[0] === "admin") {
+
+    // ---- 1. ROUTE: /admin/dashboard ----
+    if (($segments[1] ?? '') === 'dashboard') {
+
+        $controllerName = "DashboardController";
+        $method = "index";
+        $param = $segments[2] ?? null;
+
+        $controllerPath = "../app/controllers/admin/{$controllerName}.php";
+        require_once $controllerPath;
+
+        $controller = new $controllerName();
+        $param ? $controller->$method($param) : $controller->$method();
+
+        exit;
+    }
+
+    // ---- 2. ROUTING AUTH ----
+    $authMethods = ['login', 'doLogin', 'register', 'doRegister', 'logout'];
+
+    if (in_array($segments[1] ?? '', $authMethods)) {
+
+        $controllerName = "AuthController";
+        $method = $segments[1] ?? "login";
+        $param = $segments[2] ?? null;
+
+        $controllerPath = "../app/controllers/admin/{$controllerName}.php";
+
+        if (!file_exists($controllerPath)) {
+            die("Controller {$controllerName} tidak ditemukan:<br>{$controllerPath}");
+        }
+
+        require_once $controllerPath;
+        $controller = new $controllerName();
+
+        if (!method_exists($controller, $method)) {
+            die("Method {$method} tidak ditemukan di {$controllerName}");
+        }
+
+        $param ? $controller->$method($param) : $controller->$method();
+
+        exit;
+    }
+
+    // ---- 3. ADMIN LAIN (ex: dosen, publikasi, gallery) ----
+    $controllerName = ucfirst($segments[1] ?? 'dashboard') . "Controller";
+    $method = $segments[2] ?? "index";
+    $param = $segments[3] ?? null;
+
+    $controllerPath = "../app/controllers/admin/{$controllerName}.php";
+
+    if (!file_exists($controllerPath)) {
+        die("Controller {$controllerName} tidak ditemukan:<br>{$controllerPath}");
+    }
+
+    require_once $controllerPath;
+
+    if (!class_exists($controllerName)) {
+        die("Class {$controllerName} tidak ditemukan!");
+    }
+
+    $controller = new $controllerName();
+
+    if (!method_exists($controller, $method)) {
+        die("Method {$method} tidak ditemukan di {$controllerName}!");
+    }
+
+    $param ? $controller->$method($param) : $controller->$method();
+
+    exit;
+}
+
+
+
+
+
+// ===================================================================================
+//                            ROUTING WEBSITE DEFAULT
+// ===================================================================================
+
+$controllerName = ucfirst($segments[0]) . "Controller";
+$method = $segments[1] ?? "index";
+$param = $segments[2] ?? null;
+
+$controllerPath = "../app/controllers/website/{$controllerName}.php";
+
+if (!file_exists($controllerPath)) {
+    die("Controller {$controllerName} tidak ditemukan:<br>{$controllerPath}");
+}
+
+require_once $controllerPath;
+
+if (!class_exists($controllerName)) {
+    die("Class {$controllerName} tidak ditemukan!");
+}
+
+$controller = new $controllerName();
+
+if (!method_exists($controller, $method)) {
+    die("Method {$method} tidak ditemukan di {$controllerName}!");
+}
+
+$param ? $controller->$method($param) : $controller->$method();
+

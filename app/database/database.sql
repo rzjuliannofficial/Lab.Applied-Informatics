@@ -1,44 +1,68 @@
--- Hapus objek lama (Untuk memastikan skrip bersih saat dijalankan)
+-- ==============================================================
+-- 1. CLEANUP (HAPUS DATA LAMA)
+-- ==============================================================
 DROP TABLE IF EXISTS public.aktivitas_dosen, public.kekayaan_intelektual, public.publikasi_lab, public.kegiatan_lab, public.penelitian_lab, public.publikasi_dosen, public.ppm, public.riset_dosen, public.berita, public.galeri, public.produk, public.fasilitas, public.users, public.dosen CASCADE;
 DROP TYPE IF EXISTS public.user_role;
+DROP TYPE IF EXISTS public.member_jabatan;
 DROP EXTENSION IF EXISTS pgcrypto;
 
---- 1. EKSTENSI & TIPE KHUSUS (Dari Skema 1)
+-- ==============================================================
+-- 2. EKSTENSI & TIPE DATA CUSTOM
+-- ==============================================================
 CREATE EXTENSION IF NOT EXISTS pgcrypto WITH SCHEMA public;
 
+-- Role Login
 CREATE TYPE public.user_role AS ENUM (
     'admin',
     'editor'
 );
 
---- 2. PEMBUATAN TABEL DOSEN (Menambahkan keahlian_text dari Skema 2)
+-- Jabatan Struktur Lab (BARU)
+CREATE TYPE public.member_jabatan AS ENUM (
+    'ketua_lab',
+    'asisten_lab',
+    'member'
+);
+
+-- ==============================================================
+-- 3. TABEL UTAMA (DOSEN & USERS TERPISAH)
+-- ==============================================================
+
+-- Tabel Dosen (Ditambah Jabatan)
 CREATE TABLE public.dosen (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
     nama character varying(255) NOT NULL,
     nip character varying(100),
     email character varying(255),
     foto_profil text,
-    -- Kolom tambahan dari databaselagi.sql
     keahlian_text text,
+    deskripsi text,
+    jabatan public.member_jabatan DEFAULT 'member'::public.member_jabatan, -- Kolom Baru
     CONSTRAINT dosen_pkey PRIMARY KEY (id)
 );
 
---- 3. PEMBUATAN TABEL USERS (ID SERIAL, Role ENUM, id_dosen NOT NULL)
+-- Tabel Users (Login Only)
 CREATE TABLE public.users (
     id SERIAL NOT NULL,
     username character varying(100) NOT NULL,
     password character varying(255) NOT NULL,
     role public.user_role DEFAULT 'editor'::public.user_role NOT NULL,
+<<<<<<< HEAD
     id_dosen uuid NOT NULL, -- Diubah menjadi NOT NULL
     email CHARACTER varying(255) UNIQUE,
+=======
+    id_dosen uuid NOT NULL, 
+    email CHARACTER varying(255) UNIQUE, -- Tambahan Email di user untuk login alternatif (opsional)
+>>>>>>> f8f5c56959e3d303a14ba42cc5007a9080e00364
     CONSTRAINT users_pkey PRIMARY KEY (id),
     CONSTRAINT users_username_key UNIQUE (username),
     CONSTRAINT fk_user_dosen FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE CASCADE
 );
 
---- 4. TABEL-TABEL UTAMA LAINNYA (ID diubah menjadi SERIAL)
+-- ==============================================================
+-- 4. TABEL KONTEN AKADEMIK
+-- ==============================================================
 
--- Aktivitas Dosen
 CREATE TABLE public.aktivitas_dosen (
     id SERIAL NOT NULL,
     id_dosen uuid NOT NULL,
@@ -47,10 +71,9 @@ CREATE TABLE public.aktivitas_dosen (
     tanggal date,
     deskripsi text,
     CONSTRAINT aktivitas_dosen_pkey PRIMARY KEY (id),
-    CONSTRAINT aktivitas_dosen_id_dosen_fkey FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE CASCADE
+    CONSTRAINT fk_aktivitas_dosen FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE CASCADE
 );
 
--- Kekayaan Intelektual
 CREATE TABLE public.kekayaan_intelektual (
     id SERIAL NOT NULL,
     id_dosen uuid NOT NULL,
@@ -58,15 +81,18 @@ CREATE TABLE public.kekayaan_intelektual (
     no_permohonan character varying(100),
     tahun character varying(20),
     CONSTRAINT kekayaan_intelektual_pkey PRIMARY KEY (id),
-    CONSTRAINT kekayaan_intelektual_id_dosen_fkey FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE CASCADE
+    CONSTRAINT fk_ki_dosen FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE CASCADE
 );
 
+<<<<<<< HEAD
 
 ALTER TABLE public.publikasi_dosen
 ADD COLUMN deskripsi text;
 -- insert
 
 -- Publikasi Lab
+=======
+>>>>>>> f8f5c56959e3d303a14ba42cc5007a9080e00364
 CREATE TABLE public.publikasi_lab (
     id SERIAL NOT NULL,
     id_dosen uuid NOT NULL,
@@ -75,10 +101,9 @@ CREATE TABLE public.publikasi_lab (
     file_dokumen text,
     kategori character varying(100),
     CONSTRAINT publikasi_lab_pkey PRIMARY KEY (id),
-    CONSTRAINT publikasi_lab_id_dosen_fkey FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE SET NULL
+    CONSTRAINT fk_publab_dosen FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE SET NULL
 );
 
--- Kegiatan Lab
 CREATE TABLE public.kegiatan_lab (
     id SERIAL NOT NULL,
     id_dosen uuid NOT NULL,
@@ -87,10 +112,9 @@ CREATE TABLE public.kegiatan_lab (
     tanggal_kegiatan date,
     file_dokumentasi text,
     CONSTRAINT kegiatan_lab_pkey PRIMARY KEY (id),
-    CONSTRAINT kegiatan_lab_id_dosen_fkey FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE CASCADE
+    CONSTRAINT fk_keglab_dosen FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE CASCADE
 );
 
--- Penelitian Lab
 CREATE TABLE public.penelitian_lab (
     id SERIAL NOT NULL,
     id_dosen uuid NOT NULL,
@@ -98,10 +122,9 @@ CREATE TABLE public.penelitian_lab (
     deskripsi text,
     status character varying(20),
     CONSTRAINT penelitian_lab_pkey PRIMARY KEY (id),
-    CONSTRAINT penelitian_lab_id_dosen_fkey FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE CASCADE
+    CONSTRAINT fk_penlab_dosen FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE CASCADE
 );
 
--- Publikasi Dosen
 CREATE TABLE public.publikasi_dosen (
     id SERIAL NOT NULL,
     id_dosen uuid NOT NULL,
@@ -111,20 +134,18 @@ CREATE TABLE public.publikasi_dosen (
     link_jurnal text,
     kategori character varying(100),
     CONSTRAINT publikasi_dosen_pkey PRIMARY KEY (id),
-    CONSTRAINT publikasi_dosen_id_dosen_fkey FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE SET NULL
+    CONSTRAINT fk_pubdosen_dosen FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE SET NULL
 );
 
--- PPM (Pengabdian Kepada Masyarakat)
 CREATE TABLE public.ppm (
     id SERIAL NOT NULL,
     id_dosen uuid NOT NULL,
     judul character varying(255) NOT NULL,
     tahun integer,
     CONSTRAINT ppm_pkey PRIMARY KEY (id),
-    CONSTRAINT ppm_id_dosen_fkey FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE CASCADE
+    CONSTRAINT fk_ppm_dosen FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE CASCADE
 );
 
--- Riset Dosen
 CREATE TABLE public.riset_dosen (
     id SERIAL NOT NULL,
     id_dosen uuid NOT NULL,
@@ -132,10 +153,14 @@ CREATE TABLE public.riset_dosen (
     tahun integer,
     sumber_dana character varying(100),
     CONSTRAINT riset_dosen_pkey PRIMARY KEY (id),
-    CONSTRAINT riset_dosen_id_dosen_fkey FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE CASCADE
+    CONSTRAINT fk_riset_dosen FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE CASCADE
 );
 
--- Berita
+-- ==============================================================
+-- 5. TABEL KONTEN UMUM (BERITA, FASILITAS, PRODUK, GALERI)
+-- ==============================================================
+
+-- Berita (Ditambah Kategori Manual)
 CREATE TABLE public.berita (
     id SERIAL NOT NULL,
     created_by uuid NOT NULL,
@@ -143,11 +168,11 @@ CREATE TABLE public.berita (
     isi_berita text NOT NULL,
     tanggal date,
     gambar_utama text,
+    kategori character varying(100), -- Kolom Baru
     CONSTRAINT berita_pkey PRIMARY KEY (id),
-    CONSTRAINT berita_created_by_fkey FOREIGN KEY (created_by) REFERENCES public.dosen(id) ON DELETE SET NULL
+    CONSTRAINT fk_berita_dosen FOREIGN KEY (created_by) REFERENCES public.dosen(id) ON DELETE SET NULL
 );
 
--- Fasilitas
 CREATE TABLE public.fasilitas (
     id_fasilitas SERIAL NOT NULL,
     nama_fasilitas character varying(255) NOT NULL,
@@ -157,7 +182,6 @@ CREATE TABLE public.fasilitas (
     CONSTRAINT fasilitas_pkey PRIMARY KEY (id_fasilitas)
 );
 
--- Produk
 CREATE TABLE public.produk (
     id SERIAL NOT NULL,
     nama_produk character varying(255) NOT NULL,
@@ -168,164 +192,179 @@ CREATE TABLE public.produk (
     CONSTRAINT produk_pkey PRIMARY KEY (id)
 );
 
--- Galeri
+-- Galeri (Ditambah Deskripsi, Tanggal, Kategori)
 CREATE TABLE public.galeri (
     id SERIAL NOT NULL,
     uploaded_by uuid NOT NULL,
     file_url text NOT NULL,
-    caption character varying(255),
+    caption character varying(255), -- Judul singkat
+    deskripsi text,                 -- Kolom Baru: Penjelasan panjang
+    tanggal_upload timestamp DEFAULT CURRENT_TIMESTAMP, -- Kolom Baru
+    kategori character varying(50), -- Kolom Baru: 'berita', 'kegiatan', dll
+    
+    -- Foreign Keys ke sumber data
     id_penelitian integer,
     id_kegiatan_lab integer,
     id_publikasi_lab integer,
     id_berita integer,
     id_produk integer,
     id_fasilitas integer,
+    
     CONSTRAINT galeri_pkey PRIMARY KEY (id),
-    CONSTRAINT fk_galeri_uploaded_by_dosen FOREIGN KEY (uploaded_by) REFERENCES public.dosen(id) ON DELETE CASCADE,
+    CONSTRAINT fk_galeri_dosen FOREIGN KEY (uploaded_by) REFERENCES public.dosen(id) ON DELETE CASCADE,
     CONSTRAINT fk_galeri_penelitian FOREIGN KEY (id_penelitian) REFERENCES public.penelitian_lab(id) ON DELETE SET NULL,
-    CONSTRAINT fk_galeri_kegiatan_lab FOREIGN KEY (id_kegiatan_lab) REFERENCES public.kegiatan_lab(id) ON DELETE SET NULL,
-    CONSTRAINT fk_galeri_publikasi_lab FOREIGN KEY (id_publikasi_lab) REFERENCES public.publikasi_lab(id) ON DELETE SET NULL,
+    CONSTRAINT fk_galeri_kegiatan FOREIGN KEY (id_kegiatan_lab) REFERENCES public.kegiatan_lab(id) ON DELETE SET NULL,
+    CONSTRAINT fk_galeri_publab FOREIGN KEY (id_publikasi_lab) REFERENCES public.publikasi_lab(id) ON DELETE SET NULL,
     CONSTRAINT fk_galeri_berita FOREIGN KEY (id_berita) REFERENCES public.berita(id) ON DELETE SET NULL,
     CONSTRAINT fk_galeri_produk FOREIGN KEY (id_produk) REFERENCES public.produk(id) ON DELETE SET NULL,
     CONSTRAINT fk_galeri_fasilitas FOREIGN KEY (id_fasilitas) REFERENCES public.fasilitas(id_fasilitas) ON DELETE SET NULL
 );
 
+-- ==============================================================
+-- 6. SEEDING DATA (INSERT DUMMY)
+-- ==============================================================
 
+-- Insert Dosen (Lengkap dengan Jabatan & Deskripsi)
+INSERT INTO public.dosen (id, nama, nip, email, foto_profil, keahlian_text, deskripsi, jabatan) VALUES
+('b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', 'Dr. Rina Saraswati', '1975102001', 'rina.sarah@lab.id', '/img/dosen_rina.jpg', 'Deep Learning, NLP, Data Visualization', 'Kepala Laboratorium AI. Fokus penelitian utama pada Natural Language Processing.', 'ketua_lab'),
+('c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', 'Ir. Joni Iskandar, M.Sc.', '1980051502', 'joni.iskan@lab.id', '/img/dosen_joni.jpg', 'IoT, Embedded Systems, Network Security', 'Ahli dalam sistem tertanam dan Internet of Things (IoT).', 'asisten_lab'),
+('d3c6e082-377d-6f9e-a03c-27184f3e5d67', 'Dr. Kevin Sanjaya', '1988110103', 'kevin.san@lab.id', '/img/dosen_kevin.jpg', 'Web Development, Cloud Computing, Database System', 'Spesialis dalam pengembangan aplikasi web skala besar.', 'member'),
+('e4d7f193-488e-770f-b14d-3829574f6e78', 'Prof. Mira Lestari', '1965030804', 'mira.les@lab.id', '/img/dosen_mira.jpg', 'Robotics, Computer Vision, AI Ethics', 'Peneliti senior di bidang Robotika dan Visi Komputer.', 'member'),
+('f5e872a4-599f-8817-c25e-493a68577f89', 'Naufal Rizky, S.T., M.T.', '1992072505', 'naufal.rizky@lab.id', '/img/dosen_naufal.jpg', 'Software Engineering, Mobile Apps, UX/UI Design', 'Fokus pada Software Engineering dan pengembangan aplikasi mobile.', 'member'),
+('a6f983b5-6a07-9928-d367-5a4b7968879a', 'Sonia Dewi, S.Kom., M.Kom.', '1990041206', 'sonia.d@lab.id', '/img/dosen_sonia.jpg', 'Big Data, Parallel Processing, Machine Learning Optimization', 'Ahli Big Data dan Machine Learning Optimization.', 'member'),
+-- Tambahan Dosen Baru (Dengan ID UUID Valid)
+('550e8400-e29b-41d4-a716-446655440000', 'Budi Santoso, M.Kom.', '1985010107', 'budi.s@lab.id', '/img/dosen_budi.jpg', 'Game Development, AR/VR', 'Dosen dengan minat khusus pada pengembangan teknologi imersif.', 'member'),
+('550e8400-e29b-41d4-a716-446655440001', 'Siti Aminah, Ph.D.', '1979020208', 'siti.a@lab.id', '/img/dosen_siti.jpg', 'Cyber Security, Cryptography', 'Pakar keamanan siber dan enkripsi data.', 'member'),
+('550e8400-e29b-41d4-a716-446655440002', 'Rudi Hermawan, S.T., M.T.', '1991030309', 'rudi.h@lab.id', '/img/dosen_rudi.jpg', 'Blockchain, Fintech', 'Mengembangkan solusi berbasis blockchain untuk sektor keuangan.', 'member'),
+('550e8400-e29b-41d4-a716-446655440003', 'Dewi Puspita, S.Si., M.Cs.', '1989040410', 'dewi.p@lab.id', '/img/dosen_dewi.jpg', 'Bioinformatics, Computational Biology', 'Menggabungkan ilmu komputer dengan biologi molekuler.', 'member'),
+('550e8400-e29b-41d4-a716-446655440004', 'Andi Wijaya, S.Kom., M.Kom.', '1993050511', 'andi.w@lab.id', '/img/dosen_andi.jpg', 'Cloud Architecture, DevOps', 'Spesialis infrastruktur cloud dan metodologi DevOps.', 'member');
 
-DELETE FROM public.galeri;
-DELETE FROM public.publikasi_lab;
-DELETE FROM public.publikasi_dosen;
-DELETE FROM public.penelitian_lab;
-DELETE FROM public.riset_dosen;
-DELETE FROM public.kekayaan_intelektual;
-DELETE FROM public.ppm;
-DELETE FROM public.aktivitas_dosen;
-DELETE FROM public.users;
-DELETE FROM public.dosen;
-DELETE FROM public.fasilitas;
-DELETE FROM public.produk;
-DELETE FROM public.berita;
-DELETE FROM public.kegiatan_lab;
+-- Insert Users
+INSERT INTO public.users (username, password, role, id_dosen, email) VALUES
+('rina.admin', '123', 'admin', 'b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', 'rina.sarah@lab.id'),
+('joni.editor', '123', 'editor', 'c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', 'joni.iskan@lab.id'),
+('kevin.editor', '123', 'editor', 'd3c6e082-377d-6f9e-a03c-27184f3e5d67', 'kevin.san@lab.id'),
+-- User Baru (Menggunakan ID Dosen Valid di atas)
+('budi.editor', '123', 'editor', '550e8400-e29b-41d4-a716-446655440000', 'budi.s@lab.id'),
+('siti.editor', '123', 'editor', '550e8400-e29b-41d4-a716-446655440001', 'siti.a@lab.id'),
+('rudi.editor', '123', 'editor', '550e8400-e29b-41d4-a716-446655440002', 'rudi.h@lab.id'),
+('dewi.editor', '123', 'editor', '550e8400-e29b-41d4-a716-446655440003', 'dewi.p@lab.id'),
+('andi.editor', '123', 'editor', '550e8400-e29b-41d4-a716-446655440004', 'andi.w@lab.id');
 
+-- Insert Berita
+INSERT INTO public.berita (created_by, judul, isi_berita, tanggal, gambar_utama, kategori) VALUES
+('b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', 'Lab AI Meraih Hibah Riset Rp 500 Juta', 'Dr. Rina Saraswati berhasil mendapatkan hibah besar untuk riset stunting.', '2025-11-15', '/img/berita/hibah.jpg', 'Prestasi'),
+('d3c6e082-377d-6f9e-a03c-27184f3e5d67', 'Kolaborasi Lab dan Industri dalam Keamanan Cloud', 'Lab AI bekerja sama dengan TechCorp untuk pengamanan infrastruktur cloud.', '2025-11-01', '/img/berita/cloud.jpg', 'Kerjasama'),
+('e4d7f193-488e-770f-b14d-3829574f6e78', 'Robot Lengan Lab AI Dipamerkan di I-Tech Expo', 'Prototipe robot Prof. Mira menarik perhatian pengunjung di pameran teknologi.', '2025-10-20', '/img/berita/expo.jpg', 'Pameran'),
+-- Berita Baru (Menggunakan ID Dosen Baru)
+('f5e872a4-599f-8817-c25e-493a68577f89', 'Workshop Mobile App Development 2025', 'Pelatihan intensif pengembangan aplikasi Android menggunakan Kotlin.', '2025-12-05', '/img/berita/mobile_workshop.jpg', 'Event'),
+('a6f983b5-6a07-9928-d367-5a4b7968879a', 'Kuliah Tamu: Big Data di Era 5.0', 'Mengundang praktisi data dari unicorn Indonesia.', '2025-12-10', '/img/berita/kuliah_tamu.jpg', 'Akademik'),
+('550e8400-e29b-41d4-a716-446655440000', 'Kompetisi Game Dev Mahasiswa', 'Ajang kreativitas mahasiswa dalam membuat game edukasi.', '2025-12-15', '/img/berita/game_dev.jpg', 'Lomba'),
+('550e8400-e29b-41d4-a716-446655440001', 'Webinar Cybersecurity Awareness', 'Pentingnya menjaga data pribadi di era digital.', '2025-12-20', '/img/berita/cyber_webinar.jpg', 'Seminar'),
+('550e8400-e29b-41d4-a716-446655440002', 'Peluncuran Blockchain Research Group', 'Grup riset baru yang fokus pada teknologi desentralisasi.', '2026-01-05', '/img/berita/blockchain_launch.jpg', 'Pengumuman');
 
---- 1. INSERT DOSEN DAN USERS
-------------------------------------------------------
-INSERT INTO public.dosen (id, nama, nip, email, foto_profil, keahlian_text) VALUES
-('b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', 'Dr. Rina Saraswati', '1975102001', 'rina.sarah@lab.id', '/img/dosen_rina.jpg', 'Deep Learning, NLP, Data Visualization'),
-('c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', 'Ir. Joni Iskandar, M.Sc.', '1980051502', 'joni.iskan@lab.id', '/img/dosen_joni.jpg', 'IoT, Embedded Systems, Network Security'),
-('d3c6e082-377d-6f9e-a03c-27184f3e5d67', 'Dr. Kevin Sanjaya', '1988110103', 'kevin.san@lab.id', '/img/dosen_kevin.jpg', 'Web Development, Cloud Computing, Database System'),
-('e4d7f193-488e-770f-b14d-3829574f6e78', 'Prof. Mira Lestari', '1965030804', 'mira.les@lab.id', '/img/dosen_mira.jpg', 'Robotics, Computer Vision, AI Ethics'),
-('f5e872a4-599f-8817-c25e-493a68577f89', 'Naufal Rizky, S.T., M.T.', '1992072505', 'naufal.rizky@lab.id', '/img/dosen_naufal.jpg', 'Software Engineering, Mobile Apps, UX/UI Design'),
-('a6f983b5-6a07-9928-d367-5a4b7968879a', 'Sonia Dewi, S.Kom., M.Kom.', '1990041206', 'sonia.d@lab.id', '/img/dosen_sonia.jpg', 'Big Data, Parallel Processing, Machine Learning Optimization');
-
-INSERT INTO public.users (username, password, role, id_dosen) VALUES
-('rina.admin', '123', 'admin', 'b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e'),
-('joni.editor', '123', 'editor', 'c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f'),
-('kevin.editor', '123', 'editor', 'd3c6e082-377d-6f9e-a03c-27184f3e5d67'),
-('mira.admin', '123', 'admin', 'e4d7f193-488e-770f-b14d-3829574f6e78'),
-('naufal.editor', '123', 'editor', 'f5e872a4-599f-8817-c25e-493a68577f89'),
-('sonia.editor', '123', 'editor', 'a6f983b5-6a07-9928-d367-5a4b7968879a');
-
-
---- 2. INSERT AKTIVITAS DOSEN DAN PPM
-------------------------------------------------------
-INSERT INTO public.aktivitas_dosen (id_dosen, judul, jenis_aktivitas, tanggal, deskripsi) VALUES
-('b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', 'Keynote Speaker: Data Science Summit', 'Seminar', '2025-10-15', 'Membawakan materi tentang kemajuan NLP di Indonesia.'),
-('c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', 'Pelatihan Instalasi IoT Devices', 'Workshop', '2025-11-01', 'Pelatihan pemasangan sensor dan aktuator berbasis ESP32.'),
-('d3c6e082-377d-6f9e-a03c-27184f3e5d67', 'Menguji Keamanan Web Aplikasi Lab', 'Audit', '2025-09-20', 'Pengecekan rutin celah keamanan pada sistem informasi lab.'),
-('e4d7f193-488e-770f-b14d-3829574f6e78', 'Reviewer Jurnal Internasional Robotika', 'Juri/Reviewer', '2025-08-05', 'Mereview 5 artikel ilmiah di bidang kontrol robot.'),
-('f5e872a4-599f-8817-c25e-493a68577f89', 'Sosialisasi Standar Coding Modern', 'Sosialisasi', '2025-07-10', 'Memberikan edukasi tentang Clean Code dan Design Pattern.'),
-('a6f983b5-6a07-9928-d367-5a4b7968879a', 'Lomba Data Mining Antar Mahasiswa', 'Lomba', '2025-06-25', 'Menyelenggarakan kompetisi pengolahan big data.');
-
-INSERT INTO public.ppm (id_dosen, judul, tahun) VALUES
-('b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', 'Pelatihan Dasar Pengolahan Data untuk Guru SMA', '2024'),
-('c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', 'Instalasi Jaringan Internet Gratis di Area Pedalaman', '2023'),
-('d3c6e082-377d-6f9e-a03c-27184f3e5d67', 'Workshop Pembuatan Website Portofolio untuk Pelajar SMK', '2024'),
-('e4d7f193-488e-770f-b14d-3829574f6e78', 'Edukasi Etika AI kepada Masyarakat Umum', '2025'),
-('f5e872a4-599f-8817-c25e-493a68577f89', 'Pendampingan Pengembangan Aplikasi UMKM Lokal', '2023'),
-('a6f983b5-6a07-9928-d367-5a4b7968879a', 'Sosialisasi Pentingnya Keamanan Data Pribadi', '2024');
-
---- 3. INSERT KEGIATAN LAB, FASILITAS, PRODUK, BERITA (Data Sumber Galeri)
--------------------------------------------------------------------------
+-- Insert Kegiatan Lab
 INSERT INTO public.kegiatan_lab (id_dosen, judul, deskripsi, tanggal_kegiatan, file_dokumentasi) VALUES
-('d3c6e082-377d-6f9e-a03c-27184f3e5d67', 'Pelatihan Keamanan Web Dasar', 'Pelatihan untuk mengidentifikasi kerentanan XSS dan SQL Injection.', '2025-05-18', '/dok/keg_keamanan_web.pdf'), -- ID 1
-('b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', 'Diskusi Proyek Akhir Deep Learning', 'Sesi presentasi dan kritik untuk proyek deep learning mahasiswa.', '2025-05-10', '/dok/keg_dl_proyek.pdf'),
-('e4d7f193-488e-770f-b14d-3829574f6e78', 'Uji Coba Robot Pemindah Barang', 'Menguji algoritma gerak robot lengan di lingkungan lab.', '2025-04-25', '/dok/keg_robot_uji.pdf'),
-('c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', 'Pemasangan Sensor Suhu Baru', 'Pekerjaan teknis pemasangan sensor suhu di server room.', '2025-03-01', '/dok/keg_sensor_pasang.pdf'),
-('f5e872a4-599f-8817-c25e-493a68577f89', 'Sesi Brainstorming Aplikasi Mobile', 'Sesi untuk merancang fitur baru pada aplikasi lab.', '2025-02-15', '/dok/keg_mobile_apps.pdf'),
-('a6f983b5-6a07-9928-d367-5a4b7968879a', 'Workshop Pengantar Data Mining', 'Pengenalan teknik data mining dasar menggunakan Python.', '2025-01-20', '/dok/keg_data_mining.pdf');
+('d3c6e082-377d-6f9e-a03c-27184f3e5d67', 'Pelatihan Keamanan Web Dasar', 'Pelatihan security.', '2025-05-18', '/dok/keg_web.pdf'),
+('b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', 'Diskusi Proyek Akhir Deep Learning', 'Sesi presentasi.', '2025-05-10', '/dok/keg_dl.pdf'),
+-- Kegiatan Lab Baru
+('c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', 'Workshop IoT untuk Smart Home', 'Perakitan perangkat pintar.', '2025-06-01', '/dok/iot_workshop.pdf'),
+('f5e872a4-599f-8817-c25e-493a68577f89', 'Bootcamp UI/UX Design', 'Pelatihan desain antarmuka.', '2025-06-15', '/dok/uiux_bootcamp.pdf'),
+('a6f983b5-6a07-9928-d367-5a4b7968879a', 'Data Science Hackathon', 'Kompetisi analisis data.', '2025-07-01', '/dok/hackathon.pdf'),
+('550e8400-e29b-41d4-a716-446655440000', 'Game Jam 2025', 'Membuat game dalam 48 jam.', '2025-07-20', '/dok/gamejam.pdf'),
+('550e8400-e29b-41d4-a716-446655440001', 'Capture The Flag (CTF) Competition', 'Kompetisi keamanan siber.', '2025-08-05', '/dok/ctf.pdf');
 
+-- Insert Fasilitas
 INSERT INTO public.fasilitas (nama_fasilitas, deskripsi, kondisi, foto) VALUES
-('Server DL NVIDIA A100', 'Server komputasi intensif untuk Deep Learning, dilengkapi GPU NVIDIA A100.', 'Sangat Baik', '/img/fasilitas/server_a100.jpg'), -- ID 1
-('Robot Lengan 6 Axis', 'Robot industri kecil dengan 6 derajat kebebasan untuk eksperimen robotika.', 'Baik', '/img/fasilitas/robot_lengan.jpg'),
-('Lab Komputer Client', 'Ruangan lab dengan 30 unit PC spesifikasi tinggi untuk praktikum.', 'Baik', '/img/fasilitas/lab_client.jpg'),
-('Drone Pengawas Otomatis', 'Drone dengan kamera resolusi tinggi untuk riset computer vision dan monitoring.', 'Perlu Kalibrasi', '/img/fasilitas/drone_oto.jpg'),
-('Perangkat IoT Kit Lengkap', 'Set lengkap mikrokontroler, sensor, dan aktuator untuk pengembangan IoT.', 'Sangat Baik', '/img/fasilitas/iot_kit.jpg'),
-('Ruang Diskusi Proyek', 'Ruangan kecil dengan fasilitas display dan whiteboard interaktif.', 'Baik', '/img/fasilitas/ruang_diskusi.jpg');
+('Server NVIDIA A100', 'Server Deep Learning.', 'Sangat Baik', '/img/fasilitas/server.jpg'),
+('Robot Lengan 6 Axis', 'Robot industri kecil.', 'Baik', '/img/fasilitas/robot.jpg'),
+('VR Headset Oculus Quest 2', 'Perangkat Virtual Reality untuk riset.', 'Baik', '/img/fasilitas/vr.jpg'),
+('3D Printer Ender 3', 'Printer 3D untuk prototyping.', 'Perlu Perbaikan', '/img/fasilitas/3dprinter.jpg'),
+('Laboratorium Komputer Mac', 'Lab dengan 20 unit iMac.', 'Sangat Baik', '/img/fasilitas/lab_mac.jpg'),
+('IoT Development Kit', 'Paket lengkap sensor dan mikrokontroler.', 'Baik', '/img/fasilitas/iot_kit.jpg'),
+('Ruang Podcast', 'Studio rekaman audio visual.', 'Sangat Baik', '/img/fasilitas/podcast.jpg');
 
-INSERT INTO public.berita (created_by, judul, isi_berita, tanggal, gambar_utama) VALUES
-('b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', 'Lab AI Meraih Hibah Riset Rp 500 Juta', 'Dr. Rina Saraswati berhasil mendapatkan hibah besar untuk riset stunting.', '2025-11-15', '/img/berita/hibah_rina.jpg'),
-('d3c6e082-377d-6f9e-a03c-27184f3e5d67', 'Kolaborasi Lab dan Industri dalam Keamanan Cloud', 'Lab AI bekerja sama dengan TechCorp untuk pengamanan infrastruktur cloud.', '2025-11-01', '/img/berita/kolab_cloud.jpg'),
-('e4d7f193-488e-770f-b14d-3829574f6e78', 'Robot Lengan Lab AI Dipamerkan di I-Tech Expo', 'Prototipe robot Prof. Mira menarik perhatian pengunjung di pameran teknologi.', '2025-10-20', '/img/berita/expo_robot.jpg'), -- ID 3
-('f5e872a4-599f-8817-c25e-493a68577f89', 'Workshop UX/UI Sukses Diikuti Ratusan Peserta', 'Workshop yang diselenggarakan oleh Naufal Rizky mendapat antusiasme tinggi.', '2025-09-05', '/img/berita/workshop_ux.jpg'),
-('c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', 'Peluncuran Jurnal IoT Baru oleh Dosen Lab', 'Ir. Joni Iskandar meluncurkan jurnal yang fokus pada teknologi LoRaWAN.', '2025-08-10', '/img/berita/jurnal_iot.jpg'),
-('a6f983b5-6a07-9928-d367-5a4b7968879a', 'Seminar Big Data Menarik Minat Mahasiswa Pascasarjana', 'Sonia Dewi mengisi seminar tentang optimasi Machine Learning pada Big Data.', '2025-07-25', '/img/berita/seminar_bigdata.jpg');
-
+-- Insert Produk
 INSERT INTO public.produk (nama_produk, deskripsi, link_demo, image, kategori) VALUES
-('App Penterjemah Isyarat', 'Aplikasi mobile berbasis AI untuk menterjemahkan bahasa isyarat Indonesia ke teks.', 'http://demo.isyarat.app', '/img/produk/app_isyarat.jpg', 'Aplikasi Mobile'), -- ID 1
-('Sistem Smart Home Lab', 'Prototipe sistem kendali rumah pintar berbasis IoT menggunakan platform lokal.', 'http://demo.smarthome.lab', '/img/produk/smarthome_proto.jpg', 'IoT'),
-('Web Monitoring Energi', 'Dashboard web untuk memonitor konsumsi daya listrik server dan fasilitas lab.', 'http://monitor.energi.lab', '/img/produk/web_energi.jpg', 'Sistem Informasi'),
-('Modul Pelatihan BERT', 'Modul siap pakai untuk pelatihan model Natural Language Processing (BERT).', 'http://modul.bert.lab', '/img/produk/modul_bert.jpg', 'Software Tool'),
-('E-Learning Dashboard UX', 'Desain User Experience (UX) dan User Interface (UI) untuk platform e-learning kampus.', 'http://ux.elearn.lab', '/img/produk/ux_elearn.jpg', 'Desain Sistem'),
-('Dataset Cuaca Kota A', 'Kumpulan data historis cuaca yang telah di-*cleaning* dan siap untuk analisis Big Data.', 'http://data.cuaca.lab', '/img/produk/data_cuaca.jpg', 'Dataset');
+('App Penterjemah Isyarat', 'Aplikasi mobile AI.', 'http://demo.isyarat.app', '/img/produk/isyarat.jpg', 'Mobile App'),
+('Sistem Smart Home', 'Kendali rumah pintar.', 'http://demo.smarthome.lab', '/img/produk/smarthome.jpg', 'IoT'),
+('E-Voting Blockchain', 'Sistem pemilu aman.', 'http://evoting.lab', '/img/produk/evoting.jpg', 'Blockchain'),
+('Game Edukasi Matematika', 'Belajar sambil bermain.', 'http://mathgame.lab', '/img/produk/mathgame.jpg', 'Game'),
+('Deteksi Masker Wajah', 'Sistem visi komputer.', 'http://mask.lab', '/img/produk/mask.jpg', 'AI'),
+('Dashboard Monitoring Energi', 'Pantau listrik real-time.', 'http://energy.lab', '/img/produk/energy.jpg', 'Web App'),
+('Chatbot Layanan Akademik', 'Asisten virtual kampus.', 'http://chatbot.lab', '/img/produk/chatbot.jpg', 'AI');
 
-INSERT INTO public.penelitian_lab (id_dosen, judul, deskripsi, status) VALUES
-('b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', 'Sistem Penterjemah Bahasa Isyarat Real-Time', 'Penelitian terapan menggunakan model visi komputer untuk menterjemahkan bahasa isyarat.', 'Ongoing'),
-('c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', 'Prototipe Smart Home Berbasis Open-Source', 'Pembuatan model rumah pintar dengan perangkat keras dan lunak terbuka.', 'Completed'), -- ID 2
-('d3c6e082-377d-6f9e-a03c-27184f3e5d67', 'Perbandingan Performa Database NoSQL vs SQL', 'Eksperimen kecepatan dan skalabilitas pada berbagai jenis database.', 'Ongoing'),
-('e4d7f193-488e-770f-b14d-3829574f6e78', 'Pengembangan Swarm Robotics untuk Pencarian Korban', 'Penelitian tim robot kecil yang bekerja sama dalam operasi SAR.', 'Planned'),
-('f5e872a4-599f-8817-c25e-493a68577f89', 'Optimasi User Experience pada Dashboard Penelitian', 'Riset untuk meningkatkan kegunaan dashboard monitoring proyek penelitian.', 'Completed'),
-('a6f983b5-6a07-9928-d367-5a4b7968879a', 'Analisis Data Historis untuk Prediksi Beban Listrik Kampus', 'Penggunaan algoritma *forecasting* pada data konsumsi listrik tahunan.', 'Ongoing');
-
+-- Insert Publikasi Lab
 INSERT INTO public.publikasi_lab (id_dosen, judul, deskripsi, file_dokumen, kategori) VALUES
-('b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', 'Laporan Kemajuan Riset Stunting Triwulan I', 'Laporan ini mencakup tahap awal pengumpulan dan pembersihan data serta perencanaan model AI untuk memprediksi stunting.', '/dok/lap_stunting_tri1.pdf', 'Laporan Kemajuan'), -- ID 1
-('c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', 'Spesifikasi Teknis Jaringan Sensor Kebakaran', 'Dokumen ini berisi detail teknis, skema, dan *bill of materials* untuk jaringan sensor api yang diimplementasikan di lab.', '/dok/spec_sensor_api.pdf', 'Dokumentasi Teknis'),
-('e4d7f193-488e-770f-b14d-3829574f6e78', 'Panduan Pengoperasian Robot Lengan Pemilah', 'Dokumen panduan keselamatan dan operasional lengkap untuk robot pemilah sampah yang digunakan dalam riset Prof. Mira.', '/dok/panduan_robot_pemilah.pdf', 'Panduan Operasional'),
-('f5e872a4-599f-8817-c25e-493a68577f89', 'Laporan Evaluasi UX Dashboard Penelitian', 'Laporan hasil evaluasi *usability* dan rekomendasi perbaikan untuk antarmuka dashboard monitoring riset lab.', '/dok/laporan_ux_riset.pdf', 'Laporan Evaluasi'),
-('a6f983b5-6a07-9928-d367-5a4b7968879a', 'Modul Implementasi Spark SQL', 'Modul pelatihan internal yang fokus pada penggunaan Spark SQL untuk manipulasi dan analisis data besar.', '/dok/modul_spark_sql.pdf', 'Modul Pelatihan'),
-('d3c6e082-377d-6f9e-a03c-27184f3e5d67', 'Standar Keamanan Data Riset di Cloud', 'Dokumen kebijakan dan prosedur wajib untuk mengamankan data-data penelitian di lingkungan komputasi *cloud*.', '/dok/standar_cloud_riset.pdf', 'Prosedur Keamanan');
+('b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', 'Laporan Riset Stunting', 'Analisis data kesehatan.', '/dok/stunting.pdf', 'Laporan'),
+('c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', 'Modul Praktikum IoT', 'Panduan belajar IoT.', '/dok/modul_iot.pdf', 'Modul Ajar'),
+('d3c6e082-377d-6f9e-a03c-27184f3e5d67', 'Whitepaper Cloud Security', 'Standar keamanan cloud.', '/dok/cloud_sec.pdf', 'Whitepaper'),
+('e4d7f193-488e-770f-b14d-3829574f6e78', 'Jurnal Robotika Indonesia Vol 1', 'Kumpulan paper riset.', '/dok/jurnal_robot.pdf', 'Jurnal'),
+('f5e872a4-599f-8817-c25e-493a68577f89', 'Pedoman UI/UX Kampus', 'Standar desain aplikasi.', '/dok/uiux_guide.pdf', 'Pedoman'),
+('a6f983b5-6a07-9928-d367-5a4b7968879a', 'Dataset Lalu Lintas Kota', 'Data open source.', '/dok/traffic_data.zip', 'Dataset');
 
---- 4. INSERT GALERI (Kunci Asing sudah merujuk ID yang ada)
---------------------------------------------------------------
-INSERT INTO public.galeri (uploaded_by, file_url, caption, id_penelitian, id_kegiatan_lab, id_publikasi_lab, id_berita, id_produk, id_fasilitas) VALUES
--- Relasi ke Kegiatan Lab (ID 1)
-('d3c6e082-377d-6f9e-a03c-27184f3e5d67', '/galeri/foto_keg_web.jpg', 'Foto sesi praktikum keamanan web.', NULL, 1, NULL, NULL, NULL, NULL),
--- Relasi ke Fasilitas (ID 1)
-('b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', '/galeri/foto_server_a100.jpg', 'Tampak Server A100 di ruang server Lab AI.', NULL, NULL, NULL, NULL, NULL, 1),
--- Relasi ke Penelitian Lab (ID 2)
-('c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', '/galeri/foto_smarthome_2.jpg', 'Prototipe Smart Home sedang diuji coba.', 2, NULL, NULL, NULL, NULL, NULL),
--- Relasi ke Berita (ID 3)
-('e4d7f193-488e-770f-b14d-3829574f6e78', '/galeri/foto_robot_pameran.jpg', 'Prof. Mira dan Robot Lengan di I-Tech Expo.', NULL, NULL, NULL, 3, NULL, NULL),
--- Relasi ke Produk (ID 1)
-('f5e872a4-599f-8817-c25e-493a68577f89', '/galeri/screenshot_app_isyarat.png', 'Screenshot tampilan Aplikasi Penterjemah Isyarat.', NULL, NULL, NULL, NULL, 1, NULL),
--- Relasi ke Publikasi Lab (ID 1)
-('a6f983b5-6a07-9928-d367-5a4b7968879a', '/galeri/cover_lap_riset.jpg', 'Sampul Laporan Riset Tahunan Lab AI 2024.', NULL, NULL, 1, NULL, NULL, NULL);
+-- Insert Penelitian Lab
+INSERT INTO public.penelitian_lab (id_dosen, judul, deskripsi, status) VALUES
+('b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', 'Penterjemah Bahasa Isyarat', 'Visi komputer.', 'Ongoing'),
+('c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', 'Smart Parking System', 'IoT based parking.', 'Completed'),
+('d3c6e082-377d-6f9e-a03c-27184f3e5d67', 'Optimasi Query Database', 'Database performance.', 'Ongoing'),
+('e4d7f193-488e-770f-b14d-3829574f6e78', 'Robot Pembersih Lantai', 'Autonomous robot.', 'Planned'),
+('f5e872a4-599f-8817-c25e-493a68577f89', 'Aplikasi Mental Health', 'Mobile app health.', 'Completed'),
+('a6f983b5-6a07-9928-d367-5a4b7968879a', 'Prediksi Harga Saham', 'Machine Learning.', 'Ongoing');
 
+-- Insert Aktivitas Dosen
+INSERT INTO public.aktivitas_dosen (id_dosen, judul, jenis_aktivitas, tanggal, deskripsi) VALUES
+('b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', 'Keynote Speaker Summit', 'Seminar', '2025-10-15', 'Materi NLP.'),
+('c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', 'Juri Lomba Robotik', 'Juri', '2025-11-05', 'Menilai robot line follower.'),
+('d3c6e082-377d-6f9e-a03c-27184f3e5d67', 'Workshop Laravel', 'Workshop', '2025-11-12', 'Pelatihan framework PHP.'),
+('e4d7f193-488e-770f-b14d-3829574f6e78', 'Konferensi AI Global', 'Konferensi', '2025-11-20', 'Presentasi paper.'),
+('f5e872a4-599f-8817-c25e-493a68577f89', 'Mentoring Startup', 'Mentoring', '2025-12-01', 'Membimbing startup mahasiswa.'),
+('a6f983b5-6a07-9928-d367-5a4b7968879a', 'Reviewer Jurnal Data', 'Reviewer', '2025-12-05', 'Mereview artikel ilmiah.');
 
-UPDATE public.dosen SET deskripsi = 'Kepala Laboratorium AI. Fokus penelitian utama pada Natural Language Processing, Deep Learning untuk klasifikasi, serta visualisasi data tingkat lanjut.'
-WHERE id = 'b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e'; -- Dr. Rina Saraswati
+-- Insert Kekayaan Intelektual
+INSERT INTO public.kekayaan_intelektual (id_dosen, judul, no_permohonan, tahun) VALUES
+('b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', 'Metode Klasifikasi Teks', 'P002025001', '2025'),
+('c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', 'Desain Alat IoT', 'D002025002', '2025'),
+('d3c6e082-377d-6f9e-a03c-27184f3e5d67', 'Kode Sumber Web App', 'C002025003', '2025'),
+('e4d7f193-488e-770f-b14d-3829574f6e78', 'Algoritma Navigasi', 'P002025004', '2025'),
+('f5e872a4-599f-8817-c25e-493a68577f89', 'Desain Antarmuka Mobile', 'D002025005', '2025'),
+('a6f983b5-6a07-9928-d367-5a4b7968879a', 'Model Prediksi Cuaca', 'P002025006', '2025');
 
-UPDATE public.dosen SET deskripsi = 'Ahli dalam sistem tertanam dan Internet of Things (IoT). Berpengalaman dalam perancangan jaringan sensor nirkabel dan pengamanan sistem jaringan.'
-WHERE id = 'c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f'; -- Ir. Joni Iskandar, M.Sc.
+-- Insert Publikasi Dosen
+INSERT INTO public.publikasi_dosen (id_dosen, judul, deskripsi, tahun, link_jurnal, kategori) VALUES
+('b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', 'NLP for Bahasa Indonesia', 'Penelitian bahasa.', 2024, 'http://jurnal.id/nlp', 'Jurnal Internasional'),
+('c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', 'IoT Security Challenges', 'Keamanan IoT.', 2024, 'http://jurnal.id/iot', 'Prosiding'),
+('d3c6e082-377d-6f9e-a03c-27184f3e5d67', 'Scalable Web Architecture', 'Arsitektur web.', 2023, 'http://jurnal.id/web', 'Jurnal Nasional'),
+('e4d7f193-488e-770f-b14d-3829574f6e78', 'Ethical AI Framework', 'Etika AI.', 2025, 'http://jurnal.id/ai', 'Jurnal Internasional'),
+('f5e872a4-599f-8817-c25e-493a68577f89', 'UX Trends in 2025', 'Tren desain.', 2025, 'http://jurnal.id/ux', 'Artikel Ilmiah'),
+('a6f983b5-6a07-9928-d367-5a4b7968879a', 'Big Data in Healthcare', 'Data kesehatan.', 2024, 'http://jurnal.id/bigdata', 'Jurnal Internasional');
 
-UPDATE public.dosen SET deskripsi = 'Spesialis dalam pengembangan aplikasi web skala besar, manajemen database modern, dan implementasi infrastruktur Cloud Computing.'
-WHERE id = 'd3c6e082-377d-6f9e-a03c-27184f3e5d67'; -- Dr. Kevin Sanjaya
+-- Insert PPM
+INSERT INTO public.ppm (id_dosen, judul, tahun) VALUES
+('b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', 'Pelatihan Guru SMA', 2024),
+('c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', 'Digitalisasi UMKM Desa', 2023),
+('d3c6e082-377d-6f9e-a03c-27184f3e5d67', 'Workshop Coding Anak Panti', 2024),
+('e4d7f193-488e-770f-b14d-3829574f6e78', 'Penyuluhan Teknologi Tepat Guna', 2025),
+('f5e872a4-599f-8817-c25e-493a68577f89', 'Pendampingan Start-up Lokal', 2023),
+('a6f983b5-6a07-9928-d367-5a4b7968879a', 'Edukasi Internet Sehat', 2024);
 
-UPDATE public.dosen SET deskripsi = 'Peneliti senior di bidang Robotika dan Visi Komputer. Minat khusus meliputi AI Ethics dan pengembangan algoritma navigasi otonom.'
-WHERE id = 'e4d7f193-488e-770f-b14d-3829574f6e78'; -- Prof. Mira Lestari
+-- Insert Riset Dosen
+INSERT INTO public.riset_dosen (id_dosen, judul, tahun, sumber_dana) VALUES
+('b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', 'Analisis Sentimen Pemilu', 2024, 'Internal'),
+('c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', 'Smart Farming IoT', 2023, 'Dikti'),
+('d3c6e082-377d-6f9e-a03c-27184f3e5d67', 'Optimasi Cloud Storage', 2024, 'Industri'),
+('e4d7f193-488e-770f-b14d-3829574f6e78', 'Robot SAR Otonom', 2025, 'LPDP'),
+('f5e872a4-599f-8817-c25e-493a68577f89', 'Aplikasi Belajar Bahasa', 2023, 'Mandiri'),
+('a6f983b5-6a07-9928-d367-5a4b7968879a', 'Prediksi Banjir Jakarta', 2024, 'Pemprov');
 
-UPDATE public.dosen SET deskripsi = 'Fokus pada Software Engineering dan pengembangan aplikasi mobile (cross-platform). Sering terlibat dalam riset Usability (UX) dan desain antarmuka.'
-WHERE id = 'f5e872a4-599f-8817-c25e-493a68577f89'; -- Naufal Rizky, S.T., M.T.
-
-UPDATE public.dosen SET deskripsi = 'Ahli Big Data dan Machine Learning Optimization. Berpengalaman dalam komputasi paralel dan analisis data skala besar menggunakan framework seperti Hadoop/Spark.'
-WHERE id = 'a6f983b5-6a07-9928-d367-5a4b7968879a'; -- Sonia Dewi, S.Kom., M.Kom.
+-- Insert Galeri (Lengkap dengan Kolom Baru)
+INSERT INTO public.galeri (uploaded_by, file_url, caption, deskripsi, kategori, tanggal_upload, id_kegiatan_lab, id_fasilitas, id_berita, id_produk, id_penelitian, id_publikasi_lab) VALUES
+-- Data Lama (Updated with defaults)
+('d3c6e082-377d-6f9e-a03c-27184f3e5d67', '/galeri/foto_keg_web.jpg', 'Sesi Praktikum', 'Mahasiswa sedang melakukan penetrasi tes pada server lokal.', 'Kegiatan Lab', '2025-05-19 10:00:00', 1, NULL, NULL, NULL, NULL, NULL),
+('b1a4c8f0-1e5b-4c7d-8a1a-0e9f2d1c3b4e', 'galeri/foto_server.jpg', 'Server A100', 'Rak server utama yang terletak di ruang pendingin.', 'Fasilitas', '2025-01-10 09:00:00', NULL, 1, NULL, NULL, NULL, NULL),
+-- Tambahan Galeri Baru
+('e4d7f193-488e-770f-b14d-3829574f6e78', 'galeri/pameran_robot.jpg', 'Demo Robot', 'Prof Mira mendemokan robot lengan di depan pengunjung.', 'Berita', '2025-10-21 14:00:00', NULL, NULL, 3, NULL, NULL, NULL),
+('f5e872a4-599f-8817-c25e-493a68577f89', 'galeri/apps_ui.png', 'UI Design', 'Tampilan antarmuka aplikasi penterjemah.', 'Produk', '2025-02-01 08:00:00', NULL, NULL, NULL, 1, NULL, NULL),
+('c2b5d971-2f6c-5d8e-9b2b-1f073e2d4c5f', 'galeri/iot_kit_detail.jpg', 'IoT Kit', 'Detail komponen dalam kit pembelajaran IoT.', 'Fasilitas', '2025-03-05 11:00:00', NULL, 5, NULL, NULL, NULL, NULL),
+('a6f983b5-6a07-9928-d367-5a4b7968879a', 'galeri/seminar_bigdata.jpg', 'Suasana Seminar', 'Antusiasme peserta seminar Big Data.', 'Berita', '2025-07-26 09:30:00', NULL, NULL, 6, NULL, NULL, NULL),
+('d3c6e082-377d-6f9e-a03c-27184f3e5d67', 'galeri/server_maintenance.jpg', 'Maintenance', 'Kegiatan perawatan rutin server lab.', 'Kegiatan Lab', '2025-06-10 16:00:00', 4, NULL, NULL, NULL, NULL, NULL);
