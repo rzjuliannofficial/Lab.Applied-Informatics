@@ -79,11 +79,12 @@
             <!-- Filter Buttons -->
             <div class="gallery-filters">
                 <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="Workshop">Workshop</button>
-                <button class="filter-btn" data-filter="Competition">Competition</button>
-                <button class="filter-btn" data-filter="Event">Event</button>
-                <button class="filter-btn" data-filter="Research">Research</button>
-                <button class="filter-btn" data-filter="Academic">Academic</button>
+                <button class="filter-btn" data-filter="Publikasi Lab">Publikasi Lab</button>
+                <button class="filter-btn" data-filter="Berita">Berita</button>
+                <button class="filter-btn" data-filter="Produk">Produk</button>
+                <button class="filter-btn" data-filter="Fasilitas">Fasilitas</button>
+                <button class="filter-btn" data-filter="Penelitian Lab">Penelitian Lab</button>
+                <button class="filter-btn" data-filter="Kegiatan Lab">Kegiatan Lab</button>
             </div>
 
             <!-- Masonry Gallery Grid -->
@@ -92,8 +93,8 @@
                     <div class="gallery-item" data-category="<?= htmlspecialchars($item['category']) ?>">
                         <div class="gallery-card">
                             <div class="gallery-image-container">
-                                <img src="<?= htmlspecialchars($item['image']) ?>" 
-                                     alt="<?= htmlspecialchars($item['title']) ?>"
+                                <img src="<?= htmlspecialchars($item['file_url']) ?>" 
+                                     alt="<?= htmlspecialchars($item['caption']) ?>"
                                      loading="lazy">
                                 <div class="gallery-overlay">
                                     <div class="gallery-overlay-content">
@@ -101,19 +102,19 @@
                                             <?= htmlspecialchars($item['category']) ?>
                                         </span>
                                         <h3 class="gallery-item-title">
-                                            <?= htmlspecialchars($item['title']) ?>
+                                            <?= htmlspecialchars($item['judul'] ?? $item['caption']) ?>
                                         </h3>
                                         <p class="gallery-item-description">
-                                            <?= htmlspecialchars($item['description']) ?>
+                                            <?= htmlspecialchars($item['caption'] ?? 'Dokumentasi Lab AI') ?>
                                         </p>
                                         <div class="gallery-meta">
                                             <span class="gallery-uploader">
                                                 <i class="fas fa-user"></i>
-                                                <?= htmlspecialchars($item['uploaded_by']) ?>
+                                                <?= htmlspecialchars($item['uploaded_by'] ?? 'Admin') ?>
                                             </span>
                                             <span class="gallery-date">
                                                 <i class="fas fa-calendar"></i>
-                                                <?= date('M d, Y', strtotime($item['upload_date'])) ?>
+                                                <?= date('M d, Y', strtotime($item['tanggal_upload'])) ?>
                                             </span>
                                         </div>
                                     </div>
