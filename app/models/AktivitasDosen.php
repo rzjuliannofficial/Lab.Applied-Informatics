@@ -50,6 +50,18 @@ class AktivitasDosen extends Model
         return pg_query_params($this->db, $sql, $params);
     }
 
+    public function createAndReturnId($params)
+    {
+        $sql = "INSERT INTO {$this->table}
+                (id_dosen, judul, jenis_aktivitas, tanggal, deskripsi)
+                VALUES ($1,$2,$3,$4,$5)
+                RETURNING id";
+
+        $res = pg_query_params($this->db, $sql, $params);
+        $row = pg_fetch_assoc($res);
+        return $row['id'];
+    }
+
     public function updateAktivitas($id, $params)
     {
         $sql = "UPDATE {$this->table}

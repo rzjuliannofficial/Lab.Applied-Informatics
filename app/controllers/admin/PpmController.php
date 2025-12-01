@@ -7,6 +7,28 @@ class PpmController extends Controller
         Middleware::auth();
     }
 
+    private function isImageFile($filename)
+    {
+        $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+        $allowed = ['jpg','jpeg','png','webp','gif'];
+        return in_array($ext, $allowed);
+    }
+
+    private function uploadDokumentasi($input = 'foto_bukti')
+    {
+        if (empty($_FILES[$input]) || $_FILES[$input]['error'] !== UPLOAD_ERR_OK) {
+            return null;
+        }
+        $f = $_FILES[$input];
+        $ext = pathinfo($f['name'], PATHINFO_EXTENSION);
+        $safe = "ppm_" . time() . "_" . bin2hex(random_bytes(5)) . "." . $ext;
+        
+        $dir = realpath(__DIR__ . '/../../..') . "/public/uploads/galeri_dosen/";
+        if (!is_dir($dir)) mkdir($dir, 0777, true);
+
+        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? "/uploads/galeri_dosen/" . $safe : null;
+    }
+
     public function index()
     {
         $m = new Ppm();
@@ -32,11 +54,31 @@ class PpmController extends Controller
     {
         $m = new Ppm();
 
-        $m->create([
+        // 1. Insert data PPM & ambil ID
+        $id_baru = $m->createAndReturnId([
             $_POST['id_dosen'],
             $_POST['judul'],
             $_POST['tahun']
         ]);
+
+        // 2. Upload foto & masukkan ke galeri
+        $foto = $this->uploadDokumentasi('foto_bukti');
+        
+        if ($foto && $this->isImageFile($foto)) {
+            $g = new Galeri();
+            $uploadedBy = $_SESSION['user']['id_dosen'] ?? null;
+
+            $g->create([
+                $uploadedBy,
+                $foto,
+                $_POST['judul'],  // Caption
+                null, null, null, // id_berita, id_produk, id_fasilitas
+                null, null,       // id_publikasi_dosen, id_aktivitas_dosen
+                $id_baru,         // id_ppm (ID YANG BARU)
+                null, null,       // id_riset_dosen, id_ki
+                'PPM'             // Kategori
+            ]);
+        }
 
         $_SESSION['success'] = "PPM berhasil ditambahkan";
         header("Location: /admin/Ppm");

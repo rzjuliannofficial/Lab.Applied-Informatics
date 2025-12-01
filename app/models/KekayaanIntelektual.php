@@ -51,6 +51,18 @@ class KekayaanIntelektual extends Model
         return pg_query_params($this->db, $sql, $params);
     }
 
+    public function createAndReturnId($params)
+    {
+        $sql = "INSERT INTO {$this->table}
+                (id_dosen, judul, no_permohonan, tahun)
+                VALUES ($1,$2,$3,$4)
+                RETURNING id";
+
+        $res = pg_query_params($this->db, $sql, $params);
+        $row = pg_fetch_assoc($res);
+        return $row['id'];
+    }
+
     public function updateKI($id, $params)
     {
         $sql = "UPDATE {$this->table}
