@@ -359,7 +359,7 @@
     <div class="half-circle-glow"></div>
 </div>
 
-<section class="relative py-24 overflow-hidden">    
+<section class="relative p-24 overflow-hidden ">    
     <div class="container mx-auto md:px-8">
         <!-- Header Section -->
         <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">    
@@ -659,7 +659,7 @@
         <!-- ROW 1-->
         <div class="flex flex-col md:flex-row gap-6 mb-8 h-auto md:h-[400px]"  data-aos="fade-up" data-aos-duration="1000">
             <!-- Deskripsi (1/3) -->
-            <div class="w-full md:w-1/3 bg-blue-50 rounded-[30px] p-8 flex flex-col justify-center shadow-[0px_5px_10px_rgba(5,0,5,0.05)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(6,182,212,0.15)]">
+            <div class="w-full md:w-1/3 rounded-[30px] p-8 flex flex-col justify-center shadow-[0px_5px_10px_rgba(5,0,5,0.15)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(6,182,212,0.15)]">
                 <h2 class="text-2xl font-bold mb-4 underline decoration-blue-500 underline-offset-8">
                     Pusat Riset Akademik
                 </h2>
@@ -668,14 +668,14 @@
                 </p>
                 <div class="flex flex-wrap gap-2 h-8 sm:h-11 point-carousel-container">
                     <div class="point-carousel-track">
-                        <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ High Speed WiFi</span>
-                        <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Full AC</span>
-                        <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Proyektor</span>
-                        <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Soundproof</span>
-                        <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ High Speed WiFi</span>
-                        <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Full AC</span>
-                        <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Proyektor</span>
-                        <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Soundproof</span>
+                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Full AC</span>
+                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ High Speed WiFi</span>
+                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Proyektor</span>
+                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Soundproof</span>
+                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ High Speed WiFi</span>
+                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Full AC</span>
+                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Proyektor</span>
+                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Soundproof</span>
                     </div>
                 </div>
             </div>
@@ -723,14 +723,15 @@
         <p class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight mt-3">Faculty <span class="gradient-text">Publications</span></p>
         <p class="text-slate-500 text-lg">Explore the latest scholarly works and academic contributions from our faculty.</p>
     </div>
-    <div class="publications-grid"  data-aos="fade-up">
+    <div class="publications-grid">
         <?php if (count($publications) > 0): ?>
             <?php 
                 $delay_increment = 100;
                 $delay = 0;
             ?>
             <?php foreach ($publications as $publication): ?>
-                <div class="publication-card" data-aos="fade-up" data-aos-delay="<?= $delay; ?>">
+                <div data-aos="fade-up" data-aos-delay="<?= $delay; ?>">
+                <div class="publication-card">
                     <div class="publication-content">
                         <div class="flex gap-4 items-start justify-between mb-4">
                             <div class="flex gap-4 items-start flex-1">
@@ -768,6 +769,7 @@
                 <?php 
                     $delay += $delay_increment; 
                 ?>
+                </div>
             <?php endforeach; ?>
         <?php else: ?>
             <p class="text-center text-gray-500 col-span-full py-8">Belum ada data publikasi yang tersedia.</p>
