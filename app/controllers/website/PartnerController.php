@@ -3,7 +3,7 @@ class PartnerController extends Controller
 {
     public function index()
     {
-        $data['products'] = $this->model('Produk')->getAll();
+        $data['partners'] = $this->model('Partners')->getAll();
         $data['title'] = 'Lab Applied Informatics Polinema';
 
         $this->view("public/layouts/header", $data);
