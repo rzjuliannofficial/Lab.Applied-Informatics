@@ -7,6 +7,7 @@
 <table class="mt-4 w-full border bg-white shadow">
     <thead class="bg-gray-100">
         <tr>
+            <th class="p-2 border">#</th>
             <th class="p-2 border">Dosen</th>
             <th class="p-2 border">Judul</th>
             <th class="p-2 border">Kategori</th>
@@ -16,8 +17,10 @@
     </thead>
 
     <tbody>
-        <?php foreach ($publikasi as $p): ?>
+        <?php $i=0;
+        foreach ($publikasi as $p): ?>
         <tr class="hover:bg-gray-50">
+            <td class="p-2 border"><?php echo ++$i; ?></td>
             <td class="p-2 border"><?= htmlspecialchars($p['nama_dosen']) ?></td>
             <td class="p-2 border"><?= htmlspecialchars($p['judul']) ?></td>
             <td class="p-2 border"><?= htmlspecialchars($p['kategori']) ?></td>

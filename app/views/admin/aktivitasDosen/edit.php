@@ -1,42 +1,94 @@
 <?php ob_start(); ?>
 
-<h1 class="text-2xl font-bold mb-6">Edit Aktivitas Dosen</h1>
 
-<form action="/admin/AktivitasDosen/update/<?= $aktivitas['id'] ?>" method="POST"
-      class="bg-white p-6 rounded-lg shadow w-full max-w-3xl">
+<div class="max-w-5xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+        <h1 class="text-2xl font-bold text-gray-800">
+            <i class="fas fa-edit mr-2 text-yellow-600"></i> Edit Aktivitas Dosen
+        </h1>
+        <a href="/admin/AktivitasDosen" class="text-gray-500 hover:text-gray-700 transition flex items-center">
+            <i class="fas fa-arrow-left mr-2"></i> Kembali
+        </a>
+    </div>
 
-    <label class="block font-semibold mb-1">Dosen</label>
-    <select name="id_dosen" class="w-full p-2 border rounded mb-4">
-        <?php foreach ($dosen as $d): ?>
-            <option value="<?= $d['id'] ?>"
-                <?= $d['id'] == $aktivitas['id_dosen'] ? 'selected' : '' ?>>
-                <?= htmlspecialchars($d['nama']) ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+    <form action="/admin/AktivitasDosen/update/<?= $aktivitas['id'] ?>" method="POST">
 
-    <label class="block font-semibold mb-1">Judul</label>
-    <input type="text" name="judul"
-           value="<?= htmlspecialchars($aktivitas['judul']) ?>"
-           class="w-full p-2 border rounded mb-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
 
-    <label class="block font-semibold mb-1">Jenis Aktivitas</label>
-    <input type="text" name="jenis_aktivitas"
-           value="<?= htmlspecialchars($aktivitas['jenis_aktivitas']) ?>"
-           class="w-full p-2 border rounded mb-4">
+            <div class="space-y-6">
+                <h3 class="text-lg font-semibold text-gray-700 border-b pb-2 mb-4">
+                    <i class="fas fa-briefcase mr-2 text-gray-400"></i> Informasi Aktivitas
+                </h3>
 
-    <label class="block font-semibold mb-1">Tanggal</label>
-    <input type="date" name="tanggal"
-           value="<?= htmlspecialchars($aktivitas['tanggal']) ?>"
-           class="w-full p-2 border rounded mb-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Dosen</label>
+                    <select name="id_dosen"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
+                        <?php foreach ($dosen as $d): ?>
+                            <option value="<?= $d['id'] ?>"
+                                <?= $d['id'] == $aktivitas['id_dosen'] ? 'selected' : '' ?>>
+                                <?= htmlspecialchars($d['nama']) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
 
-    <label class="block font-semibold mb-1">Deskripsi</label>
-    <textarea name="deskripsi"
-              class="w-full p-2 border rounded mb-4"><?= htmlspecialchars($aktivitas['deskripsi']) ?></textarea>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Judul Aktivitas</label>
+                    <input type="text" name="judul"
+                        value="<?= htmlspecialchars($aktivitas['judul']) ?>"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                        placeholder="Masukkan judul aktivitas...">
+                </div>
 
-    <button class="bg-yellow-600 text-white px-4 py-2 rounded">Update</button>
-</form>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Jenis Aktivitas</label>
+                    <input type="text" name="jenis_aktivitas"
+                        value="<?= htmlspecialchars($aktivitas['jenis_aktivitas']) ?>"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                        placeholder="Contoh: Seminar, Workshop, Pelatihan...">
+                </div>
+            </div>
 
+            <div class="space-y-6">
+                <h3 class="text-lg font-semibold text-gray-700 border-b pb-2 mb-4">
+                    <i class="fas fa-calendar-alt mr-2 text-gray-400"></i> Detail Aktivitas
+                </h3>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Tanggal</label>
+                    <input type="date" name="tanggal"
+                        value="<?= htmlspecialchars($aktivitas['tanggal']) ?>"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi</label>
+                    <textarea name="deskripsi" rows="4"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                        placeholder="Tuliskan deskripsi aktivitas..."><?= htmlspecialchars($aktivitas['deskripsi']) ?></textarea>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="bg-gray-50 px-8 py-5 border-t border-gray-200 flex items-center justify-end space-x-3">
+            <a href="/admin/AktivitasDosen"
+                class="px-5 py-2 rounded-lg border border-gray-300 text-gray-700 font-medium hover:bg-gray-100 transition">
+                Batal
+            </a>
+
+            <button type="submit"
+                class="px-6 py-2 rounded-lg bg-yellow-600 text-white font-bold shadow-md hover:bg-yellow-700 transition">
+                <i class="fas fa-save mr-2"></i> Update Aktivitas
+            </button>
+        </div>
+
+    </form>
+</div>
+
+</div>
 <?php
 $content = ob_get_clean();
 include "../app/views/admin/layouts/master.php";

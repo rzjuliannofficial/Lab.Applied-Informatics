@@ -1,46 +1,106 @@
 <?php ob_start(); ?>
 
-<h1 class="text-2xl font-bold mb-6">Edit Publikasi Dosen</h1>
 
-<form action="/admin/PublikasiDosen/update/<?= $publikasi['id'] ?>" method="POST"
-      class="bg-white p-6 rounded-lg shadow w-full max-w-3xl">
+<div class="max-w-5xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+        <h1 class="text-2xl font-bold text-gray-800">
+            <i class="fas fa-edit mr-2 text-yellow-600"></i> Edit Publikasi Dosen
+        </h1>
+        <a href="/admin/PublikasiDosen" class="text-gray-500 hover:text-gray-700 transition flex items-center">
+            <i class="fas fa-arrow-left mr-2"></i> Kembali
+        </a>
+    </div>
 
-    <label class="block font-semibold mb-1">Dosen</label>
-    <select name="id_dosen" class="w-full p-2 border rounded mb-4">
-        <?php foreach ($dosen as $d): ?>
-            <option value="<?= $d['id'] ?>"
-                <?= $d['id'] == $publikasi['id_dosen'] ? 'selected' : '' ?>>
-                <?= htmlspecialchars($d['nama']) ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+    <form action="/admin/PublikasiDosen/update/<?= $publikasi['id'] ?>" method="POST">
 
-    <label class="block font-semibold mb-1">Judul</label>
-    <input type="text" name="judul"
-           value="<?= htmlspecialchars($publikasi['judul']) ?>"
-           class="w-full p-2 border rounded mb-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
 
-    <label class="block font-semibold mb-1">Deskripsi</label>
-    <textarea name="deskripsi" class="w-full p-2 border rounded mb-4"><?= htmlspecialchars($publikasi['deskripsi']) ?></textarea>
+            <div class="space-y-6">
+                <h3 class="text-lg font-semibold text-gray-700 border-b pb-2 mb-4">
+                    <i class="fas fa-book mr-2 text-gray-400"></i> Informasi Publikasi
+                </h3>
 
-    <label class="block font-semibold mb-1">Tahun</label>
-    <input type="number" name="tahun"
-           value="<?= htmlspecialchars($publikasi['tahun']) ?>"
-           class="w-full p-2 border rounded mb-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Dosen</label>
+                    <select name="id_dosen" class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
+                        <?php foreach ($dosen as $d): ?>
+                            <option value="<?= $d['id'] ?>"
+                                <?= $d['id'] == $publikasi['id_dosen'] ? 'selected' : '' ?>>
+                                <?= htmlspecialchars($d['nama']) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
 
-    <label class="block font-semibold mb-1">Kategori</label>
-    <input type="text" name="kategori"
-           value="<?= htmlspecialchars($publikasi['kategori']) ?>"
-           class="w-full p-2 border rounded mb-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Judul Publikasi</label>
+                    <input type="text" name="judul"
+                        value="<?= htmlspecialchars($publikasi['judul']) ?>"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                        placeholder="Masukkan judul publikasi...">
+                </div>
 
-    <label class="block font-semibold mb-1">Link Jurnal</label>
-    <input type="text" name="link_jurnal"
-           value="<?= htmlspecialchars($publikasi['link_jurnal']) ?>"
-           class="w-full p-2 border rounded mb-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi</label>
+                    <textarea name="deskripsi" rows="3"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                        placeholder="Tuliskan deskripsi..."><?= htmlspecialchars($publikasi['deskripsi']) ?></textarea>
+                </div>
+            </div>
 
-    <button class="bg-yellow-600 text-white px-4 py-2 rounded">Update</button>
+            <div class="space-y-6">
+                <h3 class="text-lg font-semibold text-gray-700 border-b pb-2 mb-4">
+                    <i class="fas fa-graduation-cap mr-2 text-gray-400"></i> Detail Publikasi
+                </h3>
 
-</form>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Tahun Terbit</label>
+                    <input type="number" name="tahun"
+                        value="<?= htmlspecialchars($publikasi['tahun']) ?>"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Kategori</label>
+                    <input type="text" name="kategori"
+                        value="<?= htmlspecialchars($publikasi['kategori']) ?>"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                        placeholder="Contoh: Jurnal, Konferensi...">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Link Jurnal</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-link text-gray-400"></i>
+                        </div>
+                        <input type="url" name="link_jurnal"
+                            value="<?= htmlspecialchars($publikasi['link_jurnal']) ?>"
+                            class="pl-10 w-full px-4 py-2 border border-gray-300 rounded-lg"
+                            placeholder="https://link-ke-jurnal.com">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="bg-gray-50 px-8 py-5 border-t border-gray-200 flex items-center justify-end space-x-3">
+            <a href="/admin/PublikasiDosen"
+                class="px-5 py-2 rounded-lg border border-gray-300 text-gray-700 font-medium hover:bg-gray-100 transition">
+                Batal
+            </a>
+
+            <button type="submit"
+                class="px-6 py-2 rounded-lg bg-yellow-600 text-white font-bold shadow-md hover:bg-yellow-700 transition">
+                <i class="fas fa-save mr-2"></i> Update Publikasi
+            </button>
+        </div>
+
+    </form>
+</div>
+</div>
+
 
 <?php 
 $content = ob_get_clean();
