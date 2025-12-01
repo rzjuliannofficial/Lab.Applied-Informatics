@@ -11,50 +11,67 @@ class Galeri extends Model {
         $sql = "SELECT 
                     g.*,
                     d.nama AS nama_uploader,
-                    pl.judul  AS judul_penelitian,
-                    kl.judul  AS judul_kegiatan,
-                    publ.judul AS judul_publikasi_lab,
                     b.judul   AS judul_berita,
                     pr.nama_produk,
-                    f.nama_fasilitas
+                    f.nama_fasilitas,
+                    pd.judul AS judul_pub_dosen,
+                    ad.judul AS judul_akt_dosen,
+                    ppm.judul AS judul_ppm,
+                    rd.judul AS judul_riset,
+                    ki.judul AS judul_ki
                 FROM galeri g
                 LEFT JOIN dosen d ON d.id = g.uploaded_by
-                LEFT JOIN penelitian_lab pl ON pl.id = g.id_penelitian
-                LEFT JOIN kegiatan_lab   kl ON kl.id = g.id_kegiatan_lab
-                LEFT JOIN publikasi_lab  publ ON publ.id = g.id_publikasi_lab
                 LEFT JOIN berita         b ON b.id = g.id_berita
                 LEFT JOIN produk         pr ON pr.id = g.id_produk
                 LEFT JOIN fasilitas      f ON f.id_fasilitas = g.id_fasilitas
+                -- Join ke tabel baru
+                LEFT JOIN publikasi_dosen pd ON pd.id = g.id_publikasi_dosen
+                LEFT JOIN aktivitas_dosen ad ON ad.id = g.id_aktivitas_dosen
+                LEFT JOIN ppm             ppm ON ppm.id = g.id_ppm
+                LEFT JOIN riset_dosen     rd ON rd.id = g.id_riset_dosen
+                LEFT JOIN kekayaan_intelektual ki ON ki.id = g.id_kekayaan_intelektual
                 ORDER BY g.id DESC";
 
         return $this->fetchAll($sql);
     }
 
-    /**
-     * Ambil galeri berdasarkan kategori publikasi lab
-     */
-    public function getByPublikasiLab()
-    {
-        $sql = "SELECT 
-                    g.id,
-                    g.file_url,
-                    g.caption,
-                    g.tanggal_upload,
-                    pl.judul,
-                    d.nama AS uploaded_by,
-                    'Publikasi Lab' AS category
-                FROM galeri g
-                LEFT JOIN publikasi_lab pl ON pl.id = g.id_publikasi_lab
-                LEFT JOIN dosen d ON d.id = g.uploaded_by
-                WHERE g.id_publikasi_lab IS NOT NULL
-                ORDER BY g.tanggal_upload DESC";
-        
+    // --- METHOD KHUSUS FETCH PER KATEGORI BARU ---
+
+    public function getByPublikasiDosen() {
+        $sql = "SELECT g.id, g.file_url, g.caption, g.tanggal_upload, pd.judul, d.nama AS uploaded_by, 'Publikasi Dosen' AS category
+                FROM galeri g JOIN publikasi_dosen pd ON pd.id = g.id_publikasi_dosen
+                LEFT JOIN dosen d ON d.id = g.uploaded_by ORDER BY g.tanggal_upload DESC";
         return $this->fetchAll($sql);
     }
 
-    /**
-     * Ambil galeri berdasarkan kategori berita
-     */
+    public function getByAktivitasDosen() {
+        $sql = "SELECT g.id, g.file_url, g.caption, g.tanggal_upload, ad.judul, d.nama AS uploaded_by, 'Aktivitas Dosen' AS category
+                FROM galeri g JOIN aktivitas_dosen ad ON ad.id = g.id_aktivitas_dosen
+                LEFT JOIN dosen d ON d.id = g.uploaded_by ORDER BY g.tanggal_upload DESC";
+        return $this->fetchAll($sql);
+    }
+
+    public function getByPpm() {
+        $sql = "SELECT g.id, g.file_url, g.caption, g.tanggal_upload, ppm.judul, d.nama AS uploaded_by, 'PPM' AS category
+                FROM galeri g JOIN ppm ON ppm.id = g.id_ppm
+                LEFT JOIN dosen d ON d.id = g.uploaded_by ORDER BY g.tanggal_upload DESC";
+        return $this->fetchAll($sql);
+    }
+
+    public function getByRiset() {
+        $sql = "SELECT g.id, g.file_url, g.caption, g.tanggal_upload, rd.judul, d.nama AS uploaded_by, 'Riset' AS category
+                FROM galeri g JOIN riset_dosen rd ON rd.id = g.id_riset_dosen
+                LEFT JOIN dosen d ON d.id = g.uploaded_by ORDER BY g.tanggal_upload DESC";
+        return $this->fetchAll($sql);
+    }
+
+    public function getByKI() {
+        $sql = "SELECT g.id, g.file_url, g.caption, g.tanggal_upload, ki.judul, d.nama AS uploaded_by, 'HKI' AS category
+                FROM galeri g JOIN kekayaan_intelektual ki ON ki.id = g.id_kekayaan_intelektual
+                LEFT JOIN dosen d ON d.id = g.uploaded_by ORDER BY g.tanggal_upload DESC";
+        return $this->fetchAll($sql);
+    }
+
     public function getByBerita()
     {
         $sql = "SELECT 
@@ -117,54 +134,7 @@ class Galeri extends Model {
         
         return $this->fetchAll($sql);
     }
-
-    /**
-     * Ambil galeri berdasarkan kategori penelitian lab
-     */
-    public function getByPenelitianLab()
-    {
-        $sql = "SELECT 
-                    g.id,
-                    g.file_url,
-                    g.caption,
-                    g.tanggal_upload,
-                    pl.judul,
-                    d.nama AS uploaded_by,
-                    'Penelitian Lab' AS category
-                FROM galeri g
-                LEFT JOIN penelitian_lab pl ON pl.id = g.id_penelitian
-                LEFT JOIN dosen d ON d.id = g.uploaded_by
-                WHERE g.id_penelitian IS NOT NULL
-                ORDER BY g.tanggal_upload DESC";
-        
-        return $this->fetchAll($sql);
-    }
-
-    /**
-     * Ambil galeri berdasarkan kategori kegiatan lab
-     */
-    public function getByKegiatanLab()
-    {
-        $sql = "SELECT 
-                    g.id,
-                    g.file_url,
-                    g.caption,
-                    g.tanggal_upload,
-                    kl.judul,
-                    d.nama AS uploaded_by,
-                    'Kegiatan Lab' AS category
-                FROM galeri g
-                LEFT JOIN kegiatan_lab kl ON kl.id = g.id_kegiatan_lab
-                LEFT JOIN dosen d ON d.id = g.uploaded_by
-                WHERE g.id_kegiatan_lab IS NOT NULL
-                ORDER BY g.tanggal_upload DESC";
-        
-        return $this->fetchAll($sql);
-    }
-
-    /**
-     * Helper function untuk fetch all dengan query custom
-     */
+    
     private function fetchAll($sql)
     {
         $res = pg_query($this->db, $sql);
@@ -189,10 +159,14 @@ class Galeri extends Model {
 
     public function create($data)
     {
-        // data: [uploaded_by, file_url, caption, id_penelitian, id_kegiatan_lab, id_publikasi_lab, id_berita, id_produk, id_fasilitas, kategori]
+        // data: [uploaded_by, file_url, caption, id_berita, id_produk, id_fasilitas, 
+        //        id_publikasi_dosen, id_aktivitas_dosen, id_ppm, id_riset_dosen, 
+        //        id_kekayaan_intelektual, kategori]
         $sql = "INSERT INTO {$this->table}
-                (uploaded_by, file_url, caption, id_penelitian, id_kegiatan_lab, id_publikasi_lab, id_berita, id_produk, id_fasilitas, kategori)
-                VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)";
+                (uploaded_by, file_url, caption, id_berita, id_produk, id_fasilitas, 
+                 id_publikasi_dosen, id_aktivitas_dosen, id_ppm, id_riset_dosen, 
+                 id_kekayaan_intelektual, kategori)
+                VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)";
         return pg_query_params($this->db, $sql, $data);
     }
 

@@ -40,13 +40,16 @@ class PublikasiDosen extends Model
         return $res ? pg_fetch_assoc($res) : null;
     }
 
-    public function create($params)
+    public function createAndReturnId($params)
     {
         $sql = "INSERT INTO {$this->table}
                 (id_dosen, judul, deskripsi, tahun, link_jurnal, kategori)
-                VALUES ($1,$2,$3,$4,$5,$6)";
+                VALUES ($1,$2,$3,$4,$5,$6)
+                RETURNING id";
 
-        return pg_query_params($this->db, $sql, $params);
+        $res = pg_query_params($this->db, $sql, $params);
+        $row = pg_fetch_assoc($res);
+        return $row['id'];
     }
 
     public function updatePublikasi($id, $params)

@@ -79,12 +79,14 @@
             <!-- Filter Buttons -->
             <div class="gallery-filters">
                 <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="Publikasi Lab">Publikasi Lab</button>
+                <button class="filter-btn" data-filter="Publikasi Dosen">Publikasi Dosen</button>
+                <button class="filter-btn" data-filter="Aktivitas Dosen">Aktivitas Dosen</button>
+                <button class="filter-btn" data-filter="PPM">PPM</button>
+                <button class="filter-btn" data-filter="Riset">Riset Dosen</button>
+                <button class="filter-btn" data-filter="HKI">HKI</button>
                 <button class="filter-btn" data-filter="Berita">Berita</button>
                 <button class="filter-btn" data-filter="Produk">Produk</button>
                 <button class="filter-btn" data-filter="Fasilitas">Fasilitas</button>
-                <button class="filter-btn" data-filter="Penelitian Lab">Penelitian Lab</button>
-                <button class="filter-btn" data-filter="Kegiatan Lab">Kegiatan Lab</button>
             </div>
 
             <!-- Masonry Gallery Grid -->
