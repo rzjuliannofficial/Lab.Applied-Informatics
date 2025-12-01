@@ -89,9 +89,9 @@
                     <p class="text-xs text-gray-500">12 Artikel Aktif</p>
                 </div>
             </div>
-            <button class="w-full mt-2 py-2 px-4 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition-colors group-hover:bg-indigo-600 group-hover:text-white">
+            <a href="berita" class="w-full mt-2 py-2 px-4 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition-colors group-hover:bg-indigo-600 group-hover:text-white">
                 <i class="fas fa-plus-circle"></i> Tambah Berita
-            </button>
+            </a>
         </div>
 
         <!-- Card Product -->
@@ -108,9 +108,9 @@
                     <p class="text-xs text-gray-500">8 Produk Hilirisasi</p>
                 </div>
             </div>
-            <button class="w-full mt-2 py-2 px-4 bg-teal-50 hover:bg-teal-100 text-teal-600 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition-colors group-hover:bg-teal-600 group-hover:text-white">
+            <a href="produk" class="w-full mt-2 py-2 px-4 bg-teal-50 hover:bg-teal-100 text-teal-600 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition-colors group-hover:bg-teal-600 group-hover:text-white">
                 <i class="fas fa-plus-circle"></i> Tambah Produk
-            </button>
+            </a>
         </div>
 
         <!-- Card Galeri -->
@@ -127,9 +127,9 @@
                     <p class="text-xs text-gray-500">24 Album Foto</p>
                 </div>
             </div>
-            <button class="w-full mt-2 py-2 px-4 bg-purple-50 hover:bg-purple-100 text-purple-600 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition-colors group-hover:bg-purple-600 group-hover:text-white">
+            <a href="galeri" class="w-full mt-2 py-2 px-4 bg-purple-50 hover:bg-purple-100 text-purple-600 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition-colors group-hover:bg-purple-600 group-hover:text-white">
                 <i class="fas fa-plus-circle"></i> Upload Foto
-            </button>
+            </a>
         </div>
 
         <!-- Card Partner -->
@@ -146,9 +146,9 @@
                     <p class="text-xs text-gray-500">15 Mitra Industri</p>
                 </div>
             </div>
-            <button class="w-full mt-2 py-2 px-4 bg-orange-50 hover:bg-orange-100 text-orange-600 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition-colors group-hover:bg-orange-600 group-hover:text-white">
+            <a href="partner" class="w-full mt-2 py-2 px-4 bg-orange-50 hover:bg-orange-100 text-orange-600 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition-colors group-hover:bg-orange-600 group-hover:text-white">
                 <i class="fas fa-plus-circle"></i> Tambah Partner
-            </button>
+            </a>
         </div>
 
     </div>
