@@ -119,6 +119,9 @@ class PartnerController extends Controller
         $logoBaru = $this->uploadLogo();
         if (!$logoBaru) {
             $logoBaru = $old['logo'];
+        } else {
+            $file = realpath(__DIR__ . '/../../..') . "/public" . $old['logo'];
+            if (is_file($file)) @unlink($file);
         }
 
         $result = $m->update($id, [
@@ -146,7 +149,7 @@ class PartnerController extends Controller
         $row = $m->find($id);
 
         if ($row && !empty($row['logo'])) {
-            $file = realpath(__DIR__ . '/../../..') . "/public/uploads/partner/" . $row['logo'];
+            $file = realpath(__DIR__ . '/../../..') . "/public" . $row['logo'];
             if (is_file($file)) @unlink($file);
         }
 
