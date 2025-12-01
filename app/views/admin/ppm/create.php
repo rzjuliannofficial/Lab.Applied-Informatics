@@ -11,7 +11,6 @@
     </div>
     <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
     <form action="/admin/Ppm/store" method="POST">
-
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
 
             <div class="space-y-6">
@@ -36,7 +35,6 @@
                 <h3 class="text-lg font-semibold text-gray-700 border-b pb-2 mb-4">
                     <i class="fas fa-file-alt mr-2 text-gray-400"></i> Detail PPM
                 </h3>
-
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Judul</label>
                     <input type="text" name="judul"

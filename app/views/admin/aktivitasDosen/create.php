@@ -1,6 +1,4 @@
 <?php ob_start(); ?>
-
-
 <div class="max-w-5xl mx-auto">
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-bold text-gray-800">
@@ -49,7 +47,6 @@
                 <h3 class="text-lg font-semibold text-gray-700 border-b pb-2 mb-4">
                     <i class="fas fa-calendar-alt mr-2 text-gray-400"></i> Detail Aktivitas
                 </h3>
-
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Tanggal</label>
                     <input type="date" name="tanggal"

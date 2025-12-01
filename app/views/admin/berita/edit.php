@@ -19,8 +19,11 @@
 
     <?php if ($berita['gambar_utama']): ?>
         <p class="font-semibold mb-1">Gambar Saat Ini:</p>
-        <img src="/uploads/berita/<?= $berita['gambar_utama'] ?>" class="w-32 h-32 object-cover rounded mb-4">
+        <img src="<?= htmlspecialchars($berita['gambar_utama']) ?>" class="w-32 h-32 object-cover rounded mb-4">
     <?php endif; ?>
+    
+    <label class="block font-semibold mb-1">Kategori Berita</label>
+    <input type="text" name="kategori" class="w-full p-2 border rounded mb-4" placeholder="Blockchain , Economy" required>
 
     <button class="bg-yellow-600 text-white px-4 py-2 rounded">Update</button>
 

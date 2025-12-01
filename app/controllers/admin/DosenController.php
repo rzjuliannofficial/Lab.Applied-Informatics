@@ -24,7 +24,8 @@ class DosenController extends Controller
         $dir = realpath(__DIR__ . '/../../..') . "/public/uploads/dosen/";
         if (!is_dir($dir)) mkdir($dir, 0777, true);
 
-        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? $safe : null;
+        // Return path format: /uploads/dosen/filename.ext
+        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? "/uploads/dosen/" . $safe : null;
     }
 
     /* ==========================
@@ -33,17 +34,7 @@ class DosenController extends Controller
     public function index()
     {
         $m = new Dosen();
-
-        if ($_SESSION['user']['role'] === 'editor') {
-            $dosen = $m->find($_SESSION['user']['id_dosen']);
-            if (!$dosen) {
-                $_SESSION['error'] = "Akun editor tidak memiliki data dosen!";
-                return header("Location: /admin/dashboard");
-            }
-            $data['dosen'] = [$dosen];
-        } else {
-            $data['dosen'] = $m->getAll();
-        }
+        $data['dosen'] = $m->getAll();
 
         $this->view("admin/dosen/index", $data);
     }
@@ -67,7 +58,10 @@ class DosenController extends Controller
         $keahlian   = trim($_POST['keahlian_text'] ?? null);
         $deskripsi  = trim($_POST['deskripsi'] ?? null);
         $jabatan    = trim($_POST['jabatan'] ?? 'member');
-
+        $google_scholar  = trim($_POST['link_scholar'] ?? null);
+        $researcher  = trim($_POST['link_researchgate'] ?? null);
+        $orcid    = trim($_POST['link_orcid'] ?? null);
+        
         if ($nama === '' || $nip === '' || $email === '') {
             $_SESSION['error'] = "Semua field wajib diisi.";
             return header("Location: /admin/dosen/create");
@@ -83,7 +77,10 @@ class DosenController extends Controller
             'foto'           => $foto,
             'keahlian_text'  => $keahlian,
             'deskripsi'      => $deskripsi,
-            'jabatan'        => $jabatan
+            'jabatan'        => $jabatan,
+            'google_scholar' => $google_scholar,
+            'researcher'     => $researcher,
+            'orcid'          => $orcid 
         ]);
 
         $_SESSION['success'] = "Dosen berhasil ditambahkan.";
@@ -122,9 +119,12 @@ class DosenController extends Controller
         $nama       = trim($_POST['nama'] ?? '');
         $nip        = trim($_POST['nip'] ?? '');
         $email      = trim($_POST['email'] ?? '');
-        $keahlian   = trim($_POST['keahlian_text'] ?? null);
-        $deskripsi  = trim($_POST['deskripsi'] ?? null);
+        $keahlian   = trim($_POST['keahlian_text'] ?? '');
+        $deskripsi  = trim($_POST['deskripsi'] ?? '');
         $jabatan    = trim($_POST['jabatan'] ?? 'member');
+        $google_scholar  = !empty(trim($_POST['link_scholar'] ?? '')) ? trim($_POST['link_scholar']) : null;
+        $researcher  = !empty(trim($_POST['link_researchgate'] ?? '')) ? trim($_POST['link_researchgate']) : null;
+        $orcid    = !empty(trim($_POST['link_orcid'] ?? '')) ? trim($_POST['link_orcid']) : null;
 
         if ($nama === '' || $nip === '' || $email === '') {
             $_SESSION['error'] = "Semua field wajib diisi.";
@@ -136,17 +136,24 @@ class DosenController extends Controller
             $fotoBaru = $old['foto_profil'];
         }
 
-        $m->updateDosen($id, [
+        $result = $m->updateDosen($id, [
             'nama'          => $nama,
             'nip'           => $nip,
             'email'         => $email,
             'foto'          => $fotoBaru,
             'keahlian_text' => $keahlian,
             'deskripsi'     => $deskripsi,
-            'jabatan'       => $jabatan
+            'jabatan'       => $jabatan,
+            'google_scholar' => $google_scholar,
+            'researcher'     => $researcher,
+            'orcid'          => $orcid 
         ]);
 
-        $_SESSION['success'] = "Dosen berhasil diperbarui.";
+        if ($result) {
+            $_SESSION['success'] = "Dosen berhasil diperbarui.";
+        } else {
+            $_SESSION['error'] = "Gagal memperbarui data dosen.";
+        }
         header("Location: /admin/dosen");
     }
 

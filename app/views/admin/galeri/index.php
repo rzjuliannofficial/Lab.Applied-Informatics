@@ -12,6 +12,7 @@
         <tr>
             <th class="p-2 border">Preview</th>
             <th class="p-2 border">Caption</th>
+            <th class="p-2 border">Kategori</th>
             <th class="p-2 border">Sumber</th>
             <th class="p-2 border">Uploader</th>
             <th class="p-2 border">Aksi</th>
@@ -29,15 +30,19 @@
                 $sumber = "Produk: " . htmlspecialchars($g['nama_produk'] ?? '');
             } elseif (!empty($g['id_fasilitas'])) {
                 $sumber = "Fasilitas: " . htmlspecialchars($g['nama_fasilitas'] ?? '');
-            } elseif (!empty($g['id_kegiatan_lab'])) {
-                $sumber = "Kegiatan Lab: " . htmlspecialchars($g['judul_kegiatan'] ?? '');
-            } elseif (!empty($g['id_penelitian'])) {
-                $sumber = "Penelitian Lab: " . htmlspecialchars($g['judul_penelitian'] ?? '');
-            } elseif (!empty($g['id_publikasi_lab'])) {
-                $sumber = "Publikasi Lab: " . htmlspecialchars($g['judul_publikasi_lab'] ?? '');
+            } elseif (!empty($g['id_publikasi_dosen'])) {
+                $sumber = "Publikasi Dosen: " . htmlspecialchars($g['judul_pub_dosen'] ?? '');
+            } elseif (!empty($g['id_aktivitas_dosen'])) {
+                $sumber = "Aktivitas Dosen: " . htmlspecialchars($g['judul_akt_dosen'] ?? '');
+            } elseif (!empty($g['id_ppm'])) {
+                $sumber = "PPM: " . htmlspecialchars($g['judul_ppm'] ?? '');
+            } elseif (!empty($g['id_riset_dosen'])) {
+                $sumber = "Riset Dosen: " . htmlspecialchars($g['judul_riset'] ?? '');
+            } elseif (!empty($g['id_kekayaan_intelektual'])) {
+                $sumber = "HKI: " . htmlspecialchars($g['judul_ki'] ?? '');
             }
 
-            $fileUrl = "/uploads/" . $g['file_url'];
+            $fileUrl = $g['file_url'];
         ?>
         <tr class="hover:bg-gray-50">
             <td class="p-2 border">
@@ -48,6 +53,12 @@
 
             <td class="p-2 border align-top">
                 <?= $g['caption'] ? htmlspecialchars($g['caption']) : '<span class="text-gray-400 italic">belum ada caption</span>' ?>
+            </td>
+
+            <td class="p-2 border align-top">
+                <span class="inline-block px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">
+                    <?= htmlspecialchars($g['kategori'] ?? '-') ?>
+                </span>
             </td>
 
             <td class="p-2 border align-top">

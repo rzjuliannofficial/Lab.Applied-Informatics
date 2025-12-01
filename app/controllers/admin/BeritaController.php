@@ -28,7 +28,7 @@ class BeritaController extends Controller
         $dir = realpath(__DIR__ . '/../../..') . "/public/uploads/berita/";
         if (!is_dir($dir)) mkdir($dir, 0777, true);
 
-        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? $safe : null;
+        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? "/uploads/berita/" . $safe : null;
     }
 
     public function index()
@@ -54,7 +54,8 @@ class BeritaController extends Controller
             $_POST['judul'],
             $_POST['isi_berita'],
             $_POST['tanggal'],
-            $gambar
+            $gambar,
+            $_POST['kategori']
         ]);
 
         // ===== INSERT KE GALERI =====
@@ -63,14 +64,15 @@ class BeritaController extends Controller
             $g = new Galeri();
             $g->create([
                 $_SESSION['user']['id_dosen'],
-                "berita/" . $gambar,
+                $gambar,
                 "",
                 null,       // id_penelitian
                 null,       // id_kegiatan_lab
                 null,       // id_publikasi_lab
                 $id_berita, // id_berita
                 null,       // id_produk
-                null        // id_fasilitas
+                null,       // id_fasilitas
+                null        // kategori (diisi manual di galeri/edit)
             ]);
         }
 
@@ -98,7 +100,8 @@ class BeritaController extends Controller
             $_POST['judul'],
             $_POST['isi_berita'],
             $_POST['tanggal'],
-            $gambar
+            $gambar,
+            $_POST['kategori']
         ]);
 
         // Jika gambar baru diupload → masuk galeri
@@ -107,14 +110,15 @@ class BeritaController extends Controller
             $g = new Galeri();
             $g->create([
                 $_SESSION['user']['id_dosen'],
-                "berita/" . $gambar,
+                $gambar,
                 "",
                 null,
                 null,
                 null,
                 $id,
                 null,
-                null
+                null,
+                null        // kategori (diisi manual di galeri/edit)
             ]);
         }
 
@@ -128,7 +132,7 @@ class BeritaController extends Controller
         $old = $m->find($id);
 
         if (!empty($old['gambar_utama'])) {
-            $path = realpath(__DIR__ . '/../../..') . "/public/uploads/berita/" . $old['gambar_utama'];
+            $path = realpath(__DIR__ . '/../../..') . $old['gambar_utama'];
             if (file_exists($path)) unlink($path);
         }
 

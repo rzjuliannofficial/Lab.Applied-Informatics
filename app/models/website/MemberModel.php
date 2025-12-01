@@ -11,7 +11,7 @@ class MemberModel extends Model
 
     public function fetchTeam() {
 
-        $sql = "SELECT nama, nip, email, foto_profil, keahlian_text, deskripsi , jabatan
+        $sql = "SELECT nama, nip, email, foto_profil, keahlian_text, deskripsi , jabatan , google_scholar, researcher, orcid
                 FROM dosen 
                 ORDER BY jabatan ASC 
                 LIMIT 2";

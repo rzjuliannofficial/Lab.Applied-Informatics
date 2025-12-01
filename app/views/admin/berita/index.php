@@ -9,6 +9,7 @@
         <tr>
             <th class="p-2 border">Judul</th>
             <th class="p-2 border">Isi</th>
+            <th class="p-2 border">Kategori</th>
             <th class="p-2 border">Tanggal</th>
             <th class="p-2 border">Gambar</th>
             <th class="p-2 border">Aksi</th>
@@ -20,11 +21,12 @@
         <tr class="hover:bg-gray-50">
             <td class="p-2 border"><?= htmlspecialchars($b['judul']) ?></td>
             <td class="p-2 border"><?= htmlspecialchars($b['isi_berita']) ?></td>
+            <td class="p-2 border"><?= htmlspecialchars($b['kategori']) ?></td>
             <td class="p-2 border"><?= htmlspecialchars($b['tanggal']) ?></td>
 
             <td class="p-2 border">
                 <?php if ($b['gambar_utama']): ?>
-                    <img src="/uploads/berita/<?= $b['gambar_utama'] ?>" class="w-16 h-16 object-cover rounded">
+                    <img src="<?= htmlspecialchars($b['gambar_utama']) ?>" class="w-16 h-16 object-cover rounded">
                 <?php else: ?>
                     <span class="text-gray-400">-</span>
                 <?php endif; ?>

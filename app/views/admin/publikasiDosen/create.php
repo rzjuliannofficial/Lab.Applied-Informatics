@@ -48,7 +48,6 @@
                 <h3 class="text-lg font-semibold text-gray-700 border-b pb-2 mb-4">
                     <i class="fas fa-graduation-cap mr-2 text-gray-400"></i> Detail Publikasi
                 </h3>
-
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Tahun Terbit</label>
                     <input type="number" name="tahun"

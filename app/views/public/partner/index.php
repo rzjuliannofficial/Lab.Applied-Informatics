@@ -1,45 +1,8 @@
 <?php
-   if (empty($partners)) {
-    $partners = [
-        // Industry Partners
-        ['name' => 'ADS', 'category' => 'Industry Partner', 'logo' => 'img/partners/ads.png', 'website' => '#', 'description' => 'Technology Solutions'],
-        ['name' => 'ARM Solusi', 'category' => 'Industry Partner', 'logo' => 'img/partners/arm.png', 'website' => '#', 'description' => 'Software Development'],
-        ['name' => 'Bumaji Sejantera', 'category' => 'Industry Partner', 'logo' => 'img/partners/bumaji.png', 'website' => '#', 'description' => 'Agricultural Tech'],
-        ['name' => 'DSG', 'category' => 'Industry Partner', 'logo' => 'img/partners/dsg.png', 'website' => '#', 'description' => 'Digital Solutions'],
-        ['name' => 'PT Link Apisindo Media', 'category' => 'Industry Partner', 'logo' => 'img/partners/link.png', 'website' => '#', 'description' => 'Media & Tech'],
-        ['name' => 'QuantumGrid', 'category' => 'Industry Partner', 'logo' => 'img/partners/quantum.png', 'website' => '#', 'description' => 'Cloud Services'],
-        ['name' => 'Infonika Garasa', 'category' => 'Industry Partner', 'logo' => 'img/partners/infonika.png', 'website' => '#', 'description' => 'IT Infrastructure'],
-        ['name' => 'Utcero Indonesia', 'category' => 'Industry Partner', 'logo' => 'img/partners/utcero.png', 'website' => '#', 'description' => 'Tech Innovation'],
-        ['name' => 'Sekawan Media', 'category' => 'Industry Partner', 'logo' => 'img/partners/sekawan.png', 'website' => '#', 'description' => 'Digital Agency'],
-        ['name' => 'Malang Creative Fusion', 'category' => 'Industry Partner', 'logo' => 'img/partners/mcf.png', 'website' => '#', 'description' => 'Creative Solutions'],
-        
-        // Educational Institutions
-        ['name' => 'INSTIKI', 'category' => 'Educational Institutions', 'logo' => 'img/partners/instiki.png', 'website' => '#', 'description' => 'Technology Institute'],
-        ['name' => 'MCC', 'category' => 'Educational Institutions', 'logo' => 'img/partners/mcc.png', 'website' => '#', 'description' => 'Computing Center'],
-        ['name' => 'UNESA', 'category' => 'Educational Institutions', 'logo' => 'img/partners/unesa.png', 'website' => '#', 'description' => 'State University'],
-        ['name' => 'Politeknik Negeri Banyuwangi', 'category' => 'Educational Institutions', 'logo' => 'img/partners/polban.png', 'website' => '#', 'description' => 'Polytechnic'],
-        ['name' => 'SMK Negeri 1', 'category' => 'Educational Institutions', 'logo' => 'img/partners/smk1.png', 'website' => '#', 'description' => 'Vocational School'],
-        ['name' => 'UIN Malang', 'category' => 'Educational Institutions', 'logo' => 'img/partners/uin.png', 'website' => '#', 'description' => 'Islamic University'],
-        ['name' => 'Politeknik Negeri Malang', 'category' => 'Educational Institutions', 'logo' => 'img/partners/polinema.png', 'website' => '#', 'description' => 'State Polytechnic'],
-        ['name' => 'ASTRAtech', 'category' => 'Educational Institutions', 'logo' => 'img/partners/astra.png', 'website' => '#', 'description' => 'Technical School'],
-        
-        // International Institutions
-        ['name' => 'Duke University', 'category' => 'International Institutions', 'logo' => 'img/partners/duke.png', 'website' => '#', 'description' => 'USA University'],
-        ['name' => 'Okayama University', 'category' => 'International Institutions', 'logo' => 'img/partners/okayama.png', 'website' => '#', 'description' => 'Japan University'],
-        
-        // Government Institutions
-        ['name' => 'DPUBM', 'category' => 'Government Institutions', 'logo' => 'img/partners/dpubm.png', 'website' => '#', 'description' => 'Public Works'],
-        ['name' => 'Kota Batu', 'category' => 'Government Institutions', 'logo' => 'img/partners/batu.png', 'website' => '#', 'description' => 'City Government'],
-        ['name' => 'BIN', 'category' => 'Government Institutions', 'logo' => 'img/partners/bin.png', 'website' => '#', 'description' => 'Intelligence Agency'],
-        ['name' => 'Diskominfo Kota Batu', 'category' => 'Government Institutions', 'logo' => 'img/partners/diskominfo-batu.png', 'website' => '#', 'description' => 'Communication Office'],
-        ['name' => 'Kominfo Jatim', 'category' => 'Government Institutions', 'logo' => 'img/partners/kominfo.png', 'website' => '#', 'description' => 'Regional Communication Office'],
-    ];
-}
-
 // Group partners by category
 $groupedPartners = [];
 foreach ($partners as $partner) {
-    $groupedPartners[$partner['category']][] = $partner;
+    $groupedPartners[$partner['kategori']][] = $partner;
 }
 ?>
 
@@ -79,9 +42,9 @@ foreach ($partners as $partner) {
 
     <section class="partners-section">
         <div class="container">
-            <?php foreach ($groupedPartners as $category => $categoryPartners): ?>
+            <?php foreach ($groupedPartners as $kategori => $categoryPartners): ?>
                 <div class="partner-category-section" data-aos="fade-up">
-                    <h2 class="partner-category-title"><?= htmlspecialchars($category) ?></h2>
+                    <h2 class="partner-category-title"><?= htmlspecialchars($kategori) ?></h2>
                     <p class="partner-category-subtitle">
                         <?php
                         $subtitles = [
@@ -90,7 +53,7 @@ foreach ($partners as $partner) {
                             'International Institutions' => 'Global partners expanding our reach and research capabilities',
                             'Government Institutions' => 'Public sector organizations supporting community development and innovation'
                         ];
-                        echo $subtitles[$category] ?? 'Trusted partners supporting our mission and vision';
+                        echo $subtitles[$kategori] ?? 'Trusted partners supporting our mission and vision';
                         ?>
                     </p>
                     
@@ -100,12 +63,12 @@ foreach ($partners as $partner) {
                                 <div class="partner-card-inner">
                                     <div class="partner-logo-container">
                                         <img src="<?= htmlspecialchars($partner['logo']) ?>" 
-                                             alt="<?= htmlspecialchars($partner['name']) ?>"
+                                             alt="<?= htmlspecialchars($partner['nama']) ?>"
                                              class="partner-logo">
                                     </div>
                                     <div class="partner-info">
-                                        <h3 class="partner-name"><?= htmlspecialchars($partner['name']) ?></h3>
-                                        <p class="partner-description"><?= htmlspecialchars($partner['description']) ?></p>
+                                        <h3 class="partner-name"><?= htmlspecialchars($partner['nama']) ?></h3>
+                                        <p class="partner-description"><?= htmlspecialchars($partner['deskripsi']) ?></p>
                                         <?php if (!empty($partner['website']) && $partner['website'] !== '#'): ?>
                                             <a href="<?= htmlspecialchars($partner['website']) ?>" 
                                                target="_blank" 

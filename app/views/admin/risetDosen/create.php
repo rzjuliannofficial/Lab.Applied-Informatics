@@ -13,6 +13,9 @@
     <form action="/admin/RisetDosen/store" method="POST">
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
+<form action="/admin/RisetDosen/store" method="POST"
+      enctype="multipart/form-data"
+      class="bg-white p-6 rounded-lg shadow w-full max-w-3xl">
 
             <div class="space-y-6">
 
@@ -38,7 +41,6 @@
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg"
                         placeholder="Contoh: 2024">
                 </div>
-
             </div>
 
             <div class="space-y-6">

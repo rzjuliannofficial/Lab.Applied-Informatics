@@ -12,7 +12,13 @@
     <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
     <form action="/admin/KekayaanIntelektual/store" method="POST">
 
+<<<<<<< HEAD
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
+=======
+<form action="/admin/KekayaanIntelektual/store" method="POST"
+      enctype="multipart/form-data"
+      class="bg-white p-6 rounded-lg shadow w-full max-w-3xl">
+>>>>>>> 0fe799704a78b44a6ee48f1498e23f2a0ec90d8a
 
             <div class="space-y-6">
 
@@ -39,6 +45,7 @@
                         placeholder="Contoh: 2024">
                 </div>
 
+<<<<<<< HEAD
             </div>
 
             <div class="space-y-6">
@@ -80,6 +87,15 @@
     </form>
 </div>
 </div>
+=======
+    <label class="block font-semibold mb-1">Foto/Dokumentasi HKI</label>
+    <input type="file" name="foto_bukti" accept="image/*" 
+           class="w-full p-2 border rounded mb-4">
+    <small class="text-gray-500 block mb-4">Format: JPG, PNG, GIF, WebP (Max 5MB)</small>
+
+    <button class="bg-blue-600 text-white px-4 py-2 rounded">Simpan</button>
+</form>
+>>>>>>> 0fe799704a78b44a6ee48f1498e23f2a0ec90d8a
 
 <?php
 $content = ob_get_clean();

@@ -20,7 +20,7 @@
 
             <td class="p-2 border">
                 <?php if ($p['image']): ?>
-                    <img src="/uploads/produk/<?= $p['image'] ?>" class="w-16 h-16 rounded object-cover">
+                    <img src="<?= htmlspecialchars($p['image']) ?>" class="w-16 h-16 rounded object-cover">
                 <?php else: ?>
                     <span class="text-gray-400 text-sm">-</span>
                 <?php endif; ?>

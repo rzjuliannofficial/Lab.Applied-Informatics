@@ -28,7 +28,7 @@ class ProdukController extends Controller
         $dir = realpath(__DIR__ . '/../../..') . "/public/uploads/produk/";
         if (!is_dir($dir)) mkdir($dir, 0777, true);
 
-        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? $safe : null;
+        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? "/uploads/produk/" . $safe : null;
     }
 
 
@@ -70,14 +70,15 @@ class ProdukController extends Controller
 
             $g->create([
                 $uploadedBy,
-                "produk/" . $image,
+                $image,
                 "",             // caption kosong dulu
                 null,           // id_penelitian
                 null,           // id_kegiatan_lab
                 null,           // id_publikasi_lab
                 null,           // id_berita
                 $id_produk,     // 👈 RELASI PRODUK
-                null            // id_fasilitas
+                null,           // id_fasilitas
+                null            // kategori (diisi manual di galeri/edit)
             ]);
         }
 
@@ -125,14 +126,15 @@ class ProdukController extends Controller
 
             $g->create([
                 $uploadedBy,
-                "produk/" . $image,
+                $image,
                 "",
                 null,
                 null,
                 null,
                 null,
                 $id,        // relasi produk
-                null
+                null,       // id_fasilitas
+                null        // kategori (diisi manual di galeri/edit)
             ]);
         }
 
@@ -150,7 +152,7 @@ class ProdukController extends Controller
         $row = $m->find($id);
 
         if (!empty($row['image'])) {
-            $filePath = realpath(__DIR__ . '/../../..') . "/public/uploads/produk/" . $row['image'];
+            $filePath = realpath(__DIR__ . '/../../..') . $row['image'];
             if (file_exists($filePath)) unlink($filePath);
         }
 

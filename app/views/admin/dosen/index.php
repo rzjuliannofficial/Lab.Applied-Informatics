@@ -2,9 +2,13 @@
 
 <div class="flex justify-between items-center mb-6">
     <h1 class="text-2xl font-bold">Daftar Member</h1>
-    <a href="/admin/dosen/create" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-        <i class="fas fa-plus mr-1"></i> Tambah Member
-    </a>
+    
+    <!-- Other menus khusus admin -->
+    <?php if ($_SESSION['user']['role'] === 'admin'): ?>
+        <a href="/admin/dosen/create" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+            <i class="fas fa-plus mr-1"></i> Tambah Member
+        </a>
+    <?php endif; ?>
 </div>
 
 <!-- Grid Layout -->
@@ -18,7 +22,7 @@
                     <!-- Foto -->
                     <div class="flex-shrink-0">
                         <?php if (!empty($d['foto_profil'])): ?>
-                            <img src="/uploads/dosen/<?= htmlspecialchars($d['foto_profil']) ?>" class="w-16 h-16 rounded-full object-cover border">
+                            <img src="<?= htmlspecialchars($d['foto_profil']) ?>" class="w-16 h-16 rounded-full object-cover border">
                         <?php else: ?>
                             <div class="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center text-xs text-gray-500 border">No Foto</div>
                         <?php endif; ?>
@@ -44,35 +48,49 @@
 
                 <!-- Academic Links -->
                 <div class="mt-4 flex flex-wrap gap-2">
-                    <?php if(!empty($d['link_scholar'])): ?>
-                        <a href="<?= $d['link_scholar'] ?>" target="_blank" class="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded border border-blue-200 hover:bg-blue-100">
+                    <?php if(!empty($d['google_scholar'])): ?>
+                        <a href="<?= $d['google_scholar'] ?>" target="_blank" class="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded border border-blue-200 hover:bg-blue-100">
                             <i class="fas fa-graduation-cap"></i> Scholar
                         </a>
                     <?php endif; ?>
                     
-                    <?php if(!empty($d['link_orcid'])): ?>
-                        <a href="<?= $d['link_orcid'] ?>" target="_blank" class="text-xs bg-green-50 text-green-600 px-2 py-1 rounded border border-green-200 hover:bg-green-100">
+                    <?php if(!empty($d['orcid'])): ?>
+                        <a href="<?= $d['orcid'] ?>" target="_blank" class="text-xs bg-green-50 text-green-600 px-2 py-1 rounded border border-green-200 hover:bg-green-100">
                             <i class="fab fa-orcid"></i> ORCID
                         </a>
                     <?php endif; ?>
 
-                    <?php if(!empty($d['link_researchgate'])): ?>
-                        <a href="<?= $d['link_researchgate'] ?>" target="_blank" class="text-xs bg-teal-50 text-teal-600 px-2 py-1 rounded border border-teal-200 hover:bg-teal-100">
+                    <?php if(!empty($d['researcher'])): ?>
+                        <a href="<?= $d['researcher'] ?>" target="_blank" class="text-xs bg-teal-50 text-teal-600 px-2 py-1 rounded border border-teal-200 hover:bg-teal-100">
                             <i class="fab fa-researchgate"></i> RG
                         </a>
                     <?php endif; ?>
                 </div>
             </div>
-
-            <!-- Card Footer (Actions) -->
-            <div class="bg-gray-50 px-6 py-3 border-t flex justify-end space-x-3">
-                <a href="/admin/dosen/edit/<?= $d['id'] ?>" class="text-sm text-yellow-600 hover:text-yellow-800 font-medium">
-                    <i class="fas fa-edit"></i> Edit
-                </a>
-                <a href="/admin/dosen/delete/<?= $d['id'] ?>" onclick="return confirm('Hapus dosen ini?')" class="text-sm text-red-600 hover:text-red-800 font-medium">
-                    <i class="fas fa-trash"></i> Hapus
-                </a>
-            </div>
+            <!-- akan muncul di editor sesuai id loginnya -->
+             <?php if ($_SESSION['user']['role'] === 'editor' && $_SESSION['user']['id_dosen'] == $d['id']): ?>
+                <!-- Card Footer (Actions) -->
+                <div class="bg-gray-50 px-6 py-3 border-t flex justify-end space-x-3">
+                    <a href="/admin/dosen/edit/<?= $d['id'] ?>" class="text-sm text-yellow-600 hover:text-yellow-800 font-medium">
+                        <i class="fas fa-edit"></i> Edit
+                    </a>
+                    <a href="/admin/dosen/delete/<?= $d['id'] ?>" onclick="return confirm('Hapus dosen ini?')" class="text-sm text-red-600 hover:text-red-800 font-medium">
+                        <i class="fas fa-trash"></i> Hapus
+                    </a>
+                </div>
+            <?php endif; ?>
+            <!-- khusus admin bisa edit semua -->
+             <?php if ($_SESSION['user']['role'] === 'admin'): ?>
+                <!-- Card Footer (Actions) -->
+                <div class="bg-gray-50 px-6 py-3 border-t flex justify-end space-x-3">
+                    <a href="/admin/dosen/edit/<?= $d['id'] ?>" class="text-sm text-yellow-600 hover:text-yellow-800 font-medium">
+                        <i class="fas fa-edit"></i> Edit
+                    </a>
+                    <a href="/admin/dosen/delete/<?= $d['id'] ?>" onclick="return confirm('Hapus dosen ini?')" class="text-sm text-red-600 hover:text-red-800 font-medium">
+                        <i class="fas fa-trash"></i> Hapus
+                    </a>
+                </div>
+            <?php endif; ?>
 
         </div>
     <?php endforeach; ?>

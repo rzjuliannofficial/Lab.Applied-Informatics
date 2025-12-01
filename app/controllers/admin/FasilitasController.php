@@ -28,7 +28,7 @@ class FasilitasController extends Controller
         $dir = realpath(__DIR__ . '/../../..') . "/public/uploads/fasilitas/";
         if (!is_dir(filename: $dir)) mkdir($dir, 0777, true);
 
-        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? $safe : null;
+        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? "/uploads/fasilitas/" . $safe : null;
     }
 
     public function index()
@@ -61,10 +61,11 @@ public function create()
 
             $g->create([
                 $uploadedBy,
-                "fasilitas/" . $foto,
+                $foto,
                 "",
                 null, null, null, null, null,
-                $id_fasilitas
+                $id_fasilitas,
+                null        // kategori (diisi manual di galeri/edit)
             ]);
         }
 
@@ -104,10 +105,11 @@ public function create()
 
             $g->create([
                 $uploadedBy,
-                "fasilitas/" . $fotoBaru,
+                $fotoBaru,
                 "",
                 null, null, null, null, null,
-                $id
+                $id,
+                null        // kategori (diisi manual di galeri/edit)
             ]);
         }
 

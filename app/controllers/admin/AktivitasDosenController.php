@@ -7,6 +7,28 @@ class AktivitasDosenController extends Controller
         Middleware::auth();
     }
 
+    private function isImageFile($filename)
+    {
+        $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+        $allowed = ['jpg','jpeg','png','webp','gif'];
+        return in_array($ext, $allowed);
+    }
+
+    private function uploadDokumentasi($input = 'foto_bukti')
+    {
+        if (empty($_FILES[$input]) || $_FILES[$input]['error'] !== UPLOAD_ERR_OK) {
+            return null;
+        }
+        $f = $_FILES[$input];
+        $ext = pathinfo($f['name'], PATHINFO_EXTENSION);
+        $safe = "aktdosen_" . time() . "_" . bin2hex(random_bytes(5)) . "." . $ext;
+        
+        $dir = realpath(__DIR__ . '/../../..') . "/public/uploads/galeri_dosen/";
+        if (!is_dir($dir)) mkdir($dir, 0777, true);
+
+        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? "/uploads/galeri_dosen/" . $safe : null;
+    }
+
     public function index()
     {
         $m = new AktivitasDosen();
@@ -32,13 +54,33 @@ class AktivitasDosenController extends Controller
     {
         $m = new AktivitasDosen();
 
-        $m->create([
+        // 1. Insert data aktivitas & ambil ID
+        $id_baru = $m->createAndReturnId([
             $_POST['id_dosen'],
             $_POST['judul'],
             $_POST['jenis_aktivitas'],
             $_POST['tanggal'],
             $_POST['deskripsi']
         ]);
+
+        // 2. Upload foto & masukkan ke galeri
+        $foto = $this->uploadDokumentasi('foto_bukti');
+        
+        if ($foto && $this->isImageFile($foto)) {
+            $g = new Galeri();
+            $uploadedBy = $_SESSION['user']['id_dosen'] ?? null;
+
+            $g->create([
+                $uploadedBy,
+                $foto,
+                $_POST['judul'],  // Caption
+                null, null, null, // id_berita, id_produk, id_fasilitas
+                null,             // id_publikasi_dosen
+                $id_baru,         // id_aktivitas_dosen (ID YANG BARU)
+                null, null, null, // id_ppm, id_riset_dosen, id_ki
+                'Aktivitas Dosen' // Kategori
+            ]);
+        }
 
         $_SESSION['success'] = "Aktivitas berhasil ditambahkan";
         header("Location: /admin/AktivitasDosen");
