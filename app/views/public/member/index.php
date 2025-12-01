@@ -117,17 +117,12 @@
                                 </div>
 
                                 <!-- footer card -->
-                                <div class="px-6 py-4 mt-auto border-t border-gray-100 flex items-center justify-between text-gray-400">
-                                    <div class="flex space-x-4">
-                                        <a href="#" class="hover:text-slate-600 transition-colors"><i class="fas fa-user-graduate text-lg"></i></a>
-                                        <a href="#" class="hover:text-blue-600 transition-colors"><i class="fab fa-linkedin text-lg"></i></a>
-                                    </div>
-                                    
-                                    <div>
-                                        <a href="mailto:<?= htmlspecialchars($member['email']); ?>" class="hover:text-red-500 transition-colors">
-                                            <i class="far fa-envelope text-lg"></i>
-                                        </a>
-                                    </div>
+                                <div class="px-6 py-4 mt-auto border-t border-gray-100">
+                                    <a href="/member/detail/<?= htmlspecialchars($member['id']); ?>" 
+                                       class="block w-full text-center bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] hover:from-[var(--blue-dark)] hover:to-[var(--blue)] text-white py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                                        <i class="fas fa-user-circle mr-2"></i>
+                                        View Profile
+                                    </a>
                                 </div>
                                 <?php 
                                     //Tambah delay untuk kartu berikutnya
