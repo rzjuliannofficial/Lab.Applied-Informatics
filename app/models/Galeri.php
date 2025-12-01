@@ -189,17 +189,17 @@ class Galeri extends Model {
 
     public function create($data)
     {
-        // data: [uploaded_by, file_url, caption, id_penelitian, id_kegiatan_lab, id_publikasi_lab, id_berita, id_produk, id_fasilitas]
+        // data: [uploaded_by, file_url, caption, id_penelitian, id_kegiatan_lab, id_publikasi_lab, id_berita, id_produk, id_fasilitas, kategori]
         $sql = "INSERT INTO {$this->table}
-                (uploaded_by, file_url, caption, id_penelitian, id_kegiatan_lab, id_publikasi_lab, id_berita, id_produk, id_fasilitas)
-                VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)";
+                (uploaded_by, file_url, caption, id_penelitian, id_kegiatan_lab, id_publikasi_lab, id_berita, id_produk, id_fasilitas, kategori)
+                VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)";
         return pg_query_params($this->db, $sql, $data);
     }
 
-    public function updateCaption($id, $caption)
+    public function updateCaption($id, $caption, $kategori = null)
     {
-        $sql = "UPDATE {$this->table} SET caption=$1 WHERE id=$2";
-        return pg_query_params($this->db, $sql, [$caption, $id]);
+        $sql = "UPDATE {$this->table} SET caption=$1, kategori=$2 WHERE id=$3";
+        return pg_query_params($this->db, $sql, [$caption, $kategori, $id]);
     }
 
     public function delete($id)

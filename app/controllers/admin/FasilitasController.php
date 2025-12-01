@@ -64,7 +64,8 @@ public function create()
                 $foto,
                 "",
                 null, null, null, null, null,
-                $id_fasilitas
+                $id_fasilitas,
+                null        // kategori (diisi manual di galeri/edit)
             ]);
         }
 
@@ -107,7 +108,8 @@ public function create()
                 $fotoBaru,
                 "",
                 null, null, null, null, null,
-                $id
+                $id,
+                null        // kategori (diisi manual di galeri/edit)
             ]);
         }
 

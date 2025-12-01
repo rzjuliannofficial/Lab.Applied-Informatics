@@ -31,8 +31,8 @@ class Berita extends Model
     public function createAndReturnId($params)
     {
         $sql = "INSERT INTO {$this->table}
-                (created_by, judul, isi_berita, tanggal, gambar_utama)
-                VALUES ($1,$2,$3,$4,$5)
+                (created_by, judul, isi_berita, tanggal, gambar_utama, kategori)
+                VALUES ($1,$2,$3,$4,$5,$6)
                 RETURNING id";
 
         $res = pg_query_params($this->db, $sql, $params);
@@ -46,12 +46,13 @@ class Berita extends Model
                 SET judul=$1,
                     isi_berita=$2,
                     tanggal=$3,
-                    gambar_utama=$4
-                WHERE id=$5";
+                    gambar_utama=$4,
+                    kategori=$5
+                WHERE id=$6";
 
         return pg_query_params($this->db, $sql, [
             $params[0], $params[1], $params[2],
-            $params[3], $id
+            $params[3], $params[4], $id
         ]);
     }
 

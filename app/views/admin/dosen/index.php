@@ -48,20 +48,20 @@
 
                 <!-- Academic Links -->
                 <div class="mt-4 flex flex-wrap gap-2">
-                    <?php if(!empty($d['link_scholar'])): ?>
-                        <a href="<?= $d['link_scholar'] ?>" target="_blank" class="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded border border-blue-200 hover:bg-blue-100">
+                    <?php if(!empty($d['google_scholar'])): ?>
+                        <a href="<?= $d['google_scholar'] ?>" target="_blank" class="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded border border-blue-200 hover:bg-blue-100">
                             <i class="fas fa-graduation-cap"></i> Scholar
                         </a>
                     <?php endif; ?>
                     
-                    <?php if(!empty($d['link_orcid'])): ?>
-                        <a href="<?= $d['link_orcid'] ?>" target="_blank" class="text-xs bg-green-50 text-green-600 px-2 py-1 rounded border border-green-200 hover:bg-green-100">
+                    <?php if(!empty($d['orcid'])): ?>
+                        <a href="<?= $d['orcid'] ?>" target="_blank" class="text-xs bg-green-50 text-green-600 px-2 py-1 rounded border border-green-200 hover:bg-green-100">
                             <i class="fab fa-orcid"></i> ORCID
                         </a>
                     <?php endif; ?>
 
-                    <?php if(!empty($d['link_researchgate'])): ?>
-                        <a href="<?= $d['link_researchgate'] ?>" target="_blank" class="text-xs bg-teal-50 text-teal-600 px-2 py-1 rounded border border-teal-200 hover:bg-teal-100">
+                    <?php if(!empty($d['researcher'])): ?>
+                        <a href="<?= $d['researcher'] ?>" target="_blank" class="text-xs bg-teal-50 text-teal-600 px-2 py-1 rounded border border-teal-200 hover:bg-teal-100">
                             <i class="fab fa-researchgate"></i> RG
                         </a>
                     <?php endif; ?>

@@ -65,9 +65,9 @@
     <div class="container">
         <div class="text-center mb-12">
             <div class="title">
-                <i class="fa-solid fa-lightbulb text-sm mr-2"></i> VISI & MISI
+                <i class="text-yellow-500 fa-solid fa-lightbulb text-sm mr-2"></i> VISI & MISI
             </div>
-            <p class="secondary-title">Our <span>Direction</span></p>
+            <p class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight mt-3">Our <span class="gradient-text">Direction</span></p>
             <p class="text-center text-gray-600 mb-8">Guiding principles that drive our innovation and commitment to excellence.</p>
         </div>
 
@@ -201,7 +201,7 @@
             <div class="title">
                 <i class="fa-solid fa-crosshairs text-sm mr-2"></i> OUR CORE FOCUS
             </div>
-            <p class="secondary-title">Defining Our <span>Scope</span></p>
+            <p class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight mt-3">Defining Our <span class="gradient-text">Scope</span></p>
             <p class="text-center text-gray-600 mb-8">Our research focuses on delivering transformative digital solutions. We integrate cutting-edge technologies ranging from AI and blockchain to biometrics to address future challenges.
         </div>
         <div class="space-y-8 grid">
@@ -358,82 +358,122 @@
 <div class="shadow-bar-top">
     <div class="half-circle-glow"></div>
 </div>
-<section class="bg-gradient-to-br from-blue-50 via-white to-blue-50 section py-[4rem] px-[20rem] ">
-    <div class="text-center mb-12">
-        <div class="title">
-            <i class="fa-solid fa-newspaper text-sm mr-2"></i> LATEST NEWS
+
+<section class="relative py-24 overflow-hidden">    
+    <div class="container mx-auto md:px-8">
+        <!-- Header Section -->
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">    
+            <div class="title mb-2">
+                <i class="fa-solid fa-bolt text-yellow-500 text-sm mr-2"></i> 
+                <span>Hot News</span>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">
+                Latest <span class="gradient-text">Insights & News</span>
+            </h2>
+            <p class="text-slate-500 text-lg">
+                Discover the latest breakthroughs, activities, and achievements from our laboratory.
+            </p>
         </div>
-        <p class="secondary-title">Hot Off the <span>Press</span></p>
-        <p class="text-center text-gray-500 mb-12">The most recent updates, all in one place.</p>
-    </div>
 
-    <!-- Carousel Container (Pusat Logika Cover Flow) -->
-    <div class="carousel-wrapper-3d ">
-        <?php if (count($news) > 0): ?>
-            <?php 
-                $delay_increment = 200; // Penambahan delay 200 milidetik per kartu
-                $delay = 0;
-            ?>
+        <!-- Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <?php foreach ($news as $berita): ?>
-                <!-- Card News -->
-                <div class="carousel-item-3d bg-white shadow-xl rounded-xl p-4">
-                    <div class="h-48 w-full bg-gray-200 rounded-lg overflow-hidden relative mb-4">
-                        <?php if (!empty($berita['gambar_utama'])): ?>
-                            <img src="<?= htmlspecialchars($berita['gambar_utama']); ?>" 
-                                alt="<?= htmlspecialchars($berita['judul']); ?>" 
-                                class="w-full h-full object-cover">
-                        <?php else: ?>
-                            <div class="w-full h-full bg-[#a33e38] flex items-center justify-center text-white">
-                                <i class="fa-solid fa-image text-3xl opacity-50"></i>
+            <?php if (count($news) > 0): ?>
+                <?php 
+                    $delay = 0; 
+                    foreach ($news as $berita): 
+                        // Format Tanggal
+                        $dateObj = new DateTime($berita['tanggal']);
+                        $formattedDate = $dateObj->format('d M Y');
+                        
+                        // Fallback Gambar
+                        $imgSrc = !empty($berita['gambar_utama']) ? $berita['gambar_utama'] : 'https://via.placeholder.com/400x300?text=No+Image';
+                        
+                        // Kategori Utama (ambil yang pertama jika ada koma)
+                        $kats = explode(',', $berita['kategori']);
+                        $mainKat = trim($kats[0] ?? 'General');
+                ?>
+                
+                <!-- CARD ITEM -->
+                <article class="group relative flex flex-col h-full bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-100 overflow-hidden hover:-translate-y-2"
+                         data-aos="fade-up" data-aos-delay="<?= $delay ?>">
+                    
+                    <!-- Image Wrapper -->
+                    <div class="relative h-64 overflow-hidden">
+                        <div class="absolute top-4 left-4 z-10">
+                            <span class="px-3 py-1 bg-white/90 backdrop-blur-md text-blue-700 text-xs font-bold rounded-lg shadow-sm border border-white/50 tracking-wider uppercase">
+                                <?= htmlspecialchars($mainKat) ?>
+                            </span>
+                        </div>
+                        
+                        <img src="<?= htmlspecialchars($imgSrc) ?>" 
+                             alt="<?= htmlspecialchars($berita['judul']) ?>" 
+                             class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        
+                        <!-- Overlay Gradient -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
+                        
+                        <!-- Date Badge inside Image -->
+                        <div class="absolute bottom-4 left-4 flex items-center gap-2 text-white text-sm font-medium backdrop-blur-sm bg-black/20 px-3 py-1 rounded-full border border-white/20">
+                            <i class="far fa-calendar-alt text-blue-300"></i>
+                            <span><?= $formattedDate ?></span>
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="flex flex-col flex-grow p-6 relative">
+                        <a href="/news/detail/<?= $berita['id'] ?>">
+                            <h3 class="text-xl font-bold text-slate-800 mb-3 leading-snug group-hover:text-blue-600 transition-colors line-clamp-2" 
+                                title="<?= htmlspecialchars($berita['judul']) ?>">
+                                <?= htmlspecialchars($berita['judul']) ?>
+                            </h3>
+                        </a>
+
+                        <!-- Deskripsi dengan Line Clamp (3 Baris) -->
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-3 flex-grow">
+                            <?= htmlspecialchars(strip_tags($berita['isi_berita'])) ?>
+                        </p>
+
+                        <!-- Footer / Author -->
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-100 mt-auto">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-full bg-slate-200 overflow-hidden border-2 border-white shadow-sm flex items-center justify-center text-slate-500 text-xs font-bold">
+                                    <!-- Fallback avatar user -->
+                                    <?= substr($berita['nama_pembuat'], 0, 1) ?>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-xs font-bold text-slate-700"><?= htmlspecialchars($berita['nama_pembuat'] ?? 'Admin') ?></span>
+                                </div>
                             </div>
-                        <?php endif; ?>
+                            
+                            <!-- Arrow Button -->
+                            <a href="/news/detail/<?= $berita['id'] ?>" class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-blue-200">
+                                <i class="fa-solid fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
+                            </a>
+                        </div>
                     </div>
+                </article>
+                <?php $delay += 150; endforeach; ?>
 
-                    <!-- title -->
-                    <h3 class="text-xl font-bold mb-2 text-gray-700">
-                        <?= htmlspecialchars($berita['judul']); ?>
-                    </h3>
-                    <!-- kategori -->
-                    <div class="flex flex-wrap text-xs mb-3 flex gap-2">
-                        <?php 
-                            $kategori = $berita['kategori'] ?? '';
-                            if (!empty($kategori)) {
-                                $categories = explode(',', $kategori);
-                                // Tampilkan maksimal 3 category agar kartu tidak kepanjangan
-                                $categories = array_slice($categories, 0, 3); 
-                                foreach ($categories as $category): ?>
-                                    <span class="px-3 py-1 bg-blue-100 text-blue-500 rounded-full font-semibold uppercase">
-                                        <?= htmlspecialchars(trim($category)); ?>
-                                    </span>
-                            <?php endforeach; } else { ?>
-                                <span class="text-gray-400 text-xs italic">-</span>
-                        <?php } ?>
-
-                        <!-- <span class="px-2 py-1 bg-green-100 text-green-700 rounded-full">Tech Series</span>
-                        <span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded-full">Big Data</span> -->
-                    </div>
-                    <!-- deskripsi -->
-                    <p class="text-sm text-gray-500">
-                        <?= htmlspecialchars($berita['isi_berita']); ?>
-                    </p>
-                    <?php 
-                        //Tambah delay untuk kartu berikutnya
-                        $delay += $delay_increment; 
-                    ?>
+            <?php else: ?>
+                <div class="col-span-3 text-center py-10">
+                    <p class="text-gray-500">Belum ada berita yang tersedia saat ini.</p>
                 </div>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p class="product-description" style="text-align: center; grid-column: 1 / -1;">Belum ada data produk yang tersedia.</p>
-        <?php endif; ?> 
+            <?php endif; ?>
 
-        <!-- Navigasi Tombol Panah -->
-        <button class="nav-btn btn-prev-custom" id="btnPrev">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="nav-btn btn-next-custom" id="btnNext">
-            <i class="fas fa-chevron-right"></i>
-        </button>
+        </div>
+
+        <!-- View All Button -->
+        <div class="flex justify-center mt-16" data-aos="fade-up">
+            <a href="/news" class="group relative px-8 py-3 rounded-full bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] border border-slate-200 text-white font-bold shadow-sm hover:shadow-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 overflow-hidden">
+                <span class="relative z-10 flex items-center gap-2">
+                    View All Articles 
+                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </span>
+                <div class="absolute inset-0 bg-blue-50 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
+            </a>
+        </div>
+
     </div>
 </section>
 
@@ -447,8 +487,9 @@
             <div class="title">
                 <i class="fa-solid fa-rocket text-sm mr-2"></i> OUR PRODUCT
             </div>
-            <p class="secondary-title">Innovation Meet <span>Excellence</span></p>
-            <p class="text-center text-gray-500 mb-12">The most recent updates, all in one place.</p>
+            <p class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight mt-3">
+                Innovation Meet <span class="gradient-text">Excellence</span></p>
+            <p class="text-slate-500 text-lg">The most recent updates, all in one place.</p>
         </div>
 
         <div class="products-grid">
@@ -492,9 +533,13 @@
         </div>
     </div>
     <div class="flex justify-center">
-        <button class="button-primary">
-            Read more
-        </button>
+        <a href="" class="group relative px-8 py-3 rounded-full bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] border border-slate-200 text-white font-bold shadow-sm hover:shadow-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 overflow-hidden">
+            <span class="relative z-10 flex items-center gap-2">
+                Read More 
+                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </span>
+            <div class="absolute inset-0 bg-blue-50 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
+        </a>
     </div>
 </section>
 
@@ -508,44 +553,75 @@
             <div class="title">
                 <i class="fa-solid fa-id-card-clip text-sm mr-2"></i> OUR MEMBER
             </div>
-            <p class="secondary-title">Get to Know <span>Us</span></p>
-            <p class="text-center text-gray-500 mb-12">The most recent updates, all in one place.</p>
+            <p class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight mt-3">
+                Get to Know <span class="gradient-text">Us</span></p>
+            <p class="text-slate-500 text-lg">The most recent updates, all in one place.</p>
         </div>
         <div class="profile-grid">
             <?php if (count($team) > 0): ?>
+                <?php 
+                    $delay_increment = 300; // Penambahan delay 200 milidetik per kartu
+                    $delay = 0; 
+                ?>
                 <?php foreach ($team as $member): ?>
-                <div class="profile-card">
-                    <div class="flex-grow">
-                        <h3 class="profile-name"><?= htmlspecialchars($member['nama']); ?></h3>
+                <div data-aos="fade-up" data-aos-delay="<?= $delay; ?>">   
+                    <div class="profile-card">
+                        <div class="flex-grow">
+                            <h3 class="profile-name"><?= htmlspecialchars($member['nama']); ?></h3>
 
-                        <div class="profile-expertise">
-                            <?php 
-                            // Akses kolom keahlian_text yang baru dibuat
-                            $keahlian = $member['keahlian_text'] ?? '';
-                            if (!empty($keahlian)) {
-                                foreach (explode(',', $keahlian) as $skill): ?>
-                                <span class="skill-tag"><?= htmlspecialchars(trim($skill)); ?></span>
-                            <?php endforeach; } ?>
-                        </div>
-                        
-                        <div class="profile-description-container">
-                            <p class="profile-description">
-                                <?= htmlspecialchars($member['deskripsi'] ?? 'Deskripsi tidak tersedia.'); ?>
-                            </p>
-                        </div>
-                        <p class="profile-contact" style="margin-bottom: 0.5rem;"><?= htmlspecialchars($member['email']); ?></p>
-                    </div>
-
-                    <div class="profile-image">
-                        <?php if (!empty($member['foto_profil'])): ?>
-                            <img src="<?= htmlspecialchars($member['foto_profil']); ?>" alt="<?= htmlspecialchars($member['nama']); ?>">
-                        <?php else: ?>
-                            <div class="profile-photo-icon">
-                                <svg fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                                </svg>
+                            <div class="profile-expertise">
+                                <?php 
+                                // Akses kolom keahlian_text yang baru dibuat
+                                $keahlian = $member['keahlian_text'] ?? '';
+                                if (!empty($keahlian)) {
+                                    foreach (explode(',', $keahlian) as $skill): ?>
+                                    <span class="skill-tag"><?= htmlspecialchars(trim($skill)); ?></span>
+                                <?php endforeach; } ?>
                             </div>
-                        <?php endif; ?>
+                            
+                            <div class="profile-description-container">
+                                <p class="profile-description">
+                                    <?= htmlspecialchars($member['deskripsi'] ?? 'Deskripsi tidak tersedia.'); ?>
+                                </p>
+                            </div>
+                            <p class="profile-contact" style="margin-bottom: 0.5rem;"><?= htmlspecialchars($member['email']); ?></p>
+                            
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <?php if(!empty($member['google_scholar'])): ?>
+                                    <a href="<?= htmlspecialchars($member['google_scholar']) ?>" target="_blank" class="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded border border-blue-200 hover:bg-blue-100">
+                                        <i class="fas fa-graduation-cap"></i> Scholar
+                                    </a>
+                                <?php endif; ?>
+                                
+                                <?php if(!empty($member['orcid'])): ?>
+                                    <a href="<?= htmlspecialchars($member['orcid']) ?>" target="_blank" class="text-xs bg-green-50 text-green-600 px-2 py-1 rounded border border-green-200 hover:bg-green-100">
+                                        <i class="fab fa-orcid"></i> ORCID
+                                    </a>
+                                <?php endif; ?>
+
+                                <?php if(!empty($member['researcher'])): ?>
+                                    <a href="<?= htmlspecialchars($member['researcher']) ?>" target="_blank" class="text-xs bg-teal-50 text-teal-600 px-2 py-1 rounded border border-teal-200 hover:bg-teal-100">
+                                        <i class="fab fa-researchgate"></i> RG
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+                        <div class="profile-image">
+                            <?php if (!empty($member['foto_profil'])): ?>
+                                <img src="<?= htmlspecialchars($member['foto_profil']); ?>" alt="<?= htmlspecialchars($member['nama']); ?>">
+                            <?php else: ?>
+                                <div class="profile-photo-icon">
+                                    <svg fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                                    </svg>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        <?php 
+                            //Tambah delay untuk kartu berikutnya
+                            $delay += $delay_increment; 
+                        ?>
                     </div>
                 </div>
                 <?php endforeach; ?>
@@ -554,9 +630,13 @@
             <?php endif; ?>
         </div>
         <div class="flex justify-center mt-10">
-            <button class="button-primary">
-                Read more
-            </button>
+            <a href="" class="group relative px-8 py-3 rounded-full bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] border border-slate-200 text-white font-bold shadow-sm hover:shadow-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 overflow-hidden">
+                <span class="relative z-10 flex items-center gap-2">
+                    Read More 
+                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </span>
+                <div class="absolute inset-0 bg-blue-50 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
+            </a>
         </div>        
     </div>
 </section>
@@ -572,8 +652,8 @@
             <div class="title">
                 <i class="fa-solid fa-building text-sm mr-2"></i> OUR FACILITIES
             </div>
-            <p class="secondary-title">Explore Our Space <span>Space</span></p>
-            <p class="text-center text-gray-500 mb-12">Comfort and convenience, designed just for you.</p>
+            <p class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight mt-3">Explore Our Space <span class="gradient-text">Space</span></p>
+            <p class="text-slate-500 text-lg">Comfort and convenience, designed just for you.</p>
         </div>
 
         <!-- ROW 1-->
@@ -638,10 +718,10 @@
 <section class="section container">
     <div class="text-center mb-12">
         <div class="title">
-            <i class="fa-solid fa-flask text-sm mr-2"></i> RESEARCH & INNOVATION
+            <i class="text-green-500 fa-solid fa-flask text-sm mr-2"></i> RESEARCH & INNOVATION
         </div>
-        <p class="secondary-title">Faculty <span>Publications</span></p>
-        <p class="text-center text-gray-500 mb-12">Explore the latest scholarly works and academic contributions from our faculty.</p>
+        <p class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight mt-3">Faculty <span class="gradient-text">Publications</span></p>
+        <p class="text-slate-500 text-lg">Explore the latest scholarly works and academic contributions from our faculty.</p>
     </div>
     <div class="publications-grid"  data-aos="fade-up">
         <?php if (count($publications) > 0): ?>

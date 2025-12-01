@@ -31,9 +31,10 @@ class GaleriController extends Controller
     public function update($id)
     {
         $caption = trim($_POST['caption'] ?? "");
+        $kategori  = $_POST['kategori'] ?? null;
 
         $m = new Galeri();
-        $m->updateCaption($id, $caption);
+        $m->updateCaption($id, $caption , $kategori);
 
         $_SESSION['success'] = "Caption galeri berhasil diperbarui.";
         header("Location: /admin/galeri");

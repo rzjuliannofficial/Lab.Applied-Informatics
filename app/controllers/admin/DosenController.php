@@ -58,7 +58,10 @@ class DosenController extends Controller
         $keahlian   = trim($_POST['keahlian_text'] ?? null);
         $deskripsi  = trim($_POST['deskripsi'] ?? null);
         $jabatan    = trim($_POST['jabatan'] ?? 'member');
-
+        $google_scholar  = trim($_POST['link_scholar'] ?? null);
+        $researcher  = trim($_POST['link_researchgate'] ?? null);
+        $orcid    = trim($_POST['link_orcid'] ?? null);
+        
         if ($nama === '' || $nip === '' || $email === '') {
             $_SESSION['error'] = "Semua field wajib diisi.";
             return header("Location: /admin/dosen/create");
@@ -74,7 +77,10 @@ class DosenController extends Controller
             'foto'           => $foto,
             'keahlian_text'  => $keahlian,
             'deskripsi'      => $deskripsi,
-            'jabatan'        => $jabatan
+            'jabatan'        => $jabatan,
+            'google_scholar' => $google_scholar,
+            'researcher'     => $researcher,
+            'orcid'          => $orcid 
         ]);
 
         $_SESSION['success'] = "Dosen berhasil ditambahkan.";
@@ -116,6 +122,9 @@ class DosenController extends Controller
         $keahlian   = trim($_POST['keahlian_text'] ?? null);
         $deskripsi  = trim($_POST['deskripsi'] ?? null);
         $jabatan    = trim($_POST['jabatan'] ?? 'member');
+        $google_scholar  = trim($_POST['link_scholar'] ?? null);
+        $researcher  = trim($_POST['link_researchgate'] ?? null);
+        $orcid    = trim($_POST['link_orcid'] ?? null);
 
         if ($nama === '' || $nip === '' || $email === '') {
             $_SESSION['error'] = "Semua field wajib diisi.";
@@ -134,7 +143,10 @@ class DosenController extends Controller
             'foto'          => $fotoBaru,
             'keahlian_text' => $keahlian,
             'deskripsi'     => $deskripsi,
-            'jabatan'       => $jabatan
+            'jabatan'       => $jabatan,
+            'google_scholar' => $google_scholar,
+            'researcher'     => $researcher,
+            'orcid'          => $orcid 
         ]);
 
         $_SESSION['success'] = "Dosen berhasil diperbarui.";

@@ -23,10 +23,10 @@ class Dosen extends Model
     }
 
     public function create($data)
-    {
-        $sql = "INSERT INTO {$this->table} 
-            (nama, nip, email, foto_profil, keahlian_text, deskripsi, jabatan) 
-            VALUES ($1,$2,$3,$4,$5,$6,$7)";
+{
+    $sql = "INSERT INTO {$this->table} 
+        (nama, nip, email, foto_profil, keahlian_text, deskripsi, jabatan, google_scholar, researcher, orcid) 
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)";
 
         return pg_query_params($this->db, $sql, [
             $data['nama'],
@@ -35,19 +35,22 @@ class Dosen extends Model
             $data['foto'],
             $data['keahlian_text'] ?? null,
             $data['deskripsi'] ?? null,
-            $data['jabatan'] ?? 'member'
+            $data['jabatan'] ?? 'member',
+            $data['google_scholar'] ?? null, 
+            $data['researcher'] ?? null,     
+            $data['orcid'] ?? null
         ]);
     }
     public function updateDosen($id, $data)
     {
+        // Update query agar menyertakan link
         if (!empty($data['foto'])) {
-            $sql = "UPDATE {$this->table} SET nama=$1, nip=$2, email=$3, foto_profil=$4, keahlian_text=$5, deskripsi=$6, jabatan=$7 WHERE id=$8";
-            $params = [$data['nama'], $data['nip'] , $data['email'], $data['foto'], $data['keahlian_text'], $data['deskripsi'], $data['jabatan'], $id];
+            $sql = "UPDATE {$this->table} SET nama=$1, nip=$2, email=$3, foto_profil=$4, keahlian_text=$5, deskripsi=$6, jabatan=$7, google_scholar=$8, researcher=$9, orcid=$10 WHERE id=$11";
+            $params = [$data['nama'], $data['nip'], $data['email'], $data['foto'], $data['keahlian_text'], $data['deskripsi'], $data['jabatan'],$data['google_scholar'], $data['researcher'], $data['orcid'], $id];
         } else {
-            $sql = "UPDATE {$this->table} SET nama=$1, nip=$2, email=$3, keahlian_text=$4, deskripsi=$5, jabatan=$6 WHERE id=$7";
-            $params = [$data['nama'], $data['nip'], $data['email'], $data['keahlian_text'], $data['deskripsi'], $data['jabatan'], $id];
+            $sql = "UPDATE {$this->table} SET nama=$1, nip=$2, email=$3, keahlian_text=$4, deskripsi=$5, jabatan=$6, google_scholar=$7, researcher=$8, orcid=$9 WHERE id=$10";
+            $params = [$data['nama'], $data['nip'], $data['email'], $data['keahlian_text'], $data['deskripsi'], $data['jabatan'],$data['google_scholar'], $data['researcher'], $data['orcid'], $id];
         }
-
         return pg_query_params($this->db, $sql, $params);
     }
 
