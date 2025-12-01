@@ -1077,7 +1077,6 @@ body {
 }
 
 .profile-card {
-    /* background: var(--blue-dark); */
     display: flex;
     border-radius: 12px;
     padding: 2rem;
@@ -1109,9 +1108,11 @@ body {
 .profile-image {
     width: 140px;
     height: 140px;
-    background: linear-gradient(135deg, #ff8c42, #ffb347);
     border-radius: 8px;
     flex-shrink: 0;
+}
+.profile-image img{
+    border-radius: 8px;
 }
 
 .profile-photo-wrapper img {
