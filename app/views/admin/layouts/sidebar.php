@@ -8,8 +8,13 @@
             <h1 class="text-xl font-bold tracking-wider">LAB AI <span class="text-blue-400 text-xs block font-normal">Polinema</span></h1>
         </div>
     
-    <div class="p-6 h-full overflow-y-auto">
+    <div class="p-6 h-full overflow-y-auto scrollbar-hide" style="scrollbar-width: none; -ms-overflow-style: none;">
         <nav class="space-y-1">
+<style>
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+</style>
 
             <a href="/admin/dashboard" class="flex items-center p-3 rounded-lg hover:bg-gray-700">
                 <i class="fas fa-chart-line w-5 mr-3"></i>Dashboard
@@ -70,6 +75,12 @@
             <?php if ($_SESSION['user']['role'] === 'admin'): ?>
             <a href="/admin/Produk" class="flex items-center p-3 text-gray-300 hover:bg-gray-700">
                 <i class="fas fa-atom w-5 mr-3"></i>Produk
+            </a>
+            <?php endif; ?>
+
+            <?php if ($_SESSION['user']['role'] === 'admin'): ?>
+            <a href="/admin/partner" class="flex items-center p-3 text-gray-300 hover:bg-gray-700">
+                <i class="fa-solid fa-handshake w-5 mr-3"></i>Partner
             </a>
             <?php endif; ?>
 
