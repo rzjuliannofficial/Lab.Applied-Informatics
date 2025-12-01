@@ -1,41 +1,4 @@
 <?php
-//    if (empty($partners)) {
-//     $partners = [
-//         // Industry Partners
-//         ['nama' => 'ADS', 'kategori' => 'Industry Partner', 'logo' => 'img/partners/ads.png', 'website' => '#', 'description' => 'Technology Solutions'],
-//         ['nama' => 'ARM Solusi', 'kategori' => 'Industry Partner', 'logo' => 'img/partners/arm.png', 'website' => '#', 'description' => 'Software Development'],
-//         ['nama' => 'Bumaji Sejantera', 'kategori' => 'Industry Partner', 'logo' => 'img/partners/bumaji.png', 'website' => '#', 'description' => 'Agricultural Tech'],
-//         ['nama' => 'DSG', 'kategori' => 'Industry Partner', 'logo' => 'img/partners/dsg.png', 'website' => '#', 'description' => 'Digital Solutions'],
-//         ['nama' => 'PT Link Apisindo Media', 'kategori' => 'Industry Partner', 'logo' => 'img/partners/link.png', 'website' => '#', 'description' => 'Media & Tech'],
-//         ['nama' => 'QuantumGrid', 'kategori' => 'Industry Partner', 'logo' => 'img/partners/quantum.png', 'website' => '#', 'description' => 'Cloud Services'],
-//         ['nama' => 'Infonika Garasa', 'kategori' => 'Industry Partner', 'logo' => 'img/partners/infonika.png', 'website' => '#', 'description' => 'IT Infrastructure'],
-//         ['nama' => 'Utcero Indonesia', 'kategori' => 'Industry Partner', 'logo' => 'img/partners/utcero.png', 'website' => '#', 'description' => 'Tech Innovation'],
-//         ['nama' => 'Sekawan Media', 'kategori' => 'Industry Partner', 'logo' => 'img/partners/sekawan.png', 'website' => '#', 'description' => 'Digital Agency'],
-//         ['nama' => 'Malang Creative Fusion', 'kategori' => 'Industry Partner', 'logo' => 'img/partners/mcf.png', 'website' => '#', 'description' => 'Creative Solutions'],
-        
-//         // Educational Institutions
-//         ['nama' => 'INSTIKI', 'kategori' => 'Educational Institutions', 'logo' => 'img/partners/instiki.png', 'website' => '#', 'description' => 'Technology Institute'],
-//         ['nama' => 'MCC', 'kategori' => 'Educational Institutions', 'logo' => 'img/partners/mcc.png', 'website' => '#', 'description' => 'Computing Center'],
-//         ['nama' => 'UNESA', 'kategori' => 'Educational Institutions', 'logo' => 'img/partners/unesa.png', 'website' => '#', 'description' => 'State University'],
-//         ['nama' => 'Politeknik Negeri Banyuwangi', 'kategori' => 'Educational Institutions', 'logo' => 'img/partners/polban.png', 'website' => '#', 'description' => 'Polytechnic'],
-//         ['nama' => 'SMK Negeri 1', 'kategori' => 'Educational Institutions', 'logo' => 'img/partners/smk1.png', 'website' => '#', 'description' => 'Vocational School'],
-//         ['nama' => 'UIN Malang', 'kategori' => 'Educational Institutions', 'logo' => 'img/partners/uin.png', 'website' => '#', 'description' => 'Islamic University'],
-//         ['nama' => 'Politeknik Negeri Malang', 'kategori' => 'Educational Institutions', 'logo' => 'img/partners/polinema.png', 'website' => '#', 'description' => 'State Polytechnic'],
-//         ['nama' => 'ASTRAtech', 'kategori' => 'Educational Institutions', 'logo' => 'img/partners/astra.png', 'website' => '#', 'description' => 'Technical School'],
-        
-//         // International Institutions
-//         ['nama' => 'Duke University', 'kategori' => 'International Institutions', 'logo' => 'img/partners/duke.png', 'website' => '#', 'description' => 'USA University'],
-//         ['nama' => 'Okayama University', 'kategori' => 'International Institutions', 'logo' => 'img/partners/okayama.png', 'website' => '#', 'description' => 'Japan University'],
-        
-//         // Government Institutions
-//         ['nama' => 'DPUBM', 'kategori' => 'Government Institutions', 'logo' => 'img/partners/dpubm.png', 'website' => '#', 'description' => 'Public Works'],
-//         ['nama' => 'Kota Batu', 'kategori' => 'Government Institutions', 'logo' => 'img/partners/batu.png', 'website' => '#', 'description' => 'City Government'],
-//         ['nama' => 'BIN', 'kategori' => 'Government Institutions', 'logo' => 'img/partners/bin.png', 'website' => '#', 'description' => 'Intelligence Agency'],
-//         ['nama' => 'Diskominfo Kota Batu', 'kategori' => 'Government Institutions', 'logo' => 'img/partners/diskominfo-batu.png', 'website' => '#', 'description' => 'Communication Office'],
-//         ['nama' => 'Kominfo Jatim', 'kategori' => 'Government Institutions', 'logo' => 'img/partners/kominfo.png', 'website' => '#', 'description' => 'Regional Communication Office'],
-//     ];
-// }
-
 // Group partners by category
 $groupedPartners = [];
 foreach ($partners as $partner) {
