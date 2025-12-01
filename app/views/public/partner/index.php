@@ -40,6 +40,7 @@
 $groupedPartners = [];
 foreach ($partners as $partner) {
     $groupedPartners[$partner['category']][] = $partner;
+    $groupedPartners[$partner['kategori']][] = $partner;
 }
 ?>
 
@@ -79,9 +80,9 @@ foreach ($partners as $partner) {
 
     <section class="partners-section">
         <div class="container">
-            <?php foreach ($groupedPartners as $category => $categoryPartners): ?>
+            <?php foreach ($groupedPartners as $kategori => $categoryPartners): ?>
                 <div class="partner-category-section" data-aos="fade-up">
-                    <h2 class="partner-category-title"><?= htmlspecialchars($category) ?></h2>
+                    <h2 class="partner-category-title"><?= htmlspecialchars($kategori) ?></h2>
                     <p class="partner-category-subtitle">
                         <?php
                         $subtitles = [
@@ -90,7 +91,7 @@ foreach ($partners as $partner) {
                             'International Institutions' => 'Global partners expanding our reach and research capabilities',
                             'Government Institutions' => 'Public sector organizations supporting community development and innovation'
                         ];
-                        echo $subtitles[$category] ?? 'Trusted partners supporting our mission and vision';
+                        echo $subtitles[$kategori] ?? 'Trusted partners supporting our mission and vision';
                         ?>
                     </p>
                     
@@ -100,12 +101,12 @@ foreach ($partners as $partner) {
                                 <div class="partner-card-inner">
                                     <div class="partner-logo-container">
                                         <img src="<?= htmlspecialchars($partner['logo']) ?>" 
-                                             alt="<?= htmlspecialchars($partner['name']) ?>"
+                                             alt="<?= htmlspecialchars($partner['nama']) ?>"
                                              class="partner-logo">
                                     </div>
                                     <div class="partner-info">
-                                        <h3 class="partner-name"><?= htmlspecialchars($partner['name']) ?></h3>
-                                        <p class="partner-description"><?= htmlspecialchars($partner['description']) ?></p>
+                                        <h3 class="partner-name"><?= htmlspecialchars($partner['nama']) ?></h3>
+                                        <p class="partner-description"><?= htmlspecialchars($partner['deskripsi']) ?></p>
                                         <?php if (!empty($partner['website']) && $partner['website'] !== '#'): ?>
                                             <a href="<?= htmlspecialchars($partner['website']) ?>" 
                                                target="_blank" 
