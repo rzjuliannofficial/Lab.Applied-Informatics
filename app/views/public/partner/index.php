@@ -39,7 +39,6 @@
 // Group partners by category
 $groupedPartners = [];
 foreach ($partners as $partner) {
-    $groupedPartners[$partner['category']][] = $partner;
     $groupedPartners[$partner['kategori']][] = $partner;
 }
 ?>
