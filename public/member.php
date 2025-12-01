@@ -108,7 +108,7 @@ if (empty($products)) {
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <?php include '../app/views/components/header.php'; ?>
+    <?php include '../app/views/public/layouts/header.php'; ?>
     <section id="team" class="section pt-0">
         <div class="member-hero-section pt-[8rem] pb-[13rem] mx-auto flex flex-col items-center bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)]">
             <!-- Floating Icons -->
@@ -287,4 +287,4 @@ if (bottomBlur && footer) {
 }
 </script>
 
-<?php include '../app/views/components/footer.php';
+<?php include '../app/views/public/layouts/footer.php';
