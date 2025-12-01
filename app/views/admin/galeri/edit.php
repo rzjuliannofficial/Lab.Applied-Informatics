@@ -26,11 +26,13 @@ $fileUrl = $item['file_url'];
         <label class="block font-semibold mb-1">Kategori</label>
         <select name="kategori" class="w-full p-2 border rounded mb-4" required>
             <option value="Berita" <?= ($item['kategori'] == 'Berita') ? 'selected' : '' ?>>Berita</option>
-            <option value="Publikasi Lab" <?= ($item['kategori'] == 'Publikasi Lab') ? 'selected' : '' ?>>Publikasi Lab</option>
+            <option value="Publikasi Dosen" <?= ($item['kategori'] == 'Publikasi Dosen') ? 'selected' : '' ?>>Publikasi Dosen</option>
+            <option value="Aktivitas Dosen" <?= ($item['kategori'] == 'Aktivitas Dosen') ? 'selected' : '' ?>>Aktivitas Dosen</option>
+            <option value="PPM" <?= ($item['kategori'] == 'PPM') ? 'selected' : '' ?>>PPM</option>
+            <option value="Riset" <?= ($item['kategori'] == 'Riset') ? 'selected' : '' ?>>Riset Dosen</option>
+            <option value="HKI" <?= ($item['kategori'] == 'HKI') ? 'selected' : '' ?>>Kekayaan Intelektual (HKI)</option>
             <option value="Produk" <?= ($item['kategori'] == 'Produk') ? 'selected' : '' ?>>Produk</option>
             <option value="Fasilitas" <?= ($item['kategori'] == 'Fasilitas') ? 'selected' : '' ?>>Fasilitas</option>
-            <option value="Penelitian Lab" <?= ($item['kategori'] == 'Penelitian Lab') ? 'selected' : '' ?>>Penelitian Lab</option>
-            <option value="Kegiatan Lab" <?= ($item['kategori'] == 'Kegiatan Lab') ? 'selected' : '' ?>>Kegiatan Lab</option>
         </select>
         
         <button class="bg-yellow-600 text-white px-4 py-2 rounded">

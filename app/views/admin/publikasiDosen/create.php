@@ -3,6 +3,7 @@
 <h1 class="text-2xl font-bold mb-6">Tambah Publikasi Dosen</h1>
 
 <form action="/admin/PublikasiDosen/store" method="POST" 
+      enctype="multipart/form-data"
       class="bg-white p-6 rounded-lg shadow w-full max-w-3xl">
 
     <label class="block font-semibold mb-1">Dosen</label>
@@ -26,6 +27,11 @@
 
     <label class="block font-semibold mb-1">Link Jurnal</label>
     <input type="text" name="link_jurnal" class="w-full p-2 border rounded mb-4">
+
+    <label class="block font-semibold mb-1">Foto/Dokumentasi Publikasi</label>
+    <input type="file" name="foto_bukti" accept="image/*" 
+           class="w-full p-2 border rounded mb-4">
+    <small class="text-gray-500 block mb-4">Format: JPG, PNG, GIF, WebP (Max 5MB)</small>
 
     <button class="bg-blue-600 text-white px-4 py-2 rounded">Simpan</button>
 
