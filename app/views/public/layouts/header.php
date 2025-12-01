@@ -30,6 +30,7 @@
                 <a href="home" class="nav-link">Home</a>
                 <a href="product" class="nav-link">Product</a>
                 <a href="member" class="nav-link">Member</a>
+                <a href="news" class="nav-link">News</a>
                 <a href="gallery" class="nav-link">Gallery</a>
                 <a href="partner" class="nav-link">Partner</a>
                 <a href="contact" class="nav-link">Contact</a>
