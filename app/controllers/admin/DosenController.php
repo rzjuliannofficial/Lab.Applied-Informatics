@@ -119,12 +119,12 @@ class DosenController extends Controller
         $nama       = trim($_POST['nama'] ?? '');
         $nip        = trim($_POST['nip'] ?? '');
         $email      = trim($_POST['email'] ?? '');
-        $keahlian   = trim($_POST['keahlian_text'] ?? null);
-        $deskripsi  = trim($_POST['deskripsi'] ?? null);
+        $keahlian   = trim($_POST['keahlian_text'] ?? '');
+        $deskripsi  = trim($_POST['deskripsi'] ?? '');
         $jabatan    = trim($_POST['jabatan'] ?? 'member');
-        $google_scholar  = trim($_POST['link_scholar'] ?? null);
-        $researcher  = trim($_POST['link_researchgate'] ?? null);
-        $orcid    = trim($_POST['link_orcid'] ?? null);
+        $google_scholar  = !empty(trim($_POST['link_scholar'] ?? '')) ? trim($_POST['link_scholar']) : null;
+        $researcher  = !empty(trim($_POST['link_researchgate'] ?? '')) ? trim($_POST['link_researchgate']) : null;
+        $orcid    = !empty(trim($_POST['link_orcid'] ?? '')) ? trim($_POST['link_orcid']) : null;
 
         if ($nama === '' || $nip === '' || $email === '') {
             $_SESSION['error'] = "Semua field wajib diisi.";
@@ -136,7 +136,7 @@ class DosenController extends Controller
             $fotoBaru = $old['foto_profil'];
         }
 
-        $m->updateDosen($id, [
+        $result = $m->updateDosen($id, [
             'nama'          => $nama,
             'nip'           => $nip,
             'email'         => $email,
@@ -149,7 +149,11 @@ class DosenController extends Controller
             'orcid'          => $orcid 
         ]);
 
-        $_SESSION['success'] = "Dosen berhasil diperbarui.";
+        if ($result) {
+            $_SESSION['success'] = "Dosen berhasil diperbarui.";
+        } else {
+            $_SESSION['error'] = "Gagal memperbarui data dosen.";
+        }
         header("Location: /admin/dosen");
     }
 

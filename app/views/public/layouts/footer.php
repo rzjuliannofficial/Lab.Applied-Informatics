@@ -6,7 +6,7 @@
                 <!-- About Section -->
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="img/logoAi.png" alt="Applied Informatics Lab">
+                        <img src="/uploads/home/logoAi.png" alt="Applied Informatics Lab">
                         <h4 class="footer-brand">Applied Informatics</h4>
                     </div>
                     <p class="footer-desc">
