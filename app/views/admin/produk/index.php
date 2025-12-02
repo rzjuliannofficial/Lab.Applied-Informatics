@@ -33,14 +33,14 @@
             <td class="p-3 border">
                 <div class="flex items-center justify-center gap-2">
 
-                    <a href="/admin/Produk/edit/<?= $r['id'] ?>" class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
+                    <a href="/admin/Produk/edit/<?= $p['id'] ?>" class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
                   text-yellow-700 bg-yellow-100 border border-yellow-300 
                   rounded hover:bg-yellow-200 transition">
                         <i class="fas fa-edit text-[10px]"></i>
                         Edit
                     </a>
 
-                    <a href="/admin/Produk/delete/<?= $b['id'] ?>" onclick="return confirm('Hapus berita ini?')"
+                    <a href="/admin/Produk/delete/<?= $p['id'] ?>" onclick="return confirm('Hapus berita ini?')"
                         class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
                   text-red-700 bg-red-100 border border-red-300 
                   rounded hover:bg-red-200 transition">

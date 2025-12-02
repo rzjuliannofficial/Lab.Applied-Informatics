@@ -116,4 +116,15 @@ public function create()
         $_SESSION['success'] = "Fasilitas berhasil diperbarui.";
         header("Location: /admin/fasilitas");
     }
+
+        public function delete($id)
+    {
+        $m = new Fasilitas();
+        $m->delete($id);
+
+        $_SESSION['success'] = "Fasilitas berhasil dihapus";
+        header("Location: /admin/Fasilitas");
+    }
 }
+
+
