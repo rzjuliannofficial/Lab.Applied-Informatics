@@ -51,8 +51,17 @@ class PublikasiDosen extends Model {
         $sql = "UPDATE {$this->table} SET id_dosen=$1, judul=$2, deskripsi=$3, tahun=$4, link_jurnal=$5, kategori=$6, foto_url=$7 WHERE id=$8";
         return pg_query_params($this->db, $sql, array_merge($params, [$id]));
     }
-
+    
+    public function countAll()
+    {
+        $sql = "SELECT COUNT(*) AS total FROM {$this->table}";
+        $res = pg_query($this->db, $sql);
+        $row = pg_fetch_assoc($res);
+        return $row ? intval($row['total']) : 0;
+    }
+    
     public function delete($id) {
         return pg_query_params($this->db, "DELETE FROM {$this->table} WHERE id=$1", [$id]);
     }
+    
 }

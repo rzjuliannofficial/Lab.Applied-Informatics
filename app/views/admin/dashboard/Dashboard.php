@@ -61,7 +61,7 @@
             <div class="flex justify-between items-start">
                 <div>
                     <p class="text-gray-500 text-sm font-medium uppercase tracking-wide">Editor Aktif</p>
-                    <h3 class="text-3xl font-bold text-gray-800 mt-1">54</h3>
+                    <h3 class="text-3xl font-bold text-gray-800 mt-1"><?= $data['totalEditor']; ?></h3>
                 </div>
                 <div class="p-2 bg-pink-50 rounded-lg">
                     <i class="fas fa-pen-nib text-xl text-pink-500"></i>
