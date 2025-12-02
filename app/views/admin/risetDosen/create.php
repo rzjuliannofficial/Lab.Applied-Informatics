@@ -13,7 +13,7 @@
     <form action="/admin/RisetDosen/store" method="POST">
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
-<form action="/admin/RisetDosen/store" method="POST"
+    <form action="/admin/RisetDosen/store" method="POST"
       enctype="multipart/form-data"
       class="bg-white p-6 rounded-lg shadow w-full max-w-3xl">
 
@@ -63,6 +63,23 @@
                         placeholder="Contoh: Kemdikbud, Mandiri, Hibah Internal">
                 </div>
 
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Foto/Dokumentasi HKI</label>
+                    <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed 
+                                rounded-lg hover:bg-gray-50 transition cursor-pointer">
+                        <div class="text-center">
+                            <i class="fas fa-image text-4xl text-gray-400 mb-2"></i>
+                            <div class="flex text-sm text-gray-600 justify-center">
+                                <label class="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500">
+                                    <span>Pilih file</span>
+                                    <input type="file" name="foto_url" class="sr-only">
+                                </label>
+                                <p class="pl-1">atau drag & drop</p>
+                            </div>
+                            <p class="text-xs text-gray-500">PNG, JPG, JPEG — max 2MB</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
