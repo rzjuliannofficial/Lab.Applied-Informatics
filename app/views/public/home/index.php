@@ -533,9 +533,9 @@
         </div>
     </div>
     <div class="flex justify-center">
-        <a href="" class="group relative px-8 py-3 rounded-full bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] border border-slate-200 text-white font-bold shadow-sm hover:shadow-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 overflow-hidden">
+        <a href="/product" class="group relative px-8 py-3 rounded-full bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] border border-slate-200 text-white font-bold shadow-sm hover:shadow-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 overflow-hidden">
             <span class="relative z-10 flex items-center gap-2">
-                Read More 
+                Read More
                 <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
             </span>
             <div class="absolute inset-0 bg-blue-50 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
@@ -630,7 +630,7 @@
             <?php endif; ?>
         </div>
         <div class="flex justify-center mt-10">
-            <a href="" class="group relative px-8 py-3 rounded-full bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] border border-slate-200 text-white font-bold shadow-sm hover:shadow-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 overflow-hidden">
+            <a href="/member" class="group relative px-8 py-3 rounded-full bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] border border-slate-200 text-white font-bold shadow-sm hover:shadow-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 overflow-hidden">
                 <span class="relative z-10 flex items-center gap-2">
                     Read More 
                     <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -647,75 +647,88 @@
 <!-- Facilities -->
 <section class="bg-gradient-to-br from-blue-50 via-white to-blue-50 text-gray-800 section">
     <div class="container">
+
         <!-- Header -->
         <div class="text-center mb-12">
             <div class="title">
                 <i class="fa-solid fa-building text-sm mr-2"></i> OUR FACILITIES
             </div>
-            <p class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight mt-3">Explore Our Space <span class="gradient-text">Space</span></p>
+            <p class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight mt-3">
+                Explore Our <span class="gradient-text">Space</span>
+            </p>
             <p class="text-slate-500 text-lg">Comfort and convenience, designed just for you.</p>
         </div>
 
-        <!-- ROW 1-->
-        <div class="flex flex-col md:flex-row gap-6 mb-8 h-auto md:h-[400px]"  data-aos="fade-up" data-aos-duration="1000">
-            <!-- Deskripsi (1/3) -->
-            <div class="w-full md:w-1/3 rounded-[30px] p-8 flex flex-col justify-center shadow-[0px_5px_10px_rgba(5,0,5,0.15)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(6,182,212,0.15)]">
-                <h2 class="text-2xl font-bold mb-4 underline decoration-blue-500 underline-offset-8">
-                    Pusat Riset Akademik
-                </h2>
-                <p class="text-gray-600 mb-6 leading-relaxed">
-                    Menawarkan ruang laboratorium nyaman dengan software pengembangan lengkap seperti VS Code, Android Studio, dan database server berkecepatan tinggi.
-                </p>
-                <div class="flex flex-wrap gap-2 h-8 sm:h-11 point-carousel-container">
-                    <div class="point-carousel-track">
-                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Full AC</span>
-                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ High Speed WiFi</span>
-                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Proyektor</span>
-                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Soundproof</span>
-                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ High Speed WiFi</span>
-                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Full AC</span>
-                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Proyektor</span>
-                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Soundproof</span>
-                    </div>
-                </div>
-            </div>
+<?php $fas1 = $fasilitas[0] ?? null; ?>
 
-            <!-- Gambar (2/3) -->
-            <div class="w-full md:w-2/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group" data-aos="fade-up" data-aos-duration="1500">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2301&auto=format&fit=crop" 
-                     alt="Lab Space" 
-                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-            </div>
-        </div>
+<!-- ROW 1 -->
+<div class="flex flex-col md:flex-row gap-6 mb-8 h-auto md:h-[400px]" data-aos="fade-up" data-aos-duration="1000">
 
-        <!-- ROW 2: Gambar (2/3) - Teks (1/3) [KEBALIKANNYA] -->
-        <!-- Karena lebar 2/3 sama dengan gambar atas, maka ukurannya akan identik -->
-        <div class="flex flex-col md:flex-row gap-6 h-auto md:h-[400px]"  data-aos="fade-up" data-aos-duration="1000">
-            <!-- Gambar (2/3) - Ditaruh di kiri -->
-            <div class="w-full md:w-2/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group order-2 md:order-1" >
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2301&auto=format&fit=crop" 
-                     alt="Meeting Room" 
-                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-            </div>
-
-            <!-- Gambar (1/3) - Ditaruh di kanan -->
-            <div class="w-full md:w-1/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group order-1 md:order-2" data-aos="fade-up" data-aos-duration="1500">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2301&auto=format&fit=crop" 
-                    alt="Meeting Room" 
-                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+    <!-- Deskripsi (1/3) — TETAP -->
+    <div class="w-full md:w-1/3 rounded-[30px] p-8 flex flex-col justify-center shadow-[0px_5px_10px_rgba(5,0,5,0.15)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(6,182,212,0.15)]">
+        <h2 class="text-2xl font-bold mb-4 underline decoration-blue-500 underline-offset-8">
+            Pusat Riset Akademik
+        </h2>
+        <p class="text-gray-600 mb-6 leading-relaxed">
+            Menawarkan ruang laboratorium nyaman dengan software pengembangan lengkap seperti VS Code, Android Studio, dan database server berkecepatan tinggi.
+        </p>
+        <div class="flex flex-wrap gap-2 h-8 sm:h-11 point-carousel-container">
+            <div class="point-carousel-track">
+                <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Full AC</span>
+                <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ High Speed WiFi</span>
+                <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Proyektor</span>
+                <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Soundproof</span>
             </div>
         </div>
     </div>
+
+    <!-- GAMBAR (2/3) — HANYA BAGIAN INI YANG DINAMIS -->
+    <div class="w-full md:w-2/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group">
+        <img src="<?= $fas1 ? htmlspecialchars($fas1['foto']) : '/assets/default-fasilitas.jpg' ?>"
+             alt="Fasilitas 1"
+             class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+    </div>
+
+</div>
+
+
+ <?php
+$fas2 = $fasilitas[1] ?? null;
+$fas3 = $fasilitas[2] ?? null;
+?>
+
+<!-- ROW 2 -->
+<div class="flex flex-col md:flex-row gap-6 h-auto md:h-[400px]" data-aos="fade-up" data-aos-duration="1000">
+
+    <!-- Gambar (2/3) LEFT -->
+    <div class="w-full md:w-2/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group order-2 md:order-1">
+        <img src="<?= $fas2 ? htmlspecialchars($fas2['foto']) : '/assets/default-fasilitas.jpg' ?>"
+             alt="Fasilitas 2"
+             class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+    </div>
+
+    <!-- Gambar (1/3) RIGHT -->
+    <div class="w-full md:w-1/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group order-1 md:order-2">
+        <img src="<?= $fas3 ? htmlspecialchars($fas3['foto']) : '/assets/default-fasilitas.jpg' ?>"
+             alt="Fasilitas 3"
+             class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+    </div>
+
+</div>
+
 </section>
+
+
 <div class="shadow-bar-top">
     <div class="half-circle-glow"></div>
 </div>
 
 <!-- publications -->
 <section class="section container">
+    
     <div class="text-center mb-12">
         <div class="title">
             <i class="text-green-500 fa-solid fa-flask text-sm mr-2"></i> RESEARCH & INNOVATION

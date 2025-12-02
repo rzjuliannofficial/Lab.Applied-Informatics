@@ -69,6 +69,14 @@ class PublikasiDosen extends Model
         ]);
     }
 
+    public function countAll()
+{
+    $sql = "SELECT COUNT(*) AS total FROM {$this->table}";
+    $res = pg_query($this->db, $sql);
+    $row = pg_fetch_assoc($res);
+    return $row ? intval($row['total']) : 0;
+}
+
     public function delete($id)
     {
         return pg_query_params($this->db, "DELETE FROM {$this->table} WHERE id=$1", [$id]);
