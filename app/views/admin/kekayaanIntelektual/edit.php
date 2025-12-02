@@ -81,9 +81,9 @@
                     </div>
 
                     <!-- Preview Gambar Saat Ini -->
-                    <?php if ($berita['foto_bukti']): ?>
+                    <?php if ($ki['foto_url']): ?>
                         <p class="text-sm font-semibold text-gray-700 mt-3 mb-1">Gambar Saat Ini:</p>
-                        <img src="<?= htmlspecialchars($berita['foto_bukti']) ?>"
+                        <img src="<?= htmlspecialchars($ki['foto_url']) ?>"
                              class="w-32 h-32 object-cover rounded-lg shadow">
                     <?php endif; ?>
             </div>

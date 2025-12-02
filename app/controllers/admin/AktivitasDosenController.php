@@ -1,19 +1,11 @@
 <?php
-
 class AktivitasDosenController extends Controller
 {
     public function __construct()
     {
         Middleware::auth();
     }
-
-    private function isImageFile($filename)
-    {
-        $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-        $allowed = ['jpg','jpeg','png','webp','gif'];
-        return in_array($ext, $allowed);
-    }
-
+    
     private function uploadDokumentasi($input = 'foto_bukti')
     {
         if (empty($_FILES[$input]) || $_FILES[$input]['error'] !== UPLOAD_ERR_OK) {
@@ -53,20 +45,17 @@ class AktivitasDosenController extends Controller
     public function store()
     {
         $m = new AktivitasDosen();
-
-        // 1. Insert data aktivitas & ambil ID
+        $foto = $this->uploadDokumentasi('foto_bukti');
         $id_baru = $m->createAndReturnId([
             $_POST['id_dosen'],
             $_POST['judul'],
             $_POST['jenis_aktivitas'],
             $_POST['tanggal'],
-            $_POST['deskripsi']
+            $_POST['deskripsi'],
+            $foto
         ]);
 
-        // 2. Upload foto & masukkan ke galeri
-        $foto = $this->uploadDokumentasi('foto_bukti');
-        
-        if ($foto && $this->isImageFile($foto)) {
+        if ($foto) {
             $g = new Galeri();
             $uploadedBy = $_SESSION['user']['id_dosen'] ?? null;
 
@@ -81,7 +70,6 @@ class AktivitasDosenController extends Controller
                 'Aktivitas Dosen' // Kategori
             ]);
         }
-
         $_SESSION['success'] = "Aktivitas berhasil ditambahkan";
         header("Location: /admin/AktivitasDosen");
     }
@@ -100,15 +88,13 @@ class AktivitasDosenController extends Controller
     public function update($id)
     {
         $m = new AktivitasDosen();
+        $old = $m->find($id);
+        $foto = $this->uploadDokumentasi('foto_bukti');
+        if (!$foto) $foto = $old['foto_url'];
 
         $m->updateAktivitas($id, [
-            $_POST['id_dosen'],
-            $_POST['judul'],
-            $_POST['jenis_aktivitas'],
-            $_POST['tanggal'],
-            $_POST['deskripsi']
+            $_POST['id_dosen'], $_POST['judul'], $_POST['jenis_aktivitas'], $_POST['tanggal'], $_POST['deskripsi'], $foto
         ]);
-
         $_SESSION['success'] = "Aktivitas berhasil diperbarui";
         header("Location: /admin/AktivitasDosen");
     }
@@ -116,8 +102,9 @@ class AktivitasDosenController extends Controller
     public function delete($id)
     {
         $m = new AktivitasDosen();
+        $old = $m->find($id);
+        if (!empty($old['foto_url'])) { $path = realpath(__DIR__ . '/../../..') . $old['foto_url']; if (file_exists($path)) unlink($path); }
         $m->delete($id);
-
         $_SESSION['success'] = "Aktivitas berhasil dihapus";
         header("Location: /admin/AktivitasDosen");
     }

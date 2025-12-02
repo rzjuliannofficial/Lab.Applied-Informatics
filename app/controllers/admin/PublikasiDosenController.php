@@ -7,13 +7,6 @@ class PublikasiDosenController extends Controller
         Middleware::auth();
     }
 
-    private function isImageFile($filename)
-    {
-        $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-        $allowed = ['jpg','jpeg','png','webp','gif'];
-        return in_array($ext, $allowed);
-    }
-
     private function uploadDokumentasi($input = 'foto_bukti')
     {
         if (empty($_FILES[$input]) || $_FILES[$input]['error'] !== UPLOAD_ERR_OK) {
@@ -50,28 +43,27 @@ class PublikasiDosenController extends Controller
 
         $this->view("admin/publikasiDosen/create", $data);
     }
-
-    public function store()
-    {
+    
+    public function store() {
         $m = new PublikasiDosen();
-
-        // 2. Create Data Utama & Ambil ID
+        $foto = $this->uploadDokumentasi('foto_bukti'); // Pastikan name di form view adalah 'foto_bukti'
+        
+       // 2. Create Data Utama & Ambil ID
         $id_baru = $m->createAndReturnId([
             $_POST['id_dosen'],
             $_POST['judul'],
             $_POST['deskripsi'],
             $_POST['tahun'],
             $_POST['link_jurnal'],
-            $_POST['kategori']
+            $_POST['kategori'],
+            $foto
         ]);
-
-        // 3. Upload Foto & Masukkan ke Galeri
-        $foto = $this->uploadDokumentasi('foto_bukti'); // Pastikan name di form view adalah 'foto_bukti'
         
-        if ($foto && $this->isImageFile($foto)) {
+        // 3. Upload Foto & Masukkan ke Galeri
+        
+        if ($foto) {
             $g = new Galeri();
             $uploadedBy = $_SESSION['user']['id_dosen'] ?? null; // Menggunakan ID Dosen yg sedang login/dipilih
-
             $g->create([
                 $uploadedBy,
                 $foto,
@@ -87,25 +79,22 @@ class PublikasiDosenController extends Controller
                 'Publikasi Dosen' // Kategori
             ]);
         }
-
-        $_SESSION['success'] = "Publikasi berhasil ditambahkan.";
-        header("Location: /admin/PublikasiDosen");
+        $_SESSION['success'] = "Publikasi berhasil ditambahkan."; header("Location: /admin/PublikasiDosen");
     }
 
     public function edit($id)
     {
         $m = new PublikasiDosen();
         $d = new Dosen();
-
         $data['publikasi'] = $m->find($id);
         $data['dosen'] = $d->getAll();
-
         $this->view("admin/publikasiDosen/edit", $data);
     }
-
-    public function update($id)
-    {
+    public function update($id) {
         $m = new PublikasiDosen();
+        $old = $m->find($id);
+        $foto = $this->uploadDokumentasi('foto_bukti');
+        if (!$foto) $foto = $old['foto_url']; // Pakai lama jika tidak ada baru
 
         $m->updatePublikasi($id, [
             $_POST['id_dosen'],
@@ -113,19 +102,24 @@ class PublikasiDosenController extends Controller
             $_POST['deskripsi'],
             $_POST['tahun'],
             $_POST['link_jurnal'],
-            $_POST['kategori']
+            $_POST['kategori'],
+            $foto
         ]);
-
-        $_SESSION['success'] = "Publikasi berhasil diperbarui";
-        header("Location: /admin/PublikasiDosen");
+        
+        // Update Galeri jika ada foto baru (Opsional, butuh logika update Galeri yang lebih kompleks)
+        // Disini kita biarkan galeri lama tetap ada atau bisa dihapus manual via menu Galeri.
+        
+        $_SESSION['success'] = "Publikasi berhasil diperbarui"; header("Location: /admin/PublikasiDosen");
     }
 
-    public function delete($id)
-    {
+    public function delete($id) {
         $m = new PublikasiDosen();
-        $m->delete($id);
-
-        $_SESSION['success'] = "Publikasi berhasil dihapus";
-        header("Location: /admin/PublikasiDosen");
+        $old = $m->find($id);
+        if (!empty($old['foto_url'])) {
+            $path = realpath(__DIR__ . '/../../..') . $old['foto_url'];
+            if (file_exists($path)) unlink($path);
+        }
+        $m->delete($id); // Delete di tabel utama akan men-trigger cascade delete di Galeri (jika diset di DB)
+        $_SESSION['success'] = "Publikasi berhasil dihapus"; header("Location: /admin/PublikasiDosen");
     }
 }

@@ -38,7 +38,6 @@ class KekayaanIntelektual extends Model
     {
         $sql = "SELECT * FROM {$this->table} WHERE id=$1";
         $res = pg_query_params($this->db, $sql, [$id]);
-
         return $res ? pg_fetch_assoc($res) : null;
     }
 
@@ -50,35 +49,25 @@ class KekayaanIntelektual extends Model
 
         return pg_query_params($this->db, $sql, $params);
     }
-
-    public function createAndReturnId($params)
-    {
+    public function createAndReturnId($params) {
         $sql = "INSERT INTO {$this->table}
-                (id_dosen, judul, no_permohonan, tahun)
-                VALUES ($1,$2,$3,$4)
+                (id_dosen, judul, no_permohonan, tahun, foto_url)
+                VALUES ($1,$2,$3,$4,$5)
                 RETURNING id";
-
         $res = pg_query_params($this->db, $sql, $params);
         $row = pg_fetch_assoc($res);
         return $row['id'];
     }
 
-    public function updateKI($id, $params)
-    {
+    public function updateKI($id, $params) {
         $sql = "UPDATE {$this->table}
                 SET id_dosen=$1,
                     judul=$2,
                     no_permohonan=$3,
-                    tahun=$4
-                WHERE id=$5";
-
-        return pg_query_params($this->db, $sql, [
-            $params[0],
-            $params[1],
-            $params[2],
-            $params[3],
-            $id
-        ]);
+                    tahun=$4,
+                    foto_url=$5
+                WHERE id=$6";
+        return pg_query_params($this->db, $sql, array_merge($params, [$id]));
     }
 
     public function delete($id)

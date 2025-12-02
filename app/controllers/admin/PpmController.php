@@ -7,13 +7,6 @@ class PpmController extends Controller
         Middleware::auth();
     }
 
-    private function isImageFile($filename)
-    {
-        $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-        $allowed = ['jpg','jpeg','png','webp','gif'];
-        return in_array($ext, $allowed);
-    }
-
     private function uploadDokumentasi($input = 'foto_bukti')
     {
         if (empty($_FILES[$input]) || $_FILES[$input]['error'] !== UPLOAD_ERR_OK) {
@@ -41,7 +34,6 @@ class PpmController extends Controller
 
         $this->view("admin/ppm/index", $data);
     }
-
     public function create()
     {
         $d = new Dosen();
@@ -53,18 +45,15 @@ class PpmController extends Controller
     public function store()
     {
         $m = new Ppm();
-
-        // 1. Insert data PPM & ambil ID
+        $foto = $this->uploadDokumentasi('foto_bukti');
         $id_baru = $m->createAndReturnId([
             $_POST['id_dosen'],
             $_POST['judul'],
-            $_POST['tahun']
+            $_POST['tahun'],
+            $foto
         ]);
 
-        // 2. Upload foto & masukkan ke galeri
-        $foto = $this->uploadDokumentasi('foto_bukti');
-        
-        if ($foto && $this->isImageFile($foto)) {
+        if ($foto) {
             $g = new Galeri();
             $uploadedBy = $_SESSION['user']['id_dosen'] ?? null;
 
@@ -79,7 +68,6 @@ class PpmController extends Controller
                 'PPM'             // Kategori
             ]);
         }
-
         $_SESSION['success'] = "PPM berhasil ditambahkan";
         header("Location: /admin/Ppm");
     }
@@ -95,26 +83,26 @@ class PpmController extends Controller
         $this->view("admin/ppm/edit", $data);
     }
 
-    public function update($id)
-    {
+    public function update($id) {
         $m = new Ppm();
+        $old = $m->find($id);
+        $foto = $this->uploadDokumentasi('foto_bukti');
+        if (!$foto) $foto = $old['foto_url'];
 
         $m->updatePpm($id, [
             $_POST['id_dosen'],
             $_POST['judul'],
-            $_POST['tahun']
+            $_POST['tahun'],
+            $foto
         ]);
-
         $_SESSION['success'] = "PPM berhasil diperbarui";
         header("Location: /admin/Ppm");
     }
 
-    public function delete($id)
-    {
-        $m = new Ppm();
+    public function delete($id) {
+        $m = new Ppm(); $old = $m->find($id);
+        if (!empty($old['foto_url'])) { $path = realpath(__DIR__ . '/../../..') . $old['foto_url']; if (file_exists($path)) unlink($path); }
         $m->delete($id);
-
-        $_SESSION['success'] = "PPM berhasil dihapus";
-        header("Location: /admin/Ppm");
+        $_SESSION['success'] = "PPM berhasil dihapus"; header("Location: /admin/Ppm");
     }
 }
