@@ -27,16 +27,26 @@
             <td class="p-2 border"><?= htmlspecialchars($a['jenis_aktivitas']) ?></td>
             <td class="p-2 border"><?= htmlspecialchars($a['tanggal']) ?></td>
             <td class="p-2 border"><?= htmlspecialchars($a['deskripsi']) ?></td>
+            <td class="p-3 border">
+                <div class="flex items-center justify-center gap-2">
 
-            <td class="p-2 border">
-                <a href="/admin/AktivitasDosen/edit/<?= $a['id'] ?>" class="text-yellow-600 mr-3">
-                    <i class="fas fa-edit"></i> Edit
-                </a>
-                <a href="/admin/AktivitasDosen/delete/<?= $a['id'] ?>"
-                   onclick="return confirm('Hapus aktivitas ini?')"
-                   class="text-red-600">
-                   <i class="fas fa-trash"></i> Hapus
-                </a>
+                    <a href="/admin/AktivitasDosen/edit/<?= $r['id'] ?>" class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
+                  text-yellow-700 bg-yellow-100 border border-yellow-300 
+                  rounded hover:bg-yellow-200 transition">
+                        <i class="fas fa-edit text-[10px]"></i>
+                        Edit
+                    </a>
+
+                    <a href="/admin/AktivitasDosen/delete/<?= $b['id'] ?>" onclick="return confirm('Hapus berita ini?')"
+                        class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
+                  text-red-700 bg-red-100 border border-red-300 
+                  rounded hover:bg-red-200 transition">
+                        <i class="fas fa-trash text-[10px]"></i>
+                        Hapus
+                    </a>
+
+                </div>
+                
             </td>
         </tr>
         <?php endforeach; ?>
