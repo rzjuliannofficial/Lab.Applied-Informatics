@@ -766,7 +766,7 @@ $fas3 = $fasilitas[2] ?? null;
                         <p class="publication-description text-gray-600 text-sm leading-relaxed mb-6 line-clamp-3"><?= htmlspecialchars($publication['deskripsi'] ?? '-'); ?></p>
                         <div class="flex items-center gap-2 text-[var(--blue)] hover:text-[var(--blue-dark)] font-semibold transition-colors duration-300 group cursor-pointer">
                             <?php if (!empty($publication['link_jurnal'])): ?>
-                                <a href="<?php //echo htmlspecialchars($publication['link_jurnal']); ?>" target="_blank" class="inline-flex items-center gap-2 group">
+                                <a href="<?php echo htmlspecialchars($publication['link_jurnal']); ?>" target="_blank" class="inline-flex items-center gap-2 group">
                                     Baca Selengkapnya
                                     <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform duration-300"></i>
                                 </a>
