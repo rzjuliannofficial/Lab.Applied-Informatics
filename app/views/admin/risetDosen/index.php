@@ -36,7 +36,7 @@
                         Edit
                     </a>
 
-                    <a href="/admin/RisetDosen/delete/<?= $b['id'] ?>" onclick="return confirm('Hapus data ini?')"
+                    <a href="/admin/RisetDosen/delete/<?= $r['id'] ?>" onclick="return confirm('Hapus data ini?')"
                         class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
                   text-red-700 bg-red-100 border border-red-300 
                   rounded hover:bg-red-200 transition">
