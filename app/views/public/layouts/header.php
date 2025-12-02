@@ -18,7 +18,7 @@
             <a href="home">
                 <div class="logo-area">
                     <div class="logo-image-container">
-                        <img src="uploads/home/logoAi.png" alt="Lab AI Logo">
+                        <img src="/uploads/home/logoAi.png" alt="Lab AI Logo">
                     </div>
                     <div class="logo-text">
                         Applied <br>Informatics
