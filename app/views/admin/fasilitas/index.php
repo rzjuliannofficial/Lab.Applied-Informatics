@@ -30,7 +30,7 @@
 
                 <td class="p-2 border"><?= htmlspecialchars($f['nama_fasilitas']) ?></td>
                 <td class="p-2 border"><?= htmlspecialchars($f['kondisi']) ?></td>
-                <td class="p-3 border">
+                <td class="p-2 border">
                     <div class="flex items-center justify-center gap-2">
                     <a href="/admin/Fasilitas/edit/<?= htmlspecialchars($f['id_fasilitas']) ?>" class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
                   text-yellow-700 bg-yellow-100 border border-yellow-300 
