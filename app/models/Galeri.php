@@ -66,7 +66,7 @@ class Galeri extends Model {
     }
 
     public function getByKI() {
-        $sql = "SELECT g.id, g.file_url, g.caption, g.tanggal_upload, ki.judul, d.nama AS uploaded_by, 'HKI' AS category
+        $sql = "SELECT g.id, g.file_url, g.caption, g.tanggal_upload, ki.judul, d.nama AS uploaded_by, 'Kekayaan Intelektual' AS category
                 FROM galeri g JOIN kekayaan_intelektual ki ON ki.id = g.id_kekayaan_intelektual
                 LEFT JOIN dosen d ON d.id = g.uploaded_by ORDER BY g.tanggal_upload DESC";
         return $this->fetchAll($sql);

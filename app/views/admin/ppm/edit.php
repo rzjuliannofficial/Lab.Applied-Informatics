@@ -69,10 +69,9 @@
                                 </label>
                                 <p class="pl-1">atau drag & drop</p>
                             </div>
-                            <p class=\"text-xs text-gray-500\">PNG, JPG, JPEG — max 2MB</p>
+                            <p class="text-xs text-gray-500">PNG, JPG, JPEG — max 2MB</p>
                         </div>
                     </div>
-                    <div class=\"file-preview-area\"></div>
 
                     <!-- Preview Gambar Saat Ini -->
                     <?php if ($ppm['foto_url']): ?>

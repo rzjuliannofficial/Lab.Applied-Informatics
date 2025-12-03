@@ -10,7 +10,7 @@
         </a>
     </div>
 <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-    <form action="/admin/KekayaanIntelektual/update/<?= $ki['id'] ?>" method="POST">
+    <form action="/admin/KekayaanIntelektual/update/<?= $ki['id'] ?>" method="POST" enctype="multipart/form-data">
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
 
@@ -76,10 +76,9 @@
                                 </label>
                                 <p class="pl-1">atau drag & drop</p>
                             </div>
-                            <p class=\"text-xs text-gray-500\">PNG, JPG, JPEG — max 2MB</p>
+                            <p class="text-xs text-gray-500">PNG, JPG, JPEG — max 2MB</p>
                         </div>
                     </div>
-                    <div class=\"file-preview-area\"></div>
 
                     <!-- Preview Gambar Saat Ini -->
                     <?php if ($ki['foto_url']): ?>

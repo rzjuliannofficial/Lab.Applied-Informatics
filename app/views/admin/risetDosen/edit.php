@@ -77,11 +77,10 @@
                                 </label>
                                 <p class="pl-1">atau drag & drop</p>
                             </div>
-                            <p class=\"text-xs text-gray-500\">PNG, JPG, JPEG — max 2MB</p>
+                            <p class="text-xs text-gray-500">PNG, JPG, JPEG — max 2MB</p>
                         </div>
                     </div>
-                    <div class=\"file-preview-area\"></div>
-
+                    
                     <!-- Preview Gambar Saat Ini -->
                     <?php if ($riset['foto_url']): ?>
                         <p class="text-sm font-semibold text-gray-700 mt-3 mb-1">Gambar Saat Ini:</p>

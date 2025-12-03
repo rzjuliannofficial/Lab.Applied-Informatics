@@ -36,24 +36,6 @@ $fileUrl = $item['file_url'];
                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200"
                       placeholder="Tuliskan caption di sini"><?= htmlspecialchars($item['caption'] ?? '') ?></textarea>
         </div>
-
-        <!-- Kategori -->
-        <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Kategori</label>
-            <select name="kategori"
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white focus:ring focus:ring-blue-200"
-                    required>
-                <option value="Berita" <?= ($item['kategori'] == 'Berita') ? 'selected' : '' ?>>Berita</option>
-                <option value="Publikasi Dosen" <?= ($item['kategori'] == 'Publikasi Dosen') ? 'selected' : '' ?>>Publikasi Dosen</option>
-                <option value="Aktivitas Dosen" <?= ($item['kategori'] == 'Aktivitas Dosen') ? 'selected' : '' ?>>Aktivitas Dosen</option>
-                <option value="PPM" <?= ($item['kategori'] == 'PPM') ? 'selected' : '' ?>>PPM</option>
-                <option value="Riset" <?= ($item['kategori'] == 'Riset') ? 'selected' : '' ?>>Riset Dosen</option>
-                <option value="HKI" <?= ($item['kategori'] == 'HKI') ? 'selected' : '' ?>>Kekayaan Intelektual (HKI)</option>
-                <option value="Produk" <?= ($item['kategori'] == 'Produk') ? 'selected' : '' ?>>Produk</option>
-                <option value="Fasilitas" <?= ($item['kategori'] == 'Fasilitas') ? 'selected' : '' ?>>Fasilitas</option>
-            </select>
-        </div>
-
         <!-- Footer Actions -->
         <div class="flex items-center space-x-3">
             <button type="submit" class="px-5 py-2 rounded-lg bg-yellow-600 text-white font-medium shadow hover:bg-yellow-700 transition">
