@@ -7,7 +7,7 @@ class PpmController extends Controller
         Middleware::auth();
     }
 
-    private function uploadDokumentasi($input = 'foto_bukti')
+    private function uploadDokumentasi($input = 'foto_url')
     {
         if (empty($_FILES[$input]) || $_FILES[$input]['error'] !== UPLOAD_ERR_OK) {
             return null;
@@ -45,7 +45,7 @@ class PpmController extends Controller
     public function store()
     {
         $m = new Ppm();
-        $foto = $this->uploadDokumentasi('foto_bukti');
+        $foto = $this->uploadDokumentasi('foto_url');
         $id_baru = $m->createAndReturnId([
             $_POST['id_dosen'],
             $_POST['judul'],
@@ -86,7 +86,7 @@ class PpmController extends Controller
     public function update($id) {
         $m = new Ppm();
         $old = $m->find($id);
-        $foto = $this->uploadDokumentasi('foto_bukti');
+        $foto = $this->uploadDokumentasi('foto_url');
         if (!$foto) $foto = $old['foto_url'];
 
         $m->updatePpm($id, [

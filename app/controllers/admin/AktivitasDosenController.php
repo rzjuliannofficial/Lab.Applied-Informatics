@@ -6,7 +6,7 @@ class AktivitasDosenController extends Controller
         Middleware::auth();
     }
     
-    private function uploadDokumentasi($input = 'foto_bukti')
+    private function uploadDokumentasi($input = 'foto_url')
     {
         if (empty($_FILES[$input]) || $_FILES[$input]['error'] !== UPLOAD_ERR_OK) {
             return null;
@@ -45,7 +45,7 @@ class AktivitasDosenController extends Controller
     public function store()
     {
         $m = new AktivitasDosen();
-        $foto = $this->uploadDokumentasi('foto_bukti');
+        $foto = $this->uploadDokumentasi('foto_url');
         $id_baru = $m->createAndReturnId([
             $_POST['id_dosen'],
             $_POST['judul'],
@@ -89,7 +89,7 @@ class AktivitasDosenController extends Controller
     {
         $m = new AktivitasDosen();
         $old = $m->find($id);
-        $foto = $this->uploadDokumentasi('foto_bukti');
+        $foto = $this->uploadDokumentasi('foto_url');
         if (!$foto) $foto = $old['foto_url'];
 
         $m->updateAktivitas($id, [

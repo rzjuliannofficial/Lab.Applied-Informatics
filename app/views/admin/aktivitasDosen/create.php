@@ -8,10 +8,8 @@
             <i class="fas fa-arrow-left mr-2"></i> Kembali
         </a>
     </div>
-<div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-    <form action="/admin/AktivitasDosen/store" method="POST">
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+    <form action="/admin/AktivitasDosen/store" method="POST" enctype="multipart/form-data">        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
 
             <div class="space-y-6">
                 <h3 class="text-lg font-semibold text-gray-700 border-b pb-2 mb-4">

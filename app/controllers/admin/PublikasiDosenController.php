@@ -7,7 +7,7 @@ class PublikasiDosenController extends Controller
         Middleware::auth();
     }
 
-    private function uploadDokumentasi($input = 'foto_bukti')
+    private function uploadDokumentasi($input = 'foto_url')
     {
         if (empty($_FILES[$input]) || $_FILES[$input]['error'] !== UPLOAD_ERR_OK) {
             return null;
@@ -46,7 +46,7 @@ class PublikasiDosenController extends Controller
     
     public function store() {
         $m = new PublikasiDosen();
-        $foto = $this->uploadDokumentasi('foto_bukti'); // Pastikan name di form view adalah 'foto_bukti'
+        $foto = $this->uploadDokumentasi('foto_url'); // Pastikan name di form view adalah 'foto_url'
         
        // 2. Create Data Utama & Ambil ID
         $id_baru = $m->createAndReturnId([
@@ -93,7 +93,7 @@ class PublikasiDosenController extends Controller
     public function update($id) {
         $m = new PublikasiDosen();
         $old = $m->find($id);
-        $foto = $this->uploadDokumentasi('foto_bukti');
+        $foto = $this->uploadDokumentasi('foto_url');
         if (!$foto) $foto = $old['foto_url']; // Pakai lama jika tidak ada baru
 
         $m->updatePublikasi($id, [

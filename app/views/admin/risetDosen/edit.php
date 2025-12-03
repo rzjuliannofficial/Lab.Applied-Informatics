@@ -9,10 +9,8 @@
             <i class="fas fa-arrow-left mr-2"></i> Kembali
         </a>
     </div>
-<div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-    <form action="/admin/RisetDosen/update/<?= $riset['id'] ?>" method="POST">
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+    <form action="/admin/RisetDosen/update/<?= $riset['id'] ?>" method="POST" enctype="multipart/form-data">        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
 
             <div class="space-y-6">
 

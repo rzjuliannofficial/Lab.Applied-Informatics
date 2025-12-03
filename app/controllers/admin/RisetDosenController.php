@@ -6,7 +6,7 @@ class RisetDosenController extends Controller
         Middleware::auth();
     }
 
-    private function uploadDokumentasi($input = 'foto_bukti')
+    private function uploadDokumentasi($input = 'foto_url')
     {
         if (empty($_FILES[$input]) || $_FILES[$input]['error'] !== UPLOAD_ERR_OK) {
             return null;
@@ -45,7 +45,7 @@ class RisetDosenController extends Controller
     public function store()
     {
         $m = new RisetDosen();
-        $foto = $this->uploadDokumentasi('foto_bukti');
+        $foto = $this->uploadDokumentasi('foto_url');
         $id_baru = $m->createAndReturnId([
             $_POST['id_dosen'],
             $_POST['judul'],
