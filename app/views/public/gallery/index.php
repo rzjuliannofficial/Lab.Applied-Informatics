@@ -18,6 +18,13 @@
     <!-- Gallery Carousel Section -->
     <div class="w-full flex justify-center items-center py-8 bg-transparent">
         <div class="w-full max-w-6xl px-4">
+            <?php if (empty($galleryItems)): ?>
+                <!-- Empty State for Carousel -->
+                <div class="text-center py-16">
+                    <i class="fas fa-images text-gray-300 text-6xl mb-4"></i>
+                    <p class="text-gray-500 text-lg">No gallery items yet. Upload images in Berita, Produk, or other modules to see them here.</p>
+                </div>
+            <?php else: ?>
             <!-- Kontainer utama karosel -->
             <div class="logo-carousel-container" style="height: 360px;">
                 
@@ -67,6 +74,7 @@
                 </div>
                 
             </div>
+            <?php endif; ?>
         </div>
     </div>
 
@@ -89,6 +97,15 @@
 
             <!-- Masonry Gallery Grid -->
             <div class="gallery-masonry">
+                <?php if (empty($galleryItems)): ?>
+                    <!-- Empty State for Gallery Grid -->
+                    <div class="col-span-full text-center py-20">
+                        <i class="fas fa-folder-open text-gray-300 text-7xl mb-6"></i>
+                        <h3 class="text-2xl font-bold text-gray-700 mb-3">Gallery is Empty</h3>
+                        <p class="text-gray-500 text-lg mb-6">Start by creating content with images in the admin panel.</p>
+                        <p class="text-gray-400">Images from Berita, Produk, Fasilitas, and other modules will automatically appear here.</p>
+                    </div>
+                <?php else: ?>
                 <?php foreach ($galleryItems as $index => $item): ?>
                     <div class="gallery-item" data-category="<?= htmlspecialchars($item['category']) ?>">
                         <div class="gallery-card">
@@ -123,6 +140,7 @@
                         </div>
                     </div>
                 <?php endforeach; ?>
+                <?php endif; ?>
             </div>
         </div>
     </section>
