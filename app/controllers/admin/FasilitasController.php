@@ -63,9 +63,9 @@ public function create()
                 $uploadedBy,
                 $foto,
                 "",
-                null, null, null, null, null,
-                $id_fasilitas,
-                null        // kategori (diisi manual di galeri/edit)
+                null, null, $id_fasilitas, // id_berita, id_produk, id_fasilitas
+                null, null, null, null, null, // id_publikasi_dosen, id_aktivitas_dosen, id_ppm, id_riset_dosen, id_ki
+                'Fasilitas' // kategori
             ]);
         }
 
@@ -100,17 +100,28 @@ public function create()
         ]);
 
         if ($fotoBaru !== $old['foto'] && $this->isImageFile($fotoBaru)) {
+            // Cek apakah sudah ada di galeri
             $g = new Galeri();
-            $uploadedBy = $_SESSION['user']['id_dosen'] ?? null;
-
-            $g->create([
-                $uploadedBy,
-                $fotoBaru,
-                "",
-                null, null, null, null, null,
-                $id,
-                null        // kategori (diisi manual di galeri/edit)
-            ]);
+            $existing = $g->getByFasilitas();
+            $found = false;
+            foreach ($existing as $item) {
+                if (!empty($item['id']) && strpos($item['judul'] ?? '', $_POST['nama_fasilitas']) !== false) {
+                    $found = true;
+                    break;
+                }
+            }
+            
+            if (!$found) {
+                $uploadedBy = $_SESSION['user']['id_dosen'] ?? null;
+                $g->create([
+                    $uploadedBy,
+                    $fotoBaru,
+                    "",
+                    null, null, $id, // id_berita, id_produk, id_fasilitas
+                    null, null, null, null, null, // id_publikasi_dosen, id_aktivitas_dosen, id_ppm, id_riset_dosen, id_ki
+                    'Fasilitas' // kategori
+                ]);
+            }
         }
 
         $_SESSION['success'] = "Fasilitas berhasil diperbarui.";

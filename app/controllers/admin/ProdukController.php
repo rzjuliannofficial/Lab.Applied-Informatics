@@ -71,14 +71,10 @@ class ProdukController extends Controller
             $g->create([
                 $uploadedBy,
                 $image,
-                "",             // caption kosong dulu
-                null,           // id_penelitian
-                null,           // id_kegiatan_lab
-                null,           // id_publikasi_lab
-                null,           // id_berita
-                $id_produk,     // 👈 RELASI PRODUK
-                null,           // id_fasilitas
-                null            // kategori (diisi manual di galeri/edit)
+                "",                     // caption kosong dulu
+                null, $id_produk, null, // id_berita, id_produk, id_fasilitas
+                null, null, null, null, null, // id_publikasi_dosen, id_aktivitas_dosen, id_ppm, id_riset_dosen, id_ki
+                'Produk'                // kategori
             ]);
         }
 
@@ -120,22 +116,28 @@ class ProdukController extends Controller
 
         // jika upload image baru → masukkan galeri
         if ($image !== $old['image'] && $this->isImageFile($image)) {
-
+            // Cek apakah sudah ada di galeri
             $g = new Galeri();
-            $uploadedBy = $_SESSION['user']['id_dosen'] ?? null;
-
-            $g->create([
-                $uploadedBy,
-                $image,
-                "",
-                null,
-                null,
-                null,
-                null,
-                $id,        // relasi produk
-                null,       // id_fasilitas
-                null        // kategori (diisi manual di galeri/edit)
-            ]);
+            $existing = $g->getByProduk();
+            $found = false;
+            foreach ($existing as $item) {
+                if (!empty($item['id']) && strpos($item['judul'] ?? '', $_POST['nama_produk']) !== false) {
+                    $found = true;
+                    break;
+                }
+            }
+            
+            if (!$found) {
+                $uploadedBy = $_SESSION['user']['id_dosen'] ?? null;
+                $g->create([
+                    $uploadedBy,
+                    $image,
+                    "",
+                    null, $id, null, // id_berita, id_produk, id_fasilitas
+                    null, null, null, null, null, // id_publikasi_dosen, id_aktivitas_dosen, id_ppm, id_riset_dosen, id_ki
+                    'Produk'         // kategori
+                ]);
+            }
         }
 
         $_SESSION['success'] = "Produk berhasil diperbarui.";
