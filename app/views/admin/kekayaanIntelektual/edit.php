@@ -25,10 +25,15 @@
                     <select name="id_dosen" required
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                         <?php foreach ($dosen as $d): ?>
-                            <option value="<?= $d['id'] ?>"
-                                <?= $ki['id_dosen'] == $d['id'] ? 'selected' : '' ?>>
-                                <?= htmlspecialchars($d['nama']) ?>
-                            </option>
+                            <?php if ($_SESSION['user']['role'] === 'admin'): ?>
+                                <option value="<?= $d['id'] ?>"
+                                    <?= $d['id'] == $ki['id_dosen'] ? 'selected' : '' ?>>
+                                    <?= htmlspecialchars($d['nama']) ?>
+                                </option>
+                            <?php elseif ($_SESSION['user']['role'] === 'editor' && $_SESSION['user']['id_dosen'] == $d['id']): ?>
+                                <option value="<?= $d['id'] ?>"><?= htmlspecialchars($d['nama']) ?></option>
+                            <!-- Kondisi agar tampil sesuai namanya -->
+                            <?php endif; ?>
                         <?php endforeach; ?>
                     </select>
                 </div>

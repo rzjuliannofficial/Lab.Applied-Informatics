@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <header class="sticky-header">
+    <header class="header">
         <nav class="header-nav">
             <a href="home">
                 <div class="logo-area">

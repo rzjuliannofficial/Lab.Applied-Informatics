@@ -21,7 +21,12 @@
                     <select name="id_dosen" required
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                         <?php foreach ($dosen as $d): ?>
-                            <option value="<?= $d['id'] ?>"><?= htmlspecialchars($d['nama']) ?></option>
+                            <?php if ($_SESSION['user']['role'] === 'admin'): ?>
+                                <option value="<?= $d['id'] ?>"><?= htmlspecialchars($d['nama']) ?></option>
+                            <!-- Kondisi agar tampil sesuai namanya -->
+                            <?php elseif ($_SESSION['user']['role'] === 'editor' && $_SESSION['user']['id_dosen'] == $d['id']): ?>
+                                <option value="<?= $d['id'] ?>"><?= htmlspecialchars($d['nama']) ?></option>
+                            <?php endif; ?>
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -66,7 +71,7 @@
                             <div class="flex text-sm text-gray-600 justify-center">
                                 <label class="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500">
                                     <span>Pilih file</span>
-                                    <input type="file" name="foto_url" class="sr-only">
+                                    <input type="file" name="foto_url" class="sr-only" required>
                                 </label>
                                 <p class="pl-1">atau drag & drop</p>
                             </div>

@@ -83,26 +83,25 @@
              <?php if ($_SESSION['user']['role'] === 'admin'): ?>
                 <!-- Card Footer (Actions) -->
                 <div class="bg-gray-50 px-6 py-3 border-t flex justify-end space-x-3">
-                    
-            <td class="p-3 border">
-                <div class="flex items-center justify-center gap-2">
-                    <a href="/admin/dosen/edit/<?= $d['id'] ?>" class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
-                  text-yellow-700 bg-yellow-100 border border-yellow-300 
-                  rounded hover:bg-yellow-200 transition">
-                        <i class="fas fa-edit text-[10px]"></i>
-                        Edit
-                    </a>
+                    <td class="p-3 border">
+                        <div class="flex items-center justify-center gap-2">
+                            <a href="/admin/dosen/edit/<?= $d['id'] ?>" class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
+                        text-yellow-700 bg-yellow-100 border border-yellow-300 
+                        rounded hover:bg-yellow-200 transition">
+                                <i class="fas fa-edit text-[10px]"></i>
+                                Edit
+                            </a>
 
-                    <a href="/admin/dosen/delete/<?= $d['id'] ?>" onclick="return confirm('Hapus berita ini?')"
-                        class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
-                  text-red-700 bg-red-100 border border-red-300 
-                  rounded hover:bg-red-200 transition">
-                        <i class="fas fa-trash text-[10px]"></i>
-                        Hapus
-                    </a>
+                            <a href="/admin/dosen/delete/<?= $d['id'] ?>" onclick="return confirm('Hapus berita ini?')"
+                                class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
+                        text-red-700 bg-red-100 border border-red-300 
+                        rounded hover:bg-red-200 transition">
+                                <i class="fas fa-trash text-[10px]"></i>
+                                Hapus
+                            </a>
 
-                </div>
-            </td>
+                        </div>
+                    </td>
                 </div>
             <?php endif; ?>
 

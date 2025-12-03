@@ -33,16 +33,25 @@
                             <label class="block text-sm font-medium text-gray-700 mb-1">NIP / NIM</label>
                             <input type="text" name="nip" required value="<?= htmlspecialchars($dosen['nip']) ?>" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition">
                         </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Jabatan</label>
-                            <select name="jabatan" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition bg-white">
-                                <option value="member" <?= $dosen['jabatan']=='member'?'selected':'' ?>>Member</option>
-                                <option value="asisten_lab" <?= $dosen['jabatan']=='asisten_lab'?'selected':'' ?>>Asisten Lab</option>
-                                <option value="ketua_lab" <?= $dosen['jabatan']=='ketua_lab'?'selected':'' ?>>Ketua Lab</option>
-                            </select>
-                        </div>
+                            <?php if ($_SESSION['user']['role'] === 'admin'): ?>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Jabatan</label>
+                                    <select name="jabatan" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition bg-white">
+                                        <option value="member" <?= $dosen['jabatan']=='member'?'selected':'' ?>>Member</option>
+                                        <option value="asisten_lab" <?= $dosen['jabatan']=='asisten_lab'?'selected':'' ?>>Asisten Lab</option>
+                                        <option value="ketua_lab" <?= $dosen['jabatan']=='ketua_lab'?'selected':'' ?>>Ketua Lab</option>
+                                    </select>
+                                </div>
+                            <?php elseif ($_SESSION['user']['role'] === 'editor'): ?>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Jabatan</label>
+                                    <select name="jabatan" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition bg-white">
+                                        <option><?= ucfirst($dosen['jabatan']) ?></option>
+                                    </select>
+                                </div>
+                            <?php endif; ?>
                     </div>
-
+                                    
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Email Institusi</label>
                         <div class="relative">
