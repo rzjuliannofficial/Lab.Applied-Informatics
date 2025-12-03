@@ -63,7 +63,7 @@
                         placeholder="Tuliskan deskripsi aktivitas..."></textarea>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Foto/Dokumentasi HKI</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Foto/Dokumentasi</label>
                     <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed 
                                 rounded-lg hover:bg-gray-50 transition cursor-pointer">
                         <div class="text-center">
