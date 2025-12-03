@@ -18,6 +18,13 @@
     <!-- Gallery Carousel Section -->
     <div class="w-full flex justify-center items-center py-8 bg-transparent">
         <div class="w-full max-w-6xl px-4">
+            <?php if (empty($galleryItems)): ?>
+                <!-- Empty State for Carousel -->
+                <div class="text-center py-16">
+                    <i class="fas fa-images text-gray-300 text-6xl mb-4"></i>
+                    <p class="text-gray-500 text-lg">No gallery items yet. Upload images in Berita, Produk, or other modules to see them here.</p>
+                </div>
+            <?php else: ?>
             <!-- Kontainer utama karosel -->
             <div class="logo-carousel-container" style="height: 360px;">
                 
@@ -67,6 +74,7 @@
                 </div>
                 
             </div>
+            <?php endif; ?>
         </div>
     </div>
 
@@ -80,17 +88,25 @@
             <div class="gallery-filters">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="Publikasi Dosen">Publikasi Dosen</button>
-                <button class="filter-btn" data-filter="Aktivitas Dosen">Aktivitas Dosen</button>
-                <button class="filter-btn" data-filter="PPM">PPM</button>
-                <button class="filter-btn" data-filter="Riset">Riset Dosen</button>
-                <button class="filter-btn" data-filter="HKI">HKI</button>
                 <button class="filter-btn" data-filter="Berita">Berita</button>
                 <button class="filter-btn" data-filter="Produk">Produk</button>
                 <button class="filter-btn" data-filter="Fasilitas">Fasilitas</button>
+                <button class="filter-btn" data-filter="Aktivitas Dosen">Aktivitas Dosen</button>
+                <button class="filter-btn" data-filter="PPM">PPM</button>
+                <button class="filter-btn" data-filter="Kekayaan Intelektual">HKI</button>
             </div>
 
             <!-- Masonry Gallery Grid -->
             <div class="gallery-masonry">
+                <?php if (empty($galleryItems)): ?>
+                    <!-- Empty State for Gallery Grid -->
+                    <div class="col-span-full text-center py-20">
+                        <i class="fas fa-folder-open text-gray-300 text-7xl mb-6"></i>
+                        <h3 class="text-2xl font-bold text-gray-700 mb-3">Gallery is Empty</h3>
+                        <p class="text-gray-500 text-lg mb-6">Start by creating content with images in the admin panel.</p>
+                        <p class="text-gray-400">Images from Berita, Produk, Fasilitas, and other modules will automatically appear here.</p>
+                    </div>
+                <?php else: ?>
                 <?php foreach ($galleryItems as $index => $item): ?>
                     <div class="gallery-item" data-category="<?= htmlspecialchars($item['category']) ?>">
                         <div class="gallery-card">
@@ -125,6 +141,53 @@
                         </div>
                     </div>
                 <?php endforeach; ?>
+                <?php endif; ?>
             </div>
         </div>
     </section>
+
+    <script>
+    // Gallery Filter Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get filter value
+                const filterValue = this.getAttribute('data-filter');
+                
+                // Filter gallery items
+                galleryItems.forEach(item => {
+                    const itemCategory = item.getAttribute('data-category');
+                    
+                    if (filterValue === 'all' || itemCategory === filterValue) {
+                        item.style.display = 'block';
+                        item.style.animation = 'fadeIn 0.5s ease-in';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+    </script>
+    
+    <style>
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    </style>
