@@ -20,6 +20,17 @@
     </thead>
 
     <tbody>
+        <?php if (empty($galeri)): ?>
+        <tr>
+            <td colspan="6" class="p-8 text-center text-gray-500">
+                <i class="fas fa-images text-4xl mb-3 block text-gray-300"></i>
+                <p class="text-lg font-semibold mb-2">No Gallery Items Yet</p>
+                <p class="text-sm">Gallery items are automatically created when you upload images in:</p>
+                <p class="text-sm mt-2"><strong>Berita, Produk, Fasilitas, Kegiatan Lab, Penelitian Lab, or Publikasi Lab</strong></p>
+                <p class="text-xs text-gray-400 mt-3">Create content with images in those modules to populate the gallery.</p>
+            </td>
+        </tr>
+        <?php else: ?>
         <?php foreach ($galeri as $g): ?>
         <?php
             // tentukan sumber
@@ -78,6 +89,7 @@
             </td>
         </tr>
         <?php endforeach; ?>
+        <?php endif; ?>
     </tbody>
 </table>
 
