@@ -85,13 +85,49 @@ class RisetDosenController extends Controller
     public function update($id)
     {
         $m = new RisetDosen();
-
+        $g = new Galeri();
+        $old = $m->find($id);
+        $foto_baru = $this->uploadDokumentasi('foto_url');
+        
+        if ($foto_baru) {
+            $foto = $foto_baru;
+        } else {
+            $foto = $old['foto_url'];
+        }
+        
         $m->updateRiset($id, [
             $_POST['id_dosen'],
             $_POST['judul'],
             $_POST['tahun'],
-            $_POST['sumber_dana']
+            $_POST['sumber_dana'],
+            $foto
         ]);
+
+        // Jika ada foto baru, insert ke galeri
+        if ($foto_baru) {
+            $existing_galeri = $g->getByRiset();
+            $found = false;
+            foreach ($existing_galeri as $item) {
+                if ($item['id'] != 0 && strpos($item['judul'], $_POST['judul']) !== false) {
+                    $found = true;
+                    break;
+                }
+            }
+            
+            if (!$found) {
+                $uploadedBy = $_SESSION['user']['id_dosen'] ?? null;
+                $g->create([
+                    $uploadedBy,
+                    $foto_baru,
+                    $_POST['judul'],
+                    null, null, null,
+                    null, null, null,
+                    $id,
+                    null,
+                    'Riset Dosen'
+                ]);
+            }
+        }
 
         $_SESSION['success'] = "Riset dosen berhasil diperbarui.";
         header("Location: /admin/RisetDosen");

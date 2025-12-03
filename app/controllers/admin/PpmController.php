@@ -85,9 +85,15 @@ class PpmController extends Controller
 
     public function update($id) {
         $m = new Ppm();
+        $g = new Galeri();
         $old = $m->find($id);
-        $foto = $this->uploadDokumentasi('foto_url');
-        if (!$foto) $foto = $old['foto_url'];
+        $foto_baru = $this->uploadDokumentasi('foto_url');
+        
+        if ($foto_baru) {
+            $foto = $foto_baru;
+        } else {
+            $foto = $old['foto_url'];
+        }
 
         $m->updatePpm($id, [
             $_POST['id_dosen'],
@@ -95,6 +101,33 @@ class PpmController extends Controller
             $_POST['tahun'],
             $foto
         ]);
+        
+        // Jika ada foto baru, insert ke galeri
+        if ($foto_baru) {
+            $existing_galeri = $g->getByPpm();
+            $found = false;
+            foreach ($existing_galeri as $item) {
+                if ($item['id'] != 0 && strpos($item['judul'], $_POST['judul']) !== false) {
+                    $found = true;
+                    break;
+                }
+            }
+            
+            if (!$found) {
+                $uploadedBy = $_SESSION['user']['id_dosen'] ?? null;
+                $g->create([
+                    $uploadedBy,
+                    $foto_baru,
+                    $_POST['judul'],
+                    null, null, null,
+                    null, null,
+                    $id,
+                    null, null,
+                    'PPM'
+                ]);
+            }
+        }
+        
         $_SESSION['success'] = "PPM berhasil diperbarui";
         header("Location: /admin/Ppm");
     }

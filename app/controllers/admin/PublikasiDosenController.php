@@ -92,9 +92,17 @@ class PublikasiDosenController extends Controller
     }
     public function update($id) {
         $m = new PublikasiDosen();
+        $g = new Galeri();
         $old = $m->find($id);
-        $foto = $this->uploadDokumentasi('foto_url');
-        if (!$foto) $foto = $old['foto_url']; // Pakai lama jika tidak ada baru
+        $foto_baru = $this->uploadDokumentasi('foto_url');
+        
+        if ($foto_baru) {
+            // Ada foto baru, gunakan foto baru
+            $foto = $foto_baru;
+        } else {
+            // Tidak ada foto baru, gunakan foto lama
+            $foto = $old['foto_url'];
+        }
 
         $m->updatePublikasi($id, [
             $_POST['id_dosen'],
@@ -106,8 +114,33 @@ class PublikasiDosenController extends Controller
             $foto
         ]);
         
-        // Update Galeri jika ada foto baru (Opsional, butuh logika update Galeri yang lebih kompleks)
-        // Disini kita biarkan galeri lama tetap ada atau bisa dihapus manual via menu Galeri.
+        // Jika ada foto baru, insert ke galeri atau update galeri yang sudah ada
+        if ($foto_baru) {
+            // Cek apakah sudah ada record di galeri untuk publikasi ini
+            $existing_galeri = $g->getByPublikasiDosen();
+            $found = false;
+            foreach ($existing_galeri as $item) {
+                if ($item['id'] != 0 && strpos($item['judul'], $_POST['judul']) !== false) {
+                    $found = true;
+                    break;
+                }
+            }
+            
+            if (!$found) {
+                // Insert galeri baru
+                $uploadedBy = $_SESSION['user']['id_dosen'] ?? null;
+                $g->create([
+                    $uploadedBy,
+                    $foto_baru,
+                    $_POST['judul'],
+                    null, null, null,
+                    $id,
+                    null, null, null, null,
+                    'Publikasi Dosen'
+                ]);
+            }
+            // Jika sudah ada, skip (user bisa update caption via galeri menu)
+        }
         
         $_SESSION['success'] = "Publikasi berhasil diperbarui"; header("Location: /admin/PublikasiDosen");
     }

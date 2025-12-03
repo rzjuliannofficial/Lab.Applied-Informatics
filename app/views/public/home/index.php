@@ -1,6 +1,6 @@
 <!-- HERO -->
 <section class="hero section">
-    <div class="container hero-grid">
+    <div class="container hero-grid py-[2rem]">
         <div class="hero-left">
             <h1 class="hero-title">
                 Welcome to <br> 
@@ -55,7 +55,7 @@
         </div>
         <div class="hero-right">
             <div class="hero-image-card">
-                <img src="uploads/home/Lab.png" alt="kosong">
+                <img src="/uploads/home/rapat_ai.jpg" alt="kosong">
             </div>
         </div>
     </div>
@@ -76,7 +76,7 @@
             <div class="sticky top-24 h-fit">
                 <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]">
                     <!-- Header dengan background gradient -->
-                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-6 text-white rounded-2xl">
+                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-4 text-white rounded-2xl inline-flex">
                         <div class="flex items-center gap-3 ">
                             <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                                 <i class="fa-solid fa-eye text-2xl"></i>
@@ -121,7 +121,7 @@
             <div class="space-y-6">
                 <!-- Misi 1 -->
                 <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]" data-aos="fade-up">
-                    <div class="bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue)] p-6 text-white rounded-2xl">
+                    <div class="bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue)] p-4 text-white rounded-2xl inline-flex">
                         <h3 class="text-xl font-bold flex items-center gap-2">
                             <i class="fa-solid fa-database text-2xl"></i> Misi 1
                         </h3>
@@ -138,7 +138,7 @@
 
                 <!-- Misi 2 -->
                 <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]" data-aos="fade-up" data-aos-delay="100">
-                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-6 text-white rounded-2xl">
+                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-4 text-white rounded-2xl inline-flex">
                         <h3 class="text-xl font-bold flex items-center gap-2">
                             <i class="fa-solid fa-microchip text-2xl"></i> Misi 2
                         </h3>
@@ -155,7 +155,7 @@
 
                 <!-- Misi 3 -->
                 <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]" data-aos="fade-up" data-aos-delay="200">
-                    <div class="bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue)] p-6 text-white rounded-2xl">
+                    <div class="bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue)] p-4 text-white rounded-2xl inline-flex">
                         <h3 class="text-xl font-bold flex items-center gap-2">
                             <i class="fa-solid fa-flask text-2xl"></i> Misi 3
                         </h3>
@@ -172,7 +172,7 @@
 
                 <!-- Misi 4 -->
                 <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]" data-aos="fade-up" data-aos-delay="300">
-                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-6 text-white rounded-2xl">
+                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-4 text-white rounded-2xl inline-flex">
                         <h3 class="text-xl font-bold flex items-center gap-2">
                             <i class="fa-solid fa-code text-2xl"></i> Misi 4
                         </h3>
@@ -568,14 +568,15 @@
                     <div class="profile-card">
                         <div class="flex-grow">
                             <h3 class="profile-name"><?= htmlspecialchars($member['nama']); ?></h3>
-
-                            <div class="profile-expertise">
+                            <div class="profile-expertise ">
                                 <?php 
                                 // Akses kolom keahlian_text yang baru dibuat
                                 $keahlian = $member['keahlian_text'] ?? '';
                                 if (!empty($keahlian)) {
                                     foreach (explode(',', $keahlian) as $skill): ?>
-                                    <span class="skill-tag"><?= htmlspecialchars(trim($skill)); ?></span>
+                                    <span class="bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue)] text-white text-[12px] px-3 py-1 rounded-full font-semibold uppercase ml-1 mb-2 inline-block">
+                                        <?= htmlspecialchars(trim($skill)); ?>
+                                    </span>
                                 <?php endforeach; } ?>
                             </div>
                             
