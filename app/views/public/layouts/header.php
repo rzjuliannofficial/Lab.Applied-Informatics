@@ -15,10 +15,10 @@
 <body>
     <header class="sticky-header">
         <nav class="header-nav">
-            <a href="home">
+            <a href="/home">
                 <div class="logo-area">
                     <div class="logo-image-container">
-                        <img src="uploads/home/logoAi.png" alt="Lab AI Logo">
+                        <img src="/uploads/home/logoAi.png" alt="Lab AI Logo">
                     </div>
                     <div class="logo-text">
                         Applied <br>Informatics
@@ -29,6 +29,7 @@
             <div class="nav-links">
                 <a href="home" class="nav-link">Home</a>
                 <a href="product" class="nav-link">Product</a>
+                <a href="news" class="nav-link">News</a>
                 <a href="member" class="nav-link">Member</a>
                 <a href="gallery" class="nav-link">Gallery</a>
                 <a href="partner" class="nav-link">Partner</a>
