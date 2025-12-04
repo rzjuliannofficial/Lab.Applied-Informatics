@@ -14,32 +14,33 @@
     <form action="/admin/Produk/store" method="POST" enctype="multipart/form-data">
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
-
-            <!-- KOLOM KIRI -->
             <div class="space-y-6">
                 <h3 class="text-lg font-semibold text-gray-700 border-b pb-2 mb-4">
                     <i class="fas fa-box mr-2 text-gray-400"></i> Informasi Produk
                 </h3>
-
-                <!-- Nama Produk -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Nama Produk</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Nama Produk
+                        <span class="text-red-500">*</span>
+                    </label>
                     <input type="text" name="nama_produk"
                            class="w-full px-4 py-2 border border-gray-300 rounded-lg"
                            placeholder="Contoh: Sistem Informasi Absensi">
                 </div>
-
-                <!-- Kategori -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Kategori</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Kategori
+                        <span class="text-red-500">*</span>
+                    </label>
                     <input type="text" name="kategori"
                            class="w-full px-4 py-2 border border-gray-300 rounded-lg"
                            placeholder="Contoh: Web App, IoT, Mobile">
                 </div>
-
-                <!-- Link Demo -->
                 <div class="relative">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Link Demo</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Link Demo
+                        <span class="text-red-500">*</span>
+                    </label>
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <i class="fas fa-link text-gray-400"></i>
                     </div>
@@ -48,24 +49,24 @@
                            placeholder="https://contoh-demo.com">
                 </div>
             </div>
-
-            <!-- KOLOM KANAN -->
             <div class="space-y-6">
                 <h3 class="text-lg font-semibold text-gray-700 border-b pb-2 mb-4">
                     <i class="fas fa-info-circle mr-2 text-gray-400"></i> Detail Produk
                 </h3>
-
-                <!-- Deskripsi -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Deskripsi
+                        <span class="text-red-500">*</span>
+                    </label>
                     <textarea name="deskripsi" rows="4"
                               class="w-full px-4 py-2 border border-gray-300 rounded-lg"
                               placeholder="Deskripsi singkat produk..."></textarea>
                 </div>
-
-                <!-- Upload Gambar -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Gambar Produk</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Gambar Produk
+                        <span class="text-red-500">*</span>
+                    </label>
                     <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:bg-gray-50 transition cursor-pointer">
                         <div class="space-y-1 text-center">
                             <i class="fas fa-image text-4xl text-gray-400 mb-2"></i>

@@ -24,18 +24,27 @@
                     </h3>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Nama Lengkap
+                            <span class="text-red-500">*</span>
+                        </label>
                         <input type="text" name="nama" required value="<?= htmlspecialchars($dosen['nama']) ?>" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition">
                     </div>
 
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">NIP / NIM</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">
+                                NIP / NIM
+                                <span class="text-red-500">*</span>
+                            </label>
                             <input type="text" name="nip" required value="<?= htmlspecialchars($dosen['nip']) ?>" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition">
                         </div>
                             <?php if ($_SESSION['user']['role'] === 'admin'): ?>
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Jabatan</label>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                                        Jabatan
+                                        <span class="text-red-500">*</span>
+                                    </label>
                                     <select name="jabatan" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition bg-white">
                                         <option value="member" <?= $dosen['jabatan']=='member'?'selected':'' ?>>Member</option>
                                         <option value="asisten_lab" <?= $dosen['jabatan']=='asisten_lab'?'selected':'' ?>>Asisten Lab</option>
@@ -44,7 +53,10 @@
                                 </div>
                             <?php elseif ($_SESSION['user']['role'] === 'editor'): ?>
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-1">Jabatan</label>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                                        Jabatan
+                                        <span class="text-red-500">*</span>
+                                    </label>
                                     <select name="jabatan" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition bg-white">
                                         <option><?= ucfirst($dosen['jabatan']) ?></option>
                                     </select>
@@ -53,7 +65,10 @@
                     </div>
                                     
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Email Institusi</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Email Institusi
+                            <span class="text-red-500">*</span>
+                        </label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <i class="fas fa-envelope text-gray-400"></i>
@@ -64,10 +79,12 @@
 
                         <!-- Upload Foto -->
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Foto Profil</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Foto Profil
+                            <span class="text-red-500">*</span>
+                        </label>
                         
                         <div class="flex items-center space-x-4">
-                            <!-- Preview Foto Lama -->
                             <div class="flex-shrink-0">
                                 <?php if (!empty($dosen['foto_profil'])): ?>
                                     <img src="<?= htmlspecialchars($dosen['foto_profil']) ?>" class="h-16 w-16 rounded-full object-cover border border-gray-200">
@@ -102,12 +119,18 @@
                     </h3>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Bidang Keahlian</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Bidang Keahlian
+                            <span class="text-red-500">*</span>
+                        </label>
                         <input type="text" name="keahlian_text" required value="<?= htmlspecialchars($dosen['keahlian_text']) ?>" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition">
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi Singkat</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Deskripsi Singkat
+                            <span class="text-red-500">*</span>
+                        </label>
                         <textarea name="deskripsi" rows="3" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition"><?= htmlspecialchars($dosen['deskripsi']) ?></textarea>
                     </div>
 

@@ -23,7 +23,10 @@
 
                 <!-- Nama Partner -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Nama</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Nama
+                        <span class="text-red-500">*</span>
+                    </label>
                     <input type="text" name="nama" required
                            value="<?= htmlspecialchars($partners['nama']) ?>"
                            class="w-full px-4 py-2 border border-gray-300 rounded-lg"
@@ -32,7 +35,10 @@
 
                 <!-- Website -->
                 <div class="relative">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Website</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Website
+                        <span class="text-red-500">*</span>
+                    </label>
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
                     style="padding-top: 23px;">
                         <i class="fas fa-globe text-gray-400"></i>
@@ -45,7 +51,10 @@
 
                 <!-- Kategori Partner -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Kategori Partner</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Kategori Partner
+                        <span class="text-red-500">*</span>
+                    </label>
                     <select name="kategori" required
                             class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition">
                         <option value="Industry Partner" <?= $partners['kategori']=='Industry Partner'?'selected':'' ?>>Industry Partner</option>
@@ -64,33 +73,45 @@
 
                 <!-- Deskripsi -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Deskripsi
+                        <span class="text-red-500">*</span>
+                    </label>
                     <textarea name="deskripsi" rows="4"
                               class="w-full px-4 py-2 border border-gray-300 rounded-lg"
                               placeholder="Deskripsi singkat tentang partner..."><?= htmlspecialchars($partners['deskripsi']) ?></textarea>
                 </div>
-
-                <!-- Logo -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Logo Baru (Opsional)</label>
-                    <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:bg-gray-50 transition cursor-pointer">
-                        <div class="space-y-1 text-center">
-                            <i class="fas fa-image text-4xl text-gray-400 mb-2"></i>
-                            <div class="flex text-sm text-gray-600 justify-center">
-                                <label class="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500">
-                                    <span>Upload file</span>
-                                    <input name="logo" type="file" class="sr-only">
-                                </label>
-                                <p class="pl-1">atau drag & drop</p>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Logo Partner
+                        <span class="text-red-500">*</span>
+                    </label>
+                                
+                    <div class="flex items-center space-x-4">
+                        <div class="flex-shrink-0">
+                            <?php if (!empty($partners['logo'])): ?>
+                                <img src="<?= htmlspecialchars($partners['logo']) ?>" class="h-16 w-16 rounded-full object-cover border border-gray-200">
+                            <?php else: ?>
+                                <span class="inline-block h-16 w-16 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center border border-gray-200">
+                                    <i class="fas fa-image text-4xl text-gray-400"></i>
+                                </span>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="w-full">
+                            <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:bg-gray-50 transition cursor-pointer relative">
+                                <div class="space-y-1 text-center">
+                                    <div class="flex text-sm text-gray-600 justify-center">
+                                        <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-yellow-600 hover:text-yellow-500 focus-within:outline-none">
+                                            <span>Ganti Foto</span>
+                                            <input id="file-upload" name="logo" type="file" class="sr-only">
+                                        </label>
+                                    </div>
+                                    <p class="text-xs text-gray-500">Kosongkan jika tidak ingin mengubah</p>
+                                </div>
                             </div>
-                            <p class="text-xs text-gray-500">PNG, JPG, GIF max 2MB</p>
                         </div>
                     </div>
-
-                    <?php if ($partners['logo']): ?>
-                        <p class="font-semibold mt-2 mb-1">Logo Saat Ini:</p>
-                        <img src="<?= htmlspecialchars($partners['logo']) ?>" class="w-32 h-32 object-cover rounded mb-4">
-                    <?php endif; ?>
                 </div>
 
             </div>

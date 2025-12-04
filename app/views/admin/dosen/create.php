@@ -93,12 +93,18 @@
                     </h3>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Bidang Keahlian</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Bidang Keahlian
+                            <span class="text-red-500">*</span>
+                        </label>
                         <input type="text" name="keahlian_text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg " placeholder="Contoh: AI, Data Science, Networking">
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi Singkat</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Deskripsi Singkat
+                            <span class="text-red-500">*</span>
+                        </label>
                         <textarea name="deskripsi" rows="3" required class="w-full px-4 py-2 border border-gray-300 rounded-lg " placeholder="Tuliskan bio singkat..."></textarea>
                     </div>
 

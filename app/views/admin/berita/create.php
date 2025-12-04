@@ -24,7 +24,10 @@
 
                 <!-- Judul -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Judul Berita</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Judul Berita
+                        <span class="text-red-500">*</span>
+                    </label>
                     <input type="text" name="judul"
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg"
                         placeholder="Masukkan judul berita" required>
@@ -32,14 +35,20 @@
 
                 <!-- Tanggal -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Tanggal Publikasi</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Tanggal Publikasi
+                        <span class="text-red-500">*</span>
+                    </label>
                     <input type="date" name="tanggal"
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg">
                 </div>
 
                 <!-- Kategori -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Kategori Berita</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Kategori Berita
+                        <span class="text-red-500">*</span>
+                    </label>
                     <input type="text" name="kategori"
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg"
                         placeholder="Contoh: Blockchain, Economy" required>
@@ -56,7 +65,10 @@
 
                 <!-- Isi Berita -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Isi Berita</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Isi Berita
+                        <span class="text-red-500">*</span>
+                    </label>
                     <textarea name="isi_berita" rows="6"
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg"
                         placeholder="Tulis isi berita di sini..." required></textarea>
@@ -64,8 +76,10 @@
 
                 <!-- Upload Gambar -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Gambar Utama</label>
-
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Gambar
+                        <span class="text-red-500">*</span>
+                    </label>
                     <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed 
                                 rounded-lg hover:bg-gray-50 transition cursor-pointer">
                         <div class="text-center">
@@ -73,7 +87,7 @@
                             <div class="flex text-sm text-gray-600 justify-center">
                                 <label class="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500">
                                     <span>Pilih file</span>
-                                    <input type="file" name="gambar_utama" class="sr-only">
+                                    <input type="file" name="gambar_utama" class="sr-only" required>
                                 </label>
                                 <p class="pl-1">atau drag & drop</p>
                             </div>

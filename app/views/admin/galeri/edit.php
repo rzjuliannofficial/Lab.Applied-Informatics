@@ -41,7 +41,8 @@ $fileUrl = $item['file_url'];
 
                     <div>
                         <h3 class="text-lg font-semibold text-gray-700 mb-3 flex items-center">
-                            <i class="fas fa-pen text-gray-400 mr-2"></i> Caption
+                            <i class="fas fa-pen text-gray-400 mr-2"></i> Caption 
+                            <span class="text-red-500">*</span>
                         </h3>
 
                         <textarea 

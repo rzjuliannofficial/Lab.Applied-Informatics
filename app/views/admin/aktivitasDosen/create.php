@@ -17,7 +17,10 @@
                 </h3>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Dosen</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Dosen
+                        <span class="text-red-500">*</span>
+                    </label>
                     <select name="id_dosen" required
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                         <?php foreach ($dosen as $d): ?>
@@ -32,14 +35,20 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Judul Aktivitas</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Judul Aktivitas
+                        <span class="text-red-500">*</span>
+                    </label>
                     <input type="text" name="judul"
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg"
                         placeholder="Contoh: Pelatihan AI Nasional">
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Jenis Aktivitas</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Jenis Aktivitas
+                        <span class="text-red-500">*</span>
+                    </label>
                     <input type="text" name="jenis_aktivitas"
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg"
                         placeholder="Contoh: Seminar, Workshop, Pelatihan...">
@@ -51,19 +60,28 @@
                     <i class="fas fa-calendar-alt mr-2 text-gray-400"></i> Detail Aktivitas
                 </h3>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Tanggal</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Tanggal
+                        <span class="text-red-500">*</span>
+                    </label>
                     <input type="date" name="tanggal"
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Deskripsi
+                        <span class="text-red-500">*</span>
+                    </label>
                     <textarea name="deskripsi" rows="4"
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg"
                         placeholder="Tuliskan deskripsi aktivitas..."></textarea>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Foto/Dokumentasi</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Foto/Dokumentasi
+                        <span class="text-red-500">*</span>
+                    </label>
                     <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed 
                                 rounded-lg hover:bg-gray-50 transition cursor-pointer">
                         <div class="text-center">

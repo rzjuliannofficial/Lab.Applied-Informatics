@@ -20,14 +20,20 @@
                 </h3>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Nama Fasilitas</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Nama Fasilitas
+                        <span class="text-red-500">*</span>
+                    </label>
                     <input type="text" name="nama_fasilitas"
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg"
                         placeholder="Contoh: Komputer Lab, Proyektor, Meja Kerja">
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Deskripsi
+                        <span class="text-red-500">*</span>
+                    </label>
                     <textarea name="deskripsi" rows="4"
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg"
                         placeholder="Tuliskan detail fasilitas..."></textarea>
@@ -40,7 +46,10 @@
                 </h3>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Kondisi Fasilitas</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Kondisi Fasilitas
+                        <span class="text-red-500">*</span>
+                    </label>
                     <select name="kondisi"
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
                         <option value="baik">Baik</option>
@@ -50,8 +59,10 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Foto Fasilitas</label>
-
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Foto Fasilitas
+                        <span class="text-red-500">*</span>
+                    </label>
                     <div
                         class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:bg-gray-50 transition cursor-pointer">
                         <div class="space-y-1 text-center">

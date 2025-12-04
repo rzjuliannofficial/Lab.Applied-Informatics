@@ -23,7 +23,10 @@
 
                 <!-- Nama Partner -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Nama</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Nama
+                        <span class="text-red-500">*</span>
+                    </label>
                     <input type="text" name="nama" required
                            class="w-full px-4 py-2 border border-gray-300 rounded-lg"
                            placeholder="Nama Partner">
@@ -31,7 +34,10 @@
 
                 <!-- Website -->
                 <div class="relative">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Website</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Website
+                        <span class="text-red-500">*</span>
+                    </label>
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none" style="padding-top: 18px;">
                         <i class="fas fa-globe text-gray-400 mt-1"></i>
                     </div>
@@ -42,7 +48,10 @@
 
                 <!-- Kategori Partner -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Kategori Partner</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Kategori Partner
+                        <span class="text-red-500">*</span>
+                    </label>
                     <select name="kategori" required
                             class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition">
                         <option value="Industry Partner">Industry Partner</option>
@@ -61,7 +70,10 @@
 
                 <!-- Deskripsi -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Deskripsi
+                        <span class="text-red-500">*</span>
+                    </label>
                     <textarea name="deskripsi" rows="4"
                               class="w-full px-4 py-2 border border-gray-300 rounded-lg"
                               placeholder="Deskripsi singkat tentang partner..."></textarea>
@@ -69,7 +81,10 @@
 
                 <!-- Logo -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Logo Partner</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Logo Partner
+                        <span class="text-red-500">*</span>
+                    </label>
                     <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:bg-gray-50 transition cursor-pointer">
                         <div class="space-y-1 text-center">
                             <i class="fas fa-image text-4xl text-gray-400 mb-2"></i>

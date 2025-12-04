@@ -21,7 +21,7 @@
         <div class="login-card">
             <div class="login-header">
                 <div class="login-logo">
-                    <img src="img/logoAi.png" alt="Lab AI Logo">
+                    <img src="/uploads/home/logoAi.png" alt="Lab AI Logo">
                 </div>
                 <h1 class="login-title">Admin Login</h1>
                 <p class="login-subtitle">Applied Informatics Laboratory</p>

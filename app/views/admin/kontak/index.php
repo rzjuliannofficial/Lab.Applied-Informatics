@@ -32,9 +32,9 @@
             </td>
 
             <td class="p-2 border">
-                <div class="max-w-xs truncate text-gray-700">
+                <!-- <div class="max-w-xs truncate text-gray-700"> -->
                     <?= htmlspecialchars($p['isi']) ?>
-                </div>
+                <!-- </div> -->
             </td>
 
             <td class="p-2 border">
