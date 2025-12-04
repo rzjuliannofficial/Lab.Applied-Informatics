@@ -57,7 +57,7 @@
                     </p>
                 </div>
             </div>
-
+            
             <!-- Contact Form Section -->
             <div class="contact-form-wrapper" data-aos="fade-up" data-aos-delay="400">
                 <div class="contact-form-header">
@@ -69,8 +69,33 @@
                         Have a question or want to work together? Fill out the form below and we'll get back to you as soon as possible.
                     </p>
                 </div>
+                <?php if (isset($_SESSION['success'])): ?>
+                    <style>
+                        /* Definisi Animasi */
+                        @keyframes fadeOutCSS {
+                            0% { opacity: 1; visibility: visible; }
+                            80% { opacity: 1; visibility: visible; } /* Tahan di layar sampai 80% durasi */
+                            100% { opacity: 0; visibility: hidden; display: none; } /* Hilang */
+                        }
+                        
+                        #success-alert {
+                            /* Jalankan animasi selama 5 detik, lalu tahan di posisi terakhir (forwards) */
+                            animation: fadeOutCSS 5s forwards;
+                        }
+                    </style>
 
-                <form class="contact-form" id="contactForm" action="/index.php?url=kontak/store" method="POST">
+                    <div id="success-alert" class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6 rounded shadow-sm">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="font-bold">Berhasil!</p>
+                                <p><?= $_SESSION['success']; ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php unset($_SESSION['success']); ?>
+                <?php endif; ?>
+                <form class="contact-form" id="contactForm" action="/kontak/store" method="POST">
                     <div class="form-group">
                         <label for="name" class="form-label">
                             <i class="fas fa-user"></i> Name
