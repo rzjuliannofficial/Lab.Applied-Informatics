@@ -9,7 +9,7 @@
         </div>
     
     <div class="p-6 h-full overflow-y-auto scrollbar-hide" style="scrollbar-width: none; -ms-overflow-style: none;">
-        <nav class="space-y-1">
+
 <style>
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
@@ -80,6 +80,12 @@
             <?php if ($_SESSION['user']['role'] === 'admin'): ?>
             <a href="/admin/User" class="flex items-center p-3 hover:bg-gray-700">
                 <i class="fas fa-user-shield w-5 mr-3"></i>Kelola User
+            </a>
+            <?php endif; ?>
+
+            <?php if ($_SESSION['user']['role'] === 'admin'): ?>
+            <a href="/admin/Kontak" class="flex items-center p-3 hover:bg-gray-700">
+                <i class="fas fa-user-shield w-5 mr-3"></i>Contact Us
             </a>
             <?php endif; ?>
         </nav>

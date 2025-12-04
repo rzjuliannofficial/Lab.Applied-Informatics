@@ -50,6 +50,22 @@ $url = isset($_GET['url']) ? trim($_GET['url'], '/') : 'home'; //default to home
 $segments = explode('/', $url);
 
 
+// =========================
+// ROUTE KONTAK WEBSITE
+// =========================
+if ($segments[0] === "kontak" && empty($segments[1])) {
+    require "../app/controllers/website/ContactController.php";
+    (new ContactController())->index();
+    exit;
+}
+
+if ($segments[0] === "kontak" && ($segments[1] ?? "") === "store") {
+    require "../app/controllers/website/ContactController.php";
+    (new ContactController())->store();
+    exit;
+}
+
+
 // ===================================================================================
 //                                    ROUTER ADMIN
 // ===================================================================================
@@ -126,8 +142,7 @@ if ($segments[0] === "admin") {
     exit;
 }
 
-
-
+$uri = $_SERVER['REQUEST_URI'];
 
 
 // ===================================================================================
@@ -157,4 +172,5 @@ if (!method_exists($controller, $method)) {
 }
 
 $param ? $controller->$method($param) : $controller->$method();
+
 

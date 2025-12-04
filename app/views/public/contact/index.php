@@ -70,7 +70,7 @@
                     </p>
                 </div>
 
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" action="/index.php?url=kontak/store" method="POST">
                     <div class="form-group">
                         <label for="name" class="form-label">
                             <i class="fas fa-user"></i> Name
@@ -78,7 +78,7 @@
                         <input 
                             type="text" 
                             id="name" 
-                            name="name" 
+                            name="nama" 
                             class="form-input" 
                             placeholder="Enter your full name"
                             required>
@@ -116,7 +116,7 @@
                         </label>
                         <textarea 
                             id="message" 
-                            name="message" 
+                            name="isi" 
                             class="form-textarea" 
                             rows="6" 
                             placeholder="Write your message here..."
