@@ -163,25 +163,11 @@ class Galeri extends Model {
         //        id_publikasi_dosen, id_aktivitas_dosen, id_ppm, id_riset_dosen, 
         //        id_kekayaan_intelektual, kategori]
         $sql = "INSERT INTO {$this->table}
-<<<<<<< HEAD
-                (uploaded_by, file_url, caption, id_penelitian, id_kegiatan_lab, id_publikasi_lab, id_berita, id_produk, id_fasilitas, kategori)
-                VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)";
-        
-        $result = pg_query_params($this->db, $sql, $data);
-        
-        if (!$result) {
-            error_log("Galeri::create() failed: " . pg_last_error($this->db));
-            error_log("Data: " . print_r($data, true));
-        }
-        
-        return $result;
-=======
                 (uploaded_by, file_url, caption, id_berita, id_produk, id_fasilitas, 
                  id_publikasi_dosen, id_aktivitas_dosen, id_ppm, id_riset_dosen, 
                  id_kekayaan_intelektual, kategori)
                 VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)";
         return pg_query_params($this->db, $sql, $data);
->>>>>>> 2cd6dd2352939ef52c4b95877b90c5284c5f87f6
     }
 
     public function updateCaption($id, $caption, $kategori = null)
