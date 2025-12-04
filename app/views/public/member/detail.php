@@ -211,28 +211,28 @@
                                 class="tab-button px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 flex items-center gap-2">
                             <i class="fas fa-flask"></i>
                             <span>Riset</span>
-                            <span class="tab-count bg-gray-200 px-2 py-0.5 rounded-full text-xs font-bold">0</span>
+                            <span class="tab-count bg-gray-200 px-2 py-0.5 rounded-full text-xs font-bold"><?= count($riset); ?></span>
                         </button>
                         <button onclick="switchTab('kekayaan')" 
                                 id="tab-kekayaan"
                                 class="tab-button px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 flex items-center gap-2">
                             <i class="fas fa-certificate"></i>
                             <span>Kekayaan Intelektual</span>
-                            <span class="tab-count bg-gray-200 px-2 py-0.5 rounded-full text-xs font-bold">0</span>
+                            <span class="tab-count bg-gray-200 px-2 py-0.5 rounded-full text-xs font-bold"><?= count($kekayaan); ?></span>
                         </button>
                         <button onclick="switchTab('ppm')" 
                                 id="tab-ppm"
                                 class="tab-button px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 flex items-center gap-2">
                             <i class="fas fa-hands-helping"></i>
                             <span>PPM</span>
-                            <span class="tab-count bg-gray-200 px-2 py-0.5 rounded-full text-xs font-bold">0</span>
+                            <span class="tab-count bg-gray-200 px-2 py-0.5 rounded-full text-xs font-bold"><?= count($ppm); ?></span>
                         </button>
                         <button onclick="switchTab('aktivitas')" 
                                 id="tab-aktivitas"
                                 class="tab-button px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 flex items-center gap-2">
                             <i class="fas fa-calendar-check"></i>
                             <span>Aktivitas</span>
-                            <span class="tab-count bg-gray-200 px-2 py-0.5 rounded-full text-xs font-bold">0</span>
+                            <span class="tab-count bg-gray-200 px-2 py-0.5 rounded-full text-xs font-bold"><?= count($aktivitas); ?></span>
                         </button>
                     </div>
                 </div>
@@ -331,38 +331,224 @@
 
                 <!-- Tab Content: Riset -->
                 <div id="content-riset" class="tab-content hidden">
-                    <div class="bg-white rounded-2xl shadow-lg p-16 text-center border border-gray-100">
-                        <i class="fas fa-flask text-6xl text-gray-300 mb-4"></i>
-                        <p class="text-gray-500 text-lg font-medium">No research data available</p>
-                        <p class="text-gray-400 text-sm mt-2">Research information will be displayed here</p>
-                    </div>
+                    <?php if (!empty($riset) && count($riset) > 0): ?>
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                            <div class="bg-gradient-to-r from-purple-500 to-purple-700 px-6 py-4">
+                                <div class="flex items-center justify-between text-white">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-flask text-xl"></i>
+                                        <h3 class="text-xl font-bold">Daftar Riset</h3>
+                                    </div>
+                                    <div class="text-sm font-medium bg-white/20 px-4 py-1 rounded-full backdrop-blur-sm">
+                                        Total: <?= count($riset); ?> entries
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="overflow-x-auto">
+                                <table class="w-full">
+                                    <thead class="bg-gray-50 border-b-2 border-gray-200">
+                                        <tr>
+                                            <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider w-16">NO</th>
+                                            <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">JUDUL</th>
+                                            <th class="px-6 py-4 text-center text-xs font-bold text-gray-700 uppercase tracking-wider w-32">TAHUN</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                                        <?php $no = 1; foreach ($riset as $r): ?>
+                                            <tr class="hover:bg-purple-50 transition-colors duration-200">
+                                                <td class="px-6 py-4 text-sm text-gray-900 font-medium"><?= $no++; ?></td>
+                                                <td class="px-6 py-4">
+                                                    <div class="text-sm font-semibold text-gray-900"><?= htmlspecialchars($r['judul']); ?></div>
+                                                    <?php if (!empty($r['deskripsi'])): ?>
+                                                        <div class="text-xs text-gray-500 mt-1 line-clamp-2"><?= htmlspecialchars($r['deskripsi']); ?></div>
+                                                    <?php endif; ?>
+                                                </td>
+                                                <td class="px-6 py-4 text-center">
+                                                    <span class="inline-block bg-gradient-to-r from-purple-400 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                                                        <?= htmlspecialchars($r['tahun'] ?? 'N/A'); ?>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    <?php else: ?>
+                        <div class="bg-white rounded-2xl shadow-lg p-16 text-center border border-gray-100">
+                            <i class="fas fa-flask text-6xl text-gray-300 mb-4"></i>
+                            <p class="text-gray-500 text-lg font-medium">No research data available</p>
+                            <p class="text-gray-400 text-sm mt-2">Research information will be displayed here</p>
+                        </div>
+                    <?php endif; ?>
                 </div>
 
                 <!-- Tab Content: Kekayaan Intelektual -->
                 <div id="content-kekayaan" class="tab-content hidden">
-                    <div class="bg-white rounded-2xl shadow-lg p-16 text-center border border-gray-100">
-                        <i class="fas fa-certificate text-6xl text-gray-300 mb-4"></i>
-                        <p class="text-gray-500 text-lg font-medium">No intellectual property data available</p>
-                        <p class="text-gray-400 text-sm mt-2">Patents and intellectual property will be displayed here</p>
-                    </div>
+                    <?php if (!empty($kekayaan) && count($kekayaan) > 0): ?>
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                            <div class="bg-gradient-to-r from-amber-500 to-orange-600 px-6 py-4">
+                                <div class="flex items-center justify-between text-white">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-certificate text-xl"></i>
+                                        <h3 class="text-xl font-bold">Daftar Kekayaan Intelektual</h3>
+                                    </div>
+                                    <div class="text-sm font-medium bg-white/20 px-4 py-1 rounded-full backdrop-blur-sm">
+                                        Total: <?= count($kekayaan); ?> entries
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="overflow-x-auto">
+                                <table class="w-full">
+                                    <thead class="bg-gray-50 border-b-2 border-gray-200">
+                                        <tr>
+                                            <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider w-16">NO</th>
+                                            <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">JUDUL</th>
+                                            <th class="px-6 py-4 text-center text-xs font-bold text-gray-700 uppercase tracking-wider w-24">JENIS</th>
+                                            <th class="px-6 py-4 text-center text-xs font-bold text-gray-700 uppercase tracking-wider w-32">TAHUN</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                                        <?php $no = 1; foreach ($kekayaan as $k): ?>
+                                            <tr class="hover:bg-orange-50 transition-colors duration-200">
+                                                <td class="px-6 py-4 text-sm text-gray-900 font-medium"><?= $no++; ?></td>
+                                                <td class="px-6 py-4">
+                                                    <div class="text-sm font-semibold text-gray-900"><?= htmlspecialchars($k['judul']); ?></div>
+                                                    <?php if (!empty($k['deskripsi'])): ?>
+                                                        <div class="text-xs text-gray-500 mt-1 line-clamp-2"><?= htmlspecialchars($k['deskripsi']); ?></div>
+                                                    <?php endif; ?>
+                                                </td>
+                                                <td class="px-6 py-4 text-center">
+                                                    <span class="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-bold">
+                                                        <?= htmlspecialchars($k['jenis'] ?? 'N/A'); ?>
+                                                    </span>
+                                                </td>
+                                                <td class="px-6 py-4 text-center">
+                                                    <span class="inline-block bg-gradient-to-r from-amber-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                                                        <?= htmlspecialchars($k['tahun'] ?? 'N/A'); ?>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    <?php else: ?>
+                        <div class="bg-white rounded-2xl shadow-lg p-16 text-center border border-gray-100">
+                            <i class="fas fa-certificate text-6xl text-gray-300 mb-4"></i>
+                            <p class="text-gray-500 text-lg font-medium">No intellectual property data available</p>
+                            <p class="text-gray-400 text-sm mt-2">Patents and intellectual property will be displayed here</p>
+                        </div>
+                    <?php endif; ?>
                 </div>
 
                 <!-- Tab Content: PPM -->
                 <div id="content-ppm" class="tab-content hidden">
-                    <div class="bg-white rounded-2xl shadow-lg p-16 text-center border border-gray-100">
-                        <i class="fas fa-hands-helping text-6xl text-gray-300 mb-4"></i>
-                        <p class="text-gray-500 text-lg font-medium">No community service data available</p>
-                        <p class="text-gray-400 text-sm mt-2">Community service activities will be displayed here</p>
-                    </div>
+                    <?php if (!empty($ppm) && count($ppm) > 0): ?>
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                            <div class="bg-gradient-to-r from-green-500 to-emerald-600 px-6 py-4">
+                                <div class="flex items-center justify-between text-white">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-hands-helping text-xl"></i>
+                                        <h3 class="text-xl font-bold">Daftar Pengabdian Masyarakat</h3>
+                                    </div>
+                                    <div class="text-sm font-medium bg-white/20 px-4 py-1 rounded-full backdrop-blur-sm">
+                                        Total: <?= count($ppm); ?> entries
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="overflow-x-auto">
+                                <table class="w-full">
+                                    <thead class="bg-gray-50 border-b-2 border-gray-200">
+                                        <tr>
+                                            <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider w-16">NO</th>
+                                            <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">JUDUL</th>
+                                            <th class="px-6 py-4 text-center text-xs font-bold text-gray-700 uppercase tracking-wider w-32">TAHUN</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                                        <?php $no = 1; foreach ($ppm as $p): ?>
+                                            <tr class="hover:bg-green-50 transition-colors duration-200">
+                                                <td class="px-6 py-4 text-sm text-gray-900 font-medium"><?= $no++; ?></td>
+                                                <td class="px-6 py-4">
+                                                    <div class="text-sm font-semibold text-gray-900"><?= htmlspecialchars($p['judul']); ?></div>
+                                                    <?php if (!empty($p['deskripsi'])): ?>
+                                                        <div class="text-xs text-gray-500 mt-1 line-clamp-2"><?= htmlspecialchars($p['deskripsi']); ?></div>
+                                                    <?php endif; ?>
+                                                </td>
+                                                <td class="px-6 py-4 text-center">
+                                                    <span class="inline-block bg-gradient-to-r from-green-400 to-emerald-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                                                        <?= htmlspecialchars($p['tahun'] ?? 'N/A'); ?>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    <?php else: ?>
+                        <div class="bg-white rounded-2xl shadow-lg p-16 text-center border border-gray-100">
+                            <i class="fas fa-hands-helping text-6xl text-gray-300 mb-4"></i>
+                            <p class="text-gray-500 text-lg font-medium">No community service data available</p>
+                            <p class="text-gray-400 text-sm mt-2">Community service activities will be displayed here</p>
+                        </div>
+                    <?php endif; ?>
                 </div>
 
                 <!-- Tab Content: Aktivitas -->
                 <div id="content-aktivitas" class="tab-content hidden">
-                    <div class="bg-white rounded-2xl shadow-lg p-16 text-center border border-gray-100">
-                        <i class="fas fa-calendar-check text-6xl text-gray-300 mb-4"></i>
-                        <p class="text-gray-500 text-lg font-medium">No activity data available</p>
-                        <p class="text-gray-400 text-sm mt-2">Recent activities and events will be displayed here</p>
-                    </div>
+                    <?php if (!empty($aktivitas) && count($aktivitas) > 0): ?>
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                            <div class="bg-gradient-to-r from-pink-500 to-rose-600 px-6 py-4">
+                                <div class="flex items-center justify-between text-white">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-calendar-check text-xl"></i>
+                                        <h3 class="text-xl font-bold">Daftar Aktivitas</h3>
+                                    </div>
+                                    <div class="text-sm font-medium bg-white/20 px-4 py-1 rounded-full backdrop-blur-sm">
+                                        Total: <?= count($aktivitas); ?> entries
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="overflow-x-auto">
+                                <table class="w-full">
+                                    <thead class="bg-gray-50 border-b-2 border-gray-200">
+                                        <tr>
+                                            <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider w-16">NO</th>
+                                            <th class="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">AKTIVITAS</th>
+                                            <th class="px-6 py-4 text-center text-xs font-bold text-gray-700 uppercase tracking-wider w-32">TANGGAL</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                                        <?php $no = 1; foreach ($aktivitas as $a): ?>
+                                            <tr class="hover:bg-pink-50 transition-colors duration-200">
+                                                <td class="px-6 py-4 text-sm text-gray-900 font-medium"><?= $no++; ?></td>
+                                                <td class="px-6 py-4">
+                                                    <div class="text-sm font-semibold text-gray-900"><?= htmlspecialchars($a['judul'] ?? $a['nama_aktivitas'] ?? 'N/A'); ?></div>
+                                                    <?php if (!empty($a['deskripsi'])): ?>
+                                                        <div class="text-xs text-gray-500 mt-1 line-clamp-2"><?= htmlspecialchars($a['deskripsi']); ?></div>
+                                                    <?php endif; ?>
+                                                </td>
+                                                <td class="px-6 py-4 text-center">
+                                                    <span class="inline-block bg-gradient-to-r from-pink-400 to-rose-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                                                        <?= !empty($a['tanggal']) ? date('d M Y', strtotime($a['tanggal'])) : 'N/A'; ?>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    <?php else: ?>
+                        <div class="bg-white rounded-2xl shadow-lg p-16 text-center border border-gray-100">
+                            <i class="fas fa-calendar-check text-6xl text-gray-300 mb-4"></i>
+                            <p class="text-gray-500 text-lg font-medium">No activity data available</p>
+                            <p class="text-gray-400 text-sm mt-2">Recent activities and events will be displayed here</p>
+                        </div>
+                    <?php endif; ?>
                 </div>
 
             </div>
