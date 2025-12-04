@@ -14,6 +14,10 @@
     <?php 
         $member = $data['member'];
         $publications = $data['publications'] ?? [];
+        $riset = $data['riset'] ?? [];
+        $kekayaan = $data['kekayaan'] ?? [];
+        $ppm = $data['ppm'] ?? [];
+        $aktivitas = $data['aktivitas'] ?? [];
     ?>
 
     <!-- Hero Section with Profile -->
