@@ -30,6 +30,22 @@ class MemberController extends Controller
         $publikasiModel = $this->model('PublikasiDosen');
         $data['publications'] = $publikasiModel->getByDosen($id);
         
+        // Get riset (research) related to this member
+        $risetModel = $this->model('RisetDosen');
+        $data['riset'] = $risetModel->getByDosen($id);
+        
+        // Get kekayaan intelektual (intellectual property) related to this member
+        $kekayaanModel = $this->model('KekayaanIntelektual');
+        $data['kekayaan'] = $kekayaanModel->getByDosen($id);
+        
+        // Get PPM (community service) related to this member
+        $ppmModel = $this->model('Ppm');
+        $data['ppm'] = $ppmModel->getByDosen($id);
+        
+        // Get aktivitas (activities) related to this member
+        $aktivitasModel = $this->model('AktivitasDosen');
+        $data['aktivitas'] = $aktivitasModel->getByDosen($id);
+        
         $data['title'] = 'Profile ' . $data['member']['nama'] . ' - Lab Applied Informatics';
 
         $this->view("public/layouts/header", $data);
