@@ -66,13 +66,11 @@ class BeritaController extends Controller
                 $_SESSION['user']['id_dosen'],
                 $gambar,
                 "",
-                null,       // id_penelitian
-                null,       // id_kegiatan_lab
-                null,       // id_publikasi_lab
                 $id_berita, // id_berita
                 null,       // id_produk
                 null,       // id_fasilitas
-                null        // kategori (diisi manual di galeri/edit)
+                null, null, null, null, null, // id_publikasi_dosen, id_aktivitas_dosen, id_ppm, id_riset_dosen, id_ki
+                'Berita'    // kategori
             ]);
         }
 
@@ -106,26 +104,35 @@ class BeritaController extends Controller
 
         // Jika gambar baru diupload → masuk galeri
         if ($gambar !== $old['gambar_utama'] && $this->isImageFile($gambar)) {
-
+            // Cek apakah sudah ada di galeri
             $g = new Galeri();
-            $g->create([
-                $_SESSION['user']['id_dosen'],
-                $gambar,
-                "",
-                null,
-                null,
-                null,
-                $id,
-                null,
-                null,
-                null        // kategori (diisi manual di galeri/edit)
-            ]);
+            $existing = $g->getByBerita();
+            $found = false;
+            foreach ($existing as $item) {
+                if (!empty($item['id']) && strpos($item['judul'] ?? '', $_POST['judul']) !== false) {
+                    $found = true;
+                    break;
+                }
+            }
+            
+            if (!$found) {
+                $g->create([
+                    $_SESSION['user']['id_dosen'],
+                    $gambar,
+                    "",
+                    $id,        // id_berita
+                    null, null, // id_produk, id_fasilitas
+                    null, null, null, null, null, // id_publikasi_dosen, id_aktivitas_dosen, id_ppm, id_riset_dosen, id_ki
+                    'Berita'    // kategori
+                ]);
+            }
         }
 
         $_SESSION['success'] = "Berita berhasil diperbarui.";
         header("Location: /admin/berita");
     }
 
+    
     public function delete($id)
     {
         $m = new Berita();

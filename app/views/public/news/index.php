@@ -1,16 +1,27 @@
-<section class="relative pt-32 pb-20 bg-slate-50 min-h-screen">
-    <div class="container mx-auto px-4 md:px-8">
-        
-        <!-- Page Header -->
-        <div class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
-                News & <span class="text-blue-600">Articles</span>
-            </h1>
-            <p class="text-slate-500 text-lg max-w-2xl mx-auto">
-                Kumpulan berita, kegiatan, dan artikel ilmiah terbaru dari Lab Applied Informatics.
-            </p>
+<section class="section pt-0">
+    <div class="member-hero-section pt-[8rem] pb-[6rem] mx-auto flex flex-col items-center bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)]">
+        <!-- Floating Icons -->
+        <i class="fa-solid fa-bolt floating-icon" style="font-size: 3rem;"></i>
+        <i class="fas fa-graduation-cap floating-icon" style="font-size: 2.5rem;"></i>
+        <i class="fas fa-brain floating-icon" style="font-size: 3rem;"></i>
+        <i class="fas fa-lightbulb floating-icon" style="font-size: 2.5rem;"></i>
+        <div class="relative z-10 flex items-center gap-2 text-blue-200 font-semibold mb-4" data-aos="fade-up">
+            <i class="fa-solid fa-bolt text-yellow-500 text-sm mr-2"></i> 
+            <span class="uppercase tracking-wider text-sm">Hot Topics</span>
         </div>
 
+        <!-- Judul Utama -->
+        <h2 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 text-white" data-aos="fade-up" data-aos-delay="100">
+            Academic News & Articles
+        </h2>
+
+        <!-- Deskripsi -->
+        <p class="text-lg md:text-xl text-blue-100 leading-relaxed max-w-3xl mb-14 text-center" data-aos="fade-up" data-aos-delay="200">
+            Explore our collection of the latest news, scientific publications, and academic activities that demonstrate our dedication to the development of information technology.
+        </p>
+    </div>
+            
+    <div class="container mt-[5rem]">
         <!-- News Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <?php if (count($news) > 0): ?>

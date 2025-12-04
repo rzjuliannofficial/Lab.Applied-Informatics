@@ -33,12 +33,13 @@
                 <div class="footer-section">
                     <h4 class="footer-title">Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="index.php"><i class="fas fa-angle-right"></i> Home</a></li>
-                        <li><a href="product.php"><i class="fas fa-angle-right"></i> Products</a></li>
-                        <li><a href="member.php"><i class="fas fa-angle-right"></i> Team</a></li>
-                        <li><a href="gallery.php"><i class="fas fa-angle-right"></i> Gallery</a></li>
-                        <li><a href="partner.php"><i class="fas fa-angle-right"></i> Partners</a></li>
-                        <li><a href="contact.php"><i class="fas fa-angle-right"></i> Contact</a></li>
+                        <li><a href="/home"><i class="fas fa-angle-right"></i> Home</a></li>
+                        <li><a href="/product"><i class="fas fa-angle-right"></i> Products</a></li>
+                        <li><a href="/member"><i class="fas fa-angle-right"></i> Member</a></li>
+                        <li><a href="/news"><i class="fas fa-angle-right"></i> News</a></li>
+                        <li><a href="/gallery"><i class="fas fa-angle-right"></i> Gallery</a></li>
+                        <li><a href="/partner"><i class="fas fa-angle-right"></i> Partners</a></li>
+                        <li><a href="/contact"><i class="fas fa-angle-right"></i> Contact</a></li>
                     </ul>
                 </div>
 

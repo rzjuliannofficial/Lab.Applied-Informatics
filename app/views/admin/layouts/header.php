@@ -1,6 +1,6 @@
 <!-- <header class="bg-white shadow-sm h-16 flex justify-between items-center px-6 sticky top-0 left-64 z-30"> -->
 <header class="sticky md:ml-64 top-0 right-0 bg-white shadow-sm p-4 z-30 flex justify-between items-center left-64">
-    <button id="toggleSidebar" class="text-gray-600 hover:text-gray-900 focus:outline-none transition-colors">
+    <button id="toggleSidebar" class="md:hidden text-gray-600 hover:text-gray-900 focus:outline-none transition-colors">
         <i class="fas fa-bars text-xl"></i>
     </button>
 
@@ -24,7 +24,7 @@
                 <p class="text-sm font-semibold text-gray-700 leading-none">
                     <?= $_SESSION['user']['nama_dosen']; ?>
                 </p>
-                <p class="text-xs text-gray-500 mt-1"><?= $_SESSION['user']['role']; ?></p>
+                <p class="text-xs text-gray-500 mt-1"><?= ucfirst($_SESSION['user']['role']); ?></p>
             </div>
             <img src="https://ui-avatars.com/api/?name=Nabhan+Rizqi&background=02416D&color=fff" alt="Profile" class="w-9 h-9 rounded-full border-2 border-gray-100 shadow-sm">
         </div>

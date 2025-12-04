@@ -1,6 +1,6 @@
 <!-- HERO -->
 <section class="hero section">
-    <div class="container hero-grid">
+    <div class="container hero-grid py-[2rem]">
         <div class="hero-left">
             <h1 class="hero-title">
                 Welcome to <br> 
@@ -22,20 +22,20 @@
                         <div class="logo-carousel-track">
                             
                             <!-- Set Logo ASLI (6 item) -->
-                            <div class="logo-item"><img src="uploads/produk/OwnCloud2-Logo.svg_-300x157.png" alt="OwnCloud Logo"></div>
-                            <div class="logo-item"><img src="uploads/produk/seals.png" alt="SEALS Logo"></div>
-                            <div class="logo-item"><img src="uploads/produk/amati.png" alt="Amati Logo"></div>
-                            <div class="logo-item"><img src="uploads/produk/gitea-300x107-removebg-preview.png" alt="Gitea Logo"></div>
-                            <div class="logo-item"><img src="uploads/produk/logo_blockchain-1024x305.png" alt="CrowdEquiChain Logo"></div>
-                            <div class="logo-item"><img src="uploads/produk/ijo-removebg-preview.png" alt="Ijo Logo"></div>
+                            <div class="logo-item"><img src="uploads/home/OwnCloud2-Logo.svg_-300x157.png" alt="OwnCloud Logo"></div>
+                            <div class="logo-item"><img src="uploads/home/seals.png" alt="SEALS Logo"></div>
+                            <div class="logo-item"><img src="uploads/home/amati.png" alt="Amati Logo"></div>
+                            <div class="logo-item"><img src="uploads/home/gitea-300x107-removebg-preview.png" alt="Gitea Logo"></div>
+                            <div class="logo-item"><img src="uploads/home/logo_blockchain-1024x305.png" alt="CrowdEquiChain Logo"></div>
+                            <div class="logo-item"><img src="uploads/home/ijo-removebg-preview.png" alt="Ijo Logo"></div>
                             
                             <!-- Set Logo DUPLIKAT (untuk efek tak terbatas) -->
-                            <div class="logo-item"><img src="uploads/produk/OwnCloud2  -Logo.svg_-300x157.png" alt="OwnCloud Logo"></div>
-                            <div class="logo-item"><img src="uploads/produk/seals.png" alt="SEALS Logo"></div>
-                            <div class="logo-item"><img src="uploads/produk/amati.png" alt="Amati Logo"></div>
-                            <div class="logo-item"><img src="uploads/produk/gitea-300x107-removebg-preview.png" alt="Gitea Logo"></div>
-                            <div class="logo-item"><img src="uploads/produk/logo_blockchain-1024x305.png" alt="CrowdEquiChain Logo"></div>
-                            <div class="logo-item"><img src="uploads/produk/ijo-removebg-preview.png" alt="Ijo Logo"></div>
+                            <div class="logo-item"><img src="uploads/home/OwnCloud2-Logo.svg_-300x157.png" alt="OwnCloud Logo"></div>
+                            <div class="logo-item"><img src="uploads/home/seals.png" alt="SEALS Logo"></div>
+                            <div class="logo-item"><img src="uploads/home/amati.png" alt="Amati Logo"></div>
+                            <div class="logo-item"><img src="uploads/home/gitea-300x107-removebg-preview.png" alt="Gitea Logo"></div>
+                            <div class="logo-item"><img src="uploads/home/logo_blockchain-1024x305.png" alt="CrowdEquiChain Logo"></div>
+                            <div class="logo-item"><img src="uploads/home/ijo-removebg-preview.png" alt="Ijo Logo"> </div>
                             
                         </div>
 
@@ -55,7 +55,7 @@
         </div>
         <div class="hero-right">
             <div class="hero-image-card">
-                <img src="uploads/home/Lab.png" alt="kosong">
+                <img src="/uploads/home/rapat_ai.jpg" alt="kosong">
             </div>
         </div>
     </div>
@@ -76,7 +76,7 @@
             <div class="sticky top-24 h-fit">
                 <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]">
                     <!-- Header dengan background gradient -->
-                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-6 text-white rounded-2xl">
+                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-4 text-white rounded-2xl inline-flex">
                         <div class="flex items-center gap-3 ">
                             <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                                 <i class="fa-solid fa-eye text-2xl"></i>
@@ -121,7 +121,7 @@
             <div class="space-y-6">
                 <!-- Misi 1 -->
                 <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]" data-aos="fade-up">
-                    <div class="bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue)] p-6 text-white rounded-2xl">
+                    <div class="bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue)] p-4 text-white rounded-2xl inline-flex">
                         <h3 class="text-xl font-bold flex items-center gap-2">
                             <i class="fa-solid fa-database text-2xl"></i> Misi 1
                         </h3>
@@ -138,7 +138,7 @@
 
                 <!-- Misi 2 -->
                 <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]" data-aos="fade-up" data-aos-delay="100">
-                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-6 text-white rounded-2xl">
+                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-4 text-white rounded-2xl inline-flex">
                         <h3 class="text-xl font-bold flex items-center gap-2">
                             <i class="fa-solid fa-microchip text-2xl"></i> Misi 2
                         </h3>
@@ -155,7 +155,7 @@
 
                 <!-- Misi 3 -->
                 <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]" data-aos="fade-up" data-aos-delay="200">
-                    <div class="bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue)] p-6 text-white rounded-2xl">
+                    <div class="bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue)] p-4 text-white rounded-2xl inline-flex">
                         <h3 class="text-xl font-bold flex items-center gap-2">
                             <i class="fa-solid fa-flask text-2xl"></i> Misi 3
                         </h3>
@@ -172,7 +172,7 @@
 
                 <!-- Misi 4 -->
                 <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]" data-aos="fade-up" data-aos-delay="300">
-                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-6 text-white rounded-2xl">
+                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-4 text-white rounded-2xl inline-flex">
                         <h3 class="text-xl font-bold flex items-center gap-2">
                             <i class="fa-solid fa-code text-2xl"></i> Misi 4
                         </h3>
@@ -359,7 +359,7 @@
     <div class="half-circle-glow"></div>
 </div>
 
-<section class="relative py-24 overflow-hidden">    
+<section class="relative p-24 overflow-hidden ">    
     <div class="container mx-auto md:px-8">
         <!-- Header Section -->
         <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">    
@@ -533,9 +533,9 @@
         </div>
     </div>
     <div class="flex justify-center">
-        <a href="" class="group relative px-8 py-3 rounded-full bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] border border-slate-200 text-white font-bold shadow-sm hover:shadow-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 overflow-hidden">
+        <a href="/product" class="group relative px-8 py-3 rounded-full bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] border border-slate-200 text-white font-bold shadow-sm hover:shadow-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 overflow-hidden">
             <span class="relative z-10 flex items-center gap-2">
-                Read More 
+                Read More
                 <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
             </span>
             <div class="absolute inset-0 bg-blue-50 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
@@ -548,7 +548,7 @@
     <div class="half-circle-glow"></div>
 </div>
 <section id="team" class="section">
-    <div class="container px-[12rem]">
+    <div class="container">
         <div class="text-center mb-12">
             <div class="title">
                 <i class="fa-solid fa-id-card-clip text-sm mr-2"></i> OUR MEMBER
@@ -557,7 +557,7 @@
                 Get to Know <span class="gradient-text">Us</span></p>
             <p class="text-slate-500 text-lg">The most recent updates, all in one place.</p>
         </div>
-        <div class="profile-grid">
+        <div class="profile-grid px-[3rem]">
             <?php if (count($team) > 0): ?>
                 <?php 
                     $delay_increment = 300; // Penambahan delay 200 milidetik per kartu
@@ -568,14 +568,15 @@
                     <div class="profile-card">
                         <div class="flex-grow">
                             <h3 class="profile-name"><?= htmlspecialchars($member['nama']); ?></h3>
-
-                            <div class="profile-expertise">
+                            <div class="profile-expertise ">
                                 <?php 
                                 // Akses kolom keahlian_text yang baru dibuat
                                 $keahlian = $member['keahlian_text'] ?? '';
                                 if (!empty($keahlian)) {
                                     foreach (explode(',', $keahlian) as $skill): ?>
-                                    <span class="skill-tag"><?= htmlspecialchars(trim($skill)); ?></span>
+                                    <span class="bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue)] text-white text-[12px] px-3 py-1 rounded-full font-semibold uppercase ml-1 mb-2 inline-block">
+                                        <?= htmlspecialchars(trim($skill)); ?>
+                                    </span>
                                 <?php endforeach; } ?>
                             </div>
                             
@@ -630,7 +631,7 @@
             <?php endif; ?>
         </div>
         <div class="flex justify-center mt-10">
-            <a href="" class="group relative px-8 py-3 rounded-full bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] border border-slate-200 text-white font-bold shadow-sm hover:shadow-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 overflow-hidden">
+            <a href="/member" class="group relative px-8 py-3 rounded-full bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] border border-slate-200 text-white font-bold shadow-sm hover:shadow-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 overflow-hidden">
                 <span class="relative z-10 flex items-center gap-2">
                     Read More 
                     <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -647,75 +648,88 @@
 <!-- Facilities -->
 <section class="bg-gradient-to-br from-blue-50 via-white to-blue-50 text-gray-800 section">
     <div class="container">
+
         <!-- Header -->
         <div class="text-center mb-12">
             <div class="title">
                 <i class="fa-solid fa-building text-sm mr-2"></i> OUR FACILITIES
             </div>
-            <p class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight mt-3">Explore Our Space <span class="gradient-text">Space</span></p>
+            <p class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight mt-3">
+                Explore Our <span class="gradient-text">Space</span>
+            </p>
             <p class="text-slate-500 text-lg">Comfort and convenience, designed just for you.</p>
         </div>
 
-        <!-- ROW 1-->
-        <div class="flex flex-col md:flex-row gap-6 mb-8 h-auto md:h-[400px]"  data-aos="fade-up" data-aos-duration="1000">
-            <!-- Deskripsi (1/3) -->
-            <div class="w-full md:w-1/3 bg-blue-50 rounded-[30px] p-8 flex flex-col justify-center shadow-[0px_5px_10px_rgba(5,0,5,0.05)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(6,182,212,0.15)]">
-                <h2 class="text-2xl font-bold mb-4 underline decoration-blue-500 underline-offset-8">
-                    Pusat Riset Akademik
-                </h2>
-                <p class="text-gray-600 mb-6 leading-relaxed">
-                    Menawarkan ruang laboratorium nyaman dengan software pengembangan lengkap seperti VS Code, Android Studio, dan database server berkecepatan tinggi.
-                </p>
-                <div class="flex flex-wrap gap-2 h-8 sm:h-11 point-carousel-container">
-                    <div class="point-carousel-track">
-                        <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ High Speed WiFi</span>
-                        <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Full AC</span>
-                        <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Proyektor</span>
-                        <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Soundproof</span>
-                        <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ High Speed WiFi</span>
-                        <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Full AC</span>
-                        <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Proyektor</span>
-                        <span class="bg-white px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Soundproof</span>
-                    </div>
-                </div>
-            </div>
+<?php $fas1 = $fasilitas[0] ?? null; ?>
 
-            <!-- Gambar (2/3) -->
-            <div class="w-full md:w-2/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group" data-aos="fade-up" data-aos-duration="1500">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2301&auto=format&fit=crop" 
-                     alt="Lab Space" 
-                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-            </div>
-        </div>
+<!-- ROW 1 -->
+<div class="flex flex-col md:flex-row gap-6 mb-8 h-auto md:h-[400px]" data-aos="fade-up" data-aos-duration="1000">
 
-        <!-- ROW 2: Gambar (2/3) - Teks (1/3) [KEBALIKANNYA] -->
-        <!-- Karena lebar 2/3 sama dengan gambar atas, maka ukurannya akan identik -->
-        <div class="flex flex-col md:flex-row gap-6 h-auto md:h-[400px]"  data-aos="fade-up" data-aos-duration="1000">
-            <!-- Gambar (2/3) - Ditaruh di kiri -->
-            <div class="w-full md:w-2/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group order-2 md:order-1" >
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2301&auto=format&fit=crop" 
-                     alt="Meeting Room" 
-                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-            </div>
-
-            <!-- Gambar (1/3) - Ditaruh di kanan -->
-            <div class="w-full md:w-1/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group order-1 md:order-2" data-aos="fade-up" data-aos-duration="1500">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2301&auto=format&fit=crop" 
-                    alt="Meeting Room" 
-                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+    <!-- Deskripsi (1/3) — TETAP -->
+    <div class="w-full md:w-1/3 rounded-[30px] p-8 flex flex-col justify-center shadow-[0px_5px_10px_rgba(5,0,5,0.15)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(6,182,212,0.15)]">
+        <h2 class="text-2xl font-bold mb-4 underline decoration-blue-500 underline-offset-8">
+            Pusat Riset Akademik
+        </h2>
+        <p class="text-gray-600 mb-6 leading-relaxed">
+            Menawarkan ruang laboratorium nyaman dengan software pengembangan lengkap seperti VS Code, Android Studio, dan database server berkecepatan tinggi.
+        </p>
+        <div class="flex flex-wrap gap-2 h-8 sm:h-11 point-carousel-container">
+            <div class="point-carousel-track">
+                <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Full AC</span>
+                <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ High Speed WiFi</span>
+                <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Proyektor</span>
+                <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Soundproof</span>
             </div>
         </div>
     </div>
+
+    <!-- GAMBAR (2/3) — HANYA BAGIAN INI YANG DINAMIS -->
+    <div class="w-full md:w-2/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group">
+        <img src="<?= $fas1 ? htmlspecialchars($fas1['foto']) : '/assets/default-fasilitas.jpg' ?>"
+             alt="Fasilitas 1"
+             class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+    </div>
+
+</div>
+
+
+ <?php
+$fas2 = $fasilitas[1] ?? null;
+$fas3 = $fasilitas[2] ?? null;
+?>
+
+<!-- ROW 2 -->
+<div class="flex flex-col md:flex-row gap-6 h-auto md:h-[400px]" data-aos="fade-up" data-aos-duration="1000">
+
+    <!-- Gambar (2/3) LEFT -->
+    <div class="w-full md:w-2/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group order-2 md:order-1">
+        <img src="<?= $fas2 ? htmlspecialchars($fas2['foto']) : '/assets/default-fasilitas.jpg' ?>"
+             alt="Fasilitas 2"
+             class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+    </div>
+
+    <!-- Gambar (1/3) RIGHT -->
+    <div class="w-full md:w-1/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group order-1 md:order-2">
+        <img src="<?= $fas3 ? htmlspecialchars($fas3['foto']) : '/assets/default-fasilitas.jpg' ?>"
+             alt="Fasilitas 3"
+             class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+    </div>
+
+</div>
+
 </section>
+
+
 <div class="shadow-bar-top">
     <div class="half-circle-glow"></div>
 </div>
 
 <!-- publications -->
 <section class="section container">
+    
     <div class="text-center mb-12">
         <div class="title">
             <i class="text-green-500 fa-solid fa-flask text-sm mr-2"></i> RESEARCH & INNOVATION
@@ -723,14 +737,15 @@
         <p class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight mt-3">Faculty <span class="gradient-text">Publications</span></p>
         <p class="text-slate-500 text-lg">Explore the latest scholarly works and academic contributions from our faculty.</p>
     </div>
-    <div class="publications-grid"  data-aos="fade-up">
+    <div class="publications-grid">
         <?php if (count($publications) > 0): ?>
             <?php 
                 $delay_increment = 100;
                 $delay = 0;
             ?>
             <?php foreach ($publications as $publication): ?>
-                <div class="publication-card" data-aos="fade-up" data-aos-delay="<?= $delay; ?>">
+                <div data-aos="fade-up" data-aos-delay="<?= $delay; ?>">
+                <div class="publication-card">
                     <div class="publication-content">
                         <div class="flex gap-4 items-start justify-between mb-4">
                             <div class="flex gap-4 items-start flex-1">
@@ -752,7 +767,7 @@
                         <p class="publication-description text-gray-600 text-sm leading-relaxed mb-6 line-clamp-3"><?= htmlspecialchars($publication['deskripsi'] ?? '-'); ?></p>
                         <div class="flex items-center gap-2 text-[var(--blue)] hover:text-[var(--blue-dark)] font-semibold transition-colors duration-300 group cursor-pointer">
                             <?php if (!empty($publication['link_jurnal'])): ?>
-                                <a href="<?php //echo htmlspecialchars($publication['link_jurnal']); ?>" target="_blank" class="inline-flex items-center gap-2 group">
+                                <a href="<?php echo htmlspecialchars($publication['link_jurnal']); ?>" target="_blank" class="inline-flex items-center gap-2 group">
                                     Baca Selengkapnya
                                     <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform duration-300"></i>
                                 </a>
@@ -768,6 +783,7 @@
                 <?php 
                     $delay += $delay_increment; 
                 ?>
+                </div>
             <?php endforeach; ?>
         <?php else: ?>
             <p class="text-center text-gray-500 col-span-full py-8">Belum ada data publikasi yang tersedia.</p>

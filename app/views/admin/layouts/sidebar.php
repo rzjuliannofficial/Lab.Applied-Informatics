@@ -46,25 +46,6 @@
                 </div>
             </div>
 
-
-            <!-- DROPDOWN 2 -->
-            <div class="dropdown-group">
-                <button class="dropdown-btn flex items-center text-left justify-between w-full p-3 hover:bg-gray-700 rounded-lg">
-                    <span class="flex items-center">
-                        <i class="fas fa-flask w-5 mr-4"></i>
-                        Publikasi & Penelitian Lab
-                    </span>
-                    <i class="fas fa-chevron-right dropdown-icon transition-transform"></i>
-                </button>
-
-                <div class="dropdown-menu ml-10 mt-1 space-y-1 hidden">
-                    <a href="/admin/PublikasiLab" class="block p-2 text-gray-300 hover:bg-gray-700 rounded">Publikasi Lab</a>
-                    <a href="/admin/PenelitianLab" class="block p-2 text-gray-300 hover:bg-gray-700 rounded">Penelitian Lab</a>
-                    <a href="/admin/KegiatanLab" class="block p-2 text-gray-300 hover:bg-gray-700 rounded">Kegiatan Lab</a>
-                </div>
-            </div>
-
-
             <!-- Other menus khusus admin -->
             <?php if ($_SESSION['user']['role'] === 'admin'): ?>
             <a href="/admin/Berita" class="flex items-center p-3 text-gray-300 hover:bg-gray-700">
@@ -117,7 +98,7 @@
         <!-- User Info -->
         <div class="flex-1 min-w-0">
             <p class="text-sm font-medium text-white truncate"><?= $_SESSION['user']['nama_dosen'];?><p>
-            <p class="text-xs text-gray-400 truncate">(<?= $_SESSION['user']['role'];?>)</p>
+            <p class="text-xs text-gray-400 truncate">(<?= ucfirst($_SESSION['user']['role']); ?>)</p>
         </div>
         
         <!-- Logout Button -->

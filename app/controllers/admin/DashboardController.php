@@ -7,18 +7,20 @@ class DashboardController extends Controller
         // Load Model
         $dosenModel = new dosen();
         $userModel = new Users();
+        $publikasiModel = new PublikasiDosen();
+        $galeriModel = new Galeri();
 
         // Ambil statistik
         $totalDosen = $dosenModel->countAll();
-        $totalUser = $userModel->countEditors();
-        $totalPublikasi = 0; // Nanti kalau tabel publikasi sudah ada, tinggal tambahkan model-nya.
-        $totalGaleri = 0;
+        $totalEditor     = $userModel->countEditors();
+        $totalPublikasi = $publikasiModel->countAll();
+        $totalGaleri     = $galeriModel->countAll();
 
         // Kirim ke view
         
         $this->view('admin/dashboard/Dashboard', [
             'totalDosen' => $totalDosen,
-            'totalUser'  => $totalUser,
+            'totalEditor'    => $totalEditor,
             'totalPublikasi' => $totalPublikasi,
             'totalGaleri' => $totalGaleri
         ]);

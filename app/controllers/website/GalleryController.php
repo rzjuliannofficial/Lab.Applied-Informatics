@@ -5,22 +5,26 @@ class GalleryController extends Controller
     {
         $galeriModel = $this->model('Galeri');
 
-        // Ambil data galeri berdasarkan kategori
-        $data['galeriPublikasi'] = $galeriModel->getByPublikasiLab();
+        // Ambil data galeri berdasarkan kategori BARU (Aktivitas Dosen)
+        $data['galeriPublikasi'] = $galeriModel->getByPublikasiDosen();
         $data['galeriBerita'] = $galeriModel->getByBerita();
         $data['galeriProduk'] = $galeriModel->getByProduk();
         $data['galeriFasilitas'] = $galeriModel->getByFasilitas();
-        $data['galeriPenelitian'] = $galeriModel->getByPenelitianLab();
-        $data['galeriKegiatan'] = $galeriModel->getByKegiatanLab();
+        $data['galeriAktivitas'] = $galeriModel->getByAktivitasDosen();
+        $data['galeriPpm'] = $galeriModel->getByPpm();
+        $data['galeriRiset'] = $galeriModel->getByRiset();
+        $data['galeriHKI'] = $galeriModel->getByKI();
 
         // Gabungkan semua galeri untuk carousel
         $data['galleryItems'] = array_merge(
             $data['galeriPublikasi'],
+            $data['galeriAktivitas'],
+            $data['galeriPpm'],
+            $data['galeriRiset'],
+            $data['galeriHKI'],
             $data['galeriBerita'],
             $data['galeriProduk'],
-            $data['galeriFasilitas'],
-            $data['galeriPenelitian'],
-            $data['galeriKegiatan']
+            $data['galeriFasilitas']
         );
 
         // Urutkan berdasarkan tanggal terbaru

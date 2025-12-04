@@ -4,50 +4,88 @@
 
 <a href="/admin/Berita/create" class="bg-blue-600 text-white px-4 py-2 rounded">Tambah Berita</a>
 
-<table class="mt-4 w-full border bg-white shadow">
-    <thead class="bg-gray-100">
+<table class="mt-4 w-full bg-white shadow rounded-lg overflow-hidden">
+    <thead class="bg-gray-100 text-gray-700 text-sm font-semibold">
         <tr>
-            <th class="p-2 border">Judul</th>
-            <th class="p-2 border">Isi</th>
-            <th class="p-2 border">Kategori</th>
-            <th class="p-2 border">Tanggal</th>
-            <th class="p-2 border">Gambar</th>
-            <th class="p-2 border">Aksi</th>
+            <th class="p-3 border">#</th>
+            <th class="p-3 border w-64">Judul</th>
+            <th class="p-3 border w-96">Isi</th>
+            <th class="p-3 border">Kategori</th>
+            <th class="p-3 border">Tanggal</th>
+            <th class="p-3 border">Gambar</th>
+            <th class="p-3 border">Aksi</th>
         </tr>
     </thead>
 
-    <tbody>
-    <?php foreach ($berita as $b): ?>
+    <tbody class="text-sm text-gray-800">
+    <?php $i=0; foreach ($berita as $b): ?>
         <tr class="hover:bg-gray-50">
-            <td class="p-2 border"><?= htmlspecialchars($b['judul']) ?></td>
-            <td class="p-2 border"><?= htmlspecialchars($b['isi_berita']) ?></td>
-            <td class="p-2 border"><?= htmlspecialchars($b['kategori']) ?></td>
-            <td class="p-2 border"><?= htmlspecialchars($b['tanggal']) ?></td>
+            
+            <td class="p-3 border text-center">
+                <?= ++$i ?>
+            </td>
 
-            <td class="p-2 border">
+            <td class="p-3 border">
+                <div class="font-medium text-gray-900 line-clamp-2">
+                    <?= htmlspecialchars($b['judul']) ?>
+                </div>
+            </td>
+
+            <td class="p-3 border">
+                <div class="text-gray-600 line-clamp-3">
+                    <?= htmlspecialchars($b['isi_berita']) ?>
+                </div>
+            </td>
+
+            <td class="p-3 border text-center">
+                <span class="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs">
+                    <?= htmlspecialchars($b['kategori']) ?>
+                </span>
+            </td>
+
+            <td class="p-3 border text-center text-gray-600">
+                <?= htmlspecialchars($b['tanggal']) ?>
+            </td>
+
+            <td class="p-3 border text-center">
                 <?php if ($b['gambar_utama']): ?>
-                    <img src="<?= htmlspecialchars($b['gambar_utama']) ?>" class="w-16 h-16 object-cover rounded">
+                    <img src="<?= htmlspecialchars($b['gambar_utama']) ?>"
+                         class="w-16 h-16 object-cover rounded border" />
                 <?php else: ?>
-                    <span class="text-gray-400">-</span>
+                    <span class="text-gray-400 text-sm">Tidak ada</span>
                 <?php endif; ?>
             </td>
 
-            <td class="p-2 border">
-                <a href="/admin/Berita/edit/<?= $b['id'] ?>" class="text-yellow-600 mr-2">
-                    <i class="fas fa-edit"></i> Edit
-                </a>
+            <td class="p-3 border">
+    <div class="flex items-center justify-center gap-2">
 
-                <a href="/admin/Berita/delete/<?= $b['id'] ?>" 
-                   onclick="return confirm('Hapus berita ini?')"
-                   class="text-red-600">
-                    <i class="fas fa-trash"></i> Hapus
-                </a>
-            </td>
+        <a href="/admin/Berita/edit/<?= $b['id'] ?>"
+           class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
+                  text-yellow-700 bg-yellow-100 border border-yellow-300 
+                  rounded hover:bg-yellow-200 transition">
+            <i class="fas fa-edit text-[10px]"></i>
+            Edit
+        </a>
+
+        <a href="/admin/Berita/delete/<?= $b['id'] ?>"
+           onclick="return confirm('Hapus berita ini?')"
+           class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
+                  text-red-700 bg-red-100 border border-red-300 
+                  rounded hover:bg-red-200 transition">
+            <i class="fas fa-trash text-[10px]"></i>
+            Hapus
+        </a>
+
+    </div>
+</td>
+
         </tr>
     <?php endforeach; ?>
     </tbody>
 
 </table>
+
+
 
 <?php
 $content = ob_get_clean();

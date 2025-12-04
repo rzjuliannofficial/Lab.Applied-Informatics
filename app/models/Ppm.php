@@ -19,7 +19,7 @@ class Ppm extends Model
         return $rows;
     }
 
-    public function getByDosen($id)
+public function getByDosen($id)
     {
         $sql = "SELECT p.*, d.nama AS nama_dosen
                 FROM ppm p
@@ -34,7 +34,6 @@ class Ppm extends Model
 
         return $rows;
     }
-
     public function find($id)
     {
         $sql = "SELECT * FROM {$this->table} WHERE id = $1";
@@ -51,19 +50,16 @@ class Ppm extends Model
 
         return pg_query_params($this->db, $sql, $params);
     }
+    public function createAndReturnId($params) {
+        $sql = "INSERT INTO {$this->table} (id_dosen, judul, tahun, foto_url) VALUES ($1,$2,$3,$4) RETURNING id";
+        $res = pg_query_params($this->db, $sql, $params);
+        $row = pg_fetch_assoc($res);
+        return $row['id'];
+    }
 
-    public function updatePpm($id, $params)
-    {
-        $sql = "UPDATE {$this->table}
-                SET id_dosen=$1, judul=$2, tahun=$3
-                WHERE id=$4";
-
-        return pg_query_params($this->db, $sql, [
-            $params[0], 
-            $params[1],
-            $params[2],
-            $id
-        ]);
+    public function updatePpm($id, $params) {
+        $sql = "UPDATE {$this->table} SET id_dosen=$1, judul=$2, tahun=$3, foto_url=$4 WHERE id=$5";
+        return pg_query_params($this->db, $sql, array_merge($params, [$id]));
     }
 
     public function delete($id)

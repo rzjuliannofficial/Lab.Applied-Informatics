@@ -1,10 +1,24 @@
 <?php
-
 class RisetDosenController extends Controller
 {
     public function __construct()
     {
         Middleware::auth();
+    }
+
+    private function uploadDokumentasi($input = 'foto_url')
+    {
+        if (empty($_FILES[$input]) || $_FILES[$input]['error'] !== UPLOAD_ERR_OK) {
+            return null;
+        }
+        $f = $_FILES[$input];
+        $ext = pathinfo($f['name'], PATHINFO_EXTENSION);
+        $safe = "riset_" . time() . "_" . bin2hex(random_bytes(5)) . "." . $ext;
+        
+        $dir = realpath(__DIR__ . '/../../..') . "/public/uploads/galeri_dosen/";
+        if (!is_dir($dir)) mkdir($dir, 0777, true);
+
+        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? "/uploads/galeri_dosen/" . $safe : null;
     }
 
     public function index()
@@ -31,16 +45,31 @@ class RisetDosenController extends Controller
     public function store()
     {
         $m = new RisetDosen();
-
-        $m->create([
+        $foto = $this->uploadDokumentasi('foto_url');
+        $id_baru = $m->createAndReturnId([
             $_POST['id_dosen'],
             $_POST['judul'],
             $_POST['tahun'],
-            $_POST['sumber_dana']
+            $_POST['sumber_dana'],
+            $foto
         ]);
 
-        $_SESSION['success'] = "Riset dosen berhasil ditambahkan.";
-        header("Location: /admin/RisetDosen");
+        if ($foto) {
+            $g = new Galeri();
+            $uploadedBy = $_SESSION['user']['id_dosen'] ?? null;
+
+            $g->create([
+                $uploadedBy,
+                $foto,
+                $_POST['judul'],  // Caption
+                null, null, null, // id_berita, id_produk, id_fasilitas
+                null, null, null, // id_publikasi_dosen, id_aktivitas_dosen, id_ppm
+                $id_baru,         // id_riset_dosen (ID YANG BARU)
+                null,             // id_ki
+                'Riset Dosen'     // Kategori
+            ]);
+        }
+        $_SESSION['success'] = "Riset berhasil ditambahkan."; header("Location: /admin/RisetDosen");
     }
 
     public function edit($id)
@@ -53,28 +82,61 @@ class RisetDosenController extends Controller
 
         $this->view("admin/risetDosen/edit", $data);
     }
-
     public function update($id)
     {
         $m = new RisetDosen();
-
+        $g = new Galeri();
+        $old = $m->find($id);
+        $foto_baru = $this->uploadDokumentasi('foto_url');
+        
+        if ($foto_baru) {
+            $foto = $foto_baru;
+        } else {
+            $foto = $old['foto_url'];
+        }
+        
         $m->updateRiset($id, [
             $_POST['id_dosen'],
             $_POST['judul'],
             $_POST['tahun'],
-            $_POST['sumber_dana']
+            $_POST['sumber_dana'],
+            $foto
         ]);
+
+        // Jika ada foto baru, insert ke galeri
+        if ($foto_baru) {
+            $existing_galeri = $g->getByRiset();
+            $found = false;
+            foreach ($existing_galeri as $item) {
+                if ($item['id'] != 0 && strpos($item['judul'], $_POST['judul']) !== false) {
+                    $found = true;
+                    break;
+                }
+            }
+            
+            if (!$found) {
+                $uploadedBy = $_SESSION['user']['id_dosen'] ?? null;
+                $g->create([
+                    $uploadedBy,
+                    $foto_baru,
+                    $_POST['judul'],
+                    null, null, null,
+                    null, null, null,
+                    $id,
+                    null,
+                    'Riset Dosen'
+                ]);
+            }
+        }
 
         $_SESSION['success'] = "Riset dosen berhasil diperbarui.";
         header("Location: /admin/RisetDosen");
     }
 
-    public function delete($id)
-    {
-        $m = new RisetDosen();
+    public function delete($id) {
+        $m = new RisetDosen(); $old = $m->find($id);
+        if (!empty($old['foto_url'])) { $path = realpath(__DIR__ . '/../../..') . $old['foto_url']; if (file_exists($path)) unlink($path); }
         $m->delete($id);
-
-        $_SESSION['success'] = "Riset dosen berhasil dihapus.";
-        header("Location: /admin/RisetDosen");
+        $_SESSION['success'] = "Riset berhasil dihapus."; header("Location: /admin/RisetDosen");
     }
 }

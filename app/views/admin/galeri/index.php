@@ -41,12 +41,16 @@
                 $sumber = "Produk: " . htmlspecialchars($g['nama_produk'] ?? '');
             } elseif (!empty($g['id_fasilitas'])) {
                 $sumber = "Fasilitas: " . htmlspecialchars($g['nama_fasilitas'] ?? '');
-            } elseif (!empty($g['id_kegiatan_lab'])) {
-                $sumber = "Kegiatan Lab: " . htmlspecialchars($g['judul_kegiatan'] ?? '');
-            } elseif (!empty($g['id_penelitian'])) {
-                $sumber = "Penelitian Lab: " . htmlspecialchars($g['judul_penelitian'] ?? '');
-            } elseif (!empty($g['id_publikasi_lab'])) {
-                $sumber = "Publikasi Lab: " . htmlspecialchars($g['judul_publikasi_lab'] ?? '');
+            } elseif (!empty($g['id_publikasi_dosen'])) {
+                $sumber = "Publikasi Dosen: " . htmlspecialchars($g['judul_pub_dosen'] ?? '');
+            } elseif (!empty($g['id_aktivitas_dosen'])) {
+                $sumber = "Aktivitas Dosen: " . htmlspecialchars($g['judul_akt_dosen'] ?? '');
+            } elseif (!empty($g['id_ppm'])) {
+                $sumber = "PPM: " . htmlspecialchars($g['judul_ppm'] ?? '');
+            } elseif (!empty($g['id_riset_dosen'])) {
+                $sumber = "Riset Dosen: " . htmlspecialchars($g['judul_riset'] ?? '');
+            } elseif (!empty($g['id_kekayaan_intelektual'])) {
+                $sumber = "HKI: " . htmlspecialchars($g['judul_ki'] ?? '');
             }
 
             $fileUrl = $g['file_url'];
@@ -75,18 +79,25 @@
             <td class="p-2 border align-top">
                 <?= htmlspecialchars($g['nama_uploader'] ?? '-') ?>
             </td>
+                <td class="p-2 border">
+                    <div class="flex items-center justify-center gap-2">
+                    <a href="/admin/galeri/edit/<?= htmlspecialchars($g['id']) ?>" class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
+                  text-yellow-700 bg-yellow-100 border border-yellow-300 
+                  rounded hover:bg-yellow-200 transition">
+                        <i class="fas fa-edit text-[10px]"></i>
+                        Edit
+                    </a>
 
-            <td class="p-2 border align-top">
-                <a href="/admin/galeri/edit/<?= $g['id'] ?>" class="text-yellow-600 mr-2">
-                    <i class="fas fa-edit"></i> Edit Caption
-                </a>
+                    <a href="/admin/galeri/delete/<?= htmlspecialchars($g['id']) ?>" onclick="return confirm('Hapus data ini?')"
+                        class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
+                  text-red-700 bg-red-100 border border-red-300 
+                  rounded hover:bg-red-200 transition">
+                        <i class="fas fa-trash text-[10px]"></i>
+                        Hapus
+                    </a>
 
-                <a href="/admin/galeri/delete/<?= $g['id'] ?>"
-                   onclick="return confirm('Hapus item galeri ini? (file fisik tidak dihapus)')"
-                   class="text-red-600">
-                    <i class="fas fa-trash"></i> Hapus
-                </a>
-            </td>
+                    </div>
+                </td>
         </tr>
         <?php endforeach; ?>
         <?php endif; ?>

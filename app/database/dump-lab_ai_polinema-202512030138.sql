@@ -1,13 +1,90 @@
 --
+-- PostgreSQL database cluster dump
+--
+
+-- Started on 2025-12-03 01:38:57
+
+\restrict v8PCENC5MxCm7haNgKCWI74xkOeQH0GOywbBiVj69WugfHbzcGq508ShczdwOIX
+
+SET default_transaction_read_only = off;
+
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+
+--
+-- Roles
+--
+
+CREATE ROLE postgres;
+ALTER ROLE postgres WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION BYPASSRLS;
+
+--
+-- User Configurations
+--
+
+
+
+
+
+
+
+
+\unrestrict v8PCENC5MxCm7haNgKCWI74xkOeQH0GOywbBiVj69WugfHbzcGq508ShczdwOIX
+
+--
+-- Databases
+--
+
+--
+-- Database "template1" dump
+--
+
+\connect template1
+
+--
 -- PostgreSQL database dump
 --
 
-\restrict pDqGT7gkobirCMhOnQzBQfDbBZyPICFdpHQfiaDa3jD268k8uYDChBCGHRp8xQb
+\restrict GIsz72g2rK969nd51ZXQTifp96bAceofv6Rx1uiXNUgz4cy80g7gNVHxzmuO5sD
 
 -- Dumped from database version 15.14
 -- Dumped by pg_dump version 15.14
 
--- Started on 2025-12-01 11:13:14
+-- Started on 2025-12-03 01:38:57
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+-- Completed on 2025-12-03 01:38:58
+
+--
+-- PostgreSQL database dump complete
+--
+
+\unrestrict GIsz72g2rK969nd51ZXQTifp96bAceofv6Rx1uiXNUgz4cy80g7gNVHxzmuO5sD
+
+--
+-- Database "lab_ai_polinema" dump
+--
+
+--
+-- PostgreSQL database dump
+--
+
+\restrict cKu4AfqgGjvOjhXfZDHLcw57sF0wRky1o804gEX5tBLXdzte616T7UVWnLWGA4N
+
+-- Dumped from database version 15.14
+-- Dumped by pg_dump version 15.14
+
+-- Started on 2025-12-03 01:38:58
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -21,7 +98,32 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 2 (class 3079 OID 28087)
+-- TOC entry 3497 (class 1262 OID 43968)
+-- Name: lab_ai_polinema; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE lab_ai_polinema WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'English_Indonesia.1252';
+
+
+ALTER DATABASE lab_ai_polinema OWNER TO postgres;
+
+\unrestrict cKu4AfqgGjvOjhXfZDHLcw57sF0wRky1o804gEX5tBLXdzte616T7UVWnLWGA4N
+\connect lab_ai_polinema
+\restrict cKu4AfqgGjvOjhXfZDHLcw57sF0wRky1o804gEX5tBLXdzte616T7UVWnLWGA4N
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 2 (class 3079 OID 43969)
 -- Name: pgcrypto; Type: EXTENSION; Schema: -; Owner: -
 --
 
@@ -29,7 +131,7 @@ CREATE EXTENSION IF NOT EXISTS pgcrypto WITH SCHEMA public;
 
 
 --
--- TOC entry 3528 (class 0 OID 0)
+-- TOC entry 3498 (class 0 OID 0)
 -- Dependencies: 2
 -- Name: EXTENSION pgcrypto; Type: COMMENT; Schema: -; Owner: 
 --
@@ -38,7 +140,7 @@ COMMENT ON EXTENSION pgcrypto IS 'cryptographic functions';
 
 
 --
--- TOC entry 902 (class 1247 OID 28125)
+-- TOC entry 896 (class 1247 OID 44007)
 -- Name: member_jabatan; Type: TYPE; Schema: public; Owner: postgres
 --
 
@@ -52,7 +154,7 @@ CREATE TYPE public.member_jabatan AS ENUM (
 ALTER TYPE public.member_jabatan OWNER TO postgres;
 
 --
--- TOC entry 905 (class 1247 OID 28132)
+-- TOC entry 899 (class 1247 OID 44014)
 -- Name: user_role; Type: TYPE; Schema: public; Owner: postgres
 --
 
@@ -69,7 +171,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 215 (class 1259 OID 28137)
+-- TOC entry 215 (class 1259 OID 44019)
 -- Name: aktivitas_dosen; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -79,14 +181,15 @@ CREATE TABLE public.aktivitas_dosen (
     judul character varying(255) NOT NULL,
     jenis_aktivitas character varying(255),
     tanggal date,
-    deskripsi text
+    deskripsi text,
+    foto_url text
 );
 
 
 ALTER TABLE public.aktivitas_dosen OWNER TO postgres;
 
 --
--- TOC entry 216 (class 1259 OID 28142)
+-- TOC entry 216 (class 1259 OID 44024)
 -- Name: aktivitas_dosen_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -102,7 +205,7 @@ CREATE SEQUENCE public.aktivitas_dosen_id_seq
 ALTER TABLE public.aktivitas_dosen_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3529 (class 0 OID 0)
+-- TOC entry 3499 (class 0 OID 0)
 -- Dependencies: 216
 -- Name: aktivitas_dosen_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -111,7 +214,7 @@ ALTER SEQUENCE public.aktivitas_dosen_id_seq OWNED BY public.aktivitas_dosen.id;
 
 
 --
--- TOC entry 217 (class 1259 OID 28143)
+-- TOC entry 217 (class 1259 OID 44025)
 -- Name: berita; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -129,7 +232,7 @@ CREATE TABLE public.berita (
 ALTER TABLE public.berita OWNER TO postgres;
 
 --
--- TOC entry 218 (class 1259 OID 28148)
+-- TOC entry 218 (class 1259 OID 44030)
 -- Name: berita_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -145,7 +248,7 @@ CREATE SEQUENCE public.berita_id_seq
 ALTER TABLE public.berita_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3530 (class 0 OID 0)
+-- TOC entry 3500 (class 0 OID 0)
 -- Dependencies: 218
 -- Name: berita_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -154,7 +257,7 @@ ALTER SEQUENCE public.berita_id_seq OWNED BY public.berita.id;
 
 
 --
--- TOC entry 219 (class 1259 OID 28149)
+-- TOC entry 219 (class 1259 OID 44031)
 -- Name: dosen; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -176,7 +279,7 @@ CREATE TABLE public.dosen (
 ALTER TABLE public.dosen OWNER TO postgres;
 
 --
--- TOC entry 220 (class 1259 OID 28155)
+-- TOC entry 220 (class 1259 OID 44037)
 -- Name: fasilitas; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -192,7 +295,7 @@ CREATE TABLE public.fasilitas (
 ALTER TABLE public.fasilitas OWNER TO postgres;
 
 --
--- TOC entry 221 (class 1259 OID 28160)
+-- TOC entry 221 (class 1259 OID 44042)
 -- Name: fasilitas_id_fasilitas_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -208,7 +311,7 @@ CREATE SEQUENCE public.fasilitas_id_fasilitas_seq
 ALTER TABLE public.fasilitas_id_fasilitas_seq OWNER TO postgres;
 
 --
--- TOC entry 3531 (class 0 OID 0)
+-- TOC entry 3501 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: fasilitas_id_fasilitas_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -217,7 +320,7 @@ ALTER SEQUENCE public.fasilitas_id_fasilitas_seq OWNED BY public.fasilitas.id_fa
 
 
 --
--- TOC entry 222 (class 1259 OID 28161)
+-- TOC entry 222 (class 1259 OID 44043)
 -- Name: galeri; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -226,21 +329,23 @@ CREATE TABLE public.galeri (
     uploaded_by uuid NOT NULL,
     file_url text NOT NULL,
     caption character varying(255),
-    id_penelitian integer,
-    id_kegiatan_lab integer,
-    id_publikasi_lab integer,
     id_berita integer,
     id_produk integer,
     id_fasilitas integer,
     tanggal_upload timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    kategori character varying(50)
+    kategori character varying(50),
+    id_publikasi_dosen integer,
+    id_aktivitas_dosen integer,
+    id_ppm integer,
+    id_riset_dosen integer,
+    id_kekayaan_intelektual integer
 );
 
 
 ALTER TABLE public.galeri OWNER TO postgres;
 
 --
--- TOC entry 223 (class 1259 OID 28167)
+-- TOC entry 223 (class 1259 OID 44049)
 -- Name: galeri_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -256,7 +361,7 @@ CREATE SEQUENCE public.galeri_id_seq
 ALTER TABLE public.galeri_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3532 (class 0 OID 0)
+-- TOC entry 3502 (class 0 OID 0)
 -- Dependencies: 223
 -- Name: galeri_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -265,49 +370,7 @@ ALTER SEQUENCE public.galeri_id_seq OWNED BY public.galeri.id;
 
 
 --
--- TOC entry 224 (class 1259 OID 28168)
--- Name: kegiatan_lab; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.kegiatan_lab (
-    id integer NOT NULL,
-    id_dosen uuid NOT NULL,
-    judul character varying(255) NOT NULL,
-    deskripsi text,
-    tanggal_kegiatan date,
-    file_dokumentasi text
-);
-
-
-ALTER TABLE public.kegiatan_lab OWNER TO postgres;
-
---
--- TOC entry 225 (class 1259 OID 28173)
--- Name: kegiatan_lab_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE public.kegiatan_lab_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.kegiatan_lab_id_seq OWNER TO postgres;
-
---
--- TOC entry 3533 (class 0 OID 0)
--- Dependencies: 225
--- Name: kegiatan_lab_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE public.kegiatan_lab_id_seq OWNED BY public.kegiatan_lab.id;
-
-
---
--- TOC entry 226 (class 1259 OID 28174)
+-- TOC entry 224 (class 1259 OID 44050)
 -- Name: kekayaan_intelektual; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -316,14 +379,15 @@ CREATE TABLE public.kekayaan_intelektual (
     id_dosen uuid NOT NULL,
     judul character varying(255) NOT NULL,
     no_permohonan character varying(100),
-    tahun character varying(20)
+    tahun character varying(20),
+    foto_url text
 );
 
 
 ALTER TABLE public.kekayaan_intelektual OWNER TO postgres;
 
 --
--- TOC entry 227 (class 1259 OID 28177)
+-- TOC entry 225 (class 1259 OID 44053)
 -- Name: kekayaan_intelektual_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -339,8 +403,8 @@ CREATE SEQUENCE public.kekayaan_intelektual_id_seq
 ALTER TABLE public.kekayaan_intelektual_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3534 (class 0 OID 0)
--- Dependencies: 227
+-- TOC entry 3503 (class 0 OID 0)
+-- Dependencies: 225
 -- Name: kekayaan_intelektual_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -348,7 +412,7 @@ ALTER SEQUENCE public.kekayaan_intelektual_id_seq OWNED BY public.kekayaan_intel
 
 
 --
--- TOC entry 243 (class 1259 OID 28345)
+-- TOC entry 226 (class 1259 OID 44054)
 -- Name: partners; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -366,7 +430,7 @@ CREATE TABLE public.partners (
 ALTER TABLE public.partners OWNER TO postgres;
 
 --
--- TOC entry 242 (class 1259 OID 28344)
+-- TOC entry 227 (class 1259 OID 44060)
 -- Name: partners_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -382,8 +446,8 @@ CREATE SEQUENCE public.partners_id_seq
 ALTER TABLE public.partners_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3535 (class 0 OID 0)
--- Dependencies: 242
+-- TOC entry 3504 (class 0 OID 0)
+-- Dependencies: 227
 -- Name: partners_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -391,48 +455,7 @@ ALTER SEQUENCE public.partners_id_seq OWNED BY public.partners.id;
 
 
 --
--- TOC entry 228 (class 1259 OID 28178)
--- Name: penelitian_lab; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.penelitian_lab (
-    id integer NOT NULL,
-    id_dosen uuid NOT NULL,
-    judul character varying(255) NOT NULL,
-    deskripsi text,
-    status character varying(20)
-);
-
-
-ALTER TABLE public.penelitian_lab OWNER TO postgres;
-
---
--- TOC entry 229 (class 1259 OID 28183)
--- Name: penelitian_lab_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE public.penelitian_lab_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.penelitian_lab_id_seq OWNER TO postgres;
-
---
--- TOC entry 3536 (class 0 OID 0)
--- Dependencies: 229
--- Name: penelitian_lab_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE public.penelitian_lab_id_seq OWNED BY public.penelitian_lab.id;
-
-
---
--- TOC entry 230 (class 1259 OID 28184)
+-- TOC entry 228 (class 1259 OID 44061)
 -- Name: ppm; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -440,14 +463,15 @@ CREATE TABLE public.ppm (
     id integer NOT NULL,
     id_dosen uuid NOT NULL,
     judul character varying(255) NOT NULL,
-    tahun character varying(20)
+    tahun character varying(20),
+    foto_url text
 );
 
 
 ALTER TABLE public.ppm OWNER TO postgres;
 
 --
--- TOC entry 231 (class 1259 OID 28187)
+-- TOC entry 229 (class 1259 OID 44064)
 -- Name: ppm_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -463,8 +487,8 @@ CREATE SEQUENCE public.ppm_id_seq
 ALTER TABLE public.ppm_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3537 (class 0 OID 0)
--- Dependencies: 231
+-- TOC entry 3505 (class 0 OID 0)
+-- Dependencies: 229
 -- Name: ppm_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -472,7 +496,7 @@ ALTER SEQUENCE public.ppm_id_seq OWNED BY public.ppm.id;
 
 
 --
--- TOC entry 232 (class 1259 OID 28188)
+-- TOC entry 230 (class 1259 OID 44065)
 -- Name: produk; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -489,7 +513,7 @@ CREATE TABLE public.produk (
 ALTER TABLE public.produk OWNER TO postgres;
 
 --
--- TOC entry 233 (class 1259 OID 28193)
+-- TOC entry 231 (class 1259 OID 44070)
 -- Name: produk_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -505,8 +529,8 @@ CREATE SEQUENCE public.produk_id_seq
 ALTER TABLE public.produk_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3538 (class 0 OID 0)
--- Dependencies: 233
+-- TOC entry 3506 (class 0 OID 0)
+-- Dependencies: 231
 -- Name: produk_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -514,7 +538,7 @@ ALTER SEQUENCE public.produk_id_seq OWNED BY public.produk.id;
 
 
 --
--- TOC entry 234 (class 1259 OID 28194)
+-- TOC entry 232 (class 1259 OID 44071)
 -- Name: publikasi_dosen; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -525,14 +549,16 @@ CREATE TABLE public.publikasi_dosen (
     tahun integer,
     link_jurnal text,
     kategori character varying(100),
-    deskripsi text
+    deskripsi text,
+    foto_url text,
+    id_dosen_int integer
 );
 
 
 ALTER TABLE public.publikasi_dosen OWNER TO postgres;
 
 --
--- TOC entry 235 (class 1259 OID 28199)
+-- TOC entry 233 (class 1259 OID 44076)
 -- Name: publikasi_dosen_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -548,8 +574,8 @@ CREATE SEQUENCE public.publikasi_dosen_id_seq
 ALTER TABLE public.publikasi_dosen_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3539 (class 0 OID 0)
--- Dependencies: 235
+-- TOC entry 3507 (class 0 OID 0)
+-- Dependencies: 233
 -- Name: publikasi_dosen_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -557,49 +583,7 @@ ALTER SEQUENCE public.publikasi_dosen_id_seq OWNED BY public.publikasi_dosen.id;
 
 
 --
--- TOC entry 236 (class 1259 OID 28200)
--- Name: publikasi_lab; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.publikasi_lab (
-    id integer NOT NULL,
-    id_dosen uuid NOT NULL,
-    judul character varying(255) NOT NULL,
-    deskripsi text,
-    file_dokumen text,
-    kategori character varying(100)
-);
-
-
-ALTER TABLE public.publikasi_lab OWNER TO postgres;
-
---
--- TOC entry 237 (class 1259 OID 28205)
--- Name: publikasi_lab_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-CREATE SEQUENCE public.publikasi_lab_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.publikasi_lab_id_seq OWNER TO postgres;
-
---
--- TOC entry 3540 (class 0 OID 0)
--- Dependencies: 237
--- Name: publikasi_lab_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE public.publikasi_lab_id_seq OWNED BY public.publikasi_lab.id;
-
-
---
--- TOC entry 238 (class 1259 OID 28206)
+-- TOC entry 234 (class 1259 OID 44077)
 -- Name: riset_dosen; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -608,14 +592,15 @@ CREATE TABLE public.riset_dosen (
     id_dosen uuid NOT NULL,
     judul character varying(255) NOT NULL,
     tahun integer,
-    sumber_dana character varying(100)
+    sumber_dana character varying(100),
+    foto_url text
 );
 
 
 ALTER TABLE public.riset_dosen OWNER TO postgres;
 
 --
--- TOC entry 239 (class 1259 OID 28209)
+-- TOC entry 235 (class 1259 OID 44080)
 -- Name: riset_dosen_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -631,8 +616,8 @@ CREATE SEQUENCE public.riset_dosen_id_seq
 ALTER TABLE public.riset_dosen_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3541 (class 0 OID 0)
--- Dependencies: 239
+-- TOC entry 3508 (class 0 OID 0)
+-- Dependencies: 235
 -- Name: riset_dosen_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -640,7 +625,7 @@ ALTER SEQUENCE public.riset_dosen_id_seq OWNED BY public.riset_dosen.id;
 
 
 --
--- TOC entry 240 (class 1259 OID 28210)
+-- TOC entry 236 (class 1259 OID 44081)
 -- Name: users; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -656,7 +641,7 @@ CREATE TABLE public.users (
 ALTER TABLE public.users OWNER TO postgres;
 
 --
--- TOC entry 241 (class 1259 OID 28214)
+-- TOC entry 237 (class 1259 OID 44085)
 -- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -672,8 +657,8 @@ CREATE SEQUENCE public.users_id_seq
 ALTER TABLE public.users_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3542 (class 0 OID 0)
--- Dependencies: 241
+-- TOC entry 3509 (class 0 OID 0)
+-- Dependencies: 237
 -- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -681,7 +666,7 @@ ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- TOC entry 3285 (class 2604 OID 28215)
+-- TOC entry 3270 (class 2604 OID 44086)
 -- Name: aktivitas_dosen id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -689,7 +674,7 @@ ALTER TABLE ONLY public.aktivitas_dosen ALTER COLUMN id SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 3286 (class 2604 OID 28216)
+-- TOC entry 3271 (class 2604 OID 44087)
 -- Name: berita id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -697,7 +682,7 @@ ALTER TABLE ONLY public.berita ALTER COLUMN id SET DEFAULT nextval('public.berit
 
 
 --
--- TOC entry 3288 (class 2604 OID 28217)
+-- TOC entry 3273 (class 2604 OID 44088)
 -- Name: fasilitas id_fasilitas; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -705,7 +690,7 @@ ALTER TABLE ONLY public.fasilitas ALTER COLUMN id_fasilitas SET DEFAULT nextval(
 
 
 --
--- TOC entry 3289 (class 2604 OID 28218)
+-- TOC entry 3274 (class 2604 OID 44089)
 -- Name: galeri id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -713,15 +698,7 @@ ALTER TABLE ONLY public.galeri ALTER COLUMN id SET DEFAULT nextval('public.galer
 
 
 --
--- TOC entry 3291 (class 2604 OID 28219)
--- Name: kegiatan_lab id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.kegiatan_lab ALTER COLUMN id SET DEFAULT nextval('public.kegiatan_lab_id_seq'::regclass);
-
-
---
--- TOC entry 3292 (class 2604 OID 28220)
+-- TOC entry 3276 (class 2604 OID 44090)
 -- Name: kekayaan_intelektual id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -729,7 +706,7 @@ ALTER TABLE ONLY public.kekayaan_intelektual ALTER COLUMN id SET DEFAULT nextval
 
 
 --
--- TOC entry 3301 (class 2604 OID 28348)
+-- TOC entry 3277 (class 2604 OID 44091)
 -- Name: partners id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -737,15 +714,7 @@ ALTER TABLE ONLY public.partners ALTER COLUMN id SET DEFAULT nextval('public.par
 
 
 --
--- TOC entry 3293 (class 2604 OID 28221)
--- Name: penelitian_lab id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.penelitian_lab ALTER COLUMN id SET DEFAULT nextval('public.penelitian_lab_id_seq'::regclass);
-
-
---
--- TOC entry 3294 (class 2604 OID 28222)
+-- TOC entry 3279 (class 2604 OID 44092)
 -- Name: ppm id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -753,7 +722,7 @@ ALTER TABLE ONLY public.ppm ALTER COLUMN id SET DEFAULT nextval('public.ppm_id_s
 
 
 --
--- TOC entry 3295 (class 2604 OID 28223)
+-- TOC entry 3280 (class 2604 OID 44093)
 -- Name: produk id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -761,7 +730,7 @@ ALTER TABLE ONLY public.produk ALTER COLUMN id SET DEFAULT nextval('public.produ
 
 
 --
--- TOC entry 3296 (class 2604 OID 28224)
+-- TOC entry 3281 (class 2604 OID 44094)
 -- Name: publikasi_dosen id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -769,15 +738,7 @@ ALTER TABLE ONLY public.publikasi_dosen ALTER COLUMN id SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 3297 (class 2604 OID 28225)
--- Name: publikasi_lab id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.publikasi_lab ALTER COLUMN id SET DEFAULT nextval('public.publikasi_lab_id_seq'::regclass);
-
-
---
--- TOC entry 3298 (class 2604 OID 28226)
+-- TOC entry 3282 (class 2604 OID 44095)
 -- Name: riset_dosen id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -785,7 +746,7 @@ ALTER TABLE ONLY public.riset_dosen ALTER COLUMN id SET DEFAULT nextval('public.
 
 
 --
--- TOC entry 3299 (class 2604 OID 28227)
+-- TOC entry 3283 (class 2604 OID 44096)
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -793,29 +754,33 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 
 
 --
--- TOC entry 3494 (class 0 OID 28137)
+-- TOC entry 3469 (class 0 OID 44019)
 -- Dependencies: 215
 -- Data for Name: aktivitas_dosen; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.aktivitas_dosen (id, id_dosen, judul, jenis_aktivitas, tanggal, deskripsi) FROM stdin;
+COPY public.aktivitas_dosen (id, id_dosen, judul, jenis_aktivitas, tanggal, deskripsi, foto_url) FROM stdin;
+2	a0000000-0000-0000-0000-000000000001	Pelatihan AI Nasional	Pelatihan 	2025-12-05	Pelatihan AI untuk meningkatkan kompetensi dosen dalam penelitian kecerdasan buatan.	\N
+1	a0000000-0000-0000-0000-000000000001	Workshop Penulisan Jurnal Internasional	Workshop	2025-12-12	Workshop intensif mengenai tata cara penulisan artikel ilmiah untuk jurnal internasional.	\N
+3	a0000000-0000-0000-0000-000000000004	Nasional Teknologi Pendidikan	Seminar	2025-12-19	Seminar membahas inovasi teknologi dalam dunia pendidikan dan pembelajaran jarak jauh.	\N
 \.
 
 
 --
--- TOC entry 3496 (class 0 OID 28143)
+-- TOC entry 3471 (class 0 OID 44025)
 -- Dependencies: 217
 -- Data for Name: berita; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.berita (id, created_by, judul, isi_berita, tanggal, gambar_utama, kategori) FROM stdin;
-5	a0000000-0000-0000-0000-000000000001	Kunjungan Industri ke Lab AI Polinema	Tidak ada	1232-12-12	/uploads/berita/berita_1764495622_951de4da8d.jpg	ez
-6	a0000000-0000-0000-0000-000000000001	mplementasi Teknologi untuk Mendukung Budidaya dan Pemasaran Pertanian Berbasis Smart Farming pada P4S Bumiaji Sejahtera Kota Batu	Implementasi Teknologi untuk Mendukung Budidaya dan Pemasaran Pertanian Berbasis Smart Farming pada P4S Bumiaji Sejahtera Kota Batu\r\nProgram Studi D-IV Sistem Informasi Bisnis (SIB) Politeknik Negeri Malang melalui kegiatan Pengabdian kepada Masyarakat Skema Kemitraan Masyarakat kembali menunjukkan komitmennya dalam mendukung penerapan teknologi di sektor pertanian. Kegiatan ini mengusung judul “Implementasi Teknologi untuk Mendukung Budidaya dan Pemasaran Pertanian Berbasis Smart Farming pada P4S Bumiaji Sejahtera Kota Batu.”\r\nKegiatan pengabdian ini diketuai oleh Triana Fatmawati, S.T., M.T., dengan anggota tim yang terdiri dari Ir. Yan Watequlis Syaifudin, S.T., M.MT., Ph.D., Indrazno Siradjuddin, S.T., M.T., Ph.D., Yuri Ariyanto, S.Kom., M.Kom., Rokhimatul Wakhidah, S.Pd., M.T., dan Chandrasena Setiadi, S.T., M.Tr.T..\r\nMelalui kolaborasi antara dunia akademik dan masyarakat tani, kegiatan ini bertujuan untuk memperkenalkan konsep Smart Farming yang mengintegrasikan teknologi digital dalam proses budidaya, pengawasan lingkungan, dan pemasaran hasil pertanian. Implementasi sistem berbasis IoT (Internet of Things) serta platform digital pemasaran diharapkan dapat meningkatkan efisiensi produksi dan memperluas jangkauan pasar bagi para petani di P4S Bumiaji Sejahtera.\r\nSelain memberikan pelatihan teknis, tim pengabdian juga membantu mitra dalam merancang strategi promosi digital untuk memperkuat daya saing produk pertanian lokal di era modern.\r\nDengan adanya kegiatan ini, diharapkan masyarakat tani di Kota Batu dapat bertransformasi menuju pertanian cerdas, mandiri, dan berkelanjutan, sejalan dengan visi Politeknik Negeri Malang dalam mewujudkan inovasi teknologi untuk kemajuan bangsa.	2025-11-11	\N	Smartfarming , Teknologi 
+6	a0000000-0000-0000-0000-000000000001	Asesmen Lapangan Program Studi Magister Terapan Rekayasa Teknologi Informasi Politeknik Negeri Malang	Pada hari Senin–Selasa, 21–22 Juli 2025, Program Studi Magister Terapan Rekayasa Teknologi Informasi Politeknik Negeri Malang telah melaksanakan kegiatan Asesmen Lapangan yang menjadi bagian penting dalam proses akreditasi oleh Lembaga Akreditasi Mandiri (LAM) Informatika dan Komputer (INFOKOM).\r\n\r\nKegiatan ini dihadiri oleh jajaran pimpinan Politeknik Negeri Malang, pimpinan unit kerja yang meliputi jurusan, program studi, bagian pusat, Unit Pelaksana Akademik (UPA), serta seluruh tim akreditasi Program Studi Magister Terapan Rekayasa Teknologi Informasi.\r\n\r\nTurut hadir dua asesor ahli yang ditugaskan oleh LAM INFOKOM, yaitu Prof. Dr. Ir. Sri Nurdiati, M.Sc. dari Institut Pertanian Bogor (IPB) dan Transmissia Semiawan, Ph.D. dari Politeknik Negeri Bandung (Polban).\r\n\r\nSelama dua hari pelaksanaan, para asesor melakukan peninjauan menyeluruh terhadap berbagai aspek penting, mulai dari kurikulum, kegiatan tridarma perguruan tinggi, capaian pembelajaran, fasilitas penunjang, hingga tata kelola dan sistem penjaminan mutu. Seluruh rangkaian kegiatan berjalan dengan lancar dan penuh semangat kolaboratif antara tim asesor dan seluruh sivitas akademika.\r\n\r\nMelalui proses asesmen yang komprehensif ini, Program Studi Magister Terapan Rekayasa Teknologi Informasi Politeknik Negeri Malang berhasil meraih peringkat “BAIK SEKALI.” Capaian tersebut menjadi bukti nyata atas kerja keras, dedikasi, dan komitmen seluruh pihak dalam menghadirkan pendidikan vokasi tingkat magister yang unggul, inovatif, dan berdaya saing tinggi.\r\n\r\nPrestasi ini diharapkan dapat menjadi motivasi bagi seluruh sivitas akademika untuk terus meningkatkan mutu serta kontribusi dalam pengembangan teknologi informasi terapan di Indonesia.	2025-11-11	\N	Smartfarming, Teknologi 
+5	a0000000-0000-0000-0000-000000000001	Neve WordPress Theme Review: 1,200+ Five-Star Ratings Can’t Be Wrong…or Can They?	WordPress themes in the official WordPress repository. It consistently gets high ratings and is active on hundreds of thousands of websites. It’s obvious that many people like it, but does that mean it’s a good choice for you? In this review we peel back the curtain and give you all the information you need to make that decision.	1232-12-12	/uploads/berita/berita_1764495622_951de4da8d.jpg	Future
+7	a0000000-0000-0000-0000-000000000001	Implementasi Teknologi untuk Mendukung Budidaya dan Pemasaran Pertanian Berbasis Smart Farming pada P4S Bumiaji Sejahtera Kota Batu	Implementasi Teknologi untuk Mendukung Budidaya dan Pemasaran Pertanian Berbasis Smart Farming pada P4S Bumiaji Sejahtera Kota Batu\r\nProgram Studi D-IV Sistem Informasi Bisnis (SIB) Politeknik Negeri Malang melalui kegiatan Pengabdian kepada Masyarakat Skema Kemitraan Masyarakat kembali menunjukkan komitmennya dalam mendukung penerapan teknologi di sektor pertanian. Kegiatan ini mengusung judul “Implementasi Teknologi untuk Mendukung Budidaya dan Pemasaran Pertanian Berbasis Smart Farming pada P4S Bumiaji Sejahtera Kota Batu.”\r\nKegiatan pengabdian ini diketuai oleh Triana Fatmawati, S.T., M.T., dengan anggota tim yang terdiri dari Ir. Yan Watequlis Syaifudin, S.T., M.MT., Ph.D., Indrazno Siradjuddin, S.T., M.T., Ph.D., Yuri Ariyanto, S.Kom., M.Kom., Rokhimatul Wakhidah, S.Pd., M.T., dan Chandrasena Setiadi, S.T., M.Tr.T..\r\nMelalui kolaborasi antara dunia akademik dan masyarakat tani, kegiatan ini bertujuan untuk memperkenalkan konsep Smart Farming yang mengintegrasikan teknologi digital dalam proses budidaya, pengawasan lingkungan, dan pemasaran hasil pertanian. Implementasi sistem berbasis IoT (Internet of Things) serta platform digital pemasaran diharapkan dapat meningkatkan efisiensi produksi dan memperluas jangkauan pasar bagi para petani di P4S Bumiaji Sejahtera.\r\nSelain memberikan pelatihan teknis, tim pengabdian juga membantu mitra dalam merancang strategi promosi digital untuk memperkuat daya saing produk pertanian lokal di era modern.\r\nDengan adanya kegiatan ini, diharapkan masyarakat tani di Kota Batu dapat bertransformasi menuju pertanian cerdas, mandiri, dan berkelanjutan, sejalan dengan visi Politeknik Negeri Malang dalam mewujudkan inovasi teknologi untuk kemajuan bangsa.	2025-12-01	\N	Future
 \.
 
 
 --
--- TOC entry 3498 (class 0 OID 28149)
+-- TOC entry 3473 (class 0 OID 44031)
 -- Dependencies: 219
 -- Data for Name: dosen; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -836,7 +801,7 @@ a0000000-0000-0000-0000-000000000001	Yan Watequlis Syaifudin, S.T., M.MT., Ph.D.
 
 
 --
--- TOC entry 3499 (class 0 OID 28155)
+-- TOC entry 3474 (class 0 OID 44037)
 -- Dependencies: 220
 -- Data for Name: fasilitas; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -850,40 +815,34 @@ COPY public.fasilitas (id_fasilitas, nama_fasilitas, deskripsi, kondisi, foto) F
 
 
 --
--- TOC entry 3501 (class 0 OID 28161)
+-- TOC entry 3476 (class 0 OID 44043)
 -- Dependencies: 222
 -- Data for Name: galeri; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.galeri (id, uploaded_by, file_url, caption, id_penelitian, id_kegiatan_lab, id_publikasi_lab, id_berita, id_produk, id_fasilitas, tanggal_upload, kategori) FROM stdin;
-5	a0000000-0000-0000-0000-000000000001	/uploads/berita/berita_1764495622_951de4da8d.jpg		\N	\N	\N	5	\N	\N	2025-11-30 16:40:22.859929	\N
-6	a0000000-0000-0000-0000-000000000001	/uploads/fasilitas/fasilitas_1764495747_9d7d572b6c.png		\N	\N	\N	\N	\N	4	2025-11-30 16:42:27.720938	\N
+COPY public.galeri (id, uploaded_by, file_url, caption, id_berita, id_produk, id_fasilitas, tanggal_upload, kategori, id_publikasi_dosen, id_aktivitas_dosen, id_ppm, id_riset_dosen, id_kekayaan_intelektual) FROM stdin;
+5	a0000000-0000-0000-0000-000000000001	/uploads/berita/berita_1764495622_951de4da8d.jpg		5	\N	\N	2025-11-30 16:40:22.859929	\N	\N	\N	\N	\N	\N
+6	a0000000-0000-0000-0000-000000000001	/uploads/fasilitas/fasilitas_1764495747_9d7d572b6c.png	Sekarang wis wayae	\N	\N	4	2025-11-30 16:42:27.720938	Produk	\N	\N	\N	\N	\N
+7	a0000000-0000-0000-0000-000000000001	/uploads/galeri_dosen/hki_1764579253_46a14c5b19.png	Kunjungan Industri ke Lab AI Polinema	\N	\N	\N	2025-12-01 15:54:13.81367	Kekayaan Intelektual	\N	\N	\N	\N	1
 \.
 
 
 --
--- TOC entry 3503 (class 0 OID 28168)
+-- TOC entry 3478 (class 0 OID 44050)
 -- Dependencies: 224
--- Data for Name: kegiatan_lab; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.kegiatan_lab (id, id_dosen, judul, deskripsi, tanggal_kegiatan, file_dokumentasi) FROM stdin;
-\.
-
-
---
--- TOC entry 3505 (class 0 OID 28174)
--- Dependencies: 226
 -- Data for Name: kekayaan_intelektual; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.kekayaan_intelektual (id, id_dosen, judul, no_permohonan, tahun) FROM stdin;
+COPY public.kekayaan_intelektual (id, id_dosen, judul, no_permohonan, tahun, foto_url) FROM stdin;
+2	a0000000-0000-0000-0000-000000000002	Sistem Otomatisasi Laboratorium Kimia	KI-001/2024	2024	\N
+1	a0000000-0000-0000-0000-000000000006	Alat Deteksi Kualitas Air Otomatis	KI-002/2023	2023	\N
+3	a0000000-0000-0000-0000-000000000005	Aplikasi Monitoring Energi Terbarukan	KI-003/2025	2025	\N
 \.
 
 
 --
--- TOC entry 3522 (class 0 OID 28345)
--- Dependencies: 243
+-- TOC entry 3480 (class 0 OID 44054)
+-- Dependencies: 226
 -- Data for Name: partners; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -917,29 +876,22 @@ COPY public.partners (id, nama, logo, website, deskripsi, kategori, created_at) 
 
 
 --
--- TOC entry 3507 (class 0 OID 28178)
+-- TOC entry 3482 (class 0 OID 44061)
 -- Dependencies: 228
--- Data for Name: penelitian_lab; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.penelitian_lab (id, id_dosen, judul, deskripsi, status) FROM stdin;
-1	a0000000-0000-0000-0000-000000000006	PBO gege	Gajelu	rencana
-\.
-
-
---
--- TOC entry 3509 (class 0 OID 28184)
--- Dependencies: 230
 -- Data for Name: ppm; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.ppm (id, id_dosen, judul, tahun) FROM stdin;
+COPY public.ppm (id, id_dosen, judul, tahun, foto_url) FROM stdin;
+1	a0000000-0000-0000-0000-000000000005	Penerapan AI untuk Optimalisasi Pertanian	2022	\N
+2	a0000000-0000-0000-0000-000000000007	Sistem Informasi Manajemen Air Bersih	2023	\N
+3	a0000000-0000-0000-0000-000000000001	Peningkatan Kualitas Pendidikan melalui E-Learning	2023	\N
+4	a0000000-0000-0000-0000-000000000001	Optimalisasi Energi Terbarukan di Lingkungan Kampus	2024	\N
 \.
 
 
 --
--- TOC entry 3511 (class 0 OID 28188)
--- Dependencies: 232
+-- TOC entry 3484 (class 0 OID 44065)
+-- Dependencies: 230
 -- Data for Name: produk; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -954,40 +906,35 @@ COPY public.produk (id, nama_produk, deskripsi, link_demo, image, kategori) FROM
 
 
 --
--- TOC entry 3513 (class 0 OID 28194)
--- Dependencies: 234
+-- TOC entry 3486 (class 0 OID 44071)
+-- Dependencies: 232
 -- Data for Name: publikasi_dosen; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.publikasi_dosen (id, id_dosen, judul, tahun, link_jurnal, kategori, deskripsi) FROM stdin;
-1	a0000000-0000-0000-0000-000000000001	Ayam Bakar	2025	google	Malaz	WENAK 
+COPY public.publikasi_dosen (id, id_dosen, judul, tahun, link_jurnal, kategori, deskripsi, foto_url, id_dosen_int) FROM stdin;
+8	a0000000-0000-0000-0000-000000000001	Analisis Machine Learning untuk Prediksi Cuaca	2023	https://example.com/jurnal-cuaca-ml	Jurnal Internasional	Penelitian ini membahas pemanfaatan algoritma machine learning untuk memprediksi pola cuaca di Indonesia.	\N	\N
+1	a0000000-0000-0000-0000-000000000002	Penerapan IoT pada Sistem Monitoring Lingkungan	2024	https://example.com/iot-environment	Konferensi Nasional	Studi tentang penggunaan teknologi Internet of Things untuk memantau kondisi lingkungan secara real-time.	\N	\N
+9	a0000000-0000-0000-0000-000000000004	Perancangan Sistem Informasi Akademik Berbasis Web	2022	https://example.com/sia-web	Jurnal Nasional Terakreditasi	Pengembangan sistem informasi untuk mengelola aktivitas akademik di perguruan tinggi.	\N	\N
 \.
 
 
 --
--- TOC entry 3515 (class 0 OID 28200)
--- Dependencies: 236
--- Data for Name: publikasi_lab; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.publikasi_lab (id, id_dosen, judul, deskripsi, file_dokumen, kategori) FROM stdin;
-1	a0000000-0000-0000-0000-000000000001	Rilis Aplikasi Smart Campus v2.0	affafaf	\N	Malaz
-\.
-
-
---
--- TOC entry 3517 (class 0 OID 28206)
--- Dependencies: 238
+-- TOC entry 3488 (class 0 OID 44077)
+-- Dependencies: 234
 -- Data for Name: riset_dosen; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.riset_dosen (id, id_dosen, judul, tahun, sumber_dana) FROM stdin;
+COPY public.riset_dosen (id, id_dosen, judul, tahun, sumber_dana, foto_url) FROM stdin;
+1	a0000000-0000-0000-0000-000000000001	Pengembangan Algoritma Machine Learning untuk Prediksi Cuaca	2022	Kemdikbud	\N
+2	a0000000-0000-0000-0000-000000000010	Analisis Efektivitas Pembelajaran Online di Perguruan Tinggi	2024	Hibah Internal	\N
+3	a0000000-0000-0000-0000-000000000011	Penerapan IoT untuk Monitoring Lingkungan Perkotaan	2025	Mandiri	\N
+4	a0000000-0000-0000-0000-000000000011	Optimalisasi Big Data untuk Prediksi Tren Pendidikan	2025	Kemdikbud	\N
 \.
 
 
 --
--- TOC entry 3519 (class 0 OID 28210)
--- Dependencies: 240
+-- TOC entry 3490 (class 0 OID 44081)
+-- Dependencies: 236
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1007,25 +954,25 @@ COPY public.users (id, username, password, role, id_dosen) FROM stdin;
 
 
 --
--- TOC entry 3543 (class 0 OID 0)
+-- TOC entry 3510 (class 0 OID 0)
 -- Dependencies: 216
 -- Name: aktivitas_dosen_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.aktivitas_dosen_id_seq', 1, false);
+SELECT pg_catalog.setval('public.aktivitas_dosen_id_seq', 3, true);
 
 
 --
--- TOC entry 3544 (class 0 OID 0)
+-- TOC entry 3511 (class 0 OID 0)
 -- Dependencies: 218
 -- Name: berita_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.berita_id_seq', 6, true);
+SELECT pg_catalog.setval('public.berita_id_seq', 7, true);
 
 
 --
--- TOC entry 3545 (class 0 OID 0)
+-- TOC entry 3512 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: fasilitas_id_fasilitas_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -1034,35 +981,26 @@ SELECT pg_catalog.setval('public.fasilitas_id_fasilitas_seq', 4, true);
 
 
 --
--- TOC entry 3546 (class 0 OID 0)
+-- TOC entry 3513 (class 0 OID 0)
 -- Dependencies: 223
 -- Name: galeri_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.galeri_id_seq', 6, true);
+SELECT pg_catalog.setval('public.galeri_id_seq', 7, true);
 
 
 --
--- TOC entry 3547 (class 0 OID 0)
+-- TOC entry 3514 (class 0 OID 0)
 -- Dependencies: 225
--- Name: kegiatan_lab_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.kegiatan_lab_id_seq', 1, false);
-
-
---
--- TOC entry 3548 (class 0 OID 0)
--- Dependencies: 227
 -- Name: kekayaan_intelektual_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.kekayaan_intelektual_id_seq', 1, false);
+SELECT pg_catalog.setval('public.kekayaan_intelektual_id_seq', 3, true);
 
 
 --
--- TOC entry 3549 (class 0 OID 0)
--- Dependencies: 242
+-- TOC entry 3515 (class 0 OID 0)
+-- Dependencies: 227
 -- Name: partners_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1070,62 +1008,44 @@ SELECT pg_catalog.setval('public.partners_id_seq', 25, true);
 
 
 --
--- TOC entry 3550 (class 0 OID 0)
+-- TOC entry 3516 (class 0 OID 0)
 -- Dependencies: 229
--- Name: penelitian_lab_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.penelitian_lab_id_seq', 1, true);
-
-
---
--- TOC entry 3551 (class 0 OID 0)
--- Dependencies: 231
 -- Name: ppm_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.ppm_id_seq', 1, false);
+SELECT pg_catalog.setval('public.ppm_id_seq', 4, true);
 
 
 --
--- TOC entry 3552 (class 0 OID 0)
--- Dependencies: 233
+-- TOC entry 3517 (class 0 OID 0)
+-- Dependencies: 231
 -- Name: produk_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.produk_id_seq', 8, true);
+SELECT pg_catalog.setval('public.produk_id_seq', 9, true);
 
 
 --
--- TOC entry 3553 (class 0 OID 0)
--- Dependencies: 235
+-- TOC entry 3518 (class 0 OID 0)
+-- Dependencies: 233
 -- Name: publikasi_dosen_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.publikasi_dosen_id_seq', 1, true);
+SELECT pg_catalog.setval('public.publikasi_dosen_id_seq', 9, true);
 
 
 --
--- TOC entry 3554 (class 0 OID 0)
--- Dependencies: 237
--- Name: publikasi_lab_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.publikasi_lab_id_seq', 1, true);
-
-
---
--- TOC entry 3555 (class 0 OID 0)
--- Dependencies: 239
+-- TOC entry 3519 (class 0 OID 0)
+-- Dependencies: 235
 -- Name: riset_dosen_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.riset_dosen_id_seq', 1, false);
+SELECT pg_catalog.setval('public.riset_dosen_id_seq', 4, true);
 
 
 --
--- TOC entry 3556 (class 0 OID 0)
--- Dependencies: 241
+-- TOC entry 3520 (class 0 OID 0)
+-- Dependencies: 237
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1133,7 +1053,7 @@ SELECT pg_catalog.setval('public.users_id_seq', 11, true);
 
 
 --
--- TOC entry 3304 (class 2606 OID 28229)
+-- TOC entry 3286 (class 2606 OID 44098)
 -- Name: aktivitas_dosen aktivitas_dosen_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1142,7 +1062,7 @@ ALTER TABLE ONLY public.aktivitas_dosen
 
 
 --
--- TOC entry 3306 (class 2606 OID 28231)
+-- TOC entry 3288 (class 2606 OID 44100)
 -- Name: berita berita_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1151,7 +1071,7 @@ ALTER TABLE ONLY public.berita
 
 
 --
--- TOC entry 3308 (class 2606 OID 28233)
+-- TOC entry 3290 (class 2606 OID 44102)
 -- Name: dosen dosen_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1160,7 +1080,7 @@ ALTER TABLE ONLY public.dosen
 
 
 --
--- TOC entry 3310 (class 2606 OID 28235)
+-- TOC entry 3292 (class 2606 OID 44104)
 -- Name: fasilitas fasilitas_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1169,7 +1089,7 @@ ALTER TABLE ONLY public.fasilitas
 
 
 --
--- TOC entry 3312 (class 2606 OID 28237)
+-- TOC entry 3294 (class 2606 OID 44106)
 -- Name: galeri galeri_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1178,16 +1098,7 @@ ALTER TABLE ONLY public.galeri
 
 
 --
--- TOC entry 3314 (class 2606 OID 28239)
--- Name: kegiatan_lab kegiatan_lab_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.kegiatan_lab
-    ADD CONSTRAINT kegiatan_lab_pkey PRIMARY KEY (id);
-
-
---
--- TOC entry 3316 (class 2606 OID 28241)
+-- TOC entry 3296 (class 2606 OID 44108)
 -- Name: kekayaan_intelektual kekayaan_intelektual_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1196,7 +1107,7 @@ ALTER TABLE ONLY public.kekayaan_intelektual
 
 
 --
--- TOC entry 3334 (class 2606 OID 28353)
+-- TOC entry 3298 (class 2606 OID 44110)
 -- Name: partners partners_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1205,16 +1116,7 @@ ALTER TABLE ONLY public.partners
 
 
 --
--- TOC entry 3318 (class 2606 OID 28243)
--- Name: penelitian_lab penelitian_lab_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.penelitian_lab
-    ADD CONSTRAINT penelitian_lab_pkey PRIMARY KEY (id);
-
-
---
--- TOC entry 3320 (class 2606 OID 28245)
+-- TOC entry 3300 (class 2606 OID 44112)
 -- Name: ppm ppm_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1223,7 +1125,7 @@ ALTER TABLE ONLY public.ppm
 
 
 --
--- TOC entry 3322 (class 2606 OID 28247)
+-- TOC entry 3302 (class 2606 OID 44114)
 -- Name: produk produk_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1232,7 +1134,7 @@ ALTER TABLE ONLY public.produk
 
 
 --
--- TOC entry 3324 (class 2606 OID 28249)
+-- TOC entry 3304 (class 2606 OID 44116)
 -- Name: publikasi_dosen publikasi_dosen_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1241,16 +1143,7 @@ ALTER TABLE ONLY public.publikasi_dosen
 
 
 --
--- TOC entry 3326 (class 2606 OID 28251)
--- Name: publikasi_lab publikasi_lab_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.publikasi_lab
-    ADD CONSTRAINT publikasi_lab_pkey PRIMARY KEY (id);
-
-
---
--- TOC entry 3328 (class 2606 OID 28253)
+-- TOC entry 3306 (class 2606 OID 44118)
 -- Name: riset_dosen riset_dosen_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1259,7 +1152,7 @@ ALTER TABLE ONLY public.riset_dosen
 
 
 --
--- TOC entry 3330 (class 2606 OID 28255)
+-- TOC entry 3308 (class 2606 OID 44120)
 -- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1268,7 +1161,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 3332 (class 2606 OID 28257)
+-- TOC entry 3310 (class 2606 OID 44122)
 -- Name: users users_username_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1277,7 +1170,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 3335 (class 2606 OID 28258)
+-- TOC entry 3311 (class 2606 OID 44123)
 -- Name: aktivitas_dosen aktivitas_dosen_id_dosen_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1286,7 +1179,7 @@ ALTER TABLE ONLY public.aktivitas_dosen
 
 
 --
--- TOC entry 3336 (class 2606 OID 28263)
+-- TOC entry 3312 (class 2606 OID 44128)
 -- Name: berita berita_created_by_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1295,7 +1188,16 @@ ALTER TABLE ONLY public.berita
 
 
 --
--- TOC entry 3337 (class 2606 OID 28268)
+-- TOC entry 3313 (class 2606 OID 44133)
+-- Name: galeri fk_galeri_akt_dosen; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.galeri
+    ADD CONSTRAINT fk_galeri_akt_dosen FOREIGN KEY (id_aktivitas_dosen) REFERENCES public.aktivitas_dosen(id) ON DELETE SET NULL;
+
+
+--
+-- TOC entry 3314 (class 2606 OID 44138)
 -- Name: galeri fk_galeri_berita; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1304,7 +1206,7 @@ ALTER TABLE ONLY public.galeri
 
 
 --
--- TOC entry 3338 (class 2606 OID 28273)
+-- TOC entry 3315 (class 2606 OID 44143)
 -- Name: galeri fk_galeri_fasilitas; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1313,25 +1215,25 @@ ALTER TABLE ONLY public.galeri
 
 
 --
--- TOC entry 3339 (class 2606 OID 28278)
--- Name: galeri fk_galeri_kegiatan_lab; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 3316 (class 2606 OID 44148)
+-- Name: galeri fk_galeri_ki; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.galeri
-    ADD CONSTRAINT fk_galeri_kegiatan_lab FOREIGN KEY (id_kegiatan_lab) REFERENCES public.kegiatan_lab(id) ON DELETE SET NULL;
+    ADD CONSTRAINT fk_galeri_ki FOREIGN KEY (id_kekayaan_intelektual) REFERENCES public.kekayaan_intelektual(id) ON DELETE SET NULL;
 
 
 --
--- TOC entry 3340 (class 2606 OID 28283)
--- Name: galeri fk_galeri_penelitian; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 3317 (class 2606 OID 44153)
+-- Name: galeri fk_galeri_ppm; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.galeri
-    ADD CONSTRAINT fk_galeri_penelitian FOREIGN KEY (id_penelitian) REFERENCES public.penelitian_lab(id) ON DELETE SET NULL;
+    ADD CONSTRAINT fk_galeri_ppm FOREIGN KEY (id_ppm) REFERENCES public.ppm(id) ON DELETE SET NULL;
 
 
 --
--- TOC entry 3341 (class 2606 OID 28288)
+-- TOC entry 3318 (class 2606 OID 44158)
 -- Name: galeri fk_galeri_produk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1340,16 +1242,25 @@ ALTER TABLE ONLY public.galeri
 
 
 --
--- TOC entry 3342 (class 2606 OID 28293)
--- Name: galeri fk_galeri_publikasi_lab; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 3319 (class 2606 OID 44163)
+-- Name: galeri fk_galeri_pubdosen; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.galeri
-    ADD CONSTRAINT fk_galeri_publikasi_lab FOREIGN KEY (id_publikasi_lab) REFERENCES public.publikasi_lab(id) ON DELETE SET NULL;
+    ADD CONSTRAINT fk_galeri_pubdosen FOREIGN KEY (id_publikasi_dosen) REFERENCES public.publikasi_dosen(id) ON DELETE SET NULL;
 
 
 --
--- TOC entry 3343 (class 2606 OID 28298)
+-- TOC entry 3320 (class 2606 OID 44168)
+-- Name: galeri fk_galeri_riset; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.galeri
+    ADD CONSTRAINT fk_galeri_riset FOREIGN KEY (id_riset_dosen) REFERENCES public.riset_dosen(id) ON DELETE SET NULL;
+
+
+--
+-- TOC entry 3321 (class 2606 OID 44173)
 -- Name: galeri fk_galeri_uploaded_by_dosen; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1358,7 +1269,7 @@ ALTER TABLE ONLY public.galeri
 
 
 --
--- TOC entry 3351 (class 2606 OID 28303)
+-- TOC entry 3326 (class 2606 OID 44178)
 -- Name: users fk_user_dosen; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1367,16 +1278,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 3344 (class 2606 OID 28308)
--- Name: kegiatan_lab kegiatan_lab_id_dosen_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.kegiatan_lab
-    ADD CONSTRAINT kegiatan_lab_id_dosen_fkey FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE CASCADE;
-
-
---
--- TOC entry 3345 (class 2606 OID 28313)
+-- TOC entry 3322 (class 2606 OID 44183)
 -- Name: kekayaan_intelektual kekayaan_intelektual_id_dosen_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1385,16 +1287,7 @@ ALTER TABLE ONLY public.kekayaan_intelektual
 
 
 --
--- TOC entry 3346 (class 2606 OID 28318)
--- Name: penelitian_lab penelitian_lab_id_dosen_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.penelitian_lab
-    ADD CONSTRAINT penelitian_lab_id_dosen_fkey FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE CASCADE;
-
-
---
--- TOC entry 3347 (class 2606 OID 28323)
+-- TOC entry 3323 (class 2606 OID 44188)
 -- Name: ppm ppm_id_dosen_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1403,7 +1296,7 @@ ALTER TABLE ONLY public.ppm
 
 
 --
--- TOC entry 3348 (class 2606 OID 28328)
+-- TOC entry 3324 (class 2606 OID 44193)
 -- Name: publikasi_dosen publikasi_dosen_id_dosen_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1412,16 +1305,7 @@ ALTER TABLE ONLY public.publikasi_dosen
 
 
 --
--- TOC entry 3349 (class 2606 OID 28333)
--- Name: publikasi_lab publikasi_lab_id_dosen_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.publikasi_lab
-    ADD CONSTRAINT publikasi_lab_id_dosen_fkey FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE SET NULL;
-
-
---
--- TOC entry 3350 (class 2606 OID 28338)
+-- TOC entry 3325 (class 2606 OID 44198)
 -- Name: riset_dosen riset_dosen_id_dosen_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1429,11 +1313,17 @@ ALTER TABLE ONLY public.riset_dosen
     ADD CONSTRAINT riset_dosen_id_dosen_fkey FOREIGN KEY (id_dosen) REFERENCES public.dosen(id) ON DELETE CASCADE;
 
 
--- Completed on 2025-12-01 11:13:14
+-- Completed on 2025-12-03 01:38:59
 
 --
 -- PostgreSQL database dump complete
 --
 
-\unrestrict pDqGT7gkobirCMhOnQzBQfDbBZyPICFdpHQfiaDa3jD268k8uYDChBCGHRp8xQb
+\unrestrict cKu4AfqgGjvOjhXfZDHLcw57sF0wRky1o804gEX5tBLXdzte616T7UVWnLWGA4N
+
+-- Completed on 2025-12-03 01:38:59
+
+--
+-- PostgreSQL database cluster dump complete
+--
 

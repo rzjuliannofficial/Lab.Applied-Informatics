@@ -24,17 +24,26 @@
                     </h3>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Nama Lengkap
+                            <span class="text-red-500">*</span>
+                        </label>
                         <input type="text" name="nama" required class="w-full px-4 py-2 border border-gray-300 rounded-lg " placeholder="Contoh: Dr. Budi Santoso, M.T.">
                     </div>
 
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">NIP / NIM</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">
+                                NIP / NIM
+                                <span class="text-red-500">*</span>
+                            </label>
                             <input type="text" name="nip" required class="w-full px-4 py-2 border border-gray-300 rounded-lg ">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Jabatan</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">
+                                Jabatan
+                                <span class="text-red-500">*</span>
+                            </label>
                             <select name="jabatan" class="w-full px-4 py-2 border border-gray-300 rounded-lg  bg-white">
                                 <option value="member">Member</option>
                                 <option value="asisten_lab">Asisten Lab</option>
@@ -44,7 +53,10 @@
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Email Institusi</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Email Institusi
+                            <span class="text-red-500">*</span>
+                        </label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <i class="fas fa-envelope text-gray-400"></i>
@@ -54,7 +66,10 @@
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Foto Profil</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Foto Profil
+                            <span class="text-red-500">*</span>
+                        </label>
                         <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:bg-gray-50 transition cursor-pointer relative">
                             <div class="space-y-1 text-center">
                                 <i class="fas fa-image text-4xl text-gray-400 mb-2"></i>
