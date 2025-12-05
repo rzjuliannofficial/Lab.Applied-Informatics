@@ -29,16 +29,21 @@
                     $dateObj = new DateTime($berita['tanggal']);
                     $formattedDate = $dateObj->format('d M Y');
                     $imgSrc = !empty($berita['gambar_utama']) ? $berita['gambar_utama'] : 'https://via.placeholder.com/400x300?text=No+Image';
-                    $kats = explode(',', $berita['kategori']);
-                    $mainKat = trim($kats[0] ?? 'General');
                 ?>
                 
                 <article class="group relative flex flex-col h-full bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 overflow-hidden">
                     <div class="relative h-56 overflow-hidden">
                         <div class="absolute top-4 left-4 z-10">
-                            <span class="px-3 py-1 bg-white/90 backdrop-blur-md text-blue-700 text-xs font-bold rounded-lg shadow-sm uppercase">
-                                <?= htmlspecialchars($mainKat) ?>
-                            </span>
+                            <?php if (!empty($berita['kategori'])) {
+                                $kategori = explode(',', $berita['kategori']);
+                                $kategori = array_slice($kategori, 0, 3); 
+                                foreach ($kategori as $category): ?>
+                                    <span class="px-3 py-1 bg-white/90 backdrop-blur-md text-blue-700 text-xs font-bold rounded-lg shadow-sm border border-white/50 tracking-wider uppercase mr-2">
+                                        <?= htmlspecialchars(trim($category)); ?>
+                                    </span>
+                            <?php endforeach; } else { ?>
+                                <span class="text-gray-400 text-xs italic">-</span>
+                            <?php } ?>
                         </div>
                         <img src="<?= htmlspecialchars($imgSrc) ?>" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
                     </div>

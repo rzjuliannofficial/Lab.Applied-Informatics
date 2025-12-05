@@ -17,9 +17,15 @@
 
         <!-- Header Artikel -->
         <div class="text-center mb-10">
-            <span class="inline-block px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-sm font-bold uppercase tracking-wide mb-4">
-                <?= htmlspecialchars($berita['kategori']) ?>
-            </span>
+            <?php if (!empty($berita['kategori'])) {
+                $kategori = explode(',', $berita['kategori']);
+                foreach ($kategori as $category): ?>
+                    <span class="inline-block px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-sm font-bold uppercase tracking-wide mb-4 mr-2">
+                        <?= htmlspecialchars(trim($category)); ?>
+                    </span>
+            <?php endforeach; } else { ?>
+                <span class="text-gray-400 text-xs italic">-</span>
+            <?php } ?>
             <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-6">
                 <?= htmlspecialchars($berita['judul']) ?>
             </h1>

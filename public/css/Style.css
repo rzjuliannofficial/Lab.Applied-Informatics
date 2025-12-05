@@ -1731,17 +1731,10 @@ body {
 }
 
 .gallery-item-title {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 700;
     color: white;
     margin-bottom: 0.5rem;
-}
-
-.gallery-item-description {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 1rem;
-    line-height: 1.5;
 }
 
 .gallery-meta {

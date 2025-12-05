@@ -120,11 +120,8 @@
                                             <?= htmlspecialchars($item['category']) ?>
                                         </span>
                                         <h3 class="gallery-item-title">
-                                            <?= htmlspecialchars($item['judul'] ?? $item['caption']) ?>
+                                            <?= htmlspecialchars(!empty($item['caption']) ? $item['caption'] : $item['judul']) ?>
                                         </h3>
-                                        <p class="gallery-item-description">
-                                            <?= htmlspecialchars($item['caption'] ?? 'Dokumentasi Lab AI') ?>
-                                        </p>
                                         <div class="gallery-meta">
                                             <span class="gallery-uploader">
                                                 <i class="fas fa-user"></i>

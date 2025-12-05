@@ -159,9 +159,6 @@ class Galeri extends Model {
 
     public function create($data)
     {
-        // data: [uploaded_by, file_url, caption, id_berita, id_produk, id_fasilitas, 
-        //        id_publikasi_dosen, id_aktivitas_dosen, id_ppm, id_riset_dosen, 
-        //        id_kekayaan_intelektual, kategori]
         $sql = "INSERT INTO {$this->table}
                 (uploaded_by, file_url, caption, id_berita, id_produk, id_fasilitas, 
                  id_publikasi_dosen, id_aktivitas_dosen, id_ppm, id_riset_dosen, 
@@ -170,10 +167,10 @@ class Galeri extends Model {
         return pg_query_params($this->db, $sql, $data);
     }
 
-    public function updateCaption($id, $caption, $kategori = null)
+    public function updateCaption($id, $caption)
     {
-        $sql = "UPDATE {$this->table} SET caption=$1, kategori=$2 WHERE id=$3";
-        return pg_query_params($this->db, $sql, [$caption, $kategori, $id]);
+        $sql = "UPDATE {$this->table} SET caption=$1 WHERE id=$2";
+        return pg_query_params($this->db, $sql, [$caption, $id]);
     }
 
 public function countAll()

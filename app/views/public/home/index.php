@@ -76,7 +76,7 @@
             <div class="sticky top-24 h-fit">
                 <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]">
                     <!-- Header dengan background gradient -->
-                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-4 text-white rounded-2xl inline-flex">
+                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-4 text-white rounded-2xl">
                         <div class="flex items-center gap-3 ">
                             <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                                 <i class="fa-solid fa-eye text-2xl"></i>
@@ -121,7 +121,7 @@
             <div class="space-y-6">
                 <!-- Misi 1 -->
                 <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]" data-aos="fade-up">
-                    <div class="bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue)] p-4 text-white rounded-2xl inline-flex">
+                    <div class="bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue)] p-5 text-white rounded-2xl">
                         <h3 class="text-xl font-bold flex items-center gap-2">
                             <i class="fa-solid fa-database text-2xl"></i> Misi 1
                         </h3>
@@ -138,7 +138,7 @@
 
                 <!-- Misi 2 -->
                 <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]" data-aos="fade-up" data-aos-delay="100">
-                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-4 text-white rounded-2xl inline-flex">
+                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-5 text-white rounded-2xl">
                         <h3 class="text-xl font-bold flex items-center gap-2">
                             <i class="fa-solid fa-microchip text-2xl"></i> Misi 2
                         </h3>
@@ -155,7 +155,7 @@
 
                 <!-- Misi 3 -->
                 <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]" data-aos="fade-up" data-aos-delay="200">
-                    <div class="bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue)] p-4 text-white rounded-2xl inline-flex">
+                    <div class="bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue)] p-5 text-white rounded-2xl">
                         <h3 class="text-xl font-bold flex items-center gap-2">
                             <i class="fa-solid fa-flask text-2xl"></i> Misi 3
                         </h3>
@@ -172,7 +172,7 @@
 
                 <!-- Misi 4 -->
                 <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]" data-aos="fade-up" data-aos-delay="300">
-                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-4 text-white rounded-2xl inline-flex">
+                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-5 text-white rounded-2xl">
                         <h3 class="text-xl font-bold flex items-center gap-2">
                             <i class="fa-solid fa-code text-2xl"></i> Misi 4
                         </h3>
@@ -388,12 +388,7 @@
                         
                         // Fallback Gambar
                         $imgSrc = !empty($berita['gambar_utama']) ? $berita['gambar_utama'] : 'https://via.placeholder.com/400x300?text=No+Image';
-                        
-                        // Kategori Utama (ambil yang pertama jika ada koma)
-                        $kats = explode(',', $berita['kategori']);
-                        $mainKat = trim($kats[0] ?? 'General');
-                ?>
-                
+                ?>                
                 <!-- CARD ITEM -->
                 <article class="group relative flex flex-col h-full bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-100 overflow-hidden hover:-translate-y-2"
                          data-aos="fade-up" data-aos-delay="<?= $delay ?>">
@@ -401,9 +396,16 @@
                     <!-- Image Wrapper -->
                     <div class="relative h-64 overflow-hidden">
                         <div class="absolute top-4 left-4 z-10">
-                            <span class="px-3 py-1 bg-white/90 backdrop-blur-md text-blue-700 text-xs font-bold rounded-lg shadow-sm border border-white/50 tracking-wider uppercase">
-                                <?= htmlspecialchars($mainKat) ?>
-                            </span>
+                            <?php if (!empty($berita['kategori'])) {
+                                $kategori = explode(',', $berita['kategori']);
+                                $kategori = array_slice($kategori, 0, 3); 
+                                foreach ($kategori as $category): ?>
+                                    <span class="px-3 py-1 bg-white/90 backdrop-blur-md text-blue-700 text-xs font-bold rounded-lg shadow-sm border border-white/50 tracking-wider uppercase mr-2">
+                                        <?= htmlspecialchars(trim($category)); ?>
+                                    </span>
+                            <?php endforeach; } else { ?>
+                                <span class="text-gray-400 text-xs italic">-</span>
+                            <?php } ?>
                         </div>
                         
                         <img src="<?= htmlspecialchars($imgSrc) ?>" 
@@ -507,8 +509,14 @@
                         </div>
                         
                         <div class="product-content">
-                            <span class="category"><?= htmlspecialchars($product['kategori']); ?></span>
-                
+                            <?php 
+                                $kategori = $product['kategori'] ?? '';
+                                if (!empty($kategori)) {
+                                    foreach (explode(',', $kategori) as $category): ?>
+                                    <span class="category">
+                                        <?= htmlspecialchars(trim($category)); ?>
+                                    </span>
+                                <?php endforeach; } ?>
                             <h3 class="product-name"><?= htmlspecialchars($product['nama_produk']); ?></h3>
                             <p class="product-description"><?= htmlspecialchars($product['deskripsi']); ?></p>
                             <div class="product-footer">
@@ -535,7 +543,7 @@
     <div class="flex justify-center">
         <a href="/product" class="group relative px-8 py-3 rounded-full bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] border border-slate-200 text-white font-bold shadow-sm hover:shadow-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 overflow-hidden">
             <span class="relative z-10 flex items-center gap-2">
-                Read More
+                View All Products
                 <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
             </span>
             <div class="absolute inset-0 bg-blue-50 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
@@ -633,7 +641,7 @@
         <div class="flex justify-center mt-10">
             <a href="/member" class="group relative px-8 py-3 rounded-full bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] border border-slate-200 text-white font-bold shadow-sm hover:shadow-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 overflow-hidden">
                 <span class="relative z-10 flex items-center gap-2">
-                    Read More 
+                    View All Members 
                     <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                 </span>
                 <div class="absolute inset-0 bg-blue-50 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
