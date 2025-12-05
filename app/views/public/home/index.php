@@ -10,8 +10,12 @@
                 The Applied Informatics Laboratory at Malang State Polytechnic is an innovation center focused on developing IT-based solutions.
             </p>
             <div class="hero-button">
-                <button class="button-primary">Explore Our Work</button>
-                <button class="button-secondary">Connect With Us</button>
+                <button class="button-primary">
+                    <a href="/home">Explore Our Work</a>
+                </button>
+                <button class="button-secondary">
+                    <a href="/contact">Connect With Us</a>
+                </button>
             </div>
             
             <div class="w-full max-w-lg mt-8 justify-center items-center p-4">               
