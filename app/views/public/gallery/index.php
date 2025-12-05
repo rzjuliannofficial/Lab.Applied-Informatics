@@ -119,7 +119,7 @@
                                         <span class="gallery-category-badge">
                                             <?= htmlspecialchars($item['category']) ?>
                                         </span>
-                                        <h3 class="gallery-item-title">
+                                        <h3 class="gallery-item-title line-clamp-2">
                                             <?= htmlspecialchars(!empty($item['caption']) ? $item['caption'] : $item['judul']) ?>
                                         </h3>
                                         <div class="gallery-meta">
