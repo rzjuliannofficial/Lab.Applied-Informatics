@@ -9,12 +9,20 @@ class DashboardController extends Controller
         $userModel = new Users();
         $publikasiModel = new PublikasiDosen();
         $galeriModel = new Galeri();
+        $beritaModel = new Berita();
+        $produkModel = new Produk();
+        $galeriModel = new Galeri();
+        $partnerModel = new Partners();
 
         // Ambil statistik
         $totalDosen = $dosenModel->countAll();
         $totalEditor     = $userModel->countEditors();
         $totalPublikasi = $publikasiModel->countAll();
         $totalGaleri     = $galeriModel->countAll();
+        $totalBerita = $beritaModel -> countAll();
+        $totalProduk = $produkModel -> countAll();
+        $totalGaleri = $galeriModel -> countAll();
+        $totalPartner = $partnerModel -> countAll();
 
         // Kirim ke view
         
@@ -22,7 +30,11 @@ class DashboardController extends Controller
             'totalDosen' => $totalDosen,
             'totalEditor'    => $totalEditor,
             'totalPublikasi' => $totalPublikasi,
-            'totalGaleri' => $totalGaleri
+            'totalGaleri' => $totalGaleri,
+            'totalBerita' => $totalBerita,
+            'totalProduk' => $totalProduk,
+            'totalGaleri' => $totalGaleri,
+            'totalPartner' => $totalPartner
         ]);
     }
 }

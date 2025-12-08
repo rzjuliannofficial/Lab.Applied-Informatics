@@ -26,8 +26,22 @@
                 </div>
             </div>
             <div class="flex items-center text-xs text-green-600 font-medium mt-2">
-                <i class="fas fa-arrow-up mr-1"></i> <span>+2 bulan ini</span>
+                <!-- <i class="fas fa-arrow-up mr-1"></i> -->
+                <span>Anggota aktif</span>
             </div>
+        </div>
+        <!-- Card 4: Editor -->
+        <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-5 border-b-4 border-pink-500 flex flex-col justify-between h-32">
+            <div class="flex justify-between items-start">
+                <div>
+                    <p class="text-gray-500 text-sm font-medium uppercase tracking-wide">Jumlah Editor </p>
+                    <h3 class="text-3xl font-bold text-gray-800 mt-1"><?= $data['totalEditor']; ?></h3>
+                </div>
+                <div class="p-2 bg-pink-50 rounded-lg">
+                    <i class="fas fa-pen-nib text-xl text-pink-500"></i>
+                </div>
+            </div>
+            <div class="text-xs text-gray-400 text-green-600 text-xs font-medium mt-2">Editor Aktif</div>
         </div>
         <!-- Card 2: Pending -->
         <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-5 border-b-4 border-yellow-400 flex flex-col justify-between h-32">
@@ -40,7 +54,7 @@
                     <i class="fas fa-book text-xl text-yellow-500"></i>
                 </div>
             </div>
-            <div class="text-xs text-gray-400 mt-2">Menunggu persetujuan</div>
+            <div class="text-xs text-gray-400 mt-2">Data Terpublikasi</div>
         </div>
         <!-- Card 3: Riset -->
         <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-5 border-b-4 border-green-500 flex flex-col justify-between h-32">
@@ -53,22 +67,10 @@
                     <i class="fas fa-image text-xl text-green-500"></i>
                 </div>
             </div>
-            <div class="flex items-center text-xs text-green-600 font-medium mt-2">
-                <i class="fas fa-arrow-up mr-1"></i> <span>+12% dari tahun lalu</span>
+            <div class="flex text-xs text-gray-400 items-center mt-2">
+                <!-- <i class="fas fa-arrow-up mr-1"></i>  -->
+                <span>Foto Ditampilkan</span>
             </div>
-        </div>
-        <!-- Card 4: Editor -->
-        <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-5 border-b-4 border-pink-500 flex flex-col justify-between h-32">
-            <div class="flex justify-between items-start">
-                <div>
-                    <p class="text-gray-500 text-sm font-medium uppercase tracking-wide">Editor Aktif</p>
-                    <h3 class="text-3xl font-bold text-gray-800 mt-1"><?= $data['totalEditor']; ?></h3>
-                </div>
-                <div class="p-2 bg-pink-50 rounded-lg">
-                    <i class="fas fa-pen-nib text-xl text-pink-500"></i>
-                </div>
-            </div>
-            <div class="text-xs text-gray-400 mt-2">Sedang online</div>
         </div>
     </div>
 
@@ -87,7 +89,7 @@
                 </div>
                 <div>
                     <h4 class="font-bold text-gray-800">Berita</h4>
-                    <p class="text-xs text-gray-500">12 Artikel Aktif</p>
+                    <p class="text-xs text-gray-500"><?=  $data['totalBerita']; ?> Artikel Aktif</p>
                 </div>
             </div>
             <a href="berita" class="w-full mt-2 py-2 px-4 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition-colors group-hover:bg-indigo-600 group-hover:text-white">

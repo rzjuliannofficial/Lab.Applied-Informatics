@@ -173,13 +173,13 @@ class Galeri extends Model {
         return pg_query_params($this->db, $sql, [$caption, $id]);
     }
 
-public function countAll()
-{
-    $sql = "SELECT COUNT(*) AS total FROM {$this->table}";
-    $res = pg_query($this->db, $sql);
-    $row = pg_fetch_assoc($res);
-    return intval($row['total']);
-}
+    public function countAll()
+    {
+        $sql = "SELECT COUNT(*) AS total FROM {$this->table}";
+        $res = pg_query($this->db, $sql);
+        $row = pg_fetch_assoc($res);
+        return intval($row['total']);
+    }
 
 
     public function delete($id)
