@@ -1,9 +1,10 @@
 <?php ob_start(); ?>
-
-<h1 class="text-2xl font-bold mb-6">Berita</h1>
-
-<a href="/admin/Berita/create" class="bg-blue-600 text-white px-4 py-2 rounded">Tambah Berita</a>
-
+<div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold">Daftar Berita</h1>
+    <a href="/admin/Berita/create" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+        <i class="fas fa-plus mr-1"></i> Tambah Data
+    </a>
+</div>
 <table class="mt-4 w-full bg-white shadow rounded-lg overflow-hidden">
     <thead class="bg-gray-100 text-gray-700 text-sm font-semibold">
         <tr>

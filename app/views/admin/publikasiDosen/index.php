@@ -1,8 +1,10 @@
 <?php ob_start(); ?>
-
-<h1 class="text-2xl font-bold mb-6">Daftar Publikasi Dosen</h1>
-
-<a href="/admin/PublikasiDosen/create" class="bg-blue-600 text-white px-4 py-2 rounded">Tambah Publikasi</a>
+<div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold">Daftar Publikasi Dosen</h1>
+    <a href="/admin/PublikasiDosen/create" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+        <i class="fas fa-plus mr-1"></i> Tambah Data
+    </a>
+</div>
 
 <table class="mt-4 w-full border bg-white shadow">
     <thead class="bg-gray-100">

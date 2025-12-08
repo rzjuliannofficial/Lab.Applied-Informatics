@@ -1,41 +1,56 @@
 <?php ob_start(); ?>
 
-<h1 class="text-2xl font-bold mb-4">Daftar User</h1>
+<div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold">Daftar User</h1>
+    <a href="/admin/user/create" 
+       class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+        <i class="fas fa-plus mr-1"></i> Tambah User
+    </a>
+</div>
 
-<a href="/admin/user/create" class="bg-blue-600 text-white px-4 py-2 rounded">Tambah User</a>
+<table class="mt-4 w-full border bg-white shadow">
+    <thead class="bg-gray-100">
+        <tr>
+            <th class="p-2 border">#</th>
+            <th class="p-2 border">Username</th>
+            <th class="p-2 border">Role</th>
+            <th class="p-2 border text-center">Aksi</th>
+        </tr>
+    </thead>
 
-<table class="mt-6 w-full border border-gray-300 rounded-lg overflow-hidden">
-    <tr class="bg-gray-100 font-semibold">
-        <th class="p-3 border">ID</th>
-        <th class="p-3 border">Username</th>
-        <th class="p-3 border">Role</th>
-        <th class="p-3 border text-center">Aksi</th>
-    </tr>
+    <tbody>
+        <?php $i =0;
+        while($row = pg_fetch_assoc($users)): ?>
+        <tr class="hover:bg-gray-50">
+            <td class="p-2 border"><?php echo ++$i; ?></td>
+            <td class="p-2 border"><?= $row['username'] ?></td>
+            <td class="p-2 border capitalize"><?= $row['role'] ?></td>
 
-    <?php while($row = pg_fetch_assoc($users)): ?>
-    <tr class="hover:bg-gray-50">
-        <td class="p-3 border"><?= $row['id'] ?></td>
-        <td class="p-3 border"><?= $row['username'] ?></td>
-        <td class="p-3 border capitalize"><?= $row['role'] ?></td>
+            <td class="p-3 border">
+                <div class="flex items-center justify-center gap-2">
 
-        <td class="p-3 border text-center">
+                    <a href="/admin/user/edit/<?= $row['id'] ?>" 
+                       class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
+                              text-yellow-700 bg-yellow-100 border border-yellow-300 
+                              rounded hover:bg-yellow-200 transition">
+                        <i class="fas fa-edit text-[10px]"></i>
+                        Edit
+                    </a>
 
-            <!-- Tombol Edit -->
-            <a href="/admin/user/edit/<?= $row['id'] ?>" 
-               class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded text-sm mr-2">
-                <i class="fas fa-edit"></i> Edit
-            </a>
+                    <a href="/admin/user/delete/<?= $row['id'] ?>" 
+                       onclick="return confirm('Hapus user ini?')" 
+                       class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
+                              text-red-700 bg-red-100 border border-red-300 
+                              rounded hover:bg-red-200 transition">
+                        <i class="fas fa-trash text-[10px]"></i>
+                        Hapus
+                    </a>
 
-            <!-- Tombol Hapus -->
-            <a href="/admin/user/delete/<?= $row['id'] ?>" 
-               onclick="return confirm('Hapus user ini?')" 
-               class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm">
-                <i class="fas fa-trash"></i> Hapus
-            </a>
-
-        </td>
-    </tr>
-    <?php endwhile; ?>
+                </div>
+            </td>
+        </tr>
+        <?php endwhile; ?>
+    </tbody>
 </table>
 
 <?php 

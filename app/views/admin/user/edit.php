@@ -1,57 +1,82 @@
 <?php ob_start(); ?>
 
-<h1 class="text-2xl font-bold mb-6">Edit User</h1>
+<div class="max-w-5xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+        <h1 class="text-2xl font-bold text-gray-800">
+            <i class="fas fa-edit mr-2 text-yellow-600"></i> Edit User
+        </h1>
+        <a href="/admin/user" class="text-gray-500 hover:text-gray-700 transition flex items-center">
+            <i class="fas fa-arrow-left mr-2"></i> Kembali
+        </a>
+    </div>
 
-<?php if(isset($_SESSION['error'])): ?>
+    <?php if(isset($_SESSION['error'])): ?>
     <div class="bg-red-100 text-red-700 p-3 rounded mb-4 border border-red-300">
         <?= $_SESSION['error']; unset($_SESSION['error']); ?>
     </div>
-<?php endif; ?>
+    <?php endif; ?>
 
-<!-- Center Box -->
-<div class="flex justify-center mt-6">
+    <div class="flex justify-center mt-6">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 w-full max-w-3xl">
 
-    <form action="/admin/user/update/<?= $user['id'] ?>" method="POST"
-          class="bg-white p-6 rounded-xl shadow-lg w-3/4 max-w-4xl border border-gray-200">
+            <form action="/admin/user/update/<?= $user['id'] ?>" method="POST" class="p-8 space-y-6">
 
-        <!-- Username -->
-        <label class="block mb-1 font-semibold">Username</label>
-        <input type="text" name="username" value="<?= $user['username'] ?>" required
-               class="w-full p-2 border rounded mb-4 focus:ring focus:ring-blue-300">
+                <h3 class="text-lg font-semibold text-gray-700 border-b pb-3 flex items-center gap-2">
+                    <i class="fas fa-user-edit text-gray-400"></i>
+                    Edit Data User
+                </h3>
 
-        <!-- Password -->
-        <label class="block mb-1 font-semibold">Password (biarkan kosong jika tidak ingin mengubah)</label>
-        <input type="password" name="password"
-               class="w-full p-2 border rounded mb-4 focus:ring focus:ring-blue-300">
 
-        <!-- Role -->
-        <label class="block mb-1 font-semibold">Role</label>
-        <select name="role"
-                class="w-full p-2 border rounded mb-4 focus:ring focus:ring-blue-300">
-            <option value="admin" <?= $user['role']=='admin' ? 'selected' : '' ?>>Admin</option>
-            <option value="editor" <?= $user['role']=='editor' ? 'selected' : '' ?>>Editor</option>
-        </select>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                        <input type="text" name="username" value="<?= htmlspecialchars($user['username']) ?>" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">
+                            Password <span class="text-xs text-gray-500">(kosongkan jika tidak diubah)</span>
+                        </label>
+                        <input type="password" name="password"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Role</label>
+                    <select name="role"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-300 focus:outline-none">
+                        <option value="admin" <?= $user['role']=='admin' ? 'selected' : '' ?>>Admin</option>
+                        <option value="editor" <?= $user['role']=='editor' ? 'selected' : '' ?>>Editor</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">
+                        Dosen <span class="text-xs text-gray-500">(khusus editor)</span>
+                    </label>
+                    <select name="id_dosen"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-300 focus:outline-none">
+                        <option value="">-- Pilih Dosen --</option>
+                        <?php foreach($dosens as $d): ?>
+                        <option value="<?= $d['id'] ?>" <?= ($user['id_dosen'] ?? '') == $d['id'] ? 'selected' : '' ?>>
+                            <?= htmlspecialchars($d['nama']) ?>
+                        </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
 
-        <label class="block mb-1 font-semibold">Dosen (hanya untuk editor)</label>
-        <select name="id_dosen" class="w-full p-2 border rounded mb-4 focus:ring focus:ring-blue-300">
-            <option value="">-- Pilih Dosen --</option>
-            <?php foreach($dosens as $d): ?>
-                <option value="<?= $d['id'] ?>" <?= ($user['id_dosen'] ?? '') == $d['id'] ? 'selected' : '' ?>>
-                    <?= htmlspecialchars($d['nama']) ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
+                <!-- Footer -->
+                <div class="pt-4 border-t border-gray-100 flex justify-end">
+                    <button type="submit"
+                        class="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-2 rounded-lg font-semibold shadow transition">
+                        <i class="fas fa-save mr-2"></i> Update Data
+                    </button>
+                </div>
 
-        <!-- Button -->
-        <button class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded w-full font-semibold">
-            Update
-        </button>
+            </form>
 
-    </form>
-
+        </div>
+    </div>
 </div>
-
-
 
 <?php 
 $content = ob_get_clean();

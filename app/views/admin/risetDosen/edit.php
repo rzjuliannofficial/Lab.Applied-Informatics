@@ -9,124 +9,71 @@
             <i class="fas fa-arrow-left mr-2"></i> Kembali
         </a>
     </div>
-    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-    <form action="/admin/RisetDosen/update/<?= $riset['id'] ?>" method="POST" enctype="multipart/form-data">        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
+    <div class="flex justify-center mt-6">
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 w-full max-w-3xl">
 
-            <div class="space-y-6">
+        <form action="/admin/user/update/<?= $user['id'] ?>" method="POST" class="p-8 space-y-6">
 
-                <h3 class="text-lg font-semibold text-gray-700 border-b pb-2 mb-4">
-                    <i class="fas fa-user-tie mr-2 text-gray-400"></i> Informasi Dosen
-                </h3>
+            <h3 class="text-lg font-semibold text-gray-700 border-b pb-3 flex items-center gap-2">
+                <i class="fas fa-user-edit text-gray-400"></i>
+                Edit Data User
+            </h3>
 
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
-                        Dosen
-                        <span class="text-red-500">*</span>
-                    </label>
-                    <select name="id_dosen"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white">
-                        <?php foreach ($dosen as $d): ?>
-                            <?php if ($_SESSION['user']['role'] === 'admin'): ?>
-                                <option value="<?= $d['id'] ?>"
-                                    <?= $d['id'] == $riset['id_dosen'] ? 'selected' : '' ?>>
-                                    <?= htmlspecialchars($d['nama']) ?>
-                                </option>
-                            <?php elseif ($_SESSION['user']['role'] === 'editor' && $_SESSION['user']['id_dosen'] == $d['id']): ?>
-                                <option value="<?= $d['id'] ?>"><?= htmlspecialchars($d['nama']) ?></option>
-                            <!-- Kondisi agar tampil sesuai namanya -->
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
-                        Tahun
-                        <span class="text-red-500">*</span>
-                    </label>
-                    <input type="number" name="tahun"
-                        value="<?= htmlspecialchars($riset['tahun']) ?>"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg"
-                        placeholder="Contoh: 2024">
-                </div>
-
+            <!-- Username -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                <input type="text" name="username" value="<?= htmlspecialchars($user['username']) ?>" required
+                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
             </div>
 
-            <div class="space-y-6">
-
-                <h3 class="text-lg font-semibold text-gray-700 border-b pb-2 mb-4">
-                    <i class="fas fa-flask mr-2 text-gray-400"></i> Detail Riset
-                </h3>
-
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
-                        Judul Riset
-                        <span class="text-red-500">*</span>
-                    </label>
-                    <input type="text" name="judul"
-                        value="<?= htmlspecialchars($riset['judul']) ?>"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg"
-                        placeholder="Masukkan judul riset">
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">
-                        Sumber Dana
-                        <span class="text-red-500">*</span>
-                    </label>
-                    <input type="text" name="sumber_dana"
-                        value="<?= htmlspecialchars($riset['sumber_dana']) ?>"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg"
-                        placeholder="Contoh: Kemdikbud, Mandiri, Hibah Internal">
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Foto/Dokumentasi</label>
-                                
-                    <div class="flex items-center space-x-4">
-                        <div class="flex-shrink-0">
-                            <?php if (!empty($riset['foto_url'])): ?>
-                                <img src="<?= htmlspecialchars($riset['foto_url']) ?>" class="h-16 w-16 rounded-full object-cover border border-gray-200">
-                            <?php else: ?>
-                                <span class="inline-block h-16 w-16 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center border border-gray-200">
-                                    <i class="fas fa-image text-4xl text-gray-400"></i>
-                                </span>
-                            <?php endif; ?>
-                        </div>
-
-                        <div class="w-full">
-                            <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:bg-gray-50 transition cursor-pointer relative">
-                                <div class="space-y-1 text-center">
-                                    <div class="flex text-sm text-gray-600 justify-center">
-                                        <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-yellow-600 hover:text-yellow-500 focus-within:outline-none">
-                                            <span>Ganti Foto</span>
-                                            <input id="file-upload" name="foto_url" type="file" class="sr-only">
-                                        </label>
-                                    </div>
-                                    <p class="text-xs text-gray-500">Kosongkan jika tidak ingin mengubah</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Password -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">
+                    Password <span class="text-xs text-gray-500">(kosongkan jika tidak diubah)</span>
+                </label>
+                <input type="password" name="password"
+                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none">
             </div>
 
-        </div>
+            <!-- Role -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Role</label>
+                <select name="role"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-300 focus:outline-none">
+                    <option value="admin" <?= $user['role']=='admin' ? 'selected' : '' ?>>Admin</option>
+                    <option value="editor" <?= $user['role']=='editor' ? 'selected' : '' ?>>Editor</option>
+                </select>
+            </div>
 
-        <div class="bg-gray-50 px-8 py-5 border-t border-gray-200 flex items-center justify-end space-x-3">
-            <a href="/admin/RisetDosen" 
-               class="px-5 py-2 rounded-lg border border-gray-300 text-gray-700 font-medium hover:bg-gray-100 transition">
-                Batal
-            </a>
+            <!-- Dosen -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">
+                    Dosen <span class="text-xs text-gray-500">(khusus editor)</span>
+                </label>
+                <select name="id_dosen"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-300 focus:outline-none">
+                    <option value="">-- Pilih Dosen --</option>
+                    <?php foreach($dosens as $d): ?>
+                        <option value="<?= $d['id'] ?>" <?= ($user['id_dosen'] ?? '') == $d['id'] ? 'selected' : '' ?>>
+                            <?= htmlspecialchars($d['nama']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-            <button type="submit"
-                class="px-6 py-2 rounded-lg bg-yellow-600 text-white font-bold shadow-md hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 transition">
-                <i class="fas fa-save mr-2"></i> Update Data
-            </button>
-        </div>
+            <!-- Footer -->
+            <div class="pt-4 border-t border-gray-100 flex justify-end">
+                <button type="submit"
+                        class="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-2 rounded-lg font-semibold shadow transition">
+                    <i class="fas fa-save mr-2"></i> Update Data
+                </button>
+            </div>
 
-    </form>
+        </form>
+
+    </div>
 </div>
+
 
 </div>
 

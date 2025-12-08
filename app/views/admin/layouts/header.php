@@ -5,7 +5,6 @@
     </button>
 
     <h2 class="hidden md:block text-lg font-semibold text-gray-700">
-        <?= $title ?? "Dashboard"; ?>
     </h2>
 
     <div class="flex items-center gap-4 md:gap-6">

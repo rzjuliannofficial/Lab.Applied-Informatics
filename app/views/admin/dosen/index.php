@@ -74,7 +74,7 @@
                     <a href="/admin/dosen/edit/<?= $d['id'] ?>" class="text-sm text-yellow-600 hover:text-yellow-800 font-medium">
                         <i class="fas fa-edit"></i> Edit
                     </a>
-                    <a href="/admin/dosen/delete/<?= $d['id'] ?>" onclick="return confirm('Hapus dosen ini?')" class="text-sm text-red-600 hover:text-red-800 font-medium">
+                    <a href="/admin/dosen/delete/<?= $d['id'] ?>" onclick="return confirm('Hapus data ini?')" class="text-sm text-red-600 hover:text-red-800 font-medium">
                         <i class="fas fa-trash"></i> Hapus
                     </a>
                 </div>
@@ -92,7 +92,7 @@
                                 Edit
                             </a>
 
-                            <a href="/admin/dosen/delete/<?= $d['id'] ?>" onclick="return confirm('Hapus berita ini?')"
+                            <a href="/admin/dosen/delete/<?= $d['id'] ?>" onclick="return confirm('Hapus data ini?')"
                                 class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
                         text-red-700 bg-red-100 border border-red-300 
                         rounded hover:bg-red-200 transition">

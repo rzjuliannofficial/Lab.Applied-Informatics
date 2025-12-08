@@ -4,7 +4,7 @@
         <h1 class="text-2xl font-bold text-gray-800">
             <i class="fas fa-user-plus mr-2 text-blue-600"></i> Tambah Aktivitas Dosen
         </h1>
-        <a href="/admin/PublikasiDosen" class="text-gray-500 hover:text-gray-700 transition flex items-center">
+        <a href="/admin/AktivitasDosen" class="text-gray-500 hover:text-gray-700 transition flex items-center">
             <i class="fas fa-arrow-left mr-2"></i> Kembali
         </a>
     </div>
