@@ -24,7 +24,7 @@ class RisetDosenController extends Controller
     public function index()
     {
         $m = new RisetDosen();
-
+        $data['title'] = 'Riset Dosen';
         if ($_SESSION['user']['role'] === 'editor') {
             $data['riset'] = $m->getByDosen($_SESSION['user']['id_dosen']);
         } else {
@@ -38,7 +38,6 @@ class RisetDosenController extends Controller
     {
         $d = new Dosen();
         $data['dosen'] = $d->getAll();
-
         $this->view("admin/risetDosen/create", $data);
     }
 

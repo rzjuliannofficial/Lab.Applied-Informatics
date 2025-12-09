@@ -1,6 +1,6 @@
 <!-- HERO -->
 <section class="hero section">
-    <div class="container hero-grid py-[2rem]">
+    <div class="hero-grid py-[2rem] ">
         <div class="hero-left">
             <h1 class="hero-title">
                 Welcome to <br> 
@@ -11,7 +11,7 @@
             </p>
             <div class="hero-button">
                 <button class="button-primary">
-                    <a href="/home">Explore Our Work</a>
+                    <a href="/product">Explore Our Work</a>
                 </button>
                 <button class="button-secondary">
                     <a href="/contact">Connect With Us</a>
@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="hero-right">
-            <div class="hero-image-card">
+            <div class="hero-image-card ">
                 <img src="/uploads/home/rapat_ai.jpg" alt="kosong">
             </div>
         </div>

@@ -22,7 +22,7 @@
 
             <p class="text-xs text-gray-400 uppercase pt-4 pb-1 px-3">Manajemen Data</p>
 
-            <a href="/admin/Dosen" class="flex items-center p-3 hover:bg-gray-700">
+            <a href="/admin/Dosen" class="flex items-center p-3 hover:bg-gray-700 rounded-lg">
                 <i class="fas fa-user-tie w-5 mr-3"></i>Member
             </a>
 
@@ -48,45 +48,46 @@
 
             <!-- Other menus khusus admin -->
             <?php if ($_SESSION['user']['role'] === 'admin'): ?>
-            <a href="/admin/Berita" class="flex items-center p-3 text-gray-300 hover:bg-gray-700">
+            <a href="/admin/Berita" class="flex items-center p-3  hover:bg-gray-700">
                 <i class="fas fa-newspaper w-5 mr-3"></i>Berita
             </a>
 
             <?php endif; ?>
             <?php if ($_SESSION['user']['role'] === 'admin'): ?>
-            <a href="/admin/Produk" class="flex items-center p-3 text-gray-300 hover:bg-gray-700">
+            <a href="/admin/Produk" class="flex items-center p-3  hover:bg-gray-700">
                 <i class="fas fa-atom w-5 mr-3"></i>Produk
             </a>
             <?php endif; ?>
 
             <?php if ($_SESSION['user']['role'] === 'admin'): ?>
-            <a href="/admin/partner" class="flex items-center p-3 text-gray-300 hover:bg-gray-700">
+            <a href="/admin/partner" class="flex items-center p-3  hover:bg-gray-700">
                 <i class="fa-solid fa-handshake w-5 mr-3"></i>Partner
             </a>
             <?php endif; ?>
 
             <?php if ($_SESSION['user']['role'] === 'admin'): ?>
-            <a href="/admin/Fasilitas" class="flex items-center p-3 text-gray-300 hover:bg-gray-700">
+            <a href="/admin/Fasilitas" class="flex items-center p-3  hover:bg-gray-700">
                 <i class="fas fa-building w-5 mr-3"></i>Fasilitas
             </a>
             <?php endif; ?>
             
             <?php if ($_SESSION['user']['role'] === 'admin'): ?>
-            <a href="/admin/galeri" class="flex items-center p-3 text-gray-300 hover:bg-gray-700">
+            <a href="/admin/galeri" class="flex items-center p-3  hover:bg-gray-700">
                 <i class="fas fa-images w-5 mr-3"></i>Galeri
             </a>
             <?php endif; ?>
 
+            
             <?php if ($_SESSION['user']['role'] === 'admin'): ?>
-            <a href="/admin/User" class="flex items-center p-3 hover:bg-gray-700">
-                <i class="fas fa-user-shield w-5 mr-3"></i>Kelola User
-            </a>
+                <a href="/admin/Kontak" class="flex items-center p-3 hover:bg-gray-700">
+                    <i class="fas fa-contact-card w-5 mr-3"></i>Contact Us
+                </a>
             <?php endif; ?>
-
+            <p class="text-xs text-gray-400 uppercase pt-4 pb-1 px-3">Manajemen User</p>
             <?php if ($_SESSION['user']['role'] === 'admin'): ?>
-            <a href="/admin/Kontak" class="flex items-center p-3 hover:bg-gray-700">
-                <i class="fas fa-user-shield w-5 mr-3"></i>Contact Us
-            </a>
+                <a href="/admin/User" class="flex items-center p-3 hover:bg-gray-700">
+                    <i class="fas fa-user-shield w-5 mr-3"></i>Kelola User
+                </a>
             <?php endif; ?>
         </nav>
     </div>

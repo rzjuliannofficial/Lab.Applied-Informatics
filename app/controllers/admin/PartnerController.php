@@ -35,7 +35,7 @@ class PartnerController extends Controller
     {
         $m = new Partners();
         $data['partners'] = $m->getAll();
-
+        $data['title'] = 'Partner';
         $this->view("admin/partner/index", $data);
     }
 

@@ -34,6 +34,7 @@ class BeritaController extends Controller
     public function index()
     {
         $m = new Berita();
+        $data['title'] = 'Berita';
         $data['berita'] = $m->getAll();
 
         $this->view("admin/berita/index", $data);

@@ -26,7 +26,7 @@ class PublikasiDosenController extends Controller
     public function index()
     {
         $m = new PublikasiDosen();
-
+        $data['title'] = 'Publikasi Dosen';
         if ($_SESSION['user']['role'] === 'editor') {
             $data['publikasi'] = $m->getByDosen($_SESSION['user']['id_dosen']);
         } else {
@@ -40,7 +40,6 @@ class PublikasiDosenController extends Controller
     {
         $dosenModel = new Dosen();
         $data['dosen'] = $dosenModel->getAll();
-
         $this->view("admin/publikasiDosen/create", $data);
     }
     

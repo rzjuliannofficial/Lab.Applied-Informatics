@@ -25,7 +25,7 @@ class PpmController extends Controller
     public function index()
     {
         $m = new Ppm();
-
+        $data['title'] = 'PPM';
         if ($_SESSION['user']['role'] === 'editor') {
             $data['ppm'] = $m->getByDosen($_SESSION['user']['id_dosen']);
         } else {

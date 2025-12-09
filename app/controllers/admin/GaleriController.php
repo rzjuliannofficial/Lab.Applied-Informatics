@@ -11,7 +11,7 @@ class GaleriController extends Controller
     {
         $m = new Galeri();
         $data['galeri'] = $m->getAll();
-
+        $data['title'] = 'Galeri';
         $this->view("admin/galeri/index", $data);
     }
 
@@ -34,7 +34,7 @@ class GaleriController extends Controller
 
         $m = new Galeri();
         $m->updateCaption($id, $caption);
-
+        
         $_SESSION['success'] = "Caption galeri berhasil diperbarui.";
         header("Location: /admin/galeri");
     }

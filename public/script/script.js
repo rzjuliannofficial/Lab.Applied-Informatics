@@ -1,3 +1,28 @@
+$(document).ready(function() {
+    
+    // Hamburger Menu Logic
+    $('.hamburger').on('click', function() {
+        $(this).toggleClass('active');
+        $('.nav-links').slideToggle(300);
+    });
+
+    // Close menu when link clicked (Mobile/Tablet only)
+    $('.nav-links a').on('click', function() {
+        if ($(window).width() <= 1024) { // Ubah 800 jadi 1024
+            $('.nav-links').slideUp(300);
+            $('.hamburger').removeClass('active');
+        }
+    });
+
+    // Reset style on resize
+    $(window).resize(function() {
+        if ($(window).width() > 1024) { // Ubah 800 jadi 1024
+            $('.nav-links').css('display', ''); 
+            $('.hamburger').removeClass('active');
+        }
+    });
+    
+});
 
 //   AOS.init();
   AOS.init({

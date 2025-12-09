@@ -34,6 +34,7 @@ class FasilitasController extends Controller
     public function index()
 {
     $m = new Fasilitas();
+    $data['title'] = 'Fasilitas';
     $data['fasilitas'] = $m->getAll();
     $this->view("admin/fasilitas/index", $data);
 }

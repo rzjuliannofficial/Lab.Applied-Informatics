@@ -26,6 +26,12 @@
                 </div>
             </a>
             
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
             <div class="nav-links">
                 <a href="/home" class="nav-link">Home</a>
                 <a href="/product" class="nav-link">Product</a>

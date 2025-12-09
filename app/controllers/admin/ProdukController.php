@@ -36,7 +36,7 @@ class ProdukController extends Controller
     {
         $m = new Produk();
         $data['produk'] = $m->getAll();
-
+        $data['title'] = 'Produk';
         $this->view("admin/produk/index", $data);
     }
 

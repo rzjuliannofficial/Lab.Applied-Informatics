@@ -25,7 +25,7 @@ class KekayaanIntelektualController extends Controller
     public function index()
     {
         $m = new KekayaanIntelektual();
-
+        $data['title'] = 'Kekayaan Intelektual';
         if ($_SESSION['user']['role'] === 'editor') {
             $data['ki'] = $m->getByDosen($_SESSION['user']['id_dosen']);
         } else {

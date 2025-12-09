@@ -11,7 +11,7 @@ class KontakController extends Controller
     {
         $kontakModel = new KontakModel();
         $data['pesan'] = $kontakModel->getAll();
-
+        $data['title'] = 'Kontak';
         $this->view("admin/kontak/index", $data);
     }
 

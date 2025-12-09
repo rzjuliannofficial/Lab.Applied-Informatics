@@ -24,7 +24,7 @@ class AktivitasDosenController extends Controller
     public function index()
     {
         $m = new AktivitasDosen();
-
+        $data['title'] = 'Aktivitas Dosen';
         if ($_SESSION['user']['role'] === 'editor') {
             $data['aktivitas'] = $m->getByDosen($_SESSION['user']['id_dosen']);
         } else {

@@ -34,6 +34,7 @@ class DosenController extends Controller
     public function index()
     {
         $m = new Dosen();
+        $data['title'] = 'Member';
         $data['dosen'] = $m->getAll();
 
         $this->view("admin/dosen/index", $data);

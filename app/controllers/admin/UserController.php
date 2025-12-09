@@ -11,6 +11,7 @@ class UserController extends Controller
     {
         $users = new Users();
         $data['users'] = $users->getAllUsers();
+        $data['title'] = 'User Management';
         $this->view('admin/user/index', $data);
     }
 

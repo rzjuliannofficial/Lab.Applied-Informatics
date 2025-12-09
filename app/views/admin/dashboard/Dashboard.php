@@ -1,5 +1,4 @@
 <?php ob_start(); ?>
-
 <div id="welcome-alert" class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-8 flex justify-between items-center rounded-r-lg shadow-sm transition-opacity duration-500" role="alert">
     <div class="flex items-center gap-3">
         <i class="fas fa-check-circle text-xl"></i>
