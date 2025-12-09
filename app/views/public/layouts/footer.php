@@ -33,7 +33,7 @@
                 <div class="footer-section">
                     <h4 class="footer-title">Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="/home"><i class="fas fa-angle-right"></i> Home</a></li>
+                        <li><a href="/home#"><i class="fas fa-angle-right"></i> Home</a></li>
                         <li><a href="/product"><i class="fas fa-angle-right"></i> Products</a></li>
                         <li><a href="/member"><i class="fas fa-angle-right"></i> Member</a></li>
                         <li><a href="/news"><i class="fas fa-angle-right"></i> News</a></li>
@@ -96,6 +96,9 @@
         </div>
     </div>
 </footer>
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
     <div class="bottom-blur-overlay"></div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

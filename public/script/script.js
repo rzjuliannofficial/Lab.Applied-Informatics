@@ -24,6 +24,45 @@ $(document).ready(function() {
     
 });
 
+// Header hide on scroll
+let lastScrollY = 100;
+$(document).ready(()=>{
+    $(window).on("scroll",()=>{
+        console.log(window.scrollY);
+        if(lastScrollY < window.scrollY){
+            // scroll down
+            $(".header").addClass("translate-y-[-100%]");
+        } else {
+            // scroll up
+            $(".header").removeClass("translate-y-[-100%]");
+        }
+        lastScrollY = window.scrollY;
+    })
+});
+
+// Back to Top Button
+$(document).ready(()=>{
+    const backToTopBtn = document.getElementById('backToTop');
+    if (backToTopBtn) {
+        // Event saat di-scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Muncul setelah scroll 300px
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        // Event saat diklik (Smooth Scroll ke atas)
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+            });
+        });
+    }
+});
+
 //   AOS.init();
   AOS.init({
     once: false,
@@ -64,75 +103,6 @@ if (bottomBlur && footer) {
     console.error("Elemen '.bottom-blur-overlay' atau 'footer' tidak ditemukan.");
 }
 
-//for NEWS IN HOMEPAGE
-$(document).ready(function() {
-    const $items = $('.carousel-item-3d');
-    const $btnNext = $('#btnNext');
-    const $btnPrev = $('#btnPrev');
-    const totalItems = $items.length;
-    let currentIndex = 0;
-    const autoSlideInterval = 5000;
-
-    function updateCarousel() {
-        $items.removeClass('active prev next hidden');
-        
-        $items.each(function(index) {
-            const $item = $(this);
-            let relativePosition = index - currentIndex;
-
-            if (relativePosition < 0) {
-                relativePosition += totalItems;
-            }
-            
-            if (relativePosition === 0) {
-                $item.addClass('active');
-            } else if (relativePosition === 1) {
-                $item.addClass('next');
-            } else if (relativePosition === totalItems - 1) {
-                $item.addClass('prev');
-            } else {
-                $item.addClass('hidden');
-            }
-        });
-    }
-    
-    function goToSlide(direction) {
-        if (direction === 'next') {
-            currentIndex = (currentIndex + 1) % totalItems;
-        } else {
-            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-        }
-        updateCarousel();
-    }
-
-    $btnNext.on('click', function() {
-        goToSlide('next');
-    });
-    $btnPrev.on('click', function() {
-        goToSlide('prev');
-    });
-    
-    $items.on('click', function() {
-        const $clickedItem = $(this);
-        const itemIndex = parseInt($clickedItem.data('index'));
-        
-        if (itemIndex !== currentIndex) {
-            const nextIndex = (currentIndex + 1) % totalItems;
-            
-            if (itemIndex === nextIndex) {
-                goToSlide('next');
-            } else {
-                goToSlide('prev');
-            }
-        }
-    });
-
-    updateCarousel();
-
-    setInterval(() => {
-        goToSlide('next');
-    }, autoSlideInterval);
-});
 
 // GALLERY FILTER FUNCTIONALITY
 document.addEventListener('DOMContentLoaded', function() {
