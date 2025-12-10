@@ -14,16 +14,16 @@
                         dedicated to innovation in information technology and multimedia research.
                     </p>
                     <div class="footer-social">
-                        <a href="#" class="social-icon" aria-label="Instagram">
+                        <a href="https://www.instagram.com/polinema_campus/" class="social-icon" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="social-icon" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/school/polinema-joss/" class="social-icon" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="#" class="social-icon" aria-label="Twitter">
+                        <a href="https://twitter.com/polinema_campus/" class="social-icon" aria-label="Twitter">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="social-icon" aria-label="GitHub">
+                        <a href="https://github.com/jti-polinema/" class="social-icon" aria-label="GitHub">
                             <i class="fab fa-github"></i>
                         </a>
                     </div>
@@ -87,11 +87,6 @@
         <div class="container">
             <div class="footer-bottom-content">
                 <p>&copy; 2025 Applied Informatics Laboratory - Politeknik Negeri Malang. All Rights Reserved.</p>
-                <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <span>|</span>
-                    <a href="#">Terms of Service</a>
-                </div>
             </div>
         </div>
     </div>
