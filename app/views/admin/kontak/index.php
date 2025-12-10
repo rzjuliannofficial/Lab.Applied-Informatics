@@ -32,13 +32,22 @@
             </td>
 
             <td class="p-2 border">
-                <!-- <div class="max-w-xs truncate text-gray-700"> -->
+                <div class="line-clamp-2 max-w-xs text-gray-700">
                     <?= htmlspecialchars($p['isi']) ?>
-                <!-- </div> -->
+                </div>
             </td>
 
             <td class="p-2 border">
                 <div class="flex items-center justify-center gap-2">
+                    
+                    <button type="button" 
+                            onclick="showDetail(<?= htmlspecialchars(json_encode($p), ENT_QUOTES, 'UTF-8') ?>)"
+                            class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
+                                   text-blue-700 bg-blue-100 border border-blue-300 
+                                   rounded hover:bg-blue-200 transition">
+                        <i class="fas fa-eye text-[10px]"></i>
+                        Lihat
+                    </button>
 
                     <a href="/admin/kontak/delete/<?= $p['id'] ?>"
                        onclick="return confirm('Hapus pesan ini?')"
@@ -55,6 +64,45 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    function showDetail(data) {
+        // Escape HTML untuk keamanan saat menampilkan isi pesan di SweetAlert
+        const safeIsi = data.isi.replace(/&/g, "&amp;")
+                                .replace(/</g, "&lt;")
+                                .replace(/>/g, "&gt;")
+                                .replace(/"/g, "&quot;")
+                                .replace(/'/g, "&#039;")
+                                .replace(/\n/g, "<br>");
+
+        Swal.fire({
+            title: 'Detail Pesan',
+            html: `
+                <div class="text-left text-sm space-y-3">
+                    <div>
+                        <strong class="block text-gray-700">Pengirim:</strong>
+                        <span>${data.nama} (${data.email})</span>
+                    </div>
+                    <div>
+                        <strong class="block text-gray-700">Subject:</strong>
+                        <span>${data.subject}</span>
+                    </div>
+                    <div class="border-t pt-2 mt-2">
+                        <strong class="block text-gray-700 mb-1">Isi Pesan:</strong>
+                        <div class="p-3 bg-gray-50 rounded border text-gray-800 max-h-60 overflow-y-auto">
+                            ${safeIsi}
+                        </div>
+                    </div>
+                </div>
+            `,
+            confirmButtonText: 'Tutup',
+            confirmButtonColor: '#02416D',
+            width: '600px'
+        });
+    }
+</script>
 
 <?php
 $content = ob_get_clean();
