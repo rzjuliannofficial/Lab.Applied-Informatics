@@ -2,7 +2,7 @@
 
 <h1 class="text-2xl font-bold mb-6">Pesan Kontak</h1>
 
-<table class="mt-4 w-full border bg-white shadow">
+<table class="mt-4 w-full border bg-white shadow overflow-hidden">
     <thead class="bg-gray-100">
         <tr>
             <th class="p-2 border">#</th>
@@ -16,7 +16,7 @@
 
     <tbody>
         <?php $i = 0; foreach ($pesan as $p): ?>
-        <tr class="hover:bg-gray-50">
+        <tr class="hover:bg-gray-50 text-sm">
             <td class="p-2 border"><?= ++$i ?></td>
 
             <td class="p-2 border">
@@ -32,7 +32,7 @@
             </td>
 
             <td class="p-2 border">
-                <div class="line-clamp-2 max-w-xs text-gray-700">
+                <div class="truncate max-w-xs text-gray-700">
                     <?= htmlspecialchars($p['isi']) ?>
                 </div>
             </td>

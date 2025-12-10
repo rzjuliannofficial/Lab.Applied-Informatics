@@ -19,7 +19,7 @@
     <tbody>
         <?php $i=0;
         foreach ($ppm as $p): ?>
-        <tr class="hover:bg-gray-50">
+        <tr class="hover:bg-gray-50 text-sm">
             <td class="p-2 border"><?php echo ++$i; ?></td>
             <td class="p-2 border"><?= htmlspecialchars($p['nama_dosen']) ?></td>
             <td class="p-2 border"><?= htmlspecialchars($p['judul']) ?></td>

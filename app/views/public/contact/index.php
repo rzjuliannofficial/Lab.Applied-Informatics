@@ -106,7 +106,11 @@
                             name="nama" 
                             class="form-input" 
                             placeholder="Enter your full name"
+                            maxlength="100"
                             required>
+                        <small id="name-warning" class="text-gray-500 text-xs mt-1 block text-right transition-colors duration-200">
+                            0/100 karakter
+                        </small>
                     </div>
 
                     <div class="form-group">

@@ -153,3 +153,29 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+//menghitung jumlah karakter pada input
+document.addEventListener('DOMContentLoaded', function() {
+    const nameInput = document.getElementById('name');
+    const warningText = document.getElementById('name-warning');
+    const maxChars = 100;
+
+    nameInput.addEventListener('input', function() {
+        const currentLength = this.value.length;
+        
+        // Update teks counter
+        warningText.textContent = `${currentLength}/${maxChars} karakter`;
+
+        // Ubah warna jika mendekati atau mencapai batas
+        if (currentLength >= maxChars) {
+            warningText.textContent = `Batas maksimum ${maxChars} karakter tercapai!`;
+            warningText.classList.remove('text-gray-500');
+            warningText.classList.add('text-red-600', 'font-bold');
+            this.classList.add('border-red-500', 'focus:ring-red-500'); // Merahkan border input
+        } else {
+            warningText.classList.add('text-gray-500');
+            warningText.classList.remove('text-red-600', 'font-bold');
+            this.classList.remove('border-red-500', 'focus:ring-red-500'); // Normalkan border
+        }
+    });
+});

@@ -20,7 +20,7 @@
     <tbody>
         <?php $i=0;
         foreach ($riset as $r): ?>
-        <tr class="hover:bg-gray-50">
+        <tr class="hover:bg-gray-50 text-sm">
             <td class="p-2 border"><?php echo ++$i; ?></td>
             <td class="p-2 border"><?= htmlspecialchars($r['nama_dosen']) ?></td>
             <td class="p-2 border"><?= htmlspecialchars($r['judul']) ?></td>

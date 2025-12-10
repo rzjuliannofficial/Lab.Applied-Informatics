@@ -33,7 +33,7 @@
             </td>
 
             <td class="p-3 border">
-                <div class="text-gray-600 line-clamp-3">
+                <div class="text-gray-600 line-clamp-2">
                     <?= htmlspecialchars($b['isi_berita']) ?>
                 </div>
             </td>

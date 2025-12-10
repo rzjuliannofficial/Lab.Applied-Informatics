@@ -21,7 +21,7 @@
     <tbody>
     <?php $i=0;
     foreach ($partners as $partner): ?>
-        <tr class="hover:bg-gray-50">
+        <tr class="hover:bg-gray-50 text-sm">
             <td class="p-2 border"><?php echo ++$i; ?></td>
             <td class="p-2 border"><?= htmlspecialchars($partner['nama']) ?></td>
             <td class="p-2 border">

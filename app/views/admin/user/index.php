@@ -21,7 +21,7 @@
     <tbody>
         <?php $i =0;
         while($row = pg_fetch_assoc($users)): ?>
-        <tr class="hover:bg-gray-50">
+        <tr class="hover:bg-gray-50 text-sm">
             <td class="p-2 border"><?php echo ++$i; ?></td>
             <td class="p-2 border"><?= $row['username'] ?></td>
             <td class="p-2 border capitalize"><?= $row['role'] ?></td>
