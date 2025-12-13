@@ -1,92 +1,70 @@
 <?php ob_start(); ?>
-<div class="flex justify-between items-center mb-6">
-    <h1 class="text-2xl font-bold">Daftar Berita</h1>
-    <a href="/admin/Berita/create" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-        <i class="fas fa-plus mr-1"></i> Tambah Data
+
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+    <div>
+        <h1 class="text-2xl font-bold text-slate-800">Berita & Aktivitas</h1>
+        <p class="text-slate-500 text-sm mt-1">Publikasikan kegiatan dan informasi terbaru.</p>
+    </div>
+    
+    <a href="/admin/Berita/create" class="group relative inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white transition-all duration-200 bg-gradient-to-r from-pink-600 to-rose-600 rounded-full hover:from-pink-700 hover:to-rose-700 shadow-lg shadow-pink-500/30 hover:shadow-pink-500/50">
+        <i class="fas fa-pen-nib mr-2"></i> Tulis Berita
     </a>
 </div>
-<table class="mt-4 w-full bg-white shadow rounded-lg overflow-hidden">
-    <thead class="bg-gray-100 text-gray-700 text-sm font-semibold">
-        <tr>
-            <th class="p-3 border">#</th>
-            <th class="p-3 border w-64">Judul</th>
-            <th class="p-3 border w-96">Isi</th>
-            <th class="p-3 border">Kategori</th>
-            <th class="p-3 border">Tanggal</th>
-            <th class="p-3 border">Gambar</th>
-            <th class="p-3 border">Aksi</th>
-        </tr>
-    </thead>
 
-    <tbody class="text-sm text-gray-800">
-    <?php $i=0; foreach ($berita as $b): ?>
-        <tr class="hover:bg-gray-50">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <?php foreach ($berita as $b): ?>
+        <div class="bg-white rounded-2xl border border-slate-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] transition-all duration-300 flex flex-col overflow-hidden h-full group">
             
-            <td class="p-3 border text-center">
-                <?= ++$i ?>
-            </td>
-
-            <td class="p-3 border">
-                <div class="font-medium text-gray-900 line-clamp-2">
-                    <?= htmlspecialchars($b['judul']) ?>
-                </div>
-            </td>
-
-            <td class="p-3 border">
-                <div class="text-gray-600 line-clamp-2">
-                    <?= htmlspecialchars($b['isi_berita']) ?>
-                </div>
-            </td>
-
-            <td class="p-3 border text-center">
-                <span class="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs">
+            <div class="relative h-48 bg-slate-100 overflow-hidden">
+                <?php if (!empty($b['gambar_utama'])): ?>
+                    <img src="<?= htmlspecialchars($b['gambar_utama']) ?>" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <?php else: ?>
+                    <div class="flex items-center justify-center h-full text-slate-300">
+                        <i class="fas fa-image text-4xl"></i>
+                    </div>
+                <?php endif; ?>
+                
+                <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-rose-600 text-xs font-bold px-3 py-1 rounded-full shadow-sm">
                     <?= htmlspecialchars($b['kategori']) ?>
                 </span>
-            </td>
+            </div>
 
-            <td class="p-3 border text-center text-gray-600">
-                <?= htmlspecialchars($b['tanggal']) ?>
-            </td>
+            <div class="p-6 flex-1 flex flex-col">
+                <div class="text-xs text-slate-400 mb-2 flex items-center gap-2">
+                    <i class="far fa-calendar-alt"></i>
+                    <?= date('d M Y', strtotime($b['tanggal'])) ?>
+                </div>
 
-            <td class="p-3 border text-center">
-                <?php if ($b['gambar_utama']): ?>
-                    <img src="<?= htmlspecialchars($b['gambar_utama']) ?>"
-                         class="w-16 h-16 object-cover rounded border" />
-                <?php else: ?>
-                    <span class="text-gray-400 text-sm">Tidak ada</span>
-                <?php endif; ?>
-            </td>
+                <h3 class="text-lg font-bold text-slate-800 mb-3 line-clamp-2 leading-tight group-hover:text-rose-600 transition-colors">
+                    <?= htmlspecialchars($b['judul']) ?>
+                </h3>
+                
+                <p class="text-slate-500 text-sm line-clamp-3 mb-4 flex-1">
+                    <?= strip_tags(htmlspecialchars_decode($b['isi_berita'])) ?>
+                </p>
 
-            <td class="p-3 border">
-    <div class="flex items-center justify-center gap-2">
-
-        <a href="/admin/Berita/edit/<?= $b['id'] ?>"
-           class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
-                  text-yellow-700 bg-yellow-100 border border-yellow-300 
-                  rounded hover:bg-yellow-200 transition">
-            <i class="fas fa-edit text-[10px]"></i>
-            Edit
-        </a>
-
-        <a href="/admin/Berita/delete/<?= $b['id'] ?>"
-           onclick="return confirm('Hapus berita ini?')"
-           class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
-                  text-red-700 bg-red-100 border border-red-300 
-                  rounded hover:bg-red-200 transition">
-            <i class="fas fa-trash text-[10px]"></i>
-            Hapus
-        </a>
-
-    </div>
-</td>
-
-        </tr>
+                <div class="pt-4 border-t border-slate-100 flex justify-between items-center mt-auto">
+                    <a href="/admin/Berita/edit/<?= $b['id'] ?>" class="text-xs font-medium text-slate-500 hover:text-amber-600 flex items-center gap-1 transition-colors">
+                        <i class="fas fa-edit"></i> Edit
+                    </a>
+                    <a href="/admin/Berita/delete/<?= $b['id'] ?>" onclick="return confirm('Hapus berita ini?')" class="text-xs font-medium text-slate-500 hover:text-red-600 flex items-center gap-1 transition-colors">
+                        <i class="fas fa-trash"></i> Hapus
+                    </a>
+                </div>
+            </div>
+        </div>
     <?php endforeach; ?>
-    </tbody>
+</div>
 
-</table>
-
-
+<?php if(empty($berita)): ?>
+    <div class="text-center py-12">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 mb-4 text-slate-400">
+            <i class="far fa-newspaper text-2xl"></i>
+        </div>
+        <h3 class="text-lg font-medium text-slate-900">Belum ada berita</h3>
+        <p class="text-slate-500">Mulai tulis berita pertama sekarang.</p>
+    </div>
+<?php endif; ?>
 
 <?php
 $content = ob_get_clean();

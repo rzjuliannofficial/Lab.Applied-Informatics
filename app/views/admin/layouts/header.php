@@ -9,17 +9,10 @@
     </h2>
 
     <div class="flex items-center gap-4 md:gap-6">
-        <button class="text-gray-500 hover:text-blue-600 relative transition-colors">
-            <i class="fas fa-bell text-lg"></i>
-            <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full ring-2 ring-white"></span>
-        </button>
-        <button class="text-gray-500 hover:text-blue-600 relative transition-colors">
-            <i class="fas fa-envelope text-lg"></i>
-        </button>
         
         <div class="h-8 w-px bg-gray-200 mx-1"></div>
 
-        <div class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded-lg transition">
+        <div class="flex items-center gap-3 p-1 ">
             <div class="text-right hidden sm:block">
                 <p class="text-sm font-semibold text-gray-700 leading-none">
                     <?= $_SESSION['user']['nama_dosen']; ?>
