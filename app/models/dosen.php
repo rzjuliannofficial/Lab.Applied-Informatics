@@ -69,4 +69,18 @@ class Dosen extends Model
         }
         return 0;
     }
+
+    
+    public function search($keyword)
+    {
+        $term = "%" . $keyword . "%";
+        $sql = "SELECT * FROM {$this->table} WHERE nama ILIKE $1 OR nip ILIKE $1 ORDER BY jabatan ASC";
+        
+        $res = pg_query_params($this->db, $sql, [$term]);
+        $rows = [];
+        while ($row = pg_fetch_assoc($res)) {
+            $rows[] = $row;
+        }
+        return $rows;
+    }
 }

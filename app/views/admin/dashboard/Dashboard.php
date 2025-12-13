@@ -1,172 +1,213 @@
 <?php ob_start(); ?>
-<div id="welcome-alert" class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-8 flex justify-between items-center rounded-r-lg shadow-sm transition-opacity duration-500" role="alert">
-    <div class="flex items-center gap-3">
-        <i class="fas fa-check-circle text-xl"></i>
+
+<div class="relative bg-gradient-to-r from-blue-900 to-blue-700 rounded-3xl p-8 mb-8 text-white shadow-xl overflow-hidden">
+    <div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-6">
         <div>
-            <p class="font-bold">Sukses!</p>
-            <p class="text-sm">Selamat datang kembali, <?= $_SESSION['user']['nama_dosen']; ?></p>
+            <h1 class="text-3xl font-bold mb-2">Selamat Datang, <?= htmlspecialchars($_SESSION['user']['nama_dosen'] ?? 'User') ?>! 👋</h1>
+            <p class="text-blue-100 text-lg">
+                Anda login sebagai <span class="font-bold bg-blue-600/50 px-3 py-1 rounded-lg border border-blue-400/30 capitalize"><?= $_SESSION['user']['role'] ?></span>
+            </p>
+            <p class="mt-4 text-sm text-blue-200 opacity-80">
+                <i class="far fa-clock mr-1"></i> <?= date('l, d F Y') ?>
+            </p>
         </div>
     </div>
-    <button id="close-alert-btn" class="text-green-700 hover:text-green-900 transition-colors p-2">
-        <i class="fas fa-times text-lg"></i>
-    </button>
 </div>
 
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <!-- Card 1: Anggota -->
-        <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-5 border-b-4 border-blue-500 flex flex-col justify-between h-32">
-            <div class="flex justify-between items-start">
-                <div>
-                    <p class="text-gray-500 text-sm font-medium uppercase tracking-wide">Anggota Lab</p>
-                    <h3 class="text-3xl font-bold text-gray-800 mt-1"><?= $data['totalDosen']; ?></h3>
-                </div>
-                <div class="p-2 bg-blue-50 rounded-lg">
-                    <i class="fas fa-users text-xl text-blue-500"></i>
-                </div>
+<div class="mb-10">
+    <h2 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+        <i class="fas fa-chart-pie mr-2 text-blue-600"></i> Ringkasan Laboratorium
+    </h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] border border-gray-100 flex items-center gap-4 transition-transform hover:-translate-y-1">
+            <div class="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 text-2xl">
+                <i class="fas fa-chalkboard-teacher"></i>
             </div>
-            <div class="flex items-center text-xs text-green-600 font-medium mt-2">
-                <!-- <i class="fas fa-arrow-up mr-1"></i> -->
-                <span>Anggota aktif</span>
+            <div>
+                <p class="text-gray-500 text-sm font-medium">Total Member</p>
+                <h3 class="text-2xl font-bold text-gray-800"><?= $totalDosen ?? 0 ?></h3>
             </div>
         </div>
-        <!-- Card 4: Editor -->
-        <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-5 border-b-4 border-pink-500 flex flex-col justify-between h-32">
-            <div class="flex justify-between items-start">
-                <div>
-                    <p class="text-gray-500 text-sm font-medium uppercase tracking-wide">Jumlah Editor </p>
-                    <h3 class="text-3xl font-bold text-gray-800 mt-1"><?= $data['totalEditor']; ?></h3>
-                </div>
-                <div class="p-2 bg-pink-50 rounded-lg">
-                    <i class="fas fa-pen-nib text-xl text-pink-500"></i>
-                </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] border border-gray-100 flex items-center gap-4 transition-transform hover:-translate-y-1">
+            <div class="w-14 h-14 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 text-2xl">
+                <i class="fas fa-book-open"></i>
             </div>
-            <div class="text-xs text-gray-400 text-green-600 text-xs font-medium mt-2">Editor Aktif</div>
+            <div>
+                <p class="text-gray-500 text-sm font-medium">Publikasi</p>
+                <h3 class="text-2xl font-bold text-gray-800"><?= $totalPublikasi ?? 0 ?></h3>
+            </div>
         </div>
-        <!-- Card 2: Pending -->
-        <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-5 border-b-4 border-yellow-400 flex flex-col justify-between h-32">
-            <div class="flex justify-between items-start">
-                <div>
-                    <p class="text-gray-500 text-sm font-medium uppercase tracking-wide">Total Publikasi</p>
-                    <h3 class="text-3xl font-bold text-gray-800 mt-1"><?= $data['totalPublikasi']; ?></h3>
-                </div>
-                <div class="p-2 bg-yellow-50 rounded-lg">
-                    <i class="fas fa-book text-xl text-yellow-500"></i>
-                </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] border border-gray-100 flex items-center gap-4 transition-transform hover:-translate-y-1">
+            <div class="w-14 h-14 rounded-full bg-amber-50 flex items-center justify-center text-amber-600 text-2xl">
+                <i class="fas fa-box-open"></i>
             </div>
-            <div class="text-xs text-gray-400 mt-2">Data Terpublikasi</div>
+            <div>
+                <p class="text-gray-500 text-sm font-medium">Produk Hilirisasi</p>
+                <h3 class="text-2xl font-bold text-gray-800"><?= $totalProduk ?? 0 ?></h3>
+            </div>
         </div>
-        <!-- Card 3: Riset -->
-        <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 p-5 border-b-4 border-green-500 flex flex-col justify-between h-32">
-            <div class="flex justify-between items-start">
-                <div>
-                    <p class="text-gray-500 text-sm font-medium uppercase tracking-wide">Total Galeri</p>
-                    <h3 class="text-3xl font-bold text-gray-800 mt-1"><?= $data['totalGaleri']; ?></h3>
-                </div>
-                <div class="p-2 bg-green-50 rounded-lg">
-                    <i class="fas fa-image text-xl text-green-500"></i>
-                </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] border border-gray-100 flex items-center gap-4 transition-transform hover:-translate-y-1">
+            <div class="w-14 h-14 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 text-2xl">
+                <i class="far fa-newspaper"></i>
             </div>
-            <div class="flex text-xs text-gray-400 items-center mt-2">
-                <!-- <i class="fas fa-arrow-up mr-1"></i>  -->
-                <span>Foto Ditampilkan</span>
+            <div>
+                <p class="text-gray-500 text-sm font-medium">Berita & Artikel</p>
+                <h3 class="text-2xl font-bold text-gray-800"><?= $totalBerita ?? 0 ?></h3>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Content Management Cards (Bagian Baru) -->
-    <h3 class="text-lg font-semibold text-gray-700 mb-4">Manajemen Konten</h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div>
+    <h2 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+        <i class="fas fa-th-large mr-2 text-blue-600"></i> 
+        <?= $_SESSION['user']['role'] === 'admin' ? 'Pusat Kontrol Admin' : 'Area Kerja Anda' ?>
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         
-        <!-- Card News -->
-        <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition-all duration-300 group relative overflow-hidden">
-            <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                <i class="fas fa-newspaper text-6xl text-indigo-500"></i>
-            </div>
-            <div class="flex items-center gap-4 mb-4">
-                <div class="w-12 h-12 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600">
-                    <i class="fas fa-newspaper text-xl"></i>
+        <?php if ($_SESSION['user']['role'] === 'admin'): ?>
+            <a href="/admin/user" class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-indigo-100 text-indigo-600 rounded-xl group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-users-cog text-xl"></i>
+                    </div>
+                    <span class="bg-gray-100 text-gray-600 text-xs font-bold px-2 py-1 rounded">Admin</span>
                 </div>
-                <div>
-                    <h4 class="font-bold text-gray-800">Berita</h4>
-                    <p class="text-xs text-gray-500"><?=  $data['totalBerita']; ?> Artikel Aktif</p>
-                </div>
-            </div>
-            <a href="berita" class="w-full mt-2 py-2 px-4 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition-colors group-hover:bg-indigo-600 group-hover:text-white">
-                <i class="fas fa-plus-circle"></i> Tambah Berita
+                <h3 class="font-bold text-gray-800 text-lg group-hover:text-indigo-700">Manajemen User</h3>
+                <p class="text-sm text-gray-500 mt-2">Kelola akun editor dan hak akses sistem.</p>
             </a>
-        </div>
 
-        <!-- Card Product -->
-        <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition-all duration-300 group relative overflow-hidden">
-            <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                <i class="fas fa-box-open text-6xl text-teal-500"></i>
-            </div>
-            <div class="flex items-center gap-4 mb-4">
-                <div class="w-12 h-12 rounded-lg bg-teal-100 flex items-center justify-center text-teal-600">
-                    <i class="fas fa-box-open text-xl"></i>
+            <a href="/admin/dosen" class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-blue-100 text-blue-600 rounded-xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-user-tie text-xl"></i>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="font-bold text-gray-800">Produk</h4>
-                    <p class="text-xs text-gray-500">8 Produk Hilirisasi</p>
-                </div>
-            </div>
-            <a href="produk" class="w-full mt-2 py-2 px-4 bg-teal-50 hover:bg-teal-100 text-teal-600 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition-colors group-hover:bg-teal-600 group-hover:text-white">
-                <i class="fas fa-plus-circle"></i> Tambah Produk
+                <h3 class="font-bold text-gray-800 text-lg group-hover:text-blue-700">Data Member</h3>
+                <p class="text-sm text-gray-500 mt-2">Tambah, edit, atau hapus data anggota lab.</p>
             </a>
-        </div>
 
-        <!-- Card Galeri -->
-        <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition-all duration-300 group relative overflow-hidden">
-            <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                <i class="fas fa-images text-6xl text-purple-500"></i>
-            </div>
-            <div class="flex items-center gap-4 mb-4">
-                <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center text-purple-600">
-                    <i class="fas fa-images text-xl"></i>
+            <a href="/admin/partner" class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-orange-100 text-orange-600 rounded-xl group-hover:bg-orange-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-handshake text-xl"></i>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="font-bold text-gray-800">Galeri</h4>
-                    <p class="text-xs text-gray-500">24 Album Foto</p>
-                </div>
-            </div>
-            <a href="galeri" class="w-full mt-2 py-2 px-4 bg-purple-50 hover:bg-purple-100 text-purple-600 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition-colors group-hover:bg-purple-600 group-hover:text-white">
-                <i class="fas fa-plus-circle"></i> Upload Foto
+                <h3 class="font-bold text-gray-800 text-lg group-hover:text-orange-700">Partnership</h3>
+                <p class="text-sm text-gray-500 mt-2">Kelola data mitra industri dan universitas.</p>
             </a>
-        </div>
 
-        <!-- Card Partner -->
-        <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition-all duration-300 group relative overflow-hidden">
-            <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                <i class="fas fa-handshake text-6xl text-orange-500"></i>
-            </div>
-            <div class="flex items-center gap-4 mb-4">
-                <div class="w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center text-orange-600">
-                    <i class="fas fa-handshake text-xl"></i>
+            <a href="/admin/fasilitas" class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-teal-100 text-teal-600 rounded-xl group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-building text-xl"></i>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="font-bold text-gray-800">Partner</h4>
-                    <p class="text-xs text-gray-500">15 Mitra Industri</p>
-                </div>
-            </div>
-            <a href="partner" class="w-full mt-2 py-2 px-4 bg-orange-50 hover:bg-orange-100 text-orange-600 rounded-lg text-sm font-medium flex items-center justify-center gap-2 transition-colors group-hover:bg-orange-600 group-hover:text-white">
-                <i class="fas fa-plus-circle"></i> Tambah Partner
+                <h3 class="font-bold text-gray-800 text-lg group-hover:text-teal-700">Fasilitas Lab</h3>
+                <p class="text-sm text-gray-500 mt-2">Update inventaris dan fasilitas laboratorium.</p>
             </a>
-        </div>
+        <?php endif; ?>
+
+        <?php 
+            $profilLink = ($_SESSION['user']['role'] === 'editor') //role editor?
+                ? "/admin/dosen/edit/" . $_SESSION['user']['id_dosen'] //jika iya
+                : "/admin/dosen"; //jika bukan
+            
+            $profilText = ($_SESSION['user']['role'] === 'editor') 
+                ? "Update Profil Saya" 
+                : "Semua Profil Member";
+        ?>
+
+        <?php if ($_SESSION['user']['role'] === 'editor'): ?>
+            <a href="<?= $profilLink ?>" class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-cyan-100 text-cyan-600 rounded-xl group-hover:bg-cyan-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-id-card text-xl"></i>
+                    </div>
+                    <?php if($_SESSION['user']['role'] === 'editor'): ?>
+                        <span class="bg-green-100 text-green-700 text-[10px] font-bold px-2 py-1 rounded-full">PERSONAL</span>
+                    <?php endif; ?>
+                </div>
+                <h3 class="font-bold text-gray-800 text-lg group-hover:text-cyan-700"><?= $profilText ?></h3>
+                <p class="text-sm text-gray-500 mt-2">Perbarui biodata, foto, dan keahlian Anda.</p>
+            </a>
+        <?php endif; ?>
+
+        <a href="/admin/publikasiDosen" class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300">
+            <div class="flex justify-between items-start mb-4">
+                <div class="p-3 bg-red-100 text-red-600 rounded-xl group-hover:bg-red-600 group-hover:text-white transition-colors">
+                    <i class="fas fa-book text-xl"></i>
+                </div>
+            </div>
+            <h3 class="font-bold text-gray-800 text-lg group-hover:text-red-700">Publikasi Ilmiah</h3>
+            <p class="text-sm text-gray-500 mt-2">Upload jurnal atau karya tulis ilmiah terbaru.</p>
+        </a>
+
+        <a href="/admin/ppm">
+            <div class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-green-100 text-green-600 rounded-xl group-hover:bg-green-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-hands-helping text-xl"></i>
+                    </div>
+                </div>
+                <h3 class="font-bold text-gray-800 text-lg group-hover:text-green-700">Pengabdian pada Masyarakat</h3>
+                <p class="text-sm text-gray-500 mt-2">Kelola kegiatan pengabdian laboratorium.</p>
+            </div>
+        </a>
+
+        <a href="/admin/AktivitasDosen" class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300">
+            <div class="flex justify-between items-start mb-4">
+                <div class="p-3 bg-yellow-100 text-yellow-600 rounded-xl group-hover:bg-yellow-600 group-hover:text-white transition-colors">
+                    <i class="fas fa-tasks text-xl"></i>
+                </div>
+            </div>
+            <h3 class="font-bold text-gray-800 text-lg group-hover:text-yellow-700">Aktivitas & Kegiatan</h3>
+            <p class="text-sm text-gray-500 mt-2">Catat dan dokumentasikan aktivitas harian Anda.</p>
+        </a>
+
+        <a href="/admin/risetDosen" class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300">
+            <div class="flex justify-between items-start mb-4">
+                <div class="p-3 bg-pink-100 text-pink-600 rounded-xl group-hover:bg-pink-600 group-hover:text-white transition-colors">
+                    <i class="fas fa-microscope text-xl"></i>
+                </div>
+            </div>
+            <h3 class="font-bold text-gray-800 text-lg group-hover:text-pink-700">Riset & Penelitian</h3>
+            <p class="text-sm text-gray-500 mt-2">Dokumentasi aktivitas penelitian berjalan.</p>
+        </a>
+        
+        <a href="/admin/kekayaanIntelektual" class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300">
+            <div class="flex justify-between items-start mb-4">
+                <div class="p-3 bg-yellow-100 text-yellow-600 rounded-xl group-hover:bg-yellow-600 group-hover:text-white transition-colors">
+                    <i class="fas fa-certificate text-xl"></i>
+                </div>
+            </div>
+            <h3 class="font-bold text-gray-800 text-lg group-hover:text-yellow-700">HKI & Paten</h3>
+            <p class="text-sm text-gray-500 mt-2">Manajemen data Hak Kekayaan Intelektual.</p>
+        </a>
+
+        <?php if ($_SESSION['user']['role'] === 'admin'): ?>
+
+
+            <a href="/admin/berita" class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-300">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-purple-100 text-purple-600 rounded-xl group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-pen-nib text-xl"></i>
+                    </div>
+                </div>
+                <h3 class="font-bold text-gray-800 text-lg group-hover:text-purple-700">Berita & Artikel</h3>
+                <p class="text-sm text-gray-500 mt-2">Tulis berita kegiatan terbaru laboratorium.</p>
+            </a>
+        <?php endif; ?>
 
     </div>
-<?php
+</div>
+
+<?php 
 $content = ob_get_clean();
 include "../app/views/admin/layouts/master.php";
 ?>
-<script>
-// dasboard
-document.getElementById('close-alert-btn').addEventListener('click', function() {
-    const alertBox = document.getElementById('welcome-alert');
-    // Efek fade out
-    alertBox.style.opacity = '0';
-    // Hapus elemen setelah transisi selesai (500ms sesuai class duration-500)
-    setTimeout(function() {
-        alertBox.style.display = 'none';
-    }, 500);
-});
-</script>

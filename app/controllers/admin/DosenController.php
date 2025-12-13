@@ -34,8 +34,11 @@ class DosenController extends Controller
     public function index()
     {
         $m = new Dosen();
-        $data['title'] = 'Member';
-        $data['dosen'] = $m->getAll();
+        $keyword = isset($_GET['search']) ? trim($_GET['search']) : '';
+
+        $data['title']   = 'Member';
+        $data['dosen']   = $keyword ? $m->search($keyword) : $m->getAll();
+        $data['keyword'] = $keyword;
 
         $this->view("admin/dosen/index", $data);
     }
