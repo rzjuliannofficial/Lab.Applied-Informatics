@@ -1,113 +1,131 @@
 <?php ob_start(); ?>
 
-<div class="flex justify-between items-center mb-6">
-    <h1 class="text-2xl font-bold">Daftar Member</h1>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+    <div>
+        <h1 class="text-2xl font-bold text-slate-800">Manajemen Dosen</h1>
+        <p class="text-slate-500 text-sm mt-1">Kelola data pengajar dan peneliti laboratorium.</p>
+    </div>
     
-    <!-- Other menus khusus admin -->
     <?php if ($_SESSION['user']['role'] === 'admin'): ?>
-        <a href="/admin/dosen/create" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-            <i class="fas fa-plus mr-1"></i> Tambah Member
+        <a href="/admin/dosen/create" class=" relative inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white transition-all duration-200 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full hover:from-blue-700 hover:to-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50">
+            <i class="fas fa-plus mr-2 "></i>
+            Tambah Anggota
         </a>
     <?php endif; ?>
 </div>
 
-<!-- Grid Layout -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 mb-8 flex flex-col sm:flex-row gap-4 justify-between items-center">
+    <form action="" method="GET" class="relative w-full sm:w-96">
+        <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+            <button type="submit" class="focus:outline-none">
+                <i class="fas fa-search text-slate-400 hover:text-blue-500 transition-colors"></i>
+            </button>
+        </span>
+        <input type="text" 
+               name="search" 
+               value="<?= htmlspecialchars($data['keyword'] ?? '') ?>" 
+               placeholder="Cari nama atau NIP..." 
+               class="w-full py-2 pl-10 pr-4 text-sm text-slate-700 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-blue-500 transition-all placeholder-slate-400"
+               onchange="this.form.submit()">
+    </form>
+
+    <div class="text-sm text-slate-500 font-medium">
+        Total: <span class="text-blue-700 font-bold"><?= count($dosen) ?></span> Dosen
+    </div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
     <?php foreach ($dosen as $d): ?>
-        <div class="bg-white rounded-lg shadow border border-gray-200 overflow-hidden flex flex-col">
+        <div class="group bg-white rounded-2xl border border-slate-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
             
-            <!-- Card Body -->
-            <div class="p-6 flex-1">
-                <div class="flex items-start space-x-4">
-                    <!-- Foto -->
-                    <div class="flex-shrink-0">
-                        <?php if (!empty($d['foto_profil'])): ?>
-                            <img src="<?= htmlspecialchars($d['foto_profil']) ?>" class="w-16 h-16 rounded-full object-cover border">
-                        <?php else: ?>
-                            <div class="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center text-xs text-gray-500 border">No Foto</div>
-                        <?php endif; ?>
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-cyan-400 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+
+            <div class="p-6">
+                <div class="flex items-start gap-4">
+                    <div class="relative">
+                        <div class="w-16 h-16 rounded-2xl overflow-hidden border-2 border-white shadow-md">
+                            <?php if (!empty($d['foto_profil'])): ?>
+                                <img src="<?= htmlspecialchars($d['foto_profil']) ?>" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                            <?php else: ?>
+                                <div class="w-full h-full bg-slate-100 flex items-center justify-center text-slate-400">
+                                    <i class="fas fa-user text-xl"></i>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        <span class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></span>
                     </div>
-                    
-                    <!-- Info Utama -->
-                    <div class="flex-1 min-w-0">
-                        <h3 class="text-lg font-bold text-gray-900 truncate"><?= htmlspecialchars($d['nama']) ?></h3>
-                        <p class="text-sm text-gray-500 mb-1"><?= htmlspecialchars($d['nip']) ?></p>
-                        <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-0.5 rounded-full">
+
+                    <div class="flex-1 min-w-0 pt-1">
+                        <h3 class="text-lg font-bold text-slate-800 truncate group-hover:text-blue-700 transition-colors">
+                            <?= htmlspecialchars($d['nama']) ?>
+                        </h3>
+                        <p class="text-xs font-medium text-slate-500 uppercase tracking-wider mb-1">
+                            <?= htmlspecialchars($d['nip']) ?>
+                        </p>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">
                             <?= htmlspecialchars($d['jabatan']) ?>
                         </span>
                     </div>
                 </div>
 
-                <div class="mt-4 space-y-2 text-sm text-gray-600">
-                    <p><i class="fas fa-envelope w-5 text-center"></i> <?= htmlspecialchars($d['email']) ?></p>
-                    <p><i class="fas fa-book w-5 text-center"></i> <?= htmlspecialchars($d['keahlian_text']) ?></p>
-                    <p class="text-xs text-gray-400 italic mt-2 line-clamp-2">
-                        "<?= htmlspecialchars($d['deskripsi'] ?? '-') ?>"
-                    </p>
+                <div class="h-px bg-slate-100 my-4 group-hover:bg-slate-200 transition-colors"></div>
+
+                <div class="space-y-3">
+                    <div class="flex items-center text-sm text-slate-600">
+                        <div class="w-8 flex justify-center text-blue-500/70"><i class="fas fa-envelope"></i></div>
+                        <span class="truncate"><?= htmlspecialchars($d['email']) ?></span>
+                    </div>
+                    <div class="flex items-center text-sm text-slate-600">
+                        <div class="w-8 flex justify-center text-purple-500/70"><i class="fas fa-layer-group"></i></div>
+                        <span class="truncate"><?= htmlspecialchars($d['keahlian_text'] ?? '-') ?></span>
+                    </div>
                 </div>
 
-                <!-- Academic Links -->
-                <div class="mt-4 flex flex-wrap gap-2">
-                    <?php if(!empty($d['google_scholar'])): ?>
-                        <a href="<?= $d['google_scholar'] ?>" target="_blank" class="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded border border-blue-200 hover:bg-blue-100">
-                            <i class="fas fa-graduation-cap"></i> Scholar
-                        </a>
-                    <?php endif; ?>
-                    
-                    <?php if(!empty($d['orcid'])): ?>
-                        <a href="<?= $d['orcid'] ?>" target="_blank" class="text-xs bg-green-50 text-green-600 px-2 py-1 rounded border border-green-200 hover:bg-green-100">
-                            <i class="fab fa-orcid"></i> ORCID
-                        </a>
-                    <?php endif; ?>
-
-                    <?php if(!empty($d['researcher'])): ?>
-                        <a href="<?= $d['researcher'] ?>" target="_blank" class="text-xs bg-teal-50 text-teal-600 px-2 py-1 rounded border border-teal-200 hover:bg-teal-100">
-                            <i class="fab fa-researchgate"></i> RG
-                        </a>
-                    <?php endif; ?>
+                <div class="mt-5 flex gap-2">
+                    <?php 
+                        $links = [
+                            ['url' => $d['google_scholar'], 'icon' => 'fas fa-graduation-cap', 'bg' => 'hover:bg-blue-600', 'text' => 'Scholar'],
+                            ['url' => $d['orcid'], 'icon' => 'fab fa-orcid', 'bg' => 'hover:bg-green-600', 'text' => 'Orcid'],
+                            ['url' => $d['researcher'], 'icon' => 'fab fa-researchgate', 'bg' => 'hover:bg-teal-600', 'text' => 'RG']
+                        ];
+                    ?>
+                    <?php foreach($links as $link): ?>
+                        <?php if(!empty($link['url'])): ?>
+                            <a href="<?= $link['url'] ?>" target="_blank" class="flex-1 py-1.5 text-center text-xs font-medium text-slate-600 bg-slate-50 rounded-lg hover:text-white <?= $link['bg'] ?> transition-colors border border-slate-200 hover:border-transparent" title="<?= $link['text'] ?>">
+                                <i class="<?= $link['icon'] ?>"></i>
+                            </a>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
                 </div>
             </div>
-            <!-- akan muncul di editor sesuai id loginnya -->
-             <?php if ($_SESSION['user']['role'] === 'editor' && $_SESSION['user']['id_dosen'] == $d['id']): ?>
-                <!-- Card Footer (Actions) -->
-                <div class="bg-gray-50 px-6 py-3 border-t flex justify-end space-x-3">
-                    <a href="/admin/dosen/edit/<?= $d['id'] ?>" class="text-sm text-yellow-600 hover:text-yellow-800 font-medium">
-                        <i class="fas fa-edit"></i> Edit
-                    </a>
-                    <a href="/admin/dosen/delete/<?= $d['id'] ?>" onclick="return confirm('Hapus data ini?')" class="text-sm text-red-600 hover:text-red-800 font-medium">
-                        <i class="fas fa-trash"></i> Hapus
-                    </a>
+
+            <?php if ($_SESSION['user']['role'] === 'admin' || ($_SESSION['user']['role'] === 'editor' && $_SESSION['user']['id_dosen'] == $d['id'])): ?>
+                <div class="bg-slate-50/50 px-6 py-3 border-t border-slate-100 flex justify-between items-center group-hover:bg-blue-50/30 transition-colors">
+                    <span class="text-[10px] text-slate-400 font-medium">ACTION</span>
+                    <div class="flex space-x-2">
+                        <a href="/admin/dosen/edit/<?= $d['id'] ?>" class="p-2 text-slate-500 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition-all" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="/admin/dosen/delete/<?= $d['id'] ?>" onclick="return confirm('Hapus permanen?')" class="p-2 text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all" title="Delete">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
                 </div>
             <?php endif; ?>
-            <!-- khusus admin bisa edit semua -->
-             <?php if ($_SESSION['user']['role'] === 'admin'): ?>
-                <!-- Card Footer (Actions) -->
-                <div class="bg-gray-50 px-6 py-3 border-t flex justify-end space-x-3">
-                    <td class="p-3 border">
-                        <div class="flex items-center justify-center gap-2">
-                            <a href="/admin/dosen/edit/<?= $d['id'] ?>" class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
-                        text-yellow-700 bg-yellow-100 border border-yellow-300 
-                        rounded hover:bg-yellow-200 transition">
-                                <i class="fas fa-edit text-[10px]"></i>
-                                Edit
-                            </a>
-
-                            <a href="/admin/dosen/delete/<?= $d['id'] ?>" onclick="return confirm('Hapus data ini?')"
-                                class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
-                        text-red-700 bg-red-100 border border-red-300 
-                        rounded hover:bg-red-200 transition">
-                                <i class="fas fa-trash text-[10px]"></i>
-                                Hapus
-                            </a>
-
-                        </div>
-                    </td>
-                </div>
-            <?php endif; ?>
-
         </div>
     <?php endforeach; ?>
 </div>
+
+<?php if (empty($dosen)): ?>
+    <div class="text-center py-20 bg-white rounded-3xl border border-dashed border-slate-300">
+        <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-500">
+            <i class="fas fa-users text-2xl"></i>
+        </div>
+        <h3 class="text-lg font-bold text-slate-800">Belum ada data dosen</h3>
+        <p class="text-slate-500 mb-6">Silakan tambahkan data dosen baru.</p>
+        <a href="/admin/dosen/create" class="text-blue-600 font-medium hover:underline">Tambah Data Sekarang</a>
+    </div>
+<?php endif; ?>
 
 <?php 
 $content = ob_get_clean();
