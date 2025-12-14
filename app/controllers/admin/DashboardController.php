@@ -26,7 +26,7 @@ class DashboardController extends Controller
 
         // Kirim ke view
         
-        $this->view('admin/dashboard/Dashboard', [
+        $this->view('admin/dashboard/dashboard', [
             'totalDosen' => $totalDosen,
             'totalEditor'    => $totalEditor,
             'totalPublikasi' => $totalPublikasi,
