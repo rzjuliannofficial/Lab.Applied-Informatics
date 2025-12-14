@@ -3,7 +3,7 @@ class MemberController extends Controller
 {
     public function index()
     {
-        $data['team'] = $this->model('dosen')->getAll();
+        $data['team'] = $this->model('Dosen')->getAll();
         $data['title'] = 'Lab Applied Informatics Polinema';
 
         $this->view("public/layouts/header", $data);
@@ -18,7 +18,7 @@ class MemberController extends Controller
 
     public function detail($id)
     {
-        $dosenModel = $this->model('dosen');
+        $dosenModel = $this->model('Dosen');
         $data['member'] = $dosenModel->find($id);
         
         if (!$data['member']) {
