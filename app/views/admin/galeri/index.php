@@ -1,108 +1,86 @@
 <?php ob_start(); ?>
 
-<h1 class="text-2xl font-bold mb-6">Galeri</h1>
+<div class="mb-8">
+    <h1 class="text-2xl font-bold text-slate-800">Galeri Foto</h1>
+    <p class="text-slate-500 text-sm mt-1">Koleksi foto otomatis dari modul Berita, Produk, Fasilitas, dan Kegiatan.</p>
+</div>
 
-<p class="text-gray-600 mb-4 text-sm">
-    Semua foto di sini berasal dari fitur lain (Berita, Produk, Fasilitas, Kegiatan, Publikasi Lab, dll)
-    dan hanya admin yang bisa mengelolanya.
-</p>
+<div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-xl mb-8 flex items-start gap-3">
+    <i class="fas fa-info-circle text-blue-500 mt-1"></i>
+    <div class="text-sm text-blue-900">
+        <p class="font-bold">Informasi Sistem Galeri</p>
+        <p class="opacity-80">Foto di halaman ini muncul secara otomatis saat Anda mengupload gambar pada modul lain. Anda hanya dapat mengedit caption atau menghapusnya dari sini.</p>
+        <p class="opacity-80"><strong>Jika tidak ada caption, sementara akan muncul judul dari galeri terkait.</strong></p>
+    </div>
+</div>
 
-<table class="mt-4 w-full border bg-white shadow text-sm">
-    <thead class="bg-gray-100">
-        <tr>
-            <th class="p-2 border">Preview</th>
-            <th class="p-2 border">Caption</th>
-            <th class="p-2 border">Kategori</th>
-            <th class="p-2 border">Sumber</th>
-            <th class="p-2 border">Uploader</th>
-            <th class="p-2 border">Aksi</th>
-        </tr>
-    </thead>
+<?php if (empty($galeri)): ?>
+    <div class="text-center py-16 bg-white rounded-2xl border border-dashed border-slate-200">
+        <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-slate-50 mb-4 text-slate-300">
+            <i class="fas fa-images text-4xl"></i>
+        </div>
+        <h3 class="text-lg font-bold text-slate-700">Galeri Kosong</h3>
+        <p class="text-slate-500 max-w-md mx-auto mt-2 text-sm">Upload konten bergambar di menu Berita, Produk, atau Fasilitas untuk mengisi galeri ini.</p>
+    </div>
+<?php else: ?>
 
-    <tbody>
-        <?php if (empty($galeri)): ?>
-        <tr>
-            <td colspan="6" class="p-8 text-center text-gray-500">
-                <i class="fas fa-images text-4xl mb-3 block text-gray-300"></i>
-                <p class="text-lg font-semibold mb-2">No Gallery Items Yet</p>
-                <p class="text-sm">Gallery items are automatically created when you upload images in:</p>
-                <p class="text-sm mt-2"><strong>Berita, Produk, Fasilitas, Kegiatan Lab, Penelitian Lab, or Publikasi Lab</strong></p>
-                <p class="text-xs text-gray-400 mt-3">Create content with images in those modules to populate the gallery.</p>
-            </td>
-        </tr>
-        <?php else: ?>
-        <?php foreach ($galeri as $g): ?>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <?php foreach ($galeri as $g): ?>
         <?php
-            // tentukan sumber
-            $sumber = "-";
-            if (!empty($g['id_berita'])) {
-                $sumber = "Berita: " . htmlspecialchars($g['judul_berita'] ?? '');
-            } elseif (!empty($g['id_produk'])) {
-                $sumber = "Produk: " . htmlspecialchars($g['nama_produk'] ?? '');
-            } elseif (!empty($g['id_fasilitas'])) {
-                $sumber = "Fasilitas: " . htmlspecialchars($g['nama_fasilitas'] ?? '');
-            } elseif (!empty($g['id_publikasi_dosen'])) {
-                $sumber = "Publikasi Dosen: " . htmlspecialchars($g['judul_pub_dosen'] ?? '');
-            } elseif (!empty($g['id_aktivitas_dosen'])) {
-                $sumber = "Aktivitas Dosen: " . htmlspecialchars($g['judul_akt_dosen'] ?? '');
-            } elseif (!empty($g['id_ppm'])) {
-                $sumber = "PPM: " . htmlspecialchars($g['judul_ppm'] ?? '');
-            } elseif (!empty($g['id_riset_dosen'])) {
-                $sumber = "Riset Dosen: " . htmlspecialchars($g['judul_riset'] ?? '');
-            } elseif (!empty($g['id_kekayaan_intelektual'])) {
-                $sumber = "HKI: " . htmlspecialchars($g['judul_ki'] ?? '');
-            }
-
+            $badgeColor = "bg-gray-100 text-gray-600";
+            
+            if (!empty($g['id_berita'])) { $sumber = "Berita";}
+            elseif (!empty($g['id_produk'])) { $sumber = "Produk";}
+            elseif (!empty($g['id_fasilitas'])) { $sumber = "Fasilitas";}
+            elseif (!empty($g['id_publikasi_dosen'])) { $sumber = "Publikasi";}
+            elseif (!empty($g['id_aktivitas_dosen'])) { $sumber = "Aktivitas";}
+            elseif (!empty($g['id_ppm'])) { $sumber = "Pengabdian";}
+            elseif (!empty($g['id_riset_dosen'])) { $sumber = "Riset";}
+            elseif (!empty($g['id_kekayaan_intelektual'])) { $sumber = "HKI";}
+        
             $fileUrl = $g['file_url'];
         ?>
-        <tr class="hover:bg-gray-50">
-            <td class="p-2 border">
+        
+        <div class="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group break-inside-avoid overflow-hidden flex flex-col">
+            <div class="relative group-hover:opacity-90 transition-opacity cursor-pointer">
                 <a href="<?= $fileUrl ?>" target="_blank">
-                    <img src="<?= $fileUrl ?>" class="w-20 h-20 object-cover rounded">
+                    <img src="<?= $fileUrl ?>" class="w-full h-48 object-cover">
                 </a>
-            </td>
-
-            <td class="p-2 border align-top">
-                <?= $g['caption'] ? htmlspecialchars($g['caption']) : '<span class="text-gray-400 italic">belum ada caption</span>' ?>
-            </td>
-
-            <td class="p-2 border align-top">
-                <span class="inline-block px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">
-                    <?= htmlspecialchars($g['kategori'] ?? '-') ?>
+                <span class="absolute top-3 left-3 px-2 py-1 rounded text-[10px] font-bold uppercase bg-blue-100 text-blue-700">
+                    <?= $sumber ?>
                 </span>
-            </td>
+            </div>
 
-            <td class="p-2 border align-top">
-                <?= htmlspecialchars($sumber) ?>
-            </td>
-
-            <td class="p-2 border align-top">
-                <?= htmlspecialchars($g['nama_uploader'] ?? '-') ?>
-            </td>
-                <td class="p-2 border">
-                    <div class="flex items-center justify-center gap-2">
-                    <a href="/admin/galeri/edit/<?= htmlspecialchars($g['id']) ?>" class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
-                  text-yellow-700 bg-yellow-100 border border-yellow-300 
-                  rounded hover:bg-yellow-200 transition">
-                        <i class="fas fa-edit text-[10px]"></i>
-                        Edit
-                    </a>
-
-                    <a href="/admin/galeri/delete/<?= htmlspecialchars($g['id']) ?>" onclick="return confirm('Hapus data ini?')"
-                        class="flex items-center gap-1 px-2 py-1 text-xs font-medium 
-                  text-red-700 bg-red-100 border border-red-300 
-                  rounded hover:bg-red-200 transition">
-                        <i class="fas fa-trash text-[10px]"></i>
-                        Hapus
-                    </a>
-
+            <div class="p-4 flex-1 flex flex-col">
+                <p class="text-sm font-medium text-slate-700 mb-3 line-clamp-2 italic">
+                    "<?= $g['caption'] ? htmlspecialchars($g['caption']) : 'Tanpa caption' ?>"
+                </p>
+                
+                <div class="mt-auto pt-3 border-t border-slate-50 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <div class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-[10px] text-slate-500 font-bold">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span class="text-xs text-slate-500 truncate max-w-[80px]">
+                            <?= htmlspecialchars($g['nama_uploader'] ?? 'Admin') ?>
+                        </span>
                     </div>
-                </td>
-        </tr>
-        <?php endforeach; ?>
-        <?php endif; ?>
-    </tbody>
-</table>
+
+                    <div class="flex gap-2">
+                        <a href="/admin/galeri/edit/<?= htmlspecialchars($g['id']) ?>" class="text-slate-400 hover:text-amber-500 transition-colors">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="/admin/galeri/delete/<?= htmlspecialchars($g['id']) ?>" onclick="return confirm('Hapus foto ini?')" class="text-slate-400 hover:text-red-500 transition-colors">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>
+
+<?php endif; ?>
 
 <?php
 $content = ob_get_clean();

@@ -1,6 +1,6 @@
 <aside class="fixed inset-y-0 left-0 w-64 bg-[#0f172a] transition-transform duration-300 transform -translate-x-full md:translate-x-0 z-50 flex flex-col border-r border-slate-800 shadow-2xl">
     
-    <div class="h-16 flex items-center px-6 border-b border-slate-800/50 bg-[#0f172a]">
+    <div class="flex items-center px-6 py-4 border-b border-slate-800/50 bg-[#0f172a]">
         <div class="flex items-center gap-3">
             <div class="w-8 h-8 relative">
                 <img src="/uploads/home/logoAi.png" class="object-contain w-full h-full drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">
@@ -104,9 +104,7 @@
     <div class="p-4 border-t border-slate-800 bg-[#0f172a]">
         <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 hover:bg-slate-800 transition-colors border border-slate-700/50">
             <div class="relative flex-shrink-0">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white font-bold text-sm shadow-lg">
-                    <?= strtoupper(substr($_SESSION['user']['nama_dosen'] ?? 'U', 0, 1)) ?>
-                </div>
+                <img src="<?= htmlspecialchars($_SESSION['user']['foto_dosen'] ?? '') ?>" class="w-10 h-10 rounded-full object-cover border-2 border-slate-600 shadow-md object-top">
                 <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-slate-900 rounded-full"></span>
             </div>
             

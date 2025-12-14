@@ -10,7 +10,7 @@
                 The Applied Informatics Laboratory at Malang State Polytechnic is an innovation center focused on developing IT-based solutions.
             </p>
             <div class="hero-button">
-                <button class="button-primary">
+                <button class="button-primary drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">
                     <a href="/product">Explore Our Work</a>
                 </button>
                 <button class="button-secondary">
@@ -661,7 +661,6 @@
 <section class="bg-gradient-to-br from-blue-50 via-white to-blue-50 text-gray-800 section">
     <div class="container">
 
-        <!-- Header -->
         <div class="text-center mb-12">
             <div class="title">
                 <i class="fa-solid fa-building text-sm mr-2"></i> OUR FACILITIES
@@ -672,65 +671,82 @@
             <p class="text-slate-500 text-lg">Comfort and convenience, designed just for you.</p>
         </div>
 
-<?php $fas1 = $fasilitas[0] ?? null; ?>
+        <?php 
+            $items = $fasilitas ?? []; 
+        ?>
 
-<!-- ROW 1 -->
-<div class="flex flex-col md:flex-row gap-6 mb-8 h-auto md:h-[400px]" data-aos="fade-up" data-aos-duration="1000">
+        <div class="flex flex-col md:flex-row gap-6 mb-8 h-auto md:h-[400px]" data-aos="fade-up" data-aos-duration="1000">
 
-    <!-- Deskripsi (1/3) — TETAP -->
-    <div class="w-full md:w-1/3 rounded-[30px] p-8 flex flex-col justify-center shadow-[0px_5px_10px_rgba(5,0,5,0.15)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(6,182,212,0.15)]">
-        <h2 class="text-2xl font-bold mb-4 underline decoration-blue-500 underline-offset-8">
-            Pusat Riset Akademik
-        </h2>
-        <p class="text-gray-600 mb-6 leading-relaxed">
-            Menawarkan ruang laboratorium nyaman dengan software pengembangan lengkap seperti VS Code, Android Studio, dan database server berkecepatan tinggi.
-        </p>
-        <div class="flex flex-wrap gap-2 h-8 sm:h-11 point-carousel-container">
-            <div class="point-carousel-track">
-                <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Full AC</span>
-                <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ High Speed WiFi</span>
-                <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Proyektor</span>
-                <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Soundproof</span>
+            <div class="w-full md:w-1/3 rounded-[30px] p-8 flex flex-col justify-center shadow-[0px_5px_10px_rgba(5,0,5,0.15)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(6,182,212,0.15)] bg-white">
+                <h2 class="text-2xl font-bold mb-4 underline decoration-blue-500 underline-offset-8">
+                    Pusat Riset Akademik
+                </h2>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    Menawarkan ruang laboratorium nyaman dengan software pengembangan lengkap seperti VS Code, Android Studio, dan database server berkecepatan tinggi.
+                </p>
+                <div class="flex flex-wrap gap-2 h-8 sm:h-11 point-carousel-container">
+                    <div class="point-carousel-track">
+                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Full AC</span>
+                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ High Speed WiFi</span>
+                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Proyektor</span>
+                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Soundproof</span>
+                    </div>
+                </div>
             </div>
+
+            <div class="w-full md:w-2/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group bg-gray-200">
+                <?php if (!empty($items[0]['foto'])): ?>
+                    <img src="<?= htmlspecialchars($items[0]['foto']) ?>"
+                         alt="<?= htmlspecialchars($items[0]['nama_fasilitas'] ?? 'Fasilitas Lab') ?>"
+                         class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-white font-bold text-lg"><?= htmlspecialchars($items[0]['nama_fasilitas']) ?></span>
+                    </div>
+                <?php else: ?>
+                    <div class="flex items-center justify-center h-full text-gray-400">
+                        <i class="fa-solid fa-image text-4xl"></i>
+                    </div>
+                <?php endif; ?>
+            </div>
+
         </div>
+
+        <div class="flex flex-col md:flex-row gap-6 h-auto md:h-[400px]" data-aos="fade-up" data-aos-duration="1000">
+
+            <div class="w-full md:w-2/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group bg-gray-200 order-2 md:order-1">
+                <?php if (!empty($items[1]['foto'])): ?>
+                    <img src="<?= htmlspecialchars($items[1]['foto']) ?>"
+                         alt="<?= htmlspecialchars($items[1]['nama_fasilitas'] ?? 'Fasilitas Lab') ?>"
+                         class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-white font-bold text-lg"><?= htmlspecialchars($items[1]['nama_fasilitas']) ?></span>
+                    </div>
+                <?php else: ?>
+                    <div class="flex items-center justify-center h-full text-gray-400">
+                        <i class="fa-solid fa-image text-4xl"></i>
+                    </div>
+                <?php endif; ?>
+            </div>
+
+            <div class="w-full md:w-1/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group bg-gray-200 order-1 md:order-2">
+                <?php if (!empty($items[2]['foto'])): ?>
+                    <img src="<?= htmlspecialchars($items[2]['foto']) ?>"
+                         alt="<?= htmlspecialchars($items[2]['nama_fasilitas'] ?? 'Fasilitas Lab') ?>"
+                         class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-white font-bold text-lg"><?= htmlspecialchars($items[2]['nama_fasilitas']) ?></span>
+                    </div>
+                <?php else: ?>
+                    <div class="flex items-center justify-center h-full text-gray-400">
+                        <i class="fa-solid fa-image text-4xl"></i>
+                    </div>
+                <?php endif; ?>
+            </div>
+
+        </div>
+
     </div>
-
-    <!-- GAMBAR (2/3) — HANYA BAGIAN INI YANG DINAMIS -->
-    <div class="w-full md:w-2/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group">
-        <img src="<?= $fas1 ? htmlspecialchars($fas1['foto']) : '/assets/default-fasilitas.jpg' ?>"
-             alt="Fasilitas 1"
-             class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-    </div>
-
-</div>
-
-
- <?php
-$fas2 = $fasilitas[1] ?? null;
-$fas3 = $fasilitas[2] ?? null;
-?>
-
-<!-- ROW 2 -->
-<div class="flex flex-col md:flex-row gap-6 h-auto md:h-[400px]" data-aos="fade-up" data-aos-duration="1000">
-
-    <!-- Gambar (2/3) LEFT -->
-    <div class="w-full md:w-2/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group order-2 md:order-1">
-        <img src="<?= $fas2 ? htmlspecialchars($fas2['foto']) : '/assets/default-fasilitas.jpg' ?>"
-             alt="Fasilitas 2"
-             class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-    </div>
-
-    <!-- Gambar (1/3) RIGHT -->
-    <div class="w-full md:w-1/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group order-1 md:order-2">
-        <img src="<?= $fas3 ? htmlspecialchars($fas3['foto']) : '/assets/default-fasilitas.jpg' ?>"
-             alt="Fasilitas 3"
-             class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-    </div>
-
-</div>
+</section>
 
 </section>
 

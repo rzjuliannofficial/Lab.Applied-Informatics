@@ -40,7 +40,7 @@
                 <a href="/gallery" class="nav-link">Gallery</a>
                 <a href="/partner" class="nav-link">Partner</a>
                 <a href="/contact" class="nav-link">Contact</a>
-                <button class="button-primary">
+                <button class="button-primary drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">
                     <a href="/admin/login">
                         Log in
                     </a>

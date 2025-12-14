@@ -45,7 +45,7 @@
                     <div class="relative">
                         <div class="w-16 h-16 rounded-2xl overflow-hidden border-2 border-white shadow-md">
                             <?php if (!empty($d['foto_profil'])): ?>
-                                <img src="<?= htmlspecialchars($d['foto_profil']) ?>" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                                <img src="<?= htmlspecialchars($d['foto_profil']) ?>" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 object-top">
                             <?php else: ?>
                                 <div class="w-full h-full bg-slate-100 flex items-center justify-center text-slate-400">
                                     <i class="fas fa-user text-xl"></i>
@@ -62,7 +62,7 @@
                         <p class="text-xs font-medium text-slate-500 uppercase tracking-wider mb-1">
                             <?= htmlspecialchars($d['nip']) ?>
                         </p>
-                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100 capitalize">
                             <?= htmlspecialchars($d['jabatan']) ?>
                         </span>
                     </div>

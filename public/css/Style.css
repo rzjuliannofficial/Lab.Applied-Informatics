@@ -91,12 +91,6 @@ body {
     }
 }
 
-@media (min-width: 1024px) {
-    .container {
-        padding-left: 6rem;
-        padding-right: 6rem;
-    }
-}
 
 /* index page */
 .section {

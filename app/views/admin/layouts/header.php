@@ -19,7 +19,6 @@
                 </p>
                 <p class="text-xs text-gray-500 mt-1"><?= ucfirst($_SESSION['user']['role']); ?></p>
             </div>
-            <img src="https://ui-avatars.com/api/?name=Nabhan+Rizqi&background=02416D&color=fff" alt="Profile" class="w-9 h-9 rounded-full border-2 border-gray-100 shadow-sm">
         </div>
     </div>
 </header>

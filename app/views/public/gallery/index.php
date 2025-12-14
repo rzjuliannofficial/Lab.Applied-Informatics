@@ -84,18 +84,25 @@
 
     <section class="gallery-section">
         <div class="container">
-            <!-- Filter Buttons -->
             <div class="gallery-filters">
                 <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="Publikasi Dosen">Publikasi Dosen</button>
-                <button class="filter-btn" data-filter="Berita">Berita</button>
-                <button class="filter-btn" data-filter="Produk">Produk</button>
-                <button class="filter-btn" data-filter="Fasilitas">Fasilitas</button>
-                <button class="filter-btn" data-filter="Aktivitas Dosen">Aktivitas Dosen</button>
-                <button class="filter-btn" data-filter="PPM">PPM</button>
-                <button class="filter-btn" data-filter="Kekayaan Intelektual">HKI</button>
+                <?php 
+                    $sudahTampil = []; 
+                ?>
+                <?php foreach ($galleryItems as $item): ?>
+                    <?php 
+                        $kategori = $item['category']; 
+                        if (!empty($kategori) && !in_array($kategori, $sudahTampil)): 
+                    ?> 
+                        <button class="filter-btn" data-filter="<?= htmlspecialchars($kategori) ?>">
+                            <?= htmlspecialchars($kategori) ?>
+                        </button>
+                    <?php 
+                        $sudahTampil[] = $kategori; 
+                    ?>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </div>
-
             <!-- Masonry Gallery Grid -->
             <div class="gallery-masonry">
                 <?php if (empty($galleryItems)): ?>
@@ -107,7 +114,7 @@
                         <p class="text-gray-400">Images from Berita, Produk, Fasilitas, and other modules will automatically appear here.</p>
                     </div>
                 <?php else: ?>
-                <?php foreach ($galleryItems as $index => $item): ?>
+                <?php foreach ($galleryItems as $item): ?>
                     <div class="gallery-item" data-category="<?= htmlspecialchars($item['category']) ?>">
                         <div class="gallery-card">
                             <div class="gallery-image-container">

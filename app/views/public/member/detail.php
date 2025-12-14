@@ -50,7 +50,7 @@
                                 <?php if (!empty($member['foto_profil'])): ?>
                                     <img src="<?= htmlspecialchars($member['foto_profil']); ?>" 
                                          alt="<?= htmlspecialchars($member['nama']); ?>" 
-                                         class="w-full h-full object-cover">
+                                         class="w-full h-full object-cover object-top">
                                 <?php else: ?>
                                     <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200">
                                         <i class="fas fa-user text-9xl text-blue-300"></i>

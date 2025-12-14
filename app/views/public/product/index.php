@@ -56,11 +56,19 @@ error_reporting(E_ALL);
                         </div>
                         <div class="product-content">
                             <?php if (!empty($product['kategori'])): ?>
+                            <?php 
+                                $kategori = explode(',', $product['kategori']);
+                                $kategori = array_slice($kategori, 0, 3); // Batasi hingga 3 kategori
+                            ?>
+                            <?php foreach ($kategori as $category): ?>
                                 <span class="product-category">
-                                    <?= htmlspecialchars($product['kategori']) ?>
+                                    <?= htmlspecialchars(trim($category)); ?>
                                 </span>
+                                <?php endforeach; else: ?>
+                                <span class="text-gray-400 text-xs italic">-</span>
                             <?php endif; ?>
-                            
+                           
+
                             <h3 class="product-name">
                                 <?= htmlspecialchars($product['nama_produk']) ?>
                             </h3>
