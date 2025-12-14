@@ -564,8 +564,8 @@ body {
         /* Wrapper tempat semua logo (asli + duplikat) berada */
         .logo-carousel-track {
             display: inline-block;
-            width: 200%; /* Penting: Harus dua kali lebar konten untuk looping mulus */
-            animation: scroll-logos 80s linear infinite; /* Animasi utama */
+            width: 305%; /* Penting: 305? smoothnya disini */
+            animation: scroll-logos 20s linear infinite; /* Animasi utama */
         }
 
         /* Styling Setiap Logo */

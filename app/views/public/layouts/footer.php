@@ -5,7 +5,7 @@
             <div class="footer-grid">
                 <!-- About Section -->
                 <div class="footer-section">
-                    <div class="footer-logo">
+                    <div class="footer-logo drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">
                         <img src="/uploads/home/logoAi.png" alt="Applied Informatics Lab">
                         <h4 class="footer-brand">Applied Informatics</h4>
                     </div>
