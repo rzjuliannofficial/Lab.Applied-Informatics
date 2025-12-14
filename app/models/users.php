@@ -19,7 +19,15 @@ class Users extends Model
     public function getAllUsers()
     {
         $sql = "SELECT * FROM {$this->table} ORDER BY id asc";
-        return pg_query($this->db, $sql);
+        $res = pg_query($this->db, $sql);
+        
+        $rows = [];
+        if ($res) {
+            while ($row = pg_fetch_assoc($res)) {
+                $rows[] = $row;
+            }
+        }
+        return $rows; 
     }
 
     public function getById($id)

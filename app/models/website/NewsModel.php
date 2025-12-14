@@ -10,7 +10,7 @@ class NewsModel extends Model {
     /**
      * Ambil berita terbaru dengan limit (untuk Homepage)
      */
-    public function fetchLatestNews($limit = 3) {
+    public function fetchLatestNews() {
         $sql = "SELECT 
                     b.id, 
                     b.judul, 
@@ -25,9 +25,9 @@ class NewsModel extends Model {
                 JOIN 
                     public.dosen d ON b.created_by = d.id 
                 ORDER BY b.tanggal DESC 
-                LIMIT $1";
+                LIMIT 3";
 
-        $result = pg_query_params($this->conn, $sql, [$limit]);
+        $result = pg_query($this->conn, $sql);
 
         if (!$result) return [];
 

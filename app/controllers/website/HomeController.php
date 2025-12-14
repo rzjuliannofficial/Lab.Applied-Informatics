@@ -7,14 +7,14 @@ class HomeController extends Controller {
         $memberModel = $this->modelWebsite('MemberModel');
         $newsModel = $this->modelWebsite('NewsModel');
         $pubModel = $this->modelWebsite('PublicationModel');
-        $fasilitasModel = $this->model('Fasilitas');
+        $facilityModel  = $this->modelWebsite('FacilityModel');
 
         // Fetch Data
         $data['products'] = $productModel->fetchProduct();
         $data['team'] = $memberModel->fetchTeam();
-        $data['news'] = $newsModel->fetchLatestNews(3);
+        $data['news'] = $newsModel->fetchLatestNews();
         $data['publications'] = $pubModel->FetchPublication();
-        $data['fasilitas'] = $fasilitasModel->getAll();
+        $data['fasilitas'] = $facilityModel->fetchFacilities();
         $data['title'] = 'Lab Applied Informatics Polinema';
 
         $this->view("public/layouts/header", $data);

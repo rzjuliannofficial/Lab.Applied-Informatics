@@ -9,12 +9,10 @@ class PublicationModel extends Model
     }
 
     public function FetchPublication(){
-        $sql = "
-            SELECT pd.*, d.nama AS nama_dosen
+        $sql = " SELECT pd.*, d.nama AS nama_dosen
                 FROM publikasi_dosen pd
                 LEFT JOIN dosen d ON d.id = pd.id_dosen
-                ORDER BY pd.id DESC limit 3
-        ";
+                ORDER BY pd.id DESC limit 3";
 
         $result = pg_query($this->conn, $sql);
 
