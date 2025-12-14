@@ -5,7 +5,7 @@ class DashboardController extends Controller
     public function index()
     {
         // Load Model
-        $dosenModel = new dosen();
+        $dosenModel = new Dosen();
         $userModel = new Users();
         $publikasiModel = new PublikasiDosen();
         $galeriModel = new Galeri();
