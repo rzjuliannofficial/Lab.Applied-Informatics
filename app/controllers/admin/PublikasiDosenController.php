@@ -17,10 +17,10 @@ class PublikasiDosenController extends Controller
         $safe = "pubdosen_" . time() . "_" . bin2hex(random_bytes(5)) . "." . $ext;
         
         // Simpan di folder umum atau khusus
-        $dir = realpath(__DIR__ . '/../../..') . "/public/uploads/galeri_dosen/";
+        $dir = realpath(__DIR__ . '/../../..') . "/public/uploads/publikasi_dosen/";
         if (!is_dir($dir)) mkdir($dir, 0777, true);
 
-        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? "/uploads/galeri_dosen/" . $safe : null;
+        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? "/uploads/publikasi_dosen/" . $safe : null;
     }
 
     public function index()

@@ -27,11 +27,13 @@ class AuthController extends Controller
 
             // --- TAMBAHAN KODE untuk menagmbil nama dosen ---
         $namaDosen = null;
+        $fotoDosen = null;
         if (!empty($user['id_dosen'])) {
             $dosenModel = new Dosen();
-            // Asumsi method di model Dosen adalah find() atau getById()
+            // find() dari model dosen
             $dataDosen = $dosenModel->find($user['id_dosen']); 
             $namaDosen = $dataDosen['nama'] ?? null; 
+            $fotoDosen = $dataDosen['foto_profil'] ?? null; 
         }
         // ---------------------
 
@@ -40,7 +42,8 @@ class AuthController extends Controller
             'username' => $user['username'],
             'role'     => $user['role'],
             'id_dosen' => $user['id_dosen'], // penting untuk editor
-            'nama_dosen' => $namaDosen
+            'nama_dosen' => $namaDosen,
+            'foto_dosen' => $fotoDosen
         ];
 
         header("Location: /admin/dashboard");

@@ -16,10 +16,10 @@ class KekayaanIntelektualController extends Controller
         $ext = pathinfo($f['name'], PATHINFO_EXTENSION);
         $safe = "hki_" . time() . "_" . bin2hex(random_bytes(5)) . "." . $ext;
         
-        $dir = realpath(__DIR__ . '/../../..') . "/public/uploads/galeri_dosen/";
+        $dir = realpath(__DIR__ . '/../../..') . "/public/uploads/kekayaan_intelektual/";
         if (!is_dir($dir)) mkdir($dir, 0777, true);
 
-        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? "/uploads/galeri_dosen/" . $safe : null;
+        return move_uploaded_file($f['tmp_name'], $dir . $safe) ? "/uploads/kekayaan_intelektual/" . $safe : null;
     }
 
     public function index()
