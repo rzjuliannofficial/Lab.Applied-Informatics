@@ -439,7 +439,7 @@
 </section>
 
 <!-- Member -->
-<section id="team" class="bg-slate-50">
+<section id="team" class="section bg-slate-50">
     <div class="container mx-auto">
         <div class="text-center mb-12" data-aos="fade-up">
             <div class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-600 text-sm font-bold mb-4">
@@ -449,7 +449,7 @@
                 Get to Know <span class="gradient-text">Us</span></p>
             <p class="text-slate-500 text-lg">The most recent updates, all in one place.</p>
         </div>
-        <div class="profile-grid px-[3rem]">
+        <div class="profile-grid">
             <?php if (count($team) > 0): ?>
                 <?php 
                     $delay_increment = 300; // Penambahan delay 200 milidetik per kartu
