@@ -6,17 +6,17 @@
             <i class="fas fa-brain floating-icon" style="font-size: 3rem;"></i>
             <i class="fas fa-lightbulb floating-icon" style="font-size: 2.5rem;"></i>
             <div class="relative z-10 flex items-center gap-2 text-blue-200 font-semibold mb-4" data-aos="fade-up">
-                <i class="fas fa-users-viewfinder"></i> 
-                <span class="uppercase tracking-wider text-sm">TEAM & LAB STRUCTURE</span>
+                <i class="fas fa-users-viewfinder text-sm md:text-base"></i> 
+                <span class=" uppercase tracking-wider text-sm">TEAM & LAB STRUCTURE</span>
             </div>
 
             <!-- Judul Utama -->
-            <h2 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 text-white" data-aos="fade-up" data-aos-delay="100">
+            <h2 class="text-4xl text-center px-10 md:text-6xl font-extrabold tracking-tight mb-6 text-white" data-aos="fade-up" data-aos-delay="100">
                 Meet Our Innovator Teams
             </h2>
 
             <!-- Deskripsi -->
-            <p class="text-lg md:text-xl text-blue-100 leading-relaxed max-w-3xl mb-14 text-center" data-aos="fade-up" data-aos-delay="200">
+            <p class="text-base px-5 md:text-xl text-blue-100 leading-relaxed max-w-3xl mb-14 text-center" data-aos="fade-up" data-aos-delay="200">
                 Meet the talented lecturers, researchers, and students who are the driving force behind innovation at the Multimedia Lab.
             </p>
 

@@ -16,14 +16,7 @@
     <header class="header">
         <nav class="header-nav">
             <a href="/home">
-                <div class="logo-area">
-                    <div class="logo-image-container">
-                        <img src="/uploads/home/logoAi.png" alt="Lab AI Logo">
-                    </div>
-                    <div class="logo-text">
-                        Applied <br>Informatics
-                    </div>
-                </div>
+                <img src="/uploads/home/LOGO-LAI.png" alt="Lab AI Logo">  
             </a>
             
             <div class="hamburger">

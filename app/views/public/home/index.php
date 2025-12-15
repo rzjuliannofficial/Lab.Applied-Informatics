@@ -1,65 +1,69 @@
 <!-- HERO -->
-<section class="hero section">
-    <div class="hero-grid py-[2rem] ">
-        <div class="hero-left">
-            <h1 class="hero-title">
-                Welcome to <br> 
-                <span class="gradient-text">Applied Informatics</span>
-            </h1>
-            <p class="hero-description">
-                The Applied Informatics Laboratory at Malang State Polytechnic is an innovation center focused on developing IT-based solutions.
-            </p>
-            <div class="hero-button">
-                <button class="button-primary drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">
-                    <a href="/product">Explore Our Work</a>
-                </button>
-                <button class="button-secondary">
-                    <a href="/contact">Connect With Us</a>
-                </button>
-            </div>
-            
-            <div class="w-full max-w-lg mt-8 justify-center items-center p-4">               
-                <div class="w-full max-w-md"> 
-                    <!-- Kontainer utama karosel -->
-                    <div class="logo-carousel-container h-20 sm:h-11">
-                        
-                        <div class="logo-carousel-track">
+<section class="hero min-h-screen flex items-center">
+    <div class="container mx-auto ">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="hero-left order-2 lg:order-1">
+                <h1 class="hero-title">
+                    Welcome to <br> 
+                    <span class="gradient-text">Applied Informatics</span>
+                </h1>
+                <p class="hero-description">
+                    The Applied Informatics Laboratory at Malang State Polytechnic is an innovation center focused on developing IT-based solutions.
+                </p>
+                <div class="hero-button flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                    <button class="button-primary text-center justify-center flex items-center gap-2 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">
+                        <a href="/product">Explore Our Work</a>
+                    </button>
+                    <button class="button-secondary text-center justify-center">
+                        <a href="/contact">Connect With Us</a>
+                    </button>
+                </div>
+                
+                <div class="w-full max-w-lg mt-8 justify-center items-center p-4">               
+                    <div class="w-full max-w-md"> 
+                        <!-- Kontainer utama karosel -->
+                        <div class="logo-carousel-container h-20 sm:h-11">
                             
-                            <!-- Set Logo ASLI (6 item) -->
-                            <div class="logo-item"><img src="uploads/home/OwnCloud2-Logo.svg_-300x157.png" alt="OwnCloud Logo"></div>
-                            <div class="logo-item"><img src="uploads/home/seals.png" alt="SEALS Logo"></div>
-                            <div class="logo-item"><img src="uploads/home/amati.png" alt="Amati Logo"></div>
-                            <div class="logo-item"><img src="uploads/home/gitea-300x107-removebg-preview.png" alt="Gitea Logo"></div>
-                            <div class="logo-item"><img src="uploads/home/logo_blockchain-1024x305.png" alt="CrowdEquiChain Logo"></div>
-                            <div class="logo-item"><img src="uploads/home/ijo-removebg-preview.png" alt="Ijo Logo"></div>
-                            
-                            <!-- Set Logo DUPLIKAT (untuk efek tak terbatas) -->
-                            <div class="logo-item"><img src="uploads/home/OwnCloud2-Logo.svg_-300x157.png" alt="OwnCloud Logo"></div>
-                            <div class="logo-item"><img src="uploads/home/seals.png" alt="SEALS Logo"></div>
-                            <div class="logo-item"><img src="uploads/home/amati.png" alt="Amati Logo"></div>
-                            <div class="logo-item"><img src="uploads/home/gitea-300x107-removebg-preview.png" alt="Gitea Logo"></div>
-                            <div class="logo-item"><img src="uploads/home/logo_blockchain-1024x305.png" alt="CrowdEquiChain Logo"></div>
-                            <div class="logo-item"><img src="uploads/home/ijo-removebg-preview.png" alt="Ijo Logo"> </div>
-                            
+                            <div class="logo-carousel-track">
+                                
+                                <!-- Set Logo ASLI (6 item) -->
+                                <div class="logo-item"><img src="uploads/home/OwnCloud2-Logo.svg_-300x157.png" alt="OwnCloud Logo"></div>
+                                <div class="logo-item"><img src="uploads/home/seals.png" alt="SEALS Logo"></div>
+                                <div class="logo-item"><img src="uploads/home/amati.png" alt="Amati Logo"></div>
+                                <div class="logo-item"><img src="uploads/home/gitea-300x107-removebg-preview.png" alt="Gitea Logo"></div>
+                                <div class="logo-item"><img src="uploads/home/logo_blockchain-1024x305.png" alt="CrowdEquiChain Logo"></div>
+                                <div class="logo-item"><img src="uploads/home/ijo-removebg-preview.png" alt="Ijo Logo"></div>
+                                
+                                <!-- Set Logo DUPLIKAT (untuk efek tak terbatas) -->
+                                <div class="logo-item"><img src="uploads/home/OwnCloud2-Logo.svg_-300x157.png" alt="OwnCloud Logo"></div>
+                                <div class="logo-item"><img src="uploads/home/seals.png" alt="SEALS Logo"></div>
+                                <div class="logo-item"><img src="uploads/home/amati.png" alt="Amati Logo"></div>
+                                <div class="logo-item"><img src="uploads/home/gitea-300x107-removebg-preview.png" alt="Gitea Logo"></div>
+                                <div class="logo-item"><img src="uploads/home/logo_blockchain-1024x305.png" alt="CrowdEquiChain Logo"></div>
+                                <div class="logo-item"><img src="uploads/home/ijo-removebg-preview.png" alt="Ijo Logo"> </div>
+                                
+                            </div>
+                            <div class="absolute inset-0 pointer-events-none bg-gradient-to-r from-white via-transparent to-white"></div>
                         </div>
-
-                        <!-- Overlay untuk efek fading di tepi (menggunakan Tailwind Gradients) -->
-                    <!-- Overlay untuk efek fading di tepi (menggunakan Tailwind Gradients) -->
-                        <div class="absolute inset-0 pointer-events-none">
-                            <!-- Fade Kiri: Gradasi dari warna latar belakang halaman (bg-gray-900) ke transparan -->
-                            <div class="absolute left-0 top-0 bottom-0 w-1/12 bg-gradient-to-r from-[#ffffff] to-transparent"></div>
-                            <!-- Fade Kanan: Gradasi dari transparan ke warna latar belakang halaman (bg-gray-900) -->
-                            <div class="absolute right-0 top-0 bottom-0 w-1/12 bg-gradient-to-l from-[#ffffff] to-transparent"></div>
-                        </div>
-                        
                     </div>
-                    
                 </div>
             </div>
-        </div>
-        <div class="hero-right">
-            <div class="hero-image-card ">
-                <img src="/uploads/home/rapat_ai.jpg" alt="kosong">
+            <div class="hero-right order-1 lg:order-2 relative" data-aos="fade-left">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl border-8 border-white transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <img src="/uploads/home/rapat_ai.jpg" alt="Lab Activity" class="w-full h-auto object-cover transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                </div>
+                <div class="absolute bg-white p-4 rounded-2xl shadow-xl hidden md:block animate-bounce">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-green-100 p-2 rounded-full text-green-600">
+                            <i class="fa-solid fa-code-branch text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 font-bold">Projects</p>
+                            <p class="text-lg font-bold text-slate-800">100+ Completed</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -67,291 +71,184 @@
 <!-- Visi Misi -->
 <section class="section bg-gradient-to-br from-blue-50 via-white to-blue-50">
     <div class="container">
-        <div class="text-center mb-12">
-            <div class="title">
-                <i class="text-yellow-500 fa-solid fa-lightbulb text-sm mr-2"></i> VISI & MISI
-            </div>
-            <p class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight mt-3">Our <span class="gradient-text">Direction</span></p>
-            <p class="text-center text-gray-600 mb-8">Guiding principles that drive our innovation and commitment to excellence.</p>
+        <div class="text-center mb-12" data-aos="fade-up">
+            <span class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-600 text-sm font-bold mb-4">
+                <i class="fa-solid fa-compass mr-2"></i> OUR DIRECTION
+            </span>
+            <p class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight mt-2">Visi & <span class="gradient-text">Misi</span></p>
+            <p class="text-gray-500 mt-4 max-w-2xl mx-auto">
+                Guiding principles that drive our innovation and commitment to excellence.
+            </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-            <!-- Visi - Sticky -->
-            <div class="sticky top-24 h-fit">
-                <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]">
-                    <!-- Header dengan background gradient -->
-                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-4 text-white rounded-2xl">
-                        <div class="flex items-center gap-3 ">
-                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                                <i class="fa-solid fa-eye text-2xl"></i>
-                            </div>
-                            <h2 class="text-3xl font-bold">VISI</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            
+            <div class="relative lg:sticky lg:top-28 h-fit z-10" data-aos="fade-right">
+                <div class="bg-white rounded-[2rem] p-8 shadow-xl border border-blue-50 group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-10 -mt-10 transition-all group-hover:bg-blue-500/20"></div>
+                    
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
+                            <i class="fa-solid fa-eye text-2xl"></i>
                         </div>
-                        <!-- <div class="w-16 h-1 bg-white/40 rounded-full"></div> -->
+                        <h3 class="text-3xl font-bold text-slate-800">Visi Kami</h3>
                     </div>
 
-                    <!-- Content -->
-                    <div class="p-8">
-                        <p class="text-gray-700 leading-relaxed font-medium">
-                            Menjadi laboratorium unggulan dalam pengembangan dan penerapan teknologi informasi inovatif yang mendukung transformasi digital berkelanjutan, mendorong kolaborasi lintas sektor, serta menciptakan soluso cerdas berbasis data untuk menghadapi tantangan era industri 4.0.
-                        </p>
-                        
-                        <!-- Highlighted Points -->
-                        <div class="mt-6 space-y-3">
-                            <div class="flex items-start gap-3">
-                                <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <span class="text-blue-600 font-bold text-sm">✓</span>
-                                </div>
-                                <span class="text-gray-600 text-sm">Inovasi berkelanjutan dalam teknologi</span>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <span class="text-blue-600 font-bold text-sm">✓</span>
-                                </div>
-                                <span class="text-gray-600 text-sm">Dampak nyata bagi industri dan masyarakat</span>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <span class="text-blue-600 font-bold text-sm">✓</span>
-                                </div>
-                                <span class="text-gray-600 text-sm">Pusat keunggulan dalam penelitian IT</span>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="text-slate-600 leading-relaxed text-lg mb-6">
+                        Menjadi laboratorium unggulan dalam pengembangan dan penerapan teknologi informasi inovatif yang mendukung transformasi digital berkelanjutan.
+                    </p>
+                    
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-slate-700 font-medium">
+                            <i class="fa-solid fa-circle-check text-blue-500"></i> Inovasi Berkelanjutan
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-700 font-medium">
+                            <i class="fa-solid fa-circle-check text-blue-500"></i> Dampak Nyata Industri
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-700 font-medium">
+                            <i class="fa-solid fa-circle-check text-blue-500"></i> Pusat Keunggulan Riset
+                        </li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Misi - Scrollable -->
             <div class="space-y-6">
-                <!-- Misi 1 -->
-                <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]" data-aos="fade-up">
-                    <div class="bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue)] p-5 text-white rounded-2xl">
-                        <h3 class="text-xl font-bold flex items-center gap-2">
-                            <i class="fa-solid fa-database text-2xl"></i> Misi 1
-                        </h3>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-700 leading-relaxed">
-                            Menerapkan teknologi informasi terkini, termasuk algoritma, teknologi pengolahan data, dan sistem terdistribusi, untuk mengatasi tantangan praktis dalam berbagai bidang dengan fokus pada pengembangan aplikasi dan solusi teknologi yang dapat meningkatkan produktivitas dan aksesabilitas informasi.
-                        </p>
-                        <div class="mt-4 inline-block px-3 py-1 bg-indigo-100 text-blue-600 rounded-full text-sm font-semibold">
-                            Information Systems
+                <?php 
+                $misis = [
+                    ['icon' => 'fa-database', 'title' => 'Information Systems', 'desc' => 'Menerapkan teknologi informasi terkini, algoritma, dan pengolahan data untuk solusi praktis.', 'color' => 'blue'],
+                    ['icon' => 'fa-microchip', 'title' => 'IoT & AI Technologies', 'desc' => 'Berfokus solusi Industri 4.0 dengan otomasi, integrasi sistem, dan pemrosesan data real-time.', 'color' => 'indigo'],
+                    ['icon' => 'fa-flask', 'title' => 'Research & Collaboration', 'desc' => 'Sinergi antara industri, pemerintah, dan akademisi untuk ekosistem inovasi yang inklusif.', 'color' => 'cyan'],
+                    ['icon' => 'fa-code', 'title' => 'Application Development', 'desc' => 'Pengembangan Blockchain, Big Data, dan Machine Learning untuk integritas informasi.', 'color' => 'sky'],
+                ];
+                foreach($misis as $index => $misi): ?>
+                <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group" 
+                     data-aos="fade-up" data-aos-delay="<?= $index * 100 ?>">
+                    <div class="flex flex-col sm:flex-row gap-5 items-start">
+                        <div class="w-12 h-12 rounded-xl bg-<?= $misi['color'] ?>-50 flex items-center justify-center text-<?= $misi['color'] ?>-600 flex-shrink-0 group-hover:bg-<?= $misi['color'] ?>-600 group-hover:text-white transition-colors duration-300">
+                            <i class="fa-solid <?= $misi['icon'] ?> text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-slate-800 mb-2">Misi <?= $index + 1 ?></h4>
+                            <p class="text-slate-600 leading-relaxed text-sm mb-3">
+                                <?= $misi['desc'] ?>
+                            </p>
+                            <span class="text-xs font-bold text-<?= $misi['color'] ?>-600 bg-<?= $misi['color'] ?>-50 px-2 py-1 rounded">
+                                <?= $misi['title'] ?>
+                            </span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Misi 2 -->
-                <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]" data-aos="fade-up" data-aos-delay="100">
-                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-5 text-white rounded-2xl">
-                        <h3 class="text-xl font-bold flex items-center gap-2">
-                            <i class="fa-solid fa-microchip text-2xl"></i> Misi 2
-                        </h3>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-700 leading-relaxed">
-                            Berfokus solusi Industri 4.0 dengan mengembangkan dan menerapkan teknologi inovatif guna mengatasi tantangan seperti otomatisasi, integrasi sistem, dan pemrosesan data real-time, yang akan mendukung akselerasi transformasi digital dan meningkatkan efisiensi operasional di berbagai sektor.
-                        </p>
-                        <div class="mt-4 inline-block px-3 py-1 bg-indigo-100 text-blue-600 rounded-full text-sm font-semibold">
-                            IoT & AI Technologies
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Misi 3 -->
-                <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]" data-aos="fade-up" data-aos-delay="200">
-                    <div class="bg-gradient-to-r from-[var(--blue-light)] to-[var(--blue)] p-5 text-white rounded-2xl">
-                        <h3 class="text-xl font-bold flex items-center gap-2">
-                            <i class="fa-solid fa-flask text-2xl"></i> Misi 3
-                        </h3>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-700 leading-relaxed">
-                           Menjaga relevansi dengan tantangan industri 4.0 melalui sinergi antara industri, pemerintah, akademisi interdisipliner, dan masyarakat, dengan tujuan menciptakan ekosistem inovasi yang menghasilkan solusi efektif, meningkatkan efisiensi dan daya saing, serta mendorong transformasi digital yang inklusif dan berkelanjutan.
-                        </p>
-                        <div class="mt-4 inline-block px-3 py-1 bg-indigo-100 text-blue-600 rounded-full text-sm font-semibold">
-                            Research & Collaboration
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Misi 4 -->
-                <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]" data-aos="fade-up" data-aos-delay="300">
-                    <div class="bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] p-5 text-white rounded-2xl">
-                        <h3 class="text-xl font-bold flex items-center gap-2">
-                            <i class="fa-solid fa-code text-2xl"></i> Misi 4
-                        </h3>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-700 leading-relaxed">
-                            Pengembangan teknologi yang mengintegrasikan sistem data terdistribusi dengan teknik analitik canggih, seperti blockchain, big data, dan machine learning, untuk meningkatkan keamanan, integritas, dan aksesibilitas informasi serta memberikan wawasan yang dapat diandalkan bagi pengambilan keputusan.
-                        </p>
-                        <div class="mt-4 inline-block px-3 py-1 bg-indigo-100 text-blue-600 rounded-full text-sm font-semibold">
-                            Application Development
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
 </section>
 
 <!-- SCOPE -->
-<div class="shadow-bar-top">
-    <div class="half-circle-glow"></div>
-</div>
 <section class="section bg-white">
-    <div class="container">
-        <div class="text-center mb-12">
-            <div class="title">
-                <i class="fa-solid fa-crosshairs text-sm mr-2"></i> OUR CORE FOCUS
+    <div class="container ">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <div class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-600 text-sm font-bold mb-4               <i class="fa-solid fa-crosshairs text-sm mr-2"></i> OUR CORE FOCUS
             </div>
             <p class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight mt-3">Defining Our <span class="gradient-text">Scope</span></p>
             <p class="text-center text-gray-600 mb-8">Our research focuses on delivering transformative digital solutions. We integrate cutting-edge technologies ranging from AI and blockchain to biometrics to address future challenges.
         </div>
-        <div class="space-y-8 grid">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center" data-aos="fade-up">
-                <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]">
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-laptop-code text-white text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-[var(--blue-dark)]">Intelligent Self-Learning of Computer Programming</h3>
-                        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="scope-card bg-slate-50 hover:bg-white p-8 rounded-3xl border border-slate-100 hover:border-blue-200 transition-all duration-300 group" data-aos="fade-up">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="p-3 bg-blue-100 text-blue-600 rounded-xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-laptop-code text-2xl"></i>
                     </div>
-                    <p class="text-gray-600 leading-relaxed">
-                        Developing a smart self-learning ecosystem that includes Web, Mobile, Database, and Java. Integrating Gamification methods and adaptive Scaffolding approaches for effective programming curriculum personalization.
-                    </p>
-                    <div class="mt-6 flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-blue-200 text-blue-800 rounded-full text-xs font-semibold">Gamification</span>
-                        <span class="px-3 py-1 bg-blue-200 text-blue-800 rounded-full text-xs font-semibold">Java & Web</span>
-                        <span class="px-3 py-1 bg-blue-200 text-blue-800 rounded-full text-xs font-semibold">Scaffolding</span>
-                    </div>
+                    <h3 class="text-xl font-bold text-slate-800">Intelligent Learning</h3>
                 </div>
-                <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]">
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-seedling text-white text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-[var(--blue-dark)]">Smartfarming</h3>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 leading-relaxed">
-                        Integrating IoT, sensors, and data analytics for optimizing modern agriculture, enhancing productivity, resource use efficiency, and environmental sustainability.
-                    </p>
-                    <div class="mt-6 flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-green-200 text-green-800 rounded-full text-xs font-semibold">IoT</span>
-                        <span class="px-3 py-1 bg-green-200 text-green-800 rounded-full text-xs font-semibold">Agriculture</span>
-                    </div>
+                <p class="text-slate-600 mb-4 text-sm leading-relaxed">Smart self-learning ecosystem including Web, Mobile, Database, and Java with Gamification.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs font-semibold bg-white border border-slate-200 px-2 py-1 rounded text-slate-500 transition-colors group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600">Gamification</span>
+                    <span class="text-xs font-semibold bg-white border border-slate-200 px-2 py-1 rounded text-slate-500 transition-colors group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600">Scaffolding</span>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center" data-aos="fade-up">
-                <div class="order-2">
-                    <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]">
-                        <div class="flex items-start gap-4 mb-4">
-                            <div class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i class="fa-brands fa-ethereum text-white text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-bold text-[var(--blue-dark)]">Desentralisasi Blockchain Ethereum</h3>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 leading-relaxed">
-                            Designing decentralized systems on the <strong>Ethereum</strong> platform. Research focuses include transparency in <em>Supply Chain</em>, security of <em>Crowdfunding</em> platforms, and efficient digital <em>Asset Tokenization</em> mechanisms.
-                        </p>
-                        <div class="mt-6 flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-purple-200 text-purple-800 rounded-full text-xs font-semibold">Blockchain</span>
-                            <span class="px-3 py-1 bg-purple-200 text-purple-800 rounded-full text-xs font-semibold">Ethereum</span>
-                            <span class="px-3 py-1 bg-purple-200 text-purple-800 rounded-full text-xs font-semibold">Smart Contract</span>
-                            <span class="px-3 py-1 bg-purple-200 text-purple-800 rounded-full text-xs font-semibold">Tokenization</span>
-                        </div>
+            <div class="scope-card bg-slate-50 hover:bg-white p-8 rounded-3xl border border-slate-100 hover:border-green-200 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="p-3 bg-green-100 text-green-600 rounded-xl group-hover:bg-green-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-seedling text-2xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-slate-800">Smartfarming</h3>
                 </div>
-                <div class="order-2">
-                    <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]">
-                        <div class="flex items-start gap-4 mb-4">
-                            <div class="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-shield-halved text-white text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-bold text-[var(--blue-dark)]">Security Information and Event Management</h3>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 leading-relaxed">
-                            Development of a <em>Security Information and Event Management</em> (SIEM) system based on <strong>Wazuh</strong>. Provides real-time threat detection, file integrity, and automated incident response for robust IT infrastructure security.
-                        </p>
-                        <div class="mt-6 flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-red-200 text-red-800 rounded-full text-xs font-semibold">Wazuh Base</span>
-                            <span class="px-3 py-1 bg-red-200 text-red-800 rounded-full text-xs font-semibold">Threat Detection</span>
-                        </div>
-                    </div>
+                <p class="text-slate-600 mb-4 text-sm leading-relaxed">Integrating IoT and data analytics for optimizing modern agriculture and sustainability.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs font-semibold bg-white border border-slate-200 px-2 py-1 rounded text-slate-500 transition-colors group-hover:bg-green-600 group-hover:text-white group-hover:border-green-600">IoT</span>
+                    <span class="text-xs font-semibold bg-white border border-slate-200 px-2 py-1 rounded text-slate-500 transition-colors group-hover:bg-green-600 group-hover:text-white group-hover:border-green-600">Agriculture</span>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center" data-aos="fade-up">
-                <div class="order-2 md:order-1">
-                    <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]">
-                        <div class="flex items-start gap-4 mb-4">
-                            <div class="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-chart-line text-white text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-bold text-[var(--blue-dark)]">Financial Support Technology</h3>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 leading-relaxed">
-                            A hybrid innovation that combines the security of decentralized blockchain with the intelligence of a data analysis-based <strong>Prediction System</strong>. Optimizes financial decision-making and risk mitigation with precision.
-                        </p>
-                        <div class="mt-6 flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-yellow-200 text-yellow-800 rounded-full text-xs font-semibold">Fintech</span>
-                            <span class="px-3 py-1 bg-yellow-200 text-yellow-800 rounded-full text-xs font-semibold">Financial Systems</span>
-                            <span class="px-3 py-1 bg-yellow-200 text-yellow-800 rounded-full text-xs font-semibold">Data Analysis</span>
-                        </div>
+            <div class="scope-card bg-slate-50 hover:bg-white p-8 rounded-3xl border border-slate-100 hover:border-purple-200 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="p-3 bg-purple-100 text-purple-600 rounded-xl group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                        <i class="fa-brands fa-ethereum text-2xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-slate-800">Blockchain Ethereum</h3>
                 </div>
-                <div class="order-2">
-                    <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]">
-                        <div class="flex items-start gap-4 mb-4">
-                            <div class="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-lock text-white text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-bold text-[var(--blue-dark)]">Proteksi & Digitalisasi Aset (EEG)</h3>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 leading-relaxed">
-                            A futuristic breakthrough in securing digital assets using <strong>Electroencephalogram (EEG)</strong> technology. Exploring the use of brain waves as a unique biometric key for authentication and digital ownership rights.
-                        </p>
-                        <div class="mt-6 flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-orange-200 text-orange-800 rounded-full text-xs font-semibold">Neurotech</span>
-                            <span class="px-3 py-1 bg-orange-200 text-orange-800 rounded-full text-xs font-semibold">EEG Security</span>
-                        </div>
-                    </div>
+                <p class="text-slate-600 mb-4 text-sm leading-relaxed">Decentralized systems on Ethereum. Transparency in Supply Chain and Asset Tokenization.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs font-semibold bg-white border border-slate-200 px-2 py-1 rounded text-slate-500 transition-colors group-hover:bg-purple-600 group-hover:text-white group-hover:border-purple-600">Smart Contract</span>
+                    <span class="text-xs font-semibold bg-white border border-slate-200 px-2 py-1 rounded text-slate-500 transition-colors group-hover:bg-purple-600 group-hover:text-white group-hover:border-purple-600">DeFi</span>
                 </div>
             </div>
 
-            <div class="items-center" data-aos="fade-up">
-                <div class="order-2 md:order-1">
-                    <div class="bg-white rounded-2xl p-8 shadow-[0px_5px_15px_rgba(5,0,5,0.1)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,136,255,0.15)]">
-                        <div class="flex items-start gap-4 mb-4">
-                            <div class="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-map-location-dot text-white text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-bold text-[var(--blue-dark)]">System Pelaporan Berbasis Peta Digital</h3>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 leading-relaxed">
-                           Development of a precision geospatial reporting platform to monitor <strong>Government Infrastructure</strong>. Includes real-time mapping of road conditions, irrigation systems, and other public facilities to support data-driven regional planning.
-                        </p>
-                        <div class="mt-6 flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-cyan-200 text-cyan-800 rounded-full text-xs font-semibold">GIS Mapping</span>
-                            <span class="px-3 py-1 bg-cyan-200 text-cyan-800 rounded-full text-xs font-semibold">GIS Technology</span>
-                            <span class="px-3 py-1 bg-cyan-200 text-cyan-800 rounded-full text-xs font-semibold">Government Infrastructure</span>
-                        </div>
+            <div class="scope-card bg-slate-50 hover:bg-white p-8 rounded-3xl border border-slate-100 hover:border-red-200 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="300">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="p-3 bg-red-100 text-red-600 rounded-xl group-hover:bg-red-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-shield-halved text-2xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-slate-800">Cyber Security (SIEM)</h3>
+                </div>
+                <p class="text-slate-600 mb-4 text-sm leading-relaxed">Wazuh based security system. Real-time threat detection and automated incident response.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs font-semibold bg-white border border-slate-200 px-2 py-1 rounded text-slate-500 transition-colors group-hover:bg-red-600 group-hover:text-white group-hover:border-red-600">Wazuh</span>
+                    <span class="text-xs font-semibold bg-white border border-slate-200 px-2 py-1 rounded text-slate-500 transition-colors group-hover:bg-red-600 group-hover:text-white group-hover:border-red-600">SecOps</span>
+                </div>
+            </div>
+
+            <div class="scope-card bg-slate-50 hover:bg-white p-8 rounded-3xl border border-slate-100 hover:border-yellow-200 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="400">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="p-3 bg-yellow-100 text-yellow-600 rounded-xl group-hover:bg-yellow-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-chart-line text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800">Financial Support</h3>
+                </div>
+                <p class="text-slate-600 mb-4 text-sm leading-relaxed">Combining decentralized blockchain security with data analysis-based Prediction Systems for risk mitigation.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs font-semibold bg-white border border-slate-200 px-2 py-1 rounded text-slate-500 transition-colors group-hover:bg-yellow-600 group-hover:text-white group-hover:border-yellow-600">Fintech</span>
+                    <span class="text-xs font-semibold bg-white border border-slate-200 px-2 py-1 rounded text-slate-500 transition-colors group-hover:bg-yellow-600 group-hover:text-white group-hover:border-yellow-600">Data Analysis</span>
+                </div>
+            </div>
+
+            <div class="scope-card bg-slate-50 hover:bg-white p-8 rounded-3xl border border-slate-100 hover:border-orange-200 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="500">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="p-3 bg-orange-100 text-orange-600 rounded-xl group-hover:bg-orange-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-lock text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800">Proteksi Aset (EEG)</h3>
+                </div>
+                <p class="text-slate-600 mb-4 text-sm leading-relaxed">Futuristic security using Brain Waves (EEG) as a unique biometric key for authentication and digital ownership.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs font-semibold bg-white border border-slate-200 px-2 py-1 rounded text-slate-500 transition-colors group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600">Neurotech</span>
+                    <span class="text-xs font-semibold bg-white border border-slate-200 px-2 py-1 rounded text-slate-500 transition-colors group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600">EEG Security</span>
+                </div>
+            </div>
+
+            <div class="scope-card bg-slate-50 hover:bg-white p-8 rounded-3xl border border-slate-100 hover:border-cyan-200 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="600">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="p-3 bg-cyan-100 text-cyan-600 rounded-xl group-hover:bg-cyan-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-map-location-dot text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800">Digital Map Reporting</h3>
+                </div>
+                <p class="text-slate-600 mb-4 text-sm leading-relaxed">Geospatial platform to monitor Government Infrastructure, road conditions, and public facilities in real-time.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs font-semibold bg-white border border-slate-200 px-2 py-1 rounded text-slate-500 transition-colors group-hover:bg-cyan-600 group-hover:text-white group-hover:border-cyan-600">GIS Mapping</span>
+                    <span class="text-xs font-semibold bg-white border border-slate-200 px-2 py-1 rounded text-slate-500 transition-colors group-hover:bg-cyan-600 group-hover:text-white group-hover:border-cyan-600">Infrastructure</span>
                 </div>
             </div>
         </div>
@@ -359,26 +256,28 @@
 </section>
 
 <!-- NEWS -->
-<div class="shadow-bar-top">
-    <div class="half-circle-glow"></div>
-</div>
 
-<section class="relative p-24 overflow-hidden ">    
-    <div class="container mx-auto md:px-8">
+<section class="section py-20 bg-slate-50">    
+    <div class="container mx-auto px-4">
         <!-- Header Section -->
-        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">    
-            <div class="title mb-2">
-                <i class="fa-solid fa-bolt text-yellow-500 text-sm mr-2"></i> 
-                <span>Hot News</span>
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">    
+            <div data-aos="fade-right">
+                <div class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-600 text-sm font-bold mb-4">
+                    <i class="fa-solid fa-bolt text-sm mr-2"></i> 
+                    <span>Hot News</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">
+                    Latest <span class="gradient-text">Insights & News</span>
+                </h2>
+                <p class="text-gray-500 mt-2">
+                    Discover the latest breakthroughs, activities, and achievements from our laboratory.
+                </p>
             </div>
-            <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">
-                Latest <span class="gradient-text">Insights & News</span>
-            </h2>
-            <p class="text-slate-500 text-lg">
-                Discover the latest breakthroughs, activities, and achievements from our laboratory.
-            </p>
+            <a href="/news" class="hidden md:flex items-center gap-2 text-blue-600 font-bold hover:gap-3 transition-all">
+                View All News <i class="fa-solid fa-arrow-right"></i>
+            </a>
         </div>
-
+        
         <!-- Grid Layout -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
@@ -468,29 +367,14 @@
             <?php endif; ?>
 
         </div>
-
-        <!-- View All Button -->
-        <div class="flex justify-center mt-16" data-aos="fade-up">
-            <a href="/news" class="group relative px-8 py-3 rounded-full bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] border border-slate-200 text-white font-bold shadow-sm hover:shadow-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 overflow-hidden">
-                <span class="relative z-10 flex items-center gap-2">
-                    View All Articles 
-                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                </span>
-                <div class="absolute inset-0 bg-blue-50 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
-            </a>
-        </div>
-
     </div>
 </section>
 
 <!-- Product -->
-<div class="shadow-bar-top">
-    <div class="half-circle-glow"></div>
-</div>
 <section id="products" class="section">
-    <div class="container">
-        <div class="text-center mb-12">
-            <div class="title">
+    <div class="container mx-auto">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <div class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-600 text-sm font-bold mb-4">
                 <i class="fa-solid fa-rocket text-sm mr-2"></i> OUR PRODUCT
             </div>
             <p class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight mt-3">
@@ -523,12 +407,11 @@
                                 <?php endforeach; } ?>
                             <h3 class="product-name"><?= htmlspecialchars($product['nama_produk']); ?></h3>
                             <p class="product-description"><?= htmlspecialchars($product['deskripsi']); ?></p>
-                            <div class="product-footer">
+                            <div class="product-footer text-center">
                                 <a href="<?= htmlspecialchars($product['link_demo']) ?>" 
-                                    class="product-link" 
+                                    class="product-link nav-link" 
                                     target="_blank">
                                     View Demo
-                                    <i class="fas fa-arrow-right"></i>
                                 </a>
                             </div>
                         </div>
@@ -544,7 +427,7 @@
             <?php endif; ?>
         </div>
     </div>
-    <div class="flex justify-center">
+    <div class="flex justify-center mt-12" data-aos="fade-up">
         <a href="/product" class="group relative px-8 py-3 rounded-full bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] border border-slate-200 text-white font-bold shadow-sm hover:shadow-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 overflow-hidden">
             <span class="relative z-10 flex items-center gap-2">
                 View All Products
@@ -556,13 +439,10 @@
 </section>
 
 <!-- Member -->
-<div class="shadow-bar-top">
-    <div class="half-circle-glow"></div>
-</div>
-<section id="team" class="section">
-    <div class="container">
-        <div class="text-center mb-12">
-            <div class="title">
+<section id="team" class="section bg-slate-50">
+    <div class="container mx-auto">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <div class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-600 text-sm font-bold mb-4">
                 <i class="fa-solid fa-id-card-clip text-sm mr-2"></i> OUR MEMBER
             </div>
             <p class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight mt-3">
@@ -580,7 +460,7 @@
                     <div class="profile-card">
                         <div class="flex-grow">
                             <h3 class="profile-name"><?= htmlspecialchars($member['nama']); ?></h3>
-                            <div class="profile-expertise ">
+                            <div class="profile-expertise">
                                 <?php 
                                 // Akses kolom keahlian_text yang baru dibuat
                                 $keahlian = $member['keahlian_text'] ?? '';
@@ -597,9 +477,9 @@
                                     <?= htmlspecialchars($member['deskripsi'] ?? 'Deskripsi tidak tersedia.'); ?>
                                 </p>
                             </div>
-                            <p class="profile-contact" style="margin-bottom: 0.5rem;"><?= htmlspecialchars($member['email']); ?></p>
+                            <p class="profile-contact mb-[1rem]"><?= htmlspecialchars($member['email']); ?></p>
                             
-                            <div class="mt-4 flex flex-wrap gap-2">
+                            <div class="absolute flex gap-2 bottom-4">
                                 <?php if(!empty($member['google_scholar'])): ?>
                                     <a href="<?= htmlspecialchars($member['google_scholar']) ?>" target="_blank" class="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded border border-blue-200 hover:bg-blue-100">
                                         <i class="fas fa-graduation-cap"></i> Scholar
@@ -619,18 +499,19 @@
                                 <?php endif; ?>
                             </div>
                         </div>
-
-                        <div class="profile-image">
+                        <div>
                             <?php if (!empty($member['foto_profil'])): ?>
-                                <img src="<?= htmlspecialchars($member['foto_profil']); ?>" alt="<?= htmlspecialchars($member['nama']); ?>">
-                            <?php else: ?>
-                                <div class="profile-photo-icon">
-                                    <svg fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                                    </svg>
-                                </div>
-                            <?php endif; ?>
+                                <img src="<?= !empty($member['foto_profil']) ? htmlspecialchars($member['foto_profil']) : 'https://ui-avatars.com/api/?name='.urlencode($member['nama']) ?>" 
+                                class="w-full h-auto rounded-[10px] object-cover border-2 border-blue-100" alt="Team">
+                                <?php else: ?>
+                                    <div class="profile-photo-icon">
+                                        <svg fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                                        </svg>
+                                    </div>
+                                <?php endif; ?>
                         </div>
+                        
                         <?php 
                             //Tambah delay untuk kartu berikutnya
                             $delay += $delay_increment; 
@@ -642,7 +523,7 @@
                 <p class="profile-contact" style="text-align: center; grid-column: 1 / -1;">Belum ada data tim (dosen) yang tersedia.</p>
             <?php endif; ?>
         </div>
-        <div class="flex justify-center mt-10">
+        <div class="flex justify-center mt-12" data-aos="fade-up">
             <a href="/member" class="group relative px-8 py-3 rounded-full bg-gradient-to-r from-[var(--blue)] to-[var(--blue-dark)] border border-slate-200 text-white font-bold shadow-sm hover:shadow-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 overflow-hidden">
                 <span class="relative z-10 flex items-center gap-2">
                     View All Members 
@@ -653,113 +534,74 @@
         </div>        
     </div>
 </section>
-<div class="shadow-bar-top">
-    <div class="half-circle-glow"></div>
-</div>
 
 <!-- Facilities -->
-<section class="bg-gradient-to-br from-blue-50 via-white to-blue-50 text-gray-800 section">
+<section class="bg-white section">
     <div class="container">
-
-        <div class="text-center mb-12">
-            <div class="title">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <div class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-600 text-sm font-bold mb-4">
                 <i class="fa-solid fa-building text-sm mr-2"></i> OUR FACILITIES
             </div>
-            <p class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight mt-3">
+            <p class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 mt-3">
                 Explore Our <span class="gradient-text">Space</span>
             </p>
             <p class="text-slate-500 text-lg">Comfort and convenience, designed just for you.</p>
         </div>
 
-        <?php 
-            $items = $fasilitas ?? []; 
-        ?>
+        <?php $items = $fasilitas ?? []; ?>
 
-        <div class="flex flex-col md:flex-row gap-6 mb-8 h-auto md:h-[400px]" data-aos="fade-up" data-aos-duration="1000">
-
-            <div class="w-full md:w-1/3 rounded-[30px] p-8 flex flex-col justify-center shadow-[0px_5px_10px_rgba(5,0,5,0.15)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(6,182,212,0.15)] bg-white">
-                <h2 class="text-2xl font-bold mb-4 underline decoration-blue-500 underline-offset-8">
-                    Pusat Riset Akademik
-                </h2>
-                <p class="text-gray-600 mb-6 leading-relaxed">
-                    Menawarkan ruang laboratorium nyaman dengan software pengembangan lengkap seperti VS Code, Android Studio, dan database server berkecepatan tinggi.
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div class="bg-slate-900 text-white rounded-[2rem] p-8 flex flex-col justify-center shadow-xl md:col-span-1 min-h-[300px]" data-aos="fade-right">
+                <h2 class="text-2xl font-bold mb-4 text-blue-400">Pusat Riset Akademik</h2>
+                <p class="text-slate-300 mb-6 leading-relaxed text-sm">
+                    Menawarkan ruang laboratorium nyaman dengan software pengembangan lengkap seperti VS Code, Android Studio, dan koneksi dedicated.
                 </p>
-                <div class="flex flex-wrap gap-2 h-8 sm:h-11 point-carousel-container">
-                    <div class="point-carousel-track">
-                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Full AC</span>
-                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ High Speed WiFi</span>
-                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Proyektor</span>
-                        <span class="bg-blue-100 px-3 py-1 mr-1 rounded-full text-xs font-bold text-blue-500 shadow-sm">✔ Soundproof</span>
-                    </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs">✔ Full AC</span>
+                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs">✔ High Speed WiFi</span>
+                    <span class="px-3 py-1 bg-white/10 rounded-full text-xs">✔ Smart TV</span>
                 </div>
             </div>
 
-            <div class="w-full md:w-2/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group bg-gray-200">
+            <div class="md:col-span-2 rounded-[2rem] overflow-hidden shadow-lg h-[300px] relative group" data-aos="fade-left">
                 <?php if (!empty($items[0]['foto'])): ?>
-                    <img src="<?= htmlspecialchars($items[0]['foto']) ?>"
-                         alt="<?= htmlspecialchars($items[0]['nama_fasilitas'] ?? 'Fasilitas Lab') ?>"
-                         class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span class="text-white font-bold text-lg"><?= htmlspecialchars($items[0]['nama_fasilitas']) ?></span>
-                    </div>
-                <?php else: ?>
-                    <div class="flex items-center justify-center h-full text-gray-400">
-                        <i class="fa-solid fa-image text-4xl"></i>
+                    <img src="<?= htmlspecialchars($items[0]['foto']) ?>" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-white font-bold text-xl"><?= htmlspecialchars($items[0]['nama_fasilitas']) ?></span>
                     </div>
                 <?php endif; ?>
             </div>
-
         </div>
 
-        <div class="flex flex-col md:flex-row gap-6 h-auto md:h-[400px]" data-aos="fade-up" data-aos-duration="1000">
-
-            <div class="w-full md:w-2/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group bg-gray-200 order-2 md:order-1">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="md:col-span-2 rounded-[2rem] overflow-hidden shadow-lg h-[250px] relative group" data-aos="fade-up">
                 <?php if (!empty($items[1]['foto'])): ?>
-                    <img src="<?= htmlspecialchars($items[1]['foto']) ?>"
-                         alt="<?= htmlspecialchars($items[1]['nama_fasilitas'] ?? 'Fasilitas Lab') ?>"
-                         class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span class="text-white font-bold text-lg"><?= htmlspecialchars($items[1]['nama_fasilitas']) ?></span>
-                    </div>
-                <?php else: ?>
-                    <div class="flex items-center justify-center h-full text-gray-400">
-                        <i class="fa-solid fa-image text-4xl"></i>
+                    <img src="<?= htmlspecialchars($items[1]['foto']) ?>" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-white font-bold text-xl"><?= htmlspecialchars($items[1]['nama_fasilitas']) ?></span>
                     </div>
                 <?php endif; ?>
             </div>
-
-            <div class="w-full md:w-1/3 rounded-[30px] overflow-hidden shadow-sm h-64 md:h-full relative group bg-gray-200 order-1 md:order-2">
+            <div class="md:col-span-1 rounded-[2rem] overflow-hidden shadow-lg h-[250px] relative group" data-aos="fade-up" data-aos-delay="100">
                 <?php if (!empty($items[2]['foto'])): ?>
-                    <img src="<?= htmlspecialchars($items[2]['foto']) ?>"
-                         alt="<?= htmlspecialchars($items[2]['nama_fasilitas'] ?? 'Fasilitas Lab') ?>"
-                         class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span class="text-white font-bold text-lg"><?= htmlspecialchars($items[2]['nama_fasilitas']) ?></span>
-                    </div>
-                <?php else: ?>
-                    <div class="flex items-center justify-center h-full text-gray-400">
-                        <i class="fa-solid fa-image text-4xl"></i>
+                    <img src="<?= htmlspecialchars($items[2]['foto']) ?>" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-white font-bold text-xl"><?= htmlspecialchars($items[2]['nama_fasilitas']) ?></span>
                     </div>
                 <?php endif; ?>
             </div>
-
         </div>
 
     </div>
 </section>
 
-</section>
 
-
-<div class="shadow-bar-top">
-    <div class="half-circle-glow"></div>
-</div>
 
 <!-- publications -->
 <section class="section container">
     
-    <div class="text-center mb-12">
-        <div class="title">
+    <div class="text-center mb-12" data-aos="fade-up">
+        <div class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-600 text-sm font-bold mb-4">
             <i class="text-green-500 fa-solid fa-flask text-sm mr-2"></i> RESEARCH & INNOVATION
         </div>
         <p class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight mt-3">Faculty <span class="gradient-text">Publications</span></p>
@@ -777,13 +619,11 @@
                     <div class="publication-content">
                         <div class="flex gap-4 items-start justify-between mb-4">
                             <div class="flex gap-4 items-start flex-1">
-                                <div class="w-12 h-12 bg-gradient-to-br from-[var(--blue)] to-[var(--blue-dark)] rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <i class="fa-solid fa-book text-white"></i>
+                                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 text-blue-600">
+                                    <i class="fa-solid fa-book"></i>
                                 </div>
                                 <div class="flex-1">
-                                    <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold uppercase tracking-wide">
-                                        PUBLIKASI
-                                    </span>
+                                    <span class="text-[10px] font-bold bg-blue-50 text-blue-600 px-2 py-1 rounded uppercase">Publikasi</span>
                                     <?php if (!empty($publication['nama_dosen'])): ?>
                                         <p class="text-xs text-gray-500 mt-2 font-medium">Oleh: <span class="text-blue-600"><?= htmlspecialchars($publication['nama_dosen']); ?></span></p>
                                     <?php endif; ?>
@@ -791,13 +631,12 @@
                             </div>
                         </div>
                         
-                        <h3 class="publication-name text-lg font-bold text-gray-900 mb-3 line-clamp-2"><?= htmlspecialchars($publication['judul'] ?? '-'); ?></h3>
-                        <p class="publication-description text-gray-600 text-sm leading-relaxed mb-6 line-clamp-3"><?= htmlspecialchars($publication['deskripsi'] ?? '-'); ?></p>
+                        <h3 class="font-bold text-slate-900 mb-3 line-clamp-2 text-lg"><?= htmlspecialchars($publication['judul'] ?? '-'); ?></h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3 flex-grow"><?= htmlspecialchars($publication['deskripsi'] ?? '-'); ?></p>
                         <div class="flex items-center gap-2 text-[var(--blue)] hover:text-[var(--blue-dark)] font-semibold transition-colors duration-300 group cursor-pointer">
                             <?php if (!empty($publication['link_jurnal'])): ?>
-                                <a href="<?php echo htmlspecialchars($publication['link_jurnal']); ?>" target="_blank" class="inline-flex items-center gap-2 group">
-                                    Baca Selengkapnya
-                                    <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                                <a href="<?php echo htmlspecialchars($publication['link_jurnal']); ?>" target="_blank" class="flex items-center gap-2 text-blue-600 font-bold text-sm hover:gap-3 transition-all">
+                                    Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i>
                                 </a>
                             <?php else: ?>
                                 <span class="text-gray-400 inline-flex items-center gap-2">

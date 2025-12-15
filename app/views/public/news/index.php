@@ -11,12 +11,12 @@
         </div>
 
         <!-- Judul Utama -->
-        <h2 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 text-white" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="text-4xl text-center px-10 md:text-6xl font-extrabold tracking-tight mb-6 text-white" data-aos="fade-up" data-aos-delay="100">
             Academic News & Articles
         </h2>
 
         <!-- Deskripsi -->
-        <p class="text-lg md:text-xl text-blue-100 leading-relaxed max-w-3xl mb-14 text-center" data-aos="fade-up" data-aos-delay="200">
+        <p class="text-base px-5 md:text-xl text-blue-100 leading-relaxed max-w-3xl mb-14 text-center" data-aos="fade-up" data-aos-delay="200">
             Explore our collection of the latest news, scientific publications, and academic activities that demonstrate our dedication to the development of information technology.
         </p>
     </div>
