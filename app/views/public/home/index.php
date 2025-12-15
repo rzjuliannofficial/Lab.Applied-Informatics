@@ -439,7 +439,7 @@
 </section>
 
 <!-- Member -->
-<section id="team" class="section bg-slate-50">
+<section id="team" class="bg-slate-50">
     <div class="container mx-auto">
         <div class="text-center mb-12" data-aos="fade-up">
             <div class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-600 text-sm font-bold mb-4">
