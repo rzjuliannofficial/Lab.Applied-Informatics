@@ -515,17 +515,13 @@ body {
         /* Styling Setiap Logo */
         .logo-item {
             display: inline-block;
-            margin: 0; /* Jarak antar logo DIHILANGKAN */
             height: 50px; 
-            line-height: 50px; /* Vertikal center */
-            text-align: center;
         }
         
         .logo-item img {
-            max-height: 100%;
+            align-items: center;
+            height: 100%;
             max-width: 120px; 
-            width: auto;
-            height: auto;
             object-fit: contain;
             padding-right: 1rem;
             transition: opacity 0.3s;
