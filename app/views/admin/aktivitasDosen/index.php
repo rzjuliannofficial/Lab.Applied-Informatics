@@ -59,6 +59,10 @@
                         <a href="<?= htmlspecialchars($a['foto_url']) ?>" target="_blank" class="text-xs font-bold text-blue-500 hover:underline flex items-center gap-1">
                             <i class="fas fa-external-link-alt"></i> Lihat File
                         </a>
+                    <?php else: ?>
+                        <span>
+                            <i class="text-xs text-slate-400">Tidak ada foto</i>
+                        </span>
                     <?php endif; ?>
 
                     <div class="flex gap-2">
