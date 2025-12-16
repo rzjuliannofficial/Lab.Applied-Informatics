@@ -16,19 +16,8 @@
         <div class="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden group">
             
             <div class="relative h-48 bg-slate-100 overflow-hidden flex items-center justify-center">
-                <?php 
-                    $file = $a['file_url'] ?? '';
-                    $ext = pathinfo($file, PATHINFO_EXTENSION);
-                    $isImage = in_array(strtolower($ext), ['jpg', 'jpeg', 'png', 'gif', 'webp']);
-                ?>
-
-                <?php if ($file && $isImage): ?>
-                    <img src="<?= htmlspecialchars($file) ?>" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                <?php elseif ($file): ?>
-                    <div class="flex flex-col items-center text-slate-400">
-                        <i class="fas fa-file-alt text-4xl mb-2"></i>
-                        <span class="text-xs uppercase font-bold"><?= $ext ?> File</span>
-                    </div>
+                <?php if (!empty($a['foto_url'])): ?>
+                    <img src="<?= htmlspecialchars($a['foto_url']) ?>" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                 <?php else: ?>
                     <div class="text-slate-300 text-4xl">
                         <i class="fas fa-calendar-day"></i>
@@ -66,12 +55,10 @@
                 </p>
 
                 <div class="pt-4 border-t border-slate-100 flex justify-between items-center mt-auto">
-                    <?php if ($file): ?>
-                        <a href="<?= htmlspecialchars($file) ?>" target="_blank" class="text-xs font-bold text-blue-500 hover:underline flex items-center gap-1">
+                    <?php if ($a['foto_url']): ?>
+                        <a href="<?= htmlspecialchars($a['foto_url']) ?>" target="_blank" class="text-xs font-bold text-blue-500 hover:underline flex items-center gap-1">
                             <i class="fas fa-external-link-alt"></i> Lihat File
                         </a>
-                    <?php else: ?>
-                        <span></span>
                     <?php endif; ?>
 
                     <div class="flex gap-2">
