@@ -59,8 +59,8 @@
                             <i class="fa-solid fa-code-branch text-xl"></i>
                         </div>
                         <div>
-                            <p class="text-xs text-gray-500 font-bold">Projects</p>
-                            <p class="text-lg font-bold text-slate-800">100+ Completed</p>
+                            <p class="text-xs text-gray-500 font-bold">Products</p>
+                            <p class="text-lg font-bold text-slate-800">6+ Completed</p>
                         </div>
                     </div>
                 </div>
