@@ -30,11 +30,11 @@
 }
 
 html, body {
-    overflow-x: hidden; /* Mencegah scroll ke samping (bug zoom) */
     scroll-behavior: smooth;
 }
 
 body {
+    overflow-x: hidden; /* Mencegah scroll ke samping (bug zoom) */
     font-size: 16px;
     /* background-color: black; */
     line-height: 1.5;
@@ -1156,7 +1156,13 @@ body {
     gap: 3rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
+    .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2.5rem;
+    }
+}
+@media (min-width: 1024px) {
     .footer-grid {
         grid-template-columns: 2fr 1fr 1fr 1.5fr;
         gap: 2.5rem;
@@ -1329,6 +1335,7 @@ body {
 .footer-newsletter {
     display: flex;
     gap: 0.5rem;
+    margin-right: auto;
 }
 
 .footer-newsletter input {

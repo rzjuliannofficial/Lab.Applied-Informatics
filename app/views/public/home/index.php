@@ -83,8 +83,8 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             
-            <div class="relative lg:sticky lg:top-28 h-fit z-10" data-aos="fade-right">
-                <div class="bg-white rounded-[2rem] p-8 shadow-xl border border-blue-50 group">
+            <div class="relative lg:sticky lg:top-28 h-fit z-10">
+                <div class="bg-white rounded-[2rem] p-8 shadow-xl border border-blue-50 group" data-aos="fade-right">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-10 -mt-10 transition-all group-hover:bg-blue-500/20"></div>
                     
                     <div class="flex items-center gap-4 mb-6">
@@ -502,14 +502,14 @@
                         <div>
                             <?php if (!empty($member['foto_profil'])): ?>
                                 <img src="<?= !empty($member['foto_profil']) ? htmlspecialchars($member['foto_profil']) : 'https://ui-avatars.com/api/?name='.urlencode($member['nama']) ?>" 
-                                class="w-full h-auto rounded-[10px] object-cover border-2 border-blue-100" alt="Team">
-                                <?php else: ?>
-                                    <div class="profile-photo-icon">
-                                        <svg fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                                        </svg>
-                                    </div>
-                                <?php endif; ?>
+                                class="w-[10rem] h-auto rounded-[10px] object-cover border-2 border-blue-100" alt="Team">
+                            <?php else: ?>
+                                <div class="profile-photo-icon">
+                                    <svg fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                                    </svg>
+                                </div>
+                            <?php endif; ?>
                         </div>
                         
                         <?php 
