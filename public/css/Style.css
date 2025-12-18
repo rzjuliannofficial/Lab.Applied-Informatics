@@ -29,12 +29,16 @@
     
 }
 
+@media (max-width: 640px) {
+    html, body {
+        overflow-x: hidden; /* Mencegah scroll ke samping (bug zoom) */
+}
+}
 html, body {
     scroll-behavior: smooth;
 }
 
 body {
-    overflow-x: hidden; /* Mencegah scroll ke samping (bug zoom) */
     font-size: 16px;
     /* background-color: black; */
     line-height: 1.5;
