@@ -37,7 +37,6 @@ class DashboardController extends Controller
             'totalGaleri' => $totalGaleri,
             'totalBerita' => $totalBerita,
             'totalProduk' => $totalProduk,
-            'totalGaleri' => $totalGaleri,
             'totalPartner' => $totalPartner
         ]);
     }
