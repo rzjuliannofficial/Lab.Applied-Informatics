@@ -2,6 +2,10 @@
 
 class DashboardController extends Controller
 {
+    public function __construct()
+    {
+        Middleware::auth();
+    }
     public function index()
     {
         // Load Model
