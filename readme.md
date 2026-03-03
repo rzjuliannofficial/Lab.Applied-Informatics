@@ -77,7 +77,7 @@ Proyek ini mengadopsi arsitektur MVC kustom untuk memisahkan logika bisnis, data
 
 ```
 
-🛠 Teknologi
+## 🛠 Teknologi
 
 Backend: PHP 8.x (Native)
 Database: PostgreSQL 15+ (Support pgcrypto extension)
@@ -87,7 +87,7 @@ Tailwind CSS (via CDN)
 JavaScript (jQuery, AOS Library)
 Server: Apache / Nginx (dengan mod_rewrite)
 
-🚀 Panduan Instalasi
+## 🚀 Panduan Instalasi
 
 Ikuti langkah-langkah berikut untuk menjalankan proyek di lingkungan lokal:
 
@@ -129,14 +129,14 @@ Frontend: Buka http://localhost/ (atau domain lokal Anda).
 Admin Panel: Buka http://localhost/admin/login.
 Default Admin: Username: admin, Password: 123 (sesuai seed data).
 
-🔒 Keamanan & Hak Akses
+## 🔒 Keamanan & Hak Akses
 
 Sistem menggunakan Middleware untuk membatasi akses:
 Middleware::auth(): Memastikan user sudah login.
 Middleware::onlyAdmin(): Membatasi fitur kritis (seperti kelola User) hanya untuk role admin.
 Middleware::onlyEditor(): Memastikan editor hanya bisa memanipulasi data miliknya sendiri.
 
-🤝 Kontribusi
+## 🤝 Kontribusi
 
 Kontribusi sangat diterima untuk pengembangan fitur baru atau perbaikan bug.
 Fork repositori ini.
@@ -145,7 +145,7 @@ Commit perubahan Anda (git commit -m 'Menambah fitur keren').
 Push ke branch (git push origin fitur-keren).
 Buat Pull Request.
 
-📄 Lisensi
+## 📄 Lisensi
 
 Proyek ini dikembangkan untuk keperluan internal Laboratorium Applied Informatics - Politeknik Negeri Malang.
 © 2025 Lab Applied Informatics Polinema
