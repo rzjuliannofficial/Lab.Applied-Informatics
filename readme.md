@@ -1,6 +1,10 @@
 # Lab Applied Informatics - Web Portal & Admin Panel
 
-![Banner Lab AI](public/img/logoAi.png) ## 📖 Tentang Proyek
+## Akses Langsung 
+
+Link : [Laboratorium Applied Informatics](https://appliedinformaticspolinema.alwaysdata.net/)
+
+## 📖 Tentang Proyek
 
 Repositori ini berisi *source code* untuk sistem informasi Laboratorium Applied Informatics, Politeknik Negeri Malang. Sistem ini dirancang untuk menjadi pusat informasi publik mengenai aktivitas laboratorium sekaligus platform manajemen internal bagi dosen dan asisten lab.
 
