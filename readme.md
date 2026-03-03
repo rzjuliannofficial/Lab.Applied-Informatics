@@ -75,7 +75,7 @@ Proyek ini mengadopsi arsitektur MVC kustom untuk memisahkan logika bisnis, data
     ├── .htaccess               # Routing Rules
     └── index.php               # Entry Point Aplikasi
 
-
+```
 
 🛠 Teknologi
 
