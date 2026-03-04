@@ -1,8 +1,14 @@
 # Lab Applied Informatics - Web Portal & Admin Panel
 
-## Akses Langsung 
+## 🔗 Akses Langsung 
 
 Link : [Laboratorium Applied Informatics](https://appliedinformaticspolinema.alwaysdata.net/)
+
+## 👥 Anggota Project
+1. Kamila Zahwa
+2. Muhammad Zuhdi
+3. Nabhan Rizqi Julian Saputro 
+4. Otavia Ulandari
 
 ## 📖 Tentang Proyek
 
